@@ -1,0 +1,28 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+void Brd_BatChgDoSet5VPer(Bool enable)
+{
+    // 充电使能脚, 依赖于 5V外设电源, 无需控制
+    Brd_PwrCtrlSetBaseOn(kBrd_PwrCtrlBaseId5vPer, enable);
+}
+
+void Brd_BatChgDoSet3V3Per(Bool enable)
+{
+    // 充电使能脚, 依赖于 5V外设电源, 无需控制
+    Brd_PwrCtrlSetBaseOn(kBrd_PwrCtrlBaseId3v3Per, enable);
+}
+
+static const Brd_TBatChgCfg g_brd_bat_chg_cfg_[] = 
+{{DATA_G_BRD_BAT_CHG_CFG_}};
+
+static Brd_TBatChgItem g_brd_bat_chg_items_[] = 
+{{DATA_G_BRD_BAT_CHG_ITEMS_}};
+
+static Brd_TBatChgAttr g_brd_bat_chg_attr = 
+{{DATA_G_BRD_BAT_CHG_ATTR}};

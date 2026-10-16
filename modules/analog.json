@@ -1,0 +1,88 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "analog",
+  "name": "模拟量",
+  "configuration_mode": "instances",
+  "configuration_status": "template-adapter",
+  "fields": [
+    {
+      "key": "pin",
+      "label": "ADC 引脚",
+      "type": "adc",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "channel",
+      "label": "ADC 通道",
+      "type": "channel",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "x",
+      "label": "分压系数 x",
+      "type": "num",
+      "value": 1,
+      "opts": []
+    },
+    {
+      "key": "y",
+      "label": "分压系数 y",
+      "type": "num",
+      "value": 1,
+      "opts": []
+    },
+    {
+      "key": "offset",
+      "label": "偏移量",
+      "type": "num",
+      "value": 0,
+      "opts": []
+    },
+    {
+      "key": "reference_mv",
+      "label": "参考电压 / mV",
+      "type": "num",
+      "value": 3300,
+      "opts": []
+    },
+    {
+      "key": "sample_time",
+      "label": "采样时间",
+      "type": "select",
+      "value": "TDrvAdcSampleTimeClk85",
+      "opts": [
+        "TDrvAdcSampleTimeClk5",
+        "TDrvAdcSampleTimeClk10",
+        "TDrvAdcSampleTimeClk15",
+        "TDrvAdcSampleTimeClk23",
+        "TDrvAdcSampleTimeClk35",
+        "TDrvAdcSampleTimeClk45",
+        "TDrvAdcSampleTimeClk85",
+        "TDrvAdcSampleTimeClk185"
+      ]
+    },
+    {
+      "key": "net",
+      "label": "网络标签（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    }
+  ],
+  "dependencies": [
+    "drv.adc"
+  ],
+  "implementations": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_analog.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_analog_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_analog_{mcu}.h"
+  },
+  "notes": "配置字段需要对照实际驱动及板级接口审核。未使用不代表不支持。",
+  "bus_kinds": [
+    "spi"
+  ]
+}

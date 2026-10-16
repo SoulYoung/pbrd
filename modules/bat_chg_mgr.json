@@ -1,0 +1,74 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "bat_chg_mgr",
+  "implementations": [],
+  "sources": {},
+  "name": "多路电池充电管理",
+  "configuration_mode": "instances",
+  "configuration_status": "template-adapter",
+  "fields": [
+    {
+      "key": "enable_pin",
+      "label": "充电使能引脚",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "enable_reverse",
+      "label": "使能低电平有效",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "done_pin",
+      "label": "充电完成引脚",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "done_reverse",
+      "label": "完成低电平有效",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "charging_pin",
+      "label": "充电中引脚（选填）",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "charging_reverse",
+      "label": "充电中低电平有效",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "initial",
+      "label": "初始使能",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "net",
+      "label": "网络标签（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    }
+  ],
+  "dependencies": [
+    "drv.gpio",
+    "brd.pwr_ctrl"
+  ],
+  "bus_kinds": [],
+  "notes": "依据 r02v01 和当前 Brd_TBatChgMgrItem：每路分别配置使能、完成及可选充电中引脚，数量由项目实例决定。"
+}

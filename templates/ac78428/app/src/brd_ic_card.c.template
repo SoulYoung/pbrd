@@ -1,0 +1,3 @@
+#include "brd_inc_all.h"
+#include "brd_ic_card_cfg.c"
+#include "brd_ic_card_ac78428.c"

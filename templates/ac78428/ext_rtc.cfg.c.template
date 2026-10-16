@@ -1,0 +1,31 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+extern TDrvIic g_drv_iic[];
+extern TDrvIicCfg g_drv_iic_cfgs[];
+/// -------使用到的总线配置-------
+#define BRD_EXT_RTC_BUS_PHY_IIC
+
+/// -------使用到的设备配置-------
+// #define BRD_EXT_RTC_DEV_BM8563
+// #define BRD_EXT_RTC_DEV_RX8010SJ
+
+{{DEVICE_DEFINES}}
+static Brd_TMutex g_brd_ext_rtc_mutex_[{{COUNT}}];
+static Brd_TEvent g_brd_ext_rtc_event_[{{COUNT}}];
+{{OBJECTS}}
+static Brd_TExtRtcItem g_brd_ext_rtc_item_[] =
+{{ITEMS}};
+Brd_TExtRtcAttr g_brd_ext_rtc_attr =
+{
+    .count = sizeof(g_brd_ext_rtc_item_) / sizeof(g_brd_ext_rtc_item_[0]),
+    .item = g_brd_ext_rtc_item_,
+};
+/***** User code begin *****/
+
+/***** User code end *****/

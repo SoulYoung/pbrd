@@ -1,0 +1,96 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "crypto",
+  "name": "加密模块",
+  "configuration_mode": "instances",
+  "configuration_status": "initial",
+  "fields": [
+    {
+      "key": "driver",
+      "label": "器件",
+      "type": "select",
+      "value": "",
+      "opts": [
+        "ciu98b",
+        "ciu98m25",
+        "csec"
+      ]
+    },
+    {
+      "key": "bus",
+      "label": "通信总线",
+      "type": "bus",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "cs",
+      "label": "片选引脚",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "reset_pin",
+      "label": "复位引脚（选填）",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "wakeup_pin",
+      "label": "唤醒引脚（选填）",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    }
+  ],
+  "dependencies": [],
+  "implementations": [
+    {
+      "value": "ciu98b",
+      "module": "per.hsm.ciu98b",
+      "bus_kinds": [
+        "spi"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/hsm/ciu98b/**/*.c",
+        "product/src/per/hsm/ciu98b/**/*.h"
+      ]
+    },
+    {
+      "value": "ciu98m25",
+      "module": "per.hsm.ciu98m25",
+      "bus_kinds": [
+        "spi"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/hsm/ciu98m25/**/*.c",
+        "product/src/per/hsm/ciu98m25/**/*.h"
+      ]
+    },
+    {
+      "value": "csec",
+      "module": null,
+      "bus_kinds": [],
+      "dependencies": [
+        "drv.csec"
+      ],
+      "source_globs": [
+        "product/src/drv/{mcu}/drv_csec.c"
+      ]
+    }
+  ],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_crypto.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_crypto_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_crypto_{mcu}.h"
+  },
+  "notes": "配置字段需要对照实际驱动及板级接口审核。未使用不代表不支持。",
+  "bus_kinds": [
+    "spi"
+  ]
+}

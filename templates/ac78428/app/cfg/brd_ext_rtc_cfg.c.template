@@ -1,0 +1,40 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// 外部引用对象
+extern TDrvIic g_drv_iic[];
+extern TDrvIicCfg g_drv_iic_cfgs[];
+
+/// -------使用到的总线配置-------
+#define BRD_EXT_RTC_BUS_PHY_IIC
+/// -------使用到的设备配置-------
+#define BRD_EXT_RTC_DEV_BM8563
+
+/// 锁对象
+static Brd_TMutex g_brd_ext_rtc_mutex_[{{COUNT_G_BRD_EXT_RTC_MUTEX_}}];
+
+/// 事件对象
+static Brd_TEvent g_brd_ext_rtc_event_[{{COUNT_G_BRD_EXT_RTC_EVENT_}}];
+
+/// Bm8563 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+static TPerRtcBm8563 g_brd_ext_rtc_bm8563_;
+
+static Brd_TExtRtcDevBm8563 g_brd_ext_rtc_dev_bm8563_ = 
+{{DATA_G_BRD_EXT_RTC_DEV_BM8563_}};
+
+/// 总线配置
+static TDrvIicDev g_brd_ext_rtc_phy_iic_dev0_;
+
+static Brd_TExtRtcBusPhyIic g_brd_ext_rtc_bus_phy_iic_dev0_ = 
+{{DATA_G_BRD_EXT_RTC_BUS_PHY_IIC_DEV0_}};
+
+static Brd_TExtRtcItem g_brd_ext_rtc_item_[]  = 
+{{DATA_G_BRD_EXT_RTC_ITEM_}};
+
+Brd_TExtRtcAttr g_brd_ext_rtc_attr  = 
+{{DATA_G_BRD_EXT_RTC_ATTR}};

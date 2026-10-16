@@ -1,0 +1,65 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "bat_chg",
+  "name": "电池充电",
+  "configuration_mode": "instances",
+  "configuration_status": "initial",
+  "fields": [
+    {
+      "key": "enable_pin",
+      "label": "使能引脚（选填）",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "done_pin",
+      "label": "完成引脚（选填）",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "reverse",
+      "label": "使能反相",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "done_reverse",
+      "label": "完成反相",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "initial",
+      "label": "初始使能",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "control_ref",
+      "label": "复用控制项枚举（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    }
+  ],
+  "dependencies": [
+    "drv.gpio"
+  ],
+  "implementations": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_bat_chg.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_bat_chg_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_bat_chg_{mcu}.h"
+  },
+  "notes": "配置字段需要对照实际驱动及板级接口审核。未使用不代表不支持。",
+  "bus_kinds": [
+    "spi"
+  ]
+}

@@ -1,0 +1,79 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/**
+ * 版本说明
+ * ver[0]: 软件主版本号, 有重大更新时, +1
+ * ver[1]: 硬件型号
+ * ver[2]: boot为奇数, app为偶数
+ * ver[3]: 软件次版本号, 每次更新, +1
+ */
+static const Brd_TVersion g_brd_version_ = 
+{{DATA_G_BRD_VERSION_}};
+
+Brd_TVersionAttr g_brd_version_attr = 
+{{DATA_G_BRD_VERSION_ATTR}};
+
+// IIC 驱动实例
+TDrvIic g_drv_iic[{{COUNT_G_DRV_IIC}}];
+// SPI 驱动实例
+TDrvSpi g_drv_spi[{{COUNT_G_DRV_SPI}}];
+
+// IIC驱动配置
+const TDrvIicCfg g_drv_iic_cfgs[] = 
+{{DATA_G_DRV_IIC_CFGS}};
+
+const TDrvSpiCfg g_drv_spi_cfgs[] = 
+{{DATA_G_DRV_SPI_CFGS}};
+
+void Brd_DiffInit(void)
+{
+{{BRD_DIFFINIT}}
+}
+
+void Brd_DiffDone(void)
+{
+{{BRD_DIFFDONE}}
+}
+
+void Brd_DiffOpen(void)
+{
+{{BRD_DIFFOPEN}}
+}
+
+void Brd_DiffClose(void)
+{
+{{BRD_DIFFCLOSE}}
+}
+
+void Brd_DiffEnableGlobalIrq(void)
+{
+    TDrvIrqEnableGlobal(&g_drv_irq);
+}
+
+void Brd_DiffDisableGlobalIrq(void)
+{
+    TDrvIrqDisableGlobal(&g_drv_irq);
+}
+
+void Brd_DiffEnableSysTick(void)
+{
+    SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk;
+    SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+}
+
+void Brd_DiffDisableSysTick(void)
+{
+    SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+    SysTick->CTRL &= ~SysTick_CTRL_TICKINT_Msk;
+}
+
+void Brd_CommonDoGetSystemTime(void)
+{
+
+}

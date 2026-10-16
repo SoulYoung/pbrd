@@ -1,0 +1,8 @@
+#include "brd_inc_all.h"
+#include "brd_reset_cfg_ac78428.c"
+#include "brd_reset_ac78428.c"
+
+/***** User code begin *****/
+
+/***** User code end *****/
+

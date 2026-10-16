@@ -1,0 +1,60 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+#define INIT_UART_CFG(index_, rx_group_, rx_pin_, rx_pin_mux_, tx_group_, tx_pin_, tx_pin_mux_, rts_group_, rts_pin_, mode_, dma_en_, dma_ch_rx_, dma_ch_tx_, dma_src_rx_, dma_src_tx_) \
+    { \
+        .index = index_, \
+        .rx_group = kDrvPortGroup##rx_group_, \
+        .rx_pin = kDrvPortPin##rx_pin_, \
+        .rx_pin_mux = rx_pin_mux_, \
+        .tx_group = kDrvPortGroup##tx_group_, \
+        .tx_pin = kDrvPortPin##tx_pin_, \
+        .tx_pin_mux = tx_pin_mux_, \
+        .rts_group = kDrvPortGroup##rts_group_, \
+        .rts_pin = kDrvPortPin##rts_pin_, \
+        .mode = mode_, \
+        .dma_en = dma_en_, \
+        .dma_ch_rx = dma_ch_rx_, \
+        .dma_ch_tx = dma_ch_tx_, \
+        .dma_src_rx = dma_src_rx_, \
+        .dma_src_tx = dma_src_tx_, \
+    }
+
+#define INIT_UART_DEV_IN_CHIP(base_dev_drv_, base_dev_drv_cfg_) \
+    { \
+        .base = { .dev_drv = &g_drv_uart_[base_dev_drv_], .dev_drv_cfg = &g_drv_uart_cfgs_[base_dev_drv_cfg_], }, \
+    }
+
+#define INIT_UART_ITEM(id_, dev_, dev_cfg_, bus_, bus_cfg_) \
+    { \
+        .id = id_, \
+        .dev = dev_, \
+        .dev_cfg = &g_brd_uart_dev_in_chip_[dev_cfg_], \
+        .bus = bus_, \
+        .bus_cfg = bus_cfg_, \
+    }
+
+
+/// 总线驱动
+
+/// 总线驱动配置
+
+/// 设备驱动
+static TDrvUart g_drv_uart_[{{COUNT_G_DRV_UART_}}];
+
+/// 设备驱动配置
+const TDrvUartCfg g_drv_uart_cfgs_[] = {{DATA_G_DRV_UART_CFGS_}};
+
+static Brd_TUartDevInChip g_brd_uart_dev_in_chip_[] = 
+{{DATA_G_BRD_UART_DEV_IN_CHIP_}};
+
+static Brd_TUartItem g_brd_uart_items_[] = 
+{{DATA_G_BRD_UART_ITEMS_}};
+
+Brd_TUartAttr g_brd_uart_attr = 
+{{DATA_G_BRD_UART_ATTR}};

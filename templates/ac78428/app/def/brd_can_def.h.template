@@ -1,0 +1,46 @@
+/**
+ * @addtogroup brd_can_def
+ * brd_can_def
+ * @{
+ */
+/**
+ * @file brd_can_def.h
+ * @brief 板级层控制器局域网定义
+ * @note
+ * @par 修改日志
+ * <table>
+ * <tr><th>Date                 <th>Version         <th>Author          <th>Description
+ * <tr><td>{{DATE}}           <td>1.0             <td>{{AUTHOR}}       <td>创建初始版本
+ * @copyright 杭州鸿泉物联网技术股份有限公司
+ */
+#ifndef _BRD_CAN_DEF_H_
+#define _BRD_CAN_DEF_H_
+
+#include <brd_def_base.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/// CAN类型
+enum Brd_TCanIdTag 
+{
+{{ENUM_CONTENT}}
+};
+typedef enum Brd_TCanIdTag Brd_TCanId;
+
+{{DEFINE_CONTENT}}
+
+#ifdef __cplusplus
+}  ///  < extern "C"
+#endif
+
+
+/***** User code begin *****/
+
+/***** User code end *****/
+
+#endif // _BRD_CAN_DEF_H_
+/**
+ * @} 
+ */

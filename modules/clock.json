@@ -1,0 +1,19 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "clock",
+  "name": "时钟",
+  "configuration_mode": "platform",
+  "configuration_status": "platform_default",
+  "fields": [],
+  "dependencies": [
+    "drv.clock"
+  ],
+  "implementations": [],
+  "bus_kinds": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_clock.c"
+  },
+  "notes": "沿用平台实现；需要项目差异时先审核接口，再扩展字段。",
+  "default_enabled": true
+}

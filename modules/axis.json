@@ -1,0 +1,115 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "axis",
+  "name": "轴传感器",
+  "configuration_mode": "instances",
+  "configuration_status": "template-adapter",
+  "fields": [
+    {
+      "key": "driver",
+      "label": "器件",
+      "type": "select",
+      "value": "",
+      "opts": [
+        "da280b",
+        "lsm6dsl",
+        "mma8452"
+      ]
+    },
+    {
+      "key": "bus",
+      "label": "通信总线",
+      "type": "bus",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "address",
+      "label": "IIC 地址（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "group",
+      "label": "BOM 互斥组（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "range",
+      "label": "量程（器件枚举）（运行时设置）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "rate",
+      "label": "输出速率（器件枚举）（运行时设置）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "interrupt_pin",
+      "label": "中断引脚（选填）",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    }
+  ],
+  "dependencies": [],
+  "implementations": [
+    {
+      "value": "da280b",
+      "module": "per.axis.da280b",
+      "bus_kinds": [
+        "iic",
+        "soft_iic"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/axis/da280b/**/*.c",
+        "product/src/per/axis/da280b/**/*.h"
+      ]
+    },
+    {
+      "value": "lsm6dsl",
+      "module": "per.axis.lsm6dsl",
+      "bus_kinds": [
+        "iic",
+        "soft_iic"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/axis/lsm6dsl/**/*.c",
+        "product/src/per/axis/lsm6dsl/**/*.h"
+      ]
+    },
+    {
+      "value": "mma8452",
+      "module": "per.axis.mma8452",
+      "bus_kinds": [
+        "iic",
+        "soft_iic"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/axis/mma8452/**/*.c",
+        "product/src/per/axis/mma8452/**/*.h"
+      ]
+    }
+  ],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_axis.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_axis_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_axis_{mcu}.h"
+  },
+  "notes": "配置字段需要对照实际驱动及板级接口审核。未使用不代表不支持。",
+  "bus_kinds": [
+    "iic",
+    "soft_iic"
+  ]
+}

@@ -1,0 +1,177 @@
+/**
+ * @addtogroup brd_crypto_def
+ * brd_crypto_def
+ * @{
+ */
+/**
+ * @file brd_crypto_def.h
+ * @brief 板级层密码定义
+ * @note
+ * @par 修改日志
+ * <table>
+ * <tr><th>Date                 <th>Version         <th>Author          <th>Description
+ * <tr><td>{{DATE}}           <td>1.0             <td>{{AUTHOR}}       <td>创建初始版本
+ * @copyright 杭州鸿泉物联网技术股份有限公司
+ */
+#ifndef _BRD_CRYPTO_DEF_H_
+#define _BRD_CRYPTO_DEF_H_
+
+#include <brd_def_base.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/// 加密芯片类型
+enum Brd_TCryptoIdTag {
+{{ENUM_CONTENT}}
+};
+typedef enum Brd_TCryptoIdTag Brd_TCryptoId;
+
+{{DEFINE_CONTENT}}
+
+/// CIU98B支持的对称算法
+enum Brd_TCryptoCiu98bSymTag {
+    kBrd_CryptoCiu98bSymBase                    = 0,
+    kBrd_CryptoCiu98bSymMax                     = kBrd_CryptoCiu98bSymBase,
+};
+typedef enum Brd_TCryptoCiu98bSymTag Brd_TCryptoCiu98bSym;
+
+/// CIU98B支持的非对称算法
+enum Brd_TCryptoCiu98bAsymTag {
+    kBrd_CryptoCiu98bAsymBase                   = 0,
+    kBrd_CryptoCiu98bAsymSm2                    = kBrd_CryptoCiu98bAsymBase,      ///< 国密SM2
+    kBrd_CryptoCiu98bAsymMax,
+};
+typedef enum Brd_TCryptoCiu98bAsymTag Brd_TCryptoCiu98bAsym;
+
+#define BRD_CRYPTO_CIU98B_ASYM_SM2
+
+/// CIU98B支持的摘要算法
+enum Brd_TCryptoCiu98bDigestTag {
+    kBrd_CryptoCiu98bDigestBase                 = 0,
+    kBrd_CryptoCiu98bDigestMax                  = kBrd_CryptoCiu98bDigestBase,
+};
+typedef enum Brd_TCryptoCiu98bDigestTag Brd_TCryptoCiu98bDigest;
+
+/**************************************** CSEc *************************************/
+/// 算法类型
+enum Brd_TCryptoCsecAlgoTag
+{
+    kBrd_CryptoCsecAlgoBase                 = 0,
+    /// 对称算法(加解密)
+    kBrd_CryptoCsecAlgoSymAes               = kBrd_CryptoCsecAlgoBase,          ///< AES, 支持128位
+    /// 对称消息验证
+    kBrd_CryptoCsecAlgoSymCmac              = 1,                                ///< 对称消息验证CMAC
+    kBrd_CryptoCsecAlgoSymMax,
+
+    /// 非对称算法
+};
+typedef enum Brd_TCryptoCsecAlgoTag Brd_TCryptoCsecAlgo;
+
+#define BRD_CRYPTO_CSEC_ALGO_AES
+#define BRD_CRYPTO_CSEC_ALGO_CMAC
+
+/// 密钥ID
+enum
+{
+    kBrd_CryptoCsecSecretKey = 0x0,
+    kBrd_CryptoCsecMasterEcu,
+    kBrd_CryptoCsecBootMacKey,
+    kBrd_CryptoCsecBootMac, ///< 这个密钥槽不用应用关心 当导入kBrd_CryptoCsecBootMacKey密钥会自动计算导入的
+    kBrd_CryptoCsecKey1,
+    kBrd_CryptoCsecKey2,
+    kBrd_CryptoCsecKey3,
+    kBrd_CryptoCsecKey4,
+    kBrd_CryptoCsecKey5,
+    kBrd_CryptoCsecKey6,
+    kBrd_CryptoCsecKey7,
+    kBrd_CryptoCsecKey8,
+    kBrd_CryptoCsecKey9,
+    kBrd_CryptoCsecKey10,
+    kBrd_CryptoCsecRamKey = 0xFU,
+    kBrd_CryptoCsecKey11 = 0x14U,
+    kBrd_CryptoCsecKey12,
+    kBrd_CryptoCsecKey13,
+    kBrd_CryptoCsecKey14,
+    kBrd_CryptoCsecKey15,
+    kBrd_CryptoCsecKey16,
+    kBrd_CryptoCsecKey17,
+    kBrd_CryptoCsecKeyMax,
+};
+
+/// 安全启动风格
+enum
+{
+    kBrd_CryptoCsecBootStrict,      ///< 严格顺序启动 注意注意一旦设置成严格顺序将永不可逆 一旦校验失败将成废片
+    kBrd_CryptoCsecBootSerial,      ///< 顺序启动
+    kBrd_CryptoCsecBootParallel,    ///< 并行启动
+    kBrd_CryptoCsecBootNotDefine,
+};
+
+/// AES加密模式
+typedef enum Brd_TCryptoCsecAesBlockModeTag Brd_TCryptoCsecAesBlockMode;
+enum Brd_TCryptoCsecAesBlockModeTag
+{
+    kBrd_CryptoCsecAesBlockModeCBC        = 0,    ///< CBC 模式
+    kBrd_CryptoCsecAesBlockModeECB        = 1,    ///< ECB 模式
+    kBrd_CryptoCsecAesBlockModeMax,
+};
+
+/// AES密钥结构 
+/// 注:密钥长度均为16字节 千万不要弄错了
+struct Brd_TCryptoCsecAesKeyCustomTag
+{
+    UInt32 key_index;                           ///< 密钥索引, 参见密钥ID @input
+    UInt8* key;                                 ///< 密钥, 导入密钥为@input
+    UInt8* auth_key;                            ///< 授权密钥，@input 一般是kBrd_CryptoCsecMasterEcu的密钥 若第一次加载kBrd_CryptoCsecMasterEcu 则输入授权密钥全0xff
+    UInt32 counter;                             ///< 计数器, 用于芯片生命周期此密钥槽修改次数,第一次从1开始 @input
+    UInt32 boot_len;                            ///< 校验程序的大小，从0地址开始，只针对kBrd_CryptoCsecBootMacKey的密钥槽，因为需要内部计算; 单位: 字节 不支持填充
+    UInt8 boot_flavor;                          ///< 引导程序风格，只针对kBrd_CryptoCsecBootMacKey的密钥槽，参见安全启动风格
+};
+typedef struct Brd_TCryptoCsecAesKeyCustomTag Brd_TCryptoCsecAesKeyCustom;
+
+/// AES加密/解密需要的参数
+struct Brd_TCryptoCsecAesCryptCustomTag
+{
+    UInt32 key_index;                           ///< 密钥索引, 参见密钥ID @input
+    UInt32 input_len;                           ///< 输入数据长度, @input, 单位: 字节, 不支持填充
+    UInt8* input;                               ///< 输入数据, @input
+    UInt8* output;                              ///< 输出数据, @output
+    const UInt8* iv;                            ///< 初始化向量, @input, ECB模式不需要
+    Brd_TCryptoCsecAesBlockMode block_mode;     ///< 加密模式, @input
+};
+typedef struct Brd_TCryptoCsecAesCryptCustomTag Brd_TCryptoCsecAesCryptCustom;
+
+/// CMAC计算需要的参数
+struct Brd_TCryptoCsecCmacSignCustomTag
+{
+    UInt32 key_index;                           ///< 密钥索引,参见密钥ID @input
+    UInt8* input;                               ///< 输入数据, @input
+    UInt32 input_len;                           ///< 输入数据长度, 单位: 字节, 不支持填充, @input
+    UInt8* sign;                                ///< mac, 计算mac时为@output, 验证时为@input
+    UInt32 sign_len;                            ///< mac长度, 计算mac时为@input/output, 验签时为@input
+    Bool verif_status;                          ///< 验证状态
+};
+typedef struct Brd_TCryptoCsecCmacSignCustomTag Brd_TCryptoCsecCmacSignCustom;
+
+/// 恢复出厂设置
+struct Brd_TCryptoCsecFactoryResetCustomTag
+{
+    UInt8* auth_key;                            ///< 授权密钥，@input 一般是kBrd_CryptoCsecMasterEcu的密钥 
+};
+typedef struct Brd_TCryptoCsecFactoryResetCustomTag Brd_TCryptoCsecFactoryResetCustom;
+
+#ifdef __cplusplus
+}  ///  < extern "C"
+#endif
+
+
+/***** User code begin *****/
+
+/***** User code end *****/
+
+#endif // _BRD_CRYPTO_DEF_H_
+/**
+ * @} 
+ */

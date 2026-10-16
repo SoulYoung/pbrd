@@ -1,0 +1,67 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// 外部引用对象
+
+/// -------使用到的总线配置-------
+
+/// -------使用到的设备配置-------
+/// 这里不需要在这里定义 def里会定义
+
+
+/// 总线驱动
+
+/// 总线驱动配置
+
+/// 设备驱动
+static TDrvCan g_drv_can_[{{COUNT_G_DRV_CAN_}}];
+
+/// 设备驱动配置
+const TDrvCanCfg g_drv_can_cfgs_[] = 
+{{DATA_G_DRV_CAN_CFGS_}};
+
+{{CANFD_BUFFER_DECLARATION}}
+
+static Brd_TCanDevInChip g_brd_can_dev_in_chip_[] = 
+{{DATA_G_BRD_CAN_DEV_IN_CHIP_}};
+
+static Brd_TCanItem g_brd_can_items_[] = 
+{{DATA_G_BRD_CAN_ITEMS_}};
+
+{{CANFD_ITEM_DECLARATION}}
+
+Brd_TCanAttr g_brd_can_attr = 
+{{DATA_G_BRD_CAN_ATTR}};
+
+Brd_TCanfdAttr g_brd_canfd_attr = 
+{{DATA_G_BRD_CANFD_ATTR}};
+
+Int32 Brd_CanDoPowerSupply(Brd_THandle handle, Int32 power)
+{
+    Int32 result = kBrd_ErrorCodeNotSupportLine;
+
+    switch (power)
+    {
+    case kBrd_PowerSupplyOn:
+        {
+            result = kBrd_ErrorCodeSuccess;
+        }
+        break;
+
+    case kBrd_PowerSupplyOff:
+        {
+            result = kBrd_ErrorCodeSuccess;
+        }
+        break;
+
+    default:
+        break;
+    }
+
+    return result;
+}

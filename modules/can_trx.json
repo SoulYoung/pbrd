@@ -1,0 +1,77 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "can_trx",
+  "name": "CAN 收发器",
+  "configuration_mode": "instances",
+  "configuration_status": "initial",
+  "fields": [
+    {
+      "key": "driver",
+      "label": "器件",
+      "type": "select",
+      "value": "",
+      "opts": [
+        "sit1145",
+        "tja1445"
+      ]
+    },
+    {
+      "key": "bus",
+      "label": "通信总线",
+      "type": "bus",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "cs",
+      "label": "片选引脚",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "interrupt_pin",
+      "label": "中断引脚（选填）",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    }
+  ],
+  "dependencies": [],
+  "implementations": [
+    {
+      "value": "sit1145",
+      "module": "per.can_trx.sit1145",
+      "bus_kinds": [
+        "spi"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/can_trx/sit1145/**/*.c",
+        "product/src/per/can_trx/sit1145/**/*.h"
+      ]
+    },
+    {
+      "value": "tja1445",
+      "module": "per.can_trx.tja1445",
+      "bus_kinds": [
+        "spi"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/can_trx/tja1445/**/*.c",
+        "product/src/per/can_trx/tja1445/**/*.h"
+      ]
+    }
+  ],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_can_trx.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_can_trx_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_can_trx_{mcu}.h"
+  },
+  "notes": "配置字段需要对照实际驱动及板级接口审核。未使用不代表不支持。",
+  "bus_kinds": [
+    "spi"
+  ]
+}

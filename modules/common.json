@@ -1,0 +1,23 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "common",
+  "name": "公共初始化",
+  "configuration_mode": "platform",
+  "configuration_status": "platform_default",
+  "fields": [],
+  "dependencies": [
+    "drv.common",
+    "drv.clock",
+    "drv.gpio",
+    "drv.irq",
+    "drv.port"
+  ],
+  "implementations": [],
+  "bus_kinds": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_common.c"
+  },
+  "notes": "沿用平台实现；需要项目差异时先审核接口，再扩展字段。",
+  "default_enabled": true
+}

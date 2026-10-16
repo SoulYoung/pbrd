@@ -1,0 +1,72 @@
+/**
+ * @addtogroup brd_reset_def
+ * brd_reset_def
+ * @{
+ */
+/**
+ * @file brd_reset_def.h
+ * @brief 板级层复位定义
+ * @note
+ * @par 修改日志
+ * <table>
+ * <tr><th>Date                 <th>Version         <th>Author          <th>Description
+ * <tr><td>{{DATE}}           <td>1.0             <td>{{AUTHOR}}       <td>创建初始版本
+ * @copyright 杭州鸿泉物联网技术股份有限公司
+ */
+#ifndef _BRD_RESET_DEF_H_
+#define _BRD_RESET_DEF_H_
+
+#include <brd_def_base.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * 复位源
+ * 
+ */
+enum Brd_TResetSourceTag
+{
+    kBrd_ResetSourceBase                        = 0,
+    kBrd_ResetSourceChip                        = BRD_DEF_BASE_ID(kBrdResetBaseSourceChip, 0),     ///< 芯片复位
+    kBrd_ResetSourceMax,
+};
+typedef enum Brd_TResetSourceTag Brd_TResetSource;
+
+#define BRD_RESET_SOURCE_CHIP
+
+/**
+ * 复位原因
+ * 
+ */
+enum Brd_TResetReasonTag
+{
+    kBrd_ResetReasonPor                             = 1U << 16,     ///< 上电时复位
+    kBrd_ResetReasonLvr                             = 1U << 17,     ///< 低电压复位
+    kBrd_ResetReasonWdog                            = 1U << 21,     ///< 看门狗复位
+    kBrd_ResetReasonSw                              = 1U << 18,     ///< 软件复位, 指用户设置RAM内核 SYSRESETREQ bit 为1, 产生的复位 
+    kBrd_ResetReasonAll                             = kBrd_ResetReasonPor | kBrd_ResetReasonLvr | kBrd_ResetReasonWdog | kBrd_ResetReasonSw, ///< 所有定义的复位原因       
+};
+typedef enum Brd_TResetReasonTag Brd_TResetReason;
+
+#define BRD_RESET_REASON_POR
+#define BRD_RESET_REASON_LVR
+#define BRD_RESET_REASON_WDOG
+#define BRD_RESET_REASON_SW
+#define BRD_RESET_REASON_ALL
+
+
+#ifdef __cplusplus
+}  ///  < extern "C"
+#endif
+
+
+/***** User code begin *****/
+
+/***** User code end *****/
+
+#endif // _BRD_RESET_DEF_H_
+/**
+ * @} 
+ */

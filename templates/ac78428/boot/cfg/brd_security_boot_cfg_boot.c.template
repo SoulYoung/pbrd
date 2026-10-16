@@ -1,0 +1,26 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+
+/// -------使用到的总线配置-------
+// #define BRD_CRYPTO_BUS_PHY_SPI
+/// -------使用到的设备配置-------
+// #define BRD_CRYPTO_DEV_CIU98B
+#define BRD_SECURITY_BOOT_DEV_CSEC
+
+/// ac78428的认证镜像信息设计统一放在了相对地址IMAGE_ADDR+0x400处
+#define BRD_SECURITY_BOOT_IMAGE_ADDR          (0x400U)  ///< 安全启动认证镜像信息的相对地址
+
+static Brd_TSecurityBootDevInChip g_security_boot_dev_base = 
+{{DATA_G_SECURITY_BOOT_DEV_BASE}};
+
+static Brd_TSecurityBootItem g_security_boot_items[] =
+{{DATA_G_SECURITY_BOOT_ITEMS}};
+
+Brd_TSecurityBootAttr g_brd_security_boot_attr = 
+{{DATA_G_BRD_SECURITY_BOOT_ATTR}};

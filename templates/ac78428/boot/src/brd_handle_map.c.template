@@ -1,0 +1,8 @@
+#include "brd_inc_all.h"
+#include "brd_handle_map_cfg_ac78428.c"
+#include "brd_handle_map_base.c"
+
+/***** User code begin *****/
+
+/***** User code end *****/
+

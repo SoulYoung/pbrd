@@ -1,0 +1,52 @@
+/**
+ * @addtogroup brd_flash_def
+ * brd_flash_def
+ * @{
+ */
+/**
+ * @file brd_flash_def.h
+ * @brief 板级层非易失性存储定义
+ * @note
+ * @par 修改日志
+ * <table>
+ * <tr><th>Date                 <th>Version         <th>Author          <th>Description
+ * <tr><td>{{DATE}}           <td>1.0             <td>{{AUTHOR}}       <td>创建初始版本
+ * @copyright 杭州鸿泉物联网技术股份有限公司
+ */
+#ifndef _BRD_FLASH_DEF_H_
+#define _BRD_FLASH_DEF_H_
+
+#include <brd_def_base.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * FLASH类型
+ * @note:
+ * kBrd_FlashIdChipPflash:  容量为 2M 字节, 操作支持8k字节扇区的擦除, 8字节对齐的编程, 任意字节的读取操作 写的位置需保证擦过 地址范围0-2M
+ * kBrd_FlashIdEep: 内部模拟eep 容量4k 支持任意字节读写 (最好4字节操作 增加读写寿命)不需要擦 地址范围0-4095
+ * kBrd_FlashIdBl24c128f: 外部eeprom bl24c128f 容量16k 支持任意字节读写 不需要擦 地址范围0-16383
+ * kBrd_FlashIdSdNand: 外部sd nand flash 容量128M 支持4k字节扇区的擦除, 512字节对齐的编程, 任意字节的读取操作 写的位置需保证擦过 地址范围0-128M
+ */
+enum Brd_TFlashIdTag {
+{{ENUM_CONTENT}}
+};
+typedef enum Brd_TFlashIdTag Brd_TFlashId;
+
+{{DEFINE_CONTENT}}
+
+#ifdef __cplusplus
+}  ///  < extern "C"
+#endif
+
+
+/***** User code begin *****/
+
+/***** User code end *****/
+
+#endif // _BRD_FLASH_DEF_H_
+/**
+ * @} 
+ */

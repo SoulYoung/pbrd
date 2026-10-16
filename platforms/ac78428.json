@@ -1,0 +1,4383 @@
+{
+  "format": "pbrd-platform",
+  "schema_version": 1,
+  "mcu": "ac78428",
+  "package": "144LQFP",
+  "pins": [
+    {
+      "pin": "PE16",
+      "package_pin": 1,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART1_RTS",
+          "mux": "ALT2",
+          "raw": "UART1_RTS"
+        },
+        {
+          "signal": "SPI2_SIN",
+          "mux": "ALT3",
+          "raw": "SPI2_SIN"
+        },
+        {
+          "signal": "PWM2_CH7",
+          "mux": "ALT4",
+          "raw": "PWM2_CH7"
+        },
+        {
+          "signal": "PWM4_FLT0",
+          "mux": "ALT5",
+          "raw": "PWM4_FLT0"
+        },
+        {
+          "signal": "EIO_D3",
+          "mux": "ALT6",
+          "raw": "EIO_D3"
+        },
+        {
+          "signal": "TRGMUX_OUT7",
+          "mux": "ALT7",
+          "raw": "TRGMUX_OUT7"
+        }
+      ]
+    },
+    {
+      "pin": "PE15",
+      "package_pin": 2,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART1_CTS",
+          "mux": "ALT2",
+          "raw": "UART1_CTS"
+        },
+        {
+          "signal": "SPI2_SCK",
+          "mux": "ALT3",
+          "raw": "SPI2_SCK"
+        },
+        {
+          "signal": "PWM2_CH6",
+          "mux": "ALT4",
+          "raw": "PWM2_CH6"
+        },
+        {
+          "signal": "PWM4_FLT1",
+          "mux": "ALT5",
+          "raw": "PWM4_FLT1"
+        },
+        {
+          "signal": "EIO_D2",
+          "mux": "ALT6",
+          "raw": "EIO_D2"
+        },
+        {
+          "signal": "TRGMUX_OUT6",
+          "mux": "ALT7",
+          "raw": "TRGMUX_OUT6"
+        }
+      ]
+    },
+    {
+      "pin": "PD1",
+      "package_pin": 3,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH3",
+          "mux": "ALT2",
+          "raw": "PWM0_CH3"
+        },
+        {
+          "signal": "SPI1_SIN",
+          "mux": "ALT3",
+          "raw": "SPI1_SIN"
+        },
+        {
+          "signal": "PWM2_CH1",
+          "mux": "ALT4",
+          "raw": "PWM2_CH1"
+        },
+        {
+          "signal": "EIO_D1",
+          "mux": "ALT6",
+          "raw": "EIO_D1"
+        },
+        {
+          "signal": "TRGMUX_OUT2",
+          "mux": "ALT7",
+          "raw": "TRGMUX_OUT2"
+        }
+      ]
+    },
+    {
+      "pin": "PD0",
+      "package_pin": 4,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH2",
+          "mux": "ALT2",
+          "raw": "PWM0_CH2"
+        },
+        {
+          "signal": "SPI1_SCK",
+          "mux": "ALT3",
+          "raw": "SPI1_SCK"
+        },
+        {
+          "signal": "PWM2_CH0",
+          "mux": "ALT4",
+          "raw": "PWM2_CH0"
+        },
+        {
+          "signal": "EIO_D0",
+          "mux": "ALT6",
+          "raw": "EIO_D0"
+        },
+        {
+          "signal": "TRGMUX_OUT1",
+          "mux": "ALT7",
+          "raw": "TRGMUX_OUT1"
+        }
+      ]
+    },
+    {
+      "pin": "PE11",
+      "package_pin": 5,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "SPI2_CS0",
+          "mux": "ALT2",
+          "raw": "SPI2_CS0"
+        },
+        {
+          "signal": "PCT0_ALT1",
+          "mux": "ALT3",
+          "raw": "PCT0_ALT1"
+        },
+        {
+          "signal": "PWM2_CH5",
+          "mux": "ALT4",
+          "raw": "PWM2_CH5"
+        },
+        {
+          "signal": "SENT_SENT0A",
+          "mux": "ALT5",
+          "raw": "SENT_SENT0A"
+        },
+        {
+          "signal": "EIO_D5",
+          "mux": "ALT6",
+          "raw": "EIO_D5"
+        },
+        {
+          "signal": "TRGMUX_OUT5",
+          "mux": "ALT7",
+          "raw": "TRGMUX_OUT5"
+        }
+      ]
+    },
+    {
+      "pin": "PE10",
+      "package_pin": 6,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "CLKOUT",
+          "mux": "ALT2",
+          "raw": "CLKOUT"
+        },
+        {
+          "signal": "SPI2_CS1",
+          "mux": "ALT3",
+          "raw": "SPI2_CS1"
+        },
+        {
+          "signal": "PWM2_CH4",
+          "mux": "ALT4",
+          "raw": "PWM2_CH4"
+        },
+        {
+          "signal": "SENT_SENT1A",
+          "mux": "ALT5",
+          "raw": "SENT_SENT1A"
+        },
+        {
+          "signal": "EIO_D4",
+          "mux": "ALT6",
+          "raw": "EIO_D4"
+        },
+        {
+          "signal": "TRGMUX_OUT4",
+          "mux": "ALT7",
+          "raw": "TRGMUX_OUT4"
+        }
+      ]
+    },
+    {
+      "pin": "PE13",
+      "package_pin": 7,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM4_CH5",
+          "mux": "ALT2",
+          "raw": "PWM4_CH5"
+        },
+        {
+          "signal": "SPI2_CS2",
+          "mux": "ALT3",
+          "raw": "SPI2_CS2"
+        },
+        {
+          "signal": "PWM2_FLT0",
+          "mux": "ALT4",
+          "raw": "PWM2_FLT0"
+        }
+      ]
+    },
+    {
+      "pin": "PE5",
+      "package_pin": 8,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM_CLK2",
+          "mux": "ALT2",
+          "raw": "PWM_CLK2"
+        },
+        {
+          "signal": "PWM2_CH0",
+          "mux": "ALT3",
+          "raw": "PWM2_CH0"
+        },
+        {
+          "signal": "PWM2_CH3",
+          "mux": "ALT4",
+          "raw": "PWM2_CH3"
+        },
+        {
+          "signal": "CAN0_TX",
+          "mux": "ALT5",
+          "raw": "CAN0_TX"
+        },
+        {
+          "signal": "EIO_D7",
+          "mux": "ALT6",
+          "raw": "EIO_D7"
+        },
+        {
+          "signal": "EWDG_IN",
+          "mux": "ALT7",
+          "raw": "EWDG_IN"
+        }
+      ]
+    },
+    {
+      "pin": "PE4",
+      "package_pin": 9,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM2_CH1",
+          "mux": "ALT3",
+          "raw": "PWM2_CH1"
+        },
+        {
+          "signal": "PWM2_CH2",
+          "mux": "ALT4",
+          "raw": "PWM2_CH2"
+        },
+        {
+          "signal": "CAN0_RX",
+          "mux": "ALT5",
+          "raw": "CAN0_RX"
+        },
+        {
+          "signal": "EIO_D6",
+          "mux": "ALT6",
+          "raw": "EIO_D6"
+        },
+        {
+          "signal": "EWDG_OUT_",
+          "mux": "ALT7",
+          "raw": "EWDG_OUT_b"
+        }
+      ]
+    },
+    {
+      "pin": "PA25",
+      "package_pin": 10,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM5_CH0",
+          "mux": "ALT2",
+          "raw": "PWM5_CH0"
+        }
+      ]
+    },
+    {
+      "pin": "PB7",
+      "package_pin": 17,
+      "functions": [
+        {
+          "signal": "XOSC_IN",
+          "mux": "ALT0",
+          "raw": "XOSC_IN"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "I2C0_SCL",
+          "mux": "ALT2",
+          "raw": "I2C0_SCL"
+        }
+      ]
+    },
+    {
+      "pin": "PB6",
+      "package_pin": 18,
+      "functions": [
+        {
+          "signal": "XOSC_OUT",
+          "mux": "ALT0",
+          "raw": "XOSC_OUT"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "I2C0_SDA",
+          "mux": "ALT2",
+          "raw": "I2C0_SDA"
+        }
+      ]
+    },
+    {
+      "pin": "PA26",
+      "package_pin": 19,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM5_CH1",
+          "mux": "ALT2",
+          "raw": "PWM5_CH1"
+        },
+        {
+          "signal": "SPI1_CS0",
+          "mux": "ALT3",
+          "raw": "SPI1_CS0"
+        },
+        {
+          "signal": "SPI0_CS0",
+          "mux": "ALT4",
+          "raw": "SPI0_CS0"
+        }
+      ]
+    },
+    {
+      "pin": "PE14",
+      "package_pin": 20,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_FLT1",
+          "mux": "ALT2",
+          "raw": "PWM0_FLT1"
+        },
+        {
+          "signal": "PWM2_FLT1",
+          "mux": "ALT4",
+          "raw": "PWM2_FLT1"
+        }
+      ]
+    },
+    {
+      "pin": "PE3",
+      "package_pin": 21,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_FLT0",
+          "mux": "ALT2",
+          "raw": "PWM0_FLT0"
+        },
+        {
+          "signal": "UART2_RTS",
+          "mux": "ALT3",
+          "raw": "UART2_RTS"
+        },
+        {
+          "signal": "PWM2_FLT0",
+          "mux": "ALT4",
+          "raw": "PWM2_FLT0"
+        },
+        {
+          "signal": "CAN3_TX",
+          "mux": "ALT5",
+          "raw": "CAN3_TX"
+        },
+        {
+          "signal": "TRGMUX_IN6",
+          "mux": "ALT6",
+          "raw": "TRGMUX_IN6"
+        },
+        {
+          "signal": "ACMP0_OUT",
+          "mux": "ALT7",
+          "raw": "ACMP0_OUT"
+        }
+      ]
+    },
+    {
+      "pin": "PA27",
+      "package_pin": 22,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM5_CH2",
+          "mux": "ALT2",
+          "raw": "PWM5_CH2"
+        },
+        {
+          "signal": "SPI1_SOUT",
+          "mux": "ALT3",
+          "raw": "SPI1_SOUT"
+        },
+        {
+          "signal": "UART0_TX",
+          "mux": "ALT4",
+          "raw": "UART0_TX"
+        },
+        {
+          "signal": "CAN0_TX",
+          "mux": "ALT5",
+          "raw": "CAN0_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PE12",
+      "package_pin": 23,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_FLT3",
+          "mux": "ALT2",
+          "raw": "PWM0_FLT3"
+        },
+        {
+          "signal": "UART2_TX",
+          "mux": "ALT3",
+          "raw": "UART2_TX"
+        },
+        {
+          "signal": "PWM5_FLT0",
+          "mux": "ALT4",
+          "raw": "PWM5_FLT0"
+        },
+        {
+          "signal": "CAN3_RX",
+          "mux": "ALT5",
+          "raw": "CAN3_RX"
+        },
+        {
+          "signal": "SPI3_CS3",
+          "mux": "ALT6",
+          "raw": "SPI3_CS3"
+        }
+      ]
+    },
+    {
+      "pin": "PA28",
+      "package_pin": 24,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM5_CH3",
+          "mux": "ALT2",
+          "raw": "PWM5_CH3"
+        },
+        {
+          "signal": "SPI1_SCK",
+          "mux": "ALT3",
+          "raw": "SPI1_SCK"
+        },
+        {
+          "signal": "UART0_RX",
+          "mux": "ALT4",
+          "raw": "UART0_RX"
+        },
+        {
+          "signal": "CAN0_RX",
+          "mux": "ALT5",
+          "raw": "CAN0_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PD17",
+      "package_pin": 25,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_FLT2",
+          "mux": "ALT2",
+          "raw": "PWM0_FLT2"
+        },
+        {
+          "signal": "UART2_RX",
+          "mux": "ALT3",
+          "raw": "UART2_RX"
+        },
+        {
+          "signal": "PWM5_FLT1",
+          "mux": "ALT4",
+          "raw": "PWM5_FLT1"
+        },
+        {
+          "signal": "CAN3_STB",
+          "mux": "ALT5",
+          "raw": "CAN3_STB"
+        },
+        {
+          "signal": "SPI3_CS2",
+          "mux": "ALT6",
+          "raw": "SPI3_CS2"
+        }
+      ]
+    },
+    {
+      "pin": "PA29",
+      "package_pin": 26,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM5_CH4",
+          "mux": "ALT2",
+          "raw": "PWM5_CH4"
+        },
+        {
+          "signal": "UART2_TX",
+          "mux": "ALT4",
+          "raw": "UART2_TX"
+        },
+        {
+          "signal": "SPI1_SIN",
+          "mux": "ALT5",
+          "raw": "SPI1_SIN"
+        }
+      ]
+    },
+    {
+      "pin": "PA30",
+      "package_pin": 27,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM5_CH5",
+          "mux": "ALT2",
+          "raw": "PWM5_CH5"
+        },
+        {
+          "signal": "UART2_RX",
+          "mux": "ALT3",
+          "raw": "UART2_RX"
+        },
+        {
+          "signal": "SPI0_SOUT",
+          "mux": "ALT4",
+          "raw": "SPI0_SOUT"
+        },
+        {
+          "signal": "CAN0_STB",
+          "mux": "ALT5",
+          "raw": "CAN0_STB"
+        }
+      ]
+    },
+    {
+      "pin": "PD16",
+      "package_pin": 28,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH1",
+          "mux": "ALT2",
+          "raw": "PWM0_CH1"
+        },
+        {
+          "signal": "SPI0_SIN",
+          "mux": "ALT4",
+          "raw": "SPI0_SIN"
+        },
+        {
+          "signal": "ACMP0_RRT",
+          "mux": "ALT5",
+          "raw": "ACMP0_RRT"
+        },
+        {
+          "signal": "CAN4_TX",
+          "mux": "ALT7",
+          "raw": "CAN4_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PD15",
+      "package_pin": 29,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH0",
+          "mux": "ALT2",
+          "raw": "PWM0_CH0"
+        },
+        {
+          "signal": "SPI0_SCK",
+          "mux": "ALT4",
+          "raw": "SPI0_SCK"
+        },
+        {
+          "signal": "CAN4_RX",
+          "mux": "ALT7",
+          "raw": "CAN4_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PE9",
+      "package_pin": 30,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH7",
+          "mux": "ALT2",
+          "raw": "PWM0_CH7"
+        },
+        {
+          "signal": "UART2_CTS",
+          "mux": "ALT3",
+          "raw": "UART2_CTS"
+        },
+        {
+          "signal": "CAN4_STB",
+          "mux": "ALT7",
+          "raw": "CAN4_STB"
+        }
+      ]
+    },
+    {
+      "pin": "PA31",
+      "package_pin": 33,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM5_CH6",
+          "mux": "ALT2",
+          "raw": "PWM5_CH6"
+        },
+        {
+          "signal": "SPI0_CS1",
+          "mux": "ALT4",
+          "raw": "SPI0_CS1"
+        }
+      ]
+    },
+    {
+      "pin": "PD14",
+      "package_pin": 34,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM2_CH5",
+          "mux": "ALT2",
+          "raw": "PWM2_CH5"
+        },
+        {
+          "signal": "UART1_TX",
+          "mux": "ALT3",
+          "raw": "UART1_TX"
+        },
+        {
+          "signal": "CLKOUT",
+          "mux": "ALT7",
+          "raw": "CLKOUT"
+        }
+      ]
+    },
+    {
+      "pin": "PD13",
+      "package_pin": 35,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM2_CH4",
+          "mux": "ALT2",
+          "raw": "PWM2_CH4"
+        },
+        {
+          "signal": "UART1_RX",
+          "mux": "ALT3",
+          "raw": "UART1_RX"
+        },
+        {
+          "signal": "RTC_CLKOUT",
+          "mux": "ALT7",
+          "raw": "RTC_CLKOUT"
+        }
+      ]
+    },
+    {
+      "pin": "PB18",
+      "package_pin": 36,
+      "functions": [
+        {
+          "signal": "ADC0_IN16",
+          "mux": "ALT0",
+          "raw": "ADC0_IN16"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM5_CH7",
+          "mux": "ALT2",
+          "raw": "PWM5_CH7"
+        },
+        {
+          "signal": "SPI1_CS1",
+          "mux": "ALT4",
+          "raw": "SPI1_CS1"
+        }
+      ]
+    },
+    {
+      "pin": "PB20",
+      "package_pin": 37,
+      "functions": [
+        {
+          "signal": "ADC0_IN17",
+          "mux": "ALT0",
+          "raw": "ADC0_IN17"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART3_TX",
+          "mux": "ALT4",
+          "raw": "UART3_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PB21",
+      "package_pin": 38,
+      "functions": [
+        {
+          "signal": "ADC0_IN18",
+          "mux": "ALT0",
+          "raw": "ADC0_IN18"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART3_RX",
+          "mux": "ALT4",
+          "raw": "UART3_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PE8",
+      "package_pin": 39,
+      "functions": [
+        {
+          "signal": "ACMP0_IN3",
+          "mux": "ALT0",
+          "raw": "ACMP0_IN3"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH6",
+          "mux": "ALT2",
+          "raw": "PWM0_CH6"
+        },
+        {
+          "signal": "CAN0_STB",
+          "mux": "ALT3",
+          "raw": "CAN0_STB"
+        },
+        {
+          "signal": "SPI3_CS1",
+          "mux": "ALT5",
+          "raw": "SPI3_CS1"
+        }
+      ]
+    },
+    {
+      "pin": "PB5",
+      "package_pin": 40,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH5",
+          "mux": "ALT2",
+          "raw": "PWM0_CH5"
+        },
+        {
+          "signal": "SPI0_CS1",
+          "mux": "ALT3",
+          "raw": "SPI0_CS1"
+        },
+        {
+          "signal": "SPI0_CS0",
+          "mux": "ALT4",
+          "raw": "SPI0_CS0"
+        },
+        {
+          "signal": "CLKOUT",
+          "mux": "ALT5",
+          "raw": "CLKOUT"
+        },
+        {
+          "signal": "TRGMUX_IN0",
+          "mux": "ALT6",
+          "raw": "TRGMUX_IN0"
+        }
+      ]
+    },
+    {
+      "pin": "PB4",
+      "package_pin": 41,
+      "functions": [
+        {
+          "signal": "DAC_OUT",
+          "mux": "ALT0",
+          "raw": "DAC_OUT"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH4",
+          "mux": "ALT2",
+          "raw": "PWM0_CH4"
+        },
+        {
+          "signal": "SPI0_SOUT",
+          "mux": "ALT3",
+          "raw": "SPI0_SOUT"
+        },
+        {
+          "signal": "TRGMUX_IN1",
+          "mux": "ALT6",
+          "raw": "TRGMUX_IN1"
+        }
+      ]
+    },
+    {
+      "pin": "PC3",
+      "package_pin": 42,
+      "functions": [
+        {
+          "signal": "ADC0_IN11",
+          "mux": "ALT0",
+          "raw": "ADC0_IN11/ACMP0_IN4"
+        },
+        {
+          "signal": "ACMP0_IN4",
+          "mux": "ALT0",
+          "raw": "ADC0_IN11/ACMP0_IN4"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH3",
+          "mux": "ALT2",
+          "raw": "PWM0_CH3"
+        },
+        {
+          "signal": "CAN0_TX",
+          "mux": "ALT3",
+          "raw": "CAN0_TX"
+        },
+        {
+          "signal": "UART0_TX",
+          "mux": "ALT4",
+          "raw": "UART0_TX"
+        },
+        {
+          "signal": "SPI3_CS0",
+          "mux": "ALT6",
+          "raw": "SPI3_CS0"
+        }
+      ]
+    },
+    {
+      "pin": "PC2",
+      "package_pin": 43,
+      "functions": [
+        {
+          "signal": "ADC0_IN10",
+          "mux": "ALT0",
+          "raw": "ADC0_IN10/ACMP0_IN5"
+        },
+        {
+          "signal": "ACMP0_IN5",
+          "mux": "ALT0",
+          "raw": "ADC0_IN10/ACMP0_IN5"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH2",
+          "mux": "ALT2",
+          "raw": "PWM0_CH2"
+        },
+        {
+          "signal": "CAN0_RX",
+          "mux": "ALT3",
+          "raw": "CAN0_RX"
+        },
+        {
+          "signal": "UART0_RX",
+          "mux": "ALT4",
+          "raw": "UART0_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PD7",
+      "package_pin": 44,
+      "functions": [
+        {
+          "signal": "ACMP0_IN6",
+          "mux": "ALT0",
+          "raw": "ACMP0_IN6"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART2_TX",
+          "mux": "ALT2",
+          "raw": "UART2_TX"
+        },
+        {
+          "signal": "PWM2_FLT3",
+          "mux": "ALT4",
+          "raw": "PWM2_FLT3"
+        }
+      ]
+    },
+    {
+      "pin": "PD6",
+      "package_pin": 45,
+      "functions": [
+        {
+          "signal": "ACMP0_IN7",
+          "mux": "ALT0",
+          "raw": "ACMP0_IN7"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART2_RX",
+          "mux": "ALT2",
+          "raw": "UART2_RX"
+        },
+        {
+          "signal": "PWM2_FLT2",
+          "mux": "ALT4",
+          "raw": "PWM2_FLT2"
+        }
+      ]
+    },
+    {
+      "pin": "PD5",
+      "package_pin": 46,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM2_CH3",
+          "mux": "ALT2",
+          "raw": "PWM2_CH3"
+        },
+        {
+          "signal": "PCT0_ALT2",
+          "mux": "ALT3",
+          "raw": "PCT0_ALT2"
+        },
+        {
+          "signal": "PWM2_FLT1",
+          "mux": "ALT4",
+          "raw": "PWM2_FLT1"
+        },
+        {
+          "signal": "TRGMUX_IN7",
+          "mux": "ALT6",
+          "raw": "TRGMUX_IN7"
+        }
+      ]
+    },
+    {
+      "pin": "PD12",
+      "package_pin": 47,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM2_CH2",
+          "mux": "ALT2",
+          "raw": "PWM2_CH2"
+        },
+        {
+          "signal": "UART2_RTS",
+          "mux": "ALT6",
+          "raw": "UART2_RTS"
+        },
+        {
+          "signal": "SPI3_CS2",
+          "mux": "ALT7",
+          "raw": "SPI3_CS2"
+        }
+      ]
+    },
+    {
+      "pin": "PD11",
+      "package_pin": 48,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM2_CH1",
+          "mux": "ALT2",
+          "raw": "PWM2_CH1"
+        },
+        {
+          "signal": "PWM2_CH0",
+          "mux": "ALT3",
+          "raw": "PWM2_CH0"
+        },
+        {
+          "signal": "UART2_CTS",
+          "mux": "ALT6",
+          "raw": "UART2_CTS"
+        },
+        {
+          "signal": "SPI3_SOUT",
+          "mux": "ALT7",
+          "raw": "SPI3_SOUT"
+        }
+      ]
+    },
+    {
+      "pin": "PD10",
+      "package_pin": 49,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM2_CH0",
+          "mux": "ALT2",
+          "raw": "PWM2_CH0"
+        },
+        {
+          "signal": "PWM2_CH1",
+          "mux": "ALT3",
+          "raw": "PWM2_CH1"
+        },
+        {
+          "signal": "CLKOUT",
+          "mux": "ALT6",
+          "raw": "CLKOUT"
+        },
+        {
+          "signal": "SPI3_SCK",
+          "mux": "ALT7",
+          "raw": "SPI3_SCK"
+        }
+      ]
+    },
+    {
+      "pin": "PC1",
+      "package_pin": 52,
+      "functions": [
+        {
+          "signal": "ADC0_IN9",
+          "mux": "ALT0",
+          "raw": "ADC0_IN9"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH1",
+          "mux": "ALT2",
+          "raw": "PWM0_CH1"
+        },
+        {
+          "signal": "SPI2_SOUT",
+          "mux": "ALT3",
+          "raw": "SPI2_SOUT"
+        },
+        {
+          "signal": "PWM1_CH7",
+          "mux": "ALT6",
+          "raw": "PWM1_CH7"
+        }
+      ]
+    },
+    {
+      "pin": "PC0",
+      "package_pin": 53,
+      "functions": [
+        {
+          "signal": "ADC0_IN8",
+          "mux": "ALT0",
+          "raw": "ADC0_IN8"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH0",
+          "mux": "ALT2",
+          "raw": "PWM0_CH0"
+        },
+        {
+          "signal": "SPI2_SIN",
+          "mux": "ALT3",
+          "raw": "SPI2_SIN"
+        },
+        {
+          "signal": "PWM1_CH6",
+          "mux": "ALT6",
+          "raw": "PWM1_CH6"
+        }
+      ]
+    },
+    {
+      "pin": "PD9",
+      "package_pin": 54,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "I2C1_SCL",
+          "mux": "ALT2",
+          "raw": "I2C1_SCL"
+        },
+        {
+          "signal": "EIO_D0",
+          "mux": "ALT3",
+          "raw": "EIO_D0"
+        },
+        {
+          "signal": "PWM2_FLT3",
+          "mux": "ALT4",
+          "raw": "PWM2_FLT3"
+        },
+        {
+          "signal": "PWM1_CH5",
+          "mux": "ALT6",
+          "raw": "PWM1_CH5"
+        }
+      ]
+    },
+    {
+      "pin": "PD8",
+      "package_pin": 55,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "I2C1_SDA",
+          "mux": "ALT2",
+          "raw": "I2C1_SDA"
+        },
+        {
+          "signal": "PWM2_FLT2",
+          "mux": "ALT4",
+          "raw": "PWM2_FLT2"
+        },
+        {
+          "signal": "EIO_D1",
+          "mux": "ALT5",
+          "raw": "EIO_D1"
+        },
+        {
+          "signal": "PWM1_CH4",
+          "mux": "ALT6",
+          "raw": "PWM1_CH4"
+        }
+      ]
+    },
+    {
+      "pin": "PC17",
+      "package_pin": 56,
+      "functions": [
+        {
+          "signal": "ADC0_IN15",
+          "mux": "ALT0",
+          "raw": "ADC0_IN15"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_FLT3",
+          "mux": "ALT2",
+          "raw": "PWM1_FLT3"
+        },
+        {
+          "signal": "CAN2_TX",
+          "mux": "ALT3",
+          "raw": "CAN2_TX"
+        },
+        {
+          "signal": "UART3_TX",
+          "mux": "ALT6",
+          "raw": "UART3_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PC16",
+      "package_pin": 57,
+      "functions": [
+        {
+          "signal": "ADC0_IN14",
+          "mux": "ALT0",
+          "raw": "ADC0_IN14"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_FLT2",
+          "mux": "ALT2",
+          "raw": "PWM1_FLT2"
+        },
+        {
+          "signal": "CAN2_RX",
+          "mux": "ALT3",
+          "raw": "CAN2_RX"
+        },
+        {
+          "signal": "UART3_RX",
+          "mux": "ALT6",
+          "raw": "UART3_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PB22",
+      "package_pin": 58,
+      "functions": [
+        {
+          "signal": "ADC0_IN19",
+          "mux": "ALT0",
+          "raw": "ADC0_IN19"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART1_TX",
+          "mux": "ALT5",
+          "raw": "UART1_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PC15",
+      "package_pin": 59,
+      "functions": [
+        {
+          "signal": "ADC0_IN13",
+          "mux": "ALT0",
+          "raw": "ADC0_IN13"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_CH3",
+          "mux": "ALT2",
+          "raw": "PWM1_CH3"
+        },
+        {
+          "signal": "SPI2_SCK",
+          "mux": "ALT3",
+          "raw": "SPI2_SCK"
+        },
+        {
+          "signal": "CAN2_STB",
+          "mux": "ALT5",
+          "raw": "CAN2_STB"
+        },
+        {
+          "signal": "TRGMUX_IN8",
+          "mux": "ALT6",
+          "raw": "TRGMUX_IN8"
+        }
+      ]
+    },
+    {
+      "pin": "PB23",
+      "package_pin": 60,
+      "functions": [
+        {
+          "signal": "ADC0_IN20",
+          "mux": "ALT0",
+          "raw": "ADC0_IN20"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART1_RX",
+          "mux": "ALT3",
+          "raw": "UART1_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PC14",
+      "package_pin": 61,
+      "functions": [
+        {
+          "signal": "ADC0_IN12",
+          "mux": "ALT0",
+          "raw": "ADC0_IN12"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_CH2",
+          "mux": "ALT2",
+          "raw": "PWM1_CH2"
+        },
+        {
+          "signal": "SPI2_CS0",
+          "mux": "ALT3",
+          "raw": "SPI2_CS0"
+        },
+        {
+          "signal": "TRGMUX_IN9",
+          "mux": "ALT6",
+          "raw": "TRGMUX_IN9"
+        }
+      ]
+    },
+    {
+      "pin": "PB25",
+      "package_pin": 62,
+      "functions": [
+        {
+          "signal": "ADC0_IN21",
+          "mux": "ALT0",
+          "raw": "ADC0_IN21"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "SPI2_CS0",
+          "mux": "ALT5",
+          "raw": "SPI2_CS0"
+        }
+      ]
+    },
+    {
+      "pin": "PB3",
+      "package_pin": 63,
+      "functions": [
+        {
+          "signal": "ADC0_IN7",
+          "mux": "ALT0",
+          "raw": "ADC0_IN7"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_CH1",
+          "mux": "ALT2",
+          "raw": "PWM1_CH1"
+        },
+        {
+          "signal": "SPI0_SIN",
+          "mux": "ALT3",
+          "raw": "SPI0_SIN"
+        },
+        {
+          "signal": "PWM1_CH0",
+          "mux": "ALT4",
+          "raw": "PWM1_CH0"
+        },
+        {
+          "signal": "PWM2_CH2",
+          "mux": "ALT5",
+          "raw": "PWM2_CH2"
+        },
+        {
+          "signal": "TRGMUX_IN2",
+          "mux": "ALT6",
+          "raw": "TRGMUX_IN2"
+        }
+      ]
+    },
+    {
+      "pin": "PB27",
+      "package_pin": 64,
+      "functions": [
+        {
+          "signal": "ADC0_IN22",
+          "mux": "ALT0",
+          "raw": "ADC0_IN22"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "SPI2_SOUT",
+          "mux": "ALT5",
+          "raw": "SPI2_SOUT"
+        }
+      ]
+    },
+    {
+      "pin": "PB28",
+      "package_pin": 65,
+      "functions": [
+        {
+          "signal": "ADC0_IN23",
+          "mux": "ALT0",
+          "raw": "ADC0_IN23"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "SPI2_SIN",
+          "mux": "ALT5",
+          "raw": "SPI2_SIN"
+        }
+      ]
+    },
+    {
+      "pin": "PB2",
+      "package_pin": 68,
+      "functions": [
+        {
+          "signal": "ADC0_IN6",
+          "mux": "ALT0",
+          "raw": "ADC0_IN6"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_CH0",
+          "mux": "ALT2",
+          "raw": "PWM1_CH0"
+        },
+        {
+          "signal": "SPI0_SCK",
+          "mux": "ALT3",
+          "raw": "SPI0_SCK"
+        },
+        {
+          "signal": "PWM1_CH1",
+          "mux": "ALT4",
+          "raw": "PWM1_CH1"
+        },
+        {
+          "signal": "TRGMUX_IN3",
+          "mux": "ALT6",
+          "raw": "TRGMUX_IN3"
+        }
+      ]
+    },
+    {
+      "pin": "PB29",
+      "package_pin": 69,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "SPI2_SCK",
+          "mux": "ALT5",
+          "raw": "SPI2_SCK"
+        }
+      ]
+    },
+    {
+      "pin": "PC13",
+      "package_pin": 70,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM3_CH7",
+          "mux": "ALT2",
+          "raw": "PWM3_CH7"
+        },
+        {
+          "signal": "PWM2_CH7",
+          "mux": "ALT3",
+          "raw": "PWM2_CH7"
+        },
+        {
+          "signal": "UART2_RTS",
+          "mux": "ALT4",
+          "raw": "UART2_RTS"
+        },
+        {
+          "signal": "CAN3_TX",
+          "mux": "ALT5",
+          "raw": "CAN3_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PC12",
+      "package_pin": 71,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM3_CH6",
+          "mux": "ALT2",
+          "raw": "PWM3_CH6"
+        },
+        {
+          "signal": "PWM2_CH6",
+          "mux": "ALT3",
+          "raw": "PWM2_CH6"
+        },
+        {
+          "signal": "UART2_CTS",
+          "mux": "ALT4",
+          "raw": "UART2_CTS"
+        },
+        {
+          "signal": "CAN3_RX",
+          "mux": "ALT5",
+          "raw": "CAN3_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PC19",
+      "package_pin": 72,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "SPI2_CS1",
+          "mux": "ALT5",
+          "raw": "SPI2_CS1"
+        }
+      ]
+    },
+    {
+      "pin": "PC23",
+      "package_pin": 73,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "SPI0_SCK",
+          "mux": "ALT2",
+          "raw": "SPI0_SCK"
+        }
+      ]
+    },
+    {
+      "pin": "PC11",
+      "package_pin": 74,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM3_CH5",
+          "mux": "ALT2",
+          "raw": "PWM3_CH5"
+        },
+        {
+          "signal": "PWM4_CH2",
+          "mux": "ALT3",
+          "raw": "PWM4_CH2"
+        },
+        {
+          "signal": "SENT_SENT0B",
+          "mux": "ALT4",
+          "raw": "SENT_SENT0B"
+        },
+        {
+          "signal": "CAN3_STB",
+          "mux": "ALT5",
+          "raw": "CAN3_STB"
+        },
+        {
+          "signal": "TRGMUX_IN10",
+          "mux": "ALT6",
+          "raw": "TRGMUX_IN10"
+        }
+      ]
+    },
+    {
+      "pin": "PC10",
+      "package_pin": 75,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM3_CH4",
+          "mux": "ALT2",
+          "raw": "PWM3_CH4"
+        },
+        {
+          "signal": "SENT_SENT1B",
+          "mux": "ALT5",
+          "raw": "SENT_SENT1B"
+        },
+        {
+          "signal": "TRGMUX_IN11",
+          "mux": "ALT6",
+          "raw": "TRGMUX_IN11"
+        }
+      ]
+    },
+    {
+      "pin": "PC27",
+      "package_pin": 76,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM4_CH4",
+          "mux": "ALT2",
+          "raw": "PWM4_CH4"
+        },
+        {
+          "signal": "SPI3_SOUT",
+          "mux": "ALT6",
+          "raw": "SPI3_SOUT"
+        }
+      ]
+    },
+    {
+      "pin": "PB1",
+      "package_pin": 77,
+      "functions": [
+        {
+          "signal": "ADC0_IN5",
+          "mux": "ALT0",
+          "raw": "ADC0_IN5/ADC1_INTERLEAVE1"
+        },
+        {
+          "signal": "ADC1_INTERLEAVE1",
+          "mux": "ALT0",
+          "raw": "ADC0_IN5/ADC1_INTERLEAVE1"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART0_TX",
+          "mux": "ALT2",
+          "raw": "UART0_TX"
+        },
+        {
+          "signal": "SPI0_SOUT",
+          "mux": "ALT3",
+          "raw": "SPI0_SOUT"
+        },
+        {
+          "signal": "PWM_CLK0",
+          "mux": "ALT4",
+          "raw": "PWM_CLK0"
+        },
+        {
+          "signal": "CAN0_TX",
+          "mux": "ALT5",
+          "raw": "CAN0_TX"
+        },
+        {
+          "signal": "PWM4_CH5",
+          "mux": "ALT6",
+          "raw": "PWM4_CH5"
+        }
+      ]
+    },
+    {
+      "pin": "PB0",
+      "package_pin": 78,
+      "functions": [
+        {
+          "signal": "ADC0_IN4",
+          "mux": "ALT0",
+          "raw": "ADC0_IN4/ADC1_INTERLEAVE0"
+        },
+        {
+          "signal": "ADC1_INTERLEAVE0",
+          "mux": "ALT0",
+          "raw": "ADC0_IN4/ADC1_INTERLEAVE0"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART0_RX",
+          "mux": "ALT2",
+          "raw": "UART0_RX"
+        },
+        {
+          "signal": "SPI0_CS0",
+          "mux": "ALT3",
+          "raw": "SPI0_CS0"
+        },
+        {
+          "signal": "PCT0_ALT3",
+          "mux": "ALT4",
+          "raw": "PCT0_ALT3"
+        },
+        {
+          "signal": "CAN0_RX",
+          "mux": "ALT5",
+          "raw": "CAN0_RX"
+        },
+        {
+          "signal": "PWM4_CH6",
+          "mux": "ALT6",
+          "raw": "PWM4_CH6"
+        }
+      ]
+    },
+    {
+      "pin": "PC28",
+      "package_pin": 79,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM4_CH7",
+          "mux": "ALT2",
+          "raw": "PWM4_CH7"
+        },
+        {
+          "signal": "SPI3_SIN",
+          "mux": "ALT6",
+          "raw": "SPI3_SIN"
+        }
+      ]
+    },
+    {
+      "pin": "PC9",
+      "package_pin": 80,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART1_TX",
+          "mux": "ALT2",
+          "raw": "UART1_TX"
+        },
+        {
+          "signal": "PWM1_FLT1",
+          "mux": "ALT3",
+          "raw": "PWM1_FLT1"
+        },
+        {
+          "signal": "PWM5_CH0",
+          "mux": "ALT4",
+          "raw": "PWM5_CH0"
+        },
+        {
+          "signal": "CAN0_STB",
+          "mux": "ALT5",
+          "raw": "CAN0_STB"
+        },
+        {
+          "signal": "UART0_RTS",
+          "mux": "ALT6",
+          "raw": "UART0_RTS"
+        }
+      ]
+    },
+    {
+      "pin": "PC8",
+      "package_pin": 81,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART1_RX",
+          "mux": "ALT2",
+          "raw": "UART1_RX"
+        },
+        {
+          "signal": "PWM1_FLT0",
+          "mux": "ALT3",
+          "raw": "PWM1_FLT0"
+        },
+        {
+          "signal": "PWM5_CH1",
+          "mux": "ALT4",
+          "raw": "PWM5_CH1"
+        },
+        {
+          "signal": "UART0_CTS",
+          "mux": "ALT6",
+          "raw": "UART0_CTS"
+        }
+      ]
+    },
+    {
+      "pin": "PC29",
+      "package_pin": 82,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM5_CH2",
+          "mux": "ALT2",
+          "raw": "PWM5_CH2"
+        },
+        {
+          "signal": "SPI3_SCK",
+          "mux": "ALT6",
+          "raw": "SPI3_SCK"
+        }
+      ]
+    },
+    {
+      "pin": "PA7",
+      "package_pin": 83,
+      "functions": [
+        {
+          "signal": "ADC0_IN3",
+          "mux": "ALT0",
+          "raw": "ADC0_IN3"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_FLT2",
+          "mux": "ALT2",
+          "raw": "PWM0_FLT2"
+        },
+        {
+          "signal": "PWM5_CH3",
+          "mux": "ALT3",
+          "raw": "PWM5_CH3"
+        },
+        {
+          "signal": "RTC_CLKIN",
+          "mux": "ALT4",
+          "raw": "RTC_CLKIN"
+        },
+        {
+          "signal": "UART1_RTS",
+          "mux": "ALT6",
+          "raw": "UART1_RTS"
+        },
+        {
+          "signal": "CAN4_TX",
+          "mux": "ALT7",
+          "raw": "CAN4_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PC30",
+      "package_pin": 84,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM5_CH4",
+          "mux": "ALT2",
+          "raw": "PWM5_CH4"
+        },
+        {
+          "signal": "EIO_D0",
+          "mux": "ALT3",
+          "raw": "EIO_D0"
+        },
+        {
+          "signal": "SPI3_CS0",
+          "mux": "ALT6",
+          "raw": "SPI3_CS0"
+        }
+      ]
+    },
+    {
+      "pin": "PA6",
+      "package_pin": 85,
+      "functions": [
+        {
+          "signal": "ADC0_IN2",
+          "mux": "ALT0",
+          "raw": "ADC0_IN2"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_FLT1",
+          "mux": "ALT2",
+          "raw": "PWM0_FLT1"
+        },
+        {
+          "signal": "SPI1_CS1",
+          "mux": "ALT3",
+          "raw": "SPI1_CS1"
+        },
+        {
+          "signal": "PWM5_CH5",
+          "mux": "ALT4",
+          "raw": "PWM5_CH5"
+        },
+        {
+          "signal": "UART1_CTS",
+          "mux": "ALT6",
+          "raw": "UART1_CTS"
+        },
+        {
+          "signal": "CAN4_RX",
+          "mux": "ALT7",
+          "raw": "CAN4_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PC31",
+      "package_pin": 86,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM5_CH6",
+          "mux": "ALT2",
+          "raw": "PWM5_CH6"
+        },
+        {
+          "signal": "EIO_D1",
+          "mux": "ALT3",
+          "raw": "EIO_D1"
+        },
+        {
+          "signal": "I2C1_SDA",
+          "mux": "ALT4",
+          "raw": "I2C1_SDA"
+        },
+        {
+          "signal": "SPI3_CS1",
+          "mux": "ALT6",
+          "raw": "SPI3_CS1"
+        }
+      ]
+    },
+    {
+      "pin": "PE7",
+      "package_pin": 87,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH7",
+          "mux": "ALT2",
+          "raw": "PWM0_CH7"
+        },
+        {
+          "signal": "PWM3_FLT0",
+          "mux": "ALT3",
+          "raw": "PWM3_FLT0"
+        },
+        {
+          "signal": "CAN4_STB",
+          "mux": "ALT7",
+          "raw": "CAN4_STB"
+        }
+      ]
+    },
+    {
+      "pin": "PD18",
+      "package_pin": 88,
+      "functions": [
+        {
+          "signal": "ADC1_IN16",
+          "mux": "ALT0",
+          "raw": "ADC1_IN16"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM5_CH7",
+          "mux": "ALT2",
+          "raw": "PWM5_CH7"
+        },
+        {
+          "signal": "EIO_D2",
+          "mux": "ALT3",
+          "raw": "EIO_D2"
+        },
+        {
+          "signal": "SPI3_CS2",
+          "mux": "ALT6",
+          "raw": "SPI3_CS2"
+        }
+      ]
+    },
+    {
+      "pin": "PD19",
+      "package_pin": 89,
+      "functions": [
+        {
+          "signal": "ADC1_IN17",
+          "mux": "ALT0",
+          "raw": "ADC1_IN17"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "EIO_D3",
+          "mux": "ALT3",
+          "raw": "EIO_D3"
+        },
+        {
+          "signal": "I2C1_SCL",
+          "mux": "ALT4",
+          "raw": "I2C1_SCL"
+        },
+        {
+          "signal": "SPI3_CS3",
+          "mux": "ALT6",
+          "raw": "SPI3_CS3"
+        }
+      ]
+    },
+    {
+      "pin": "PA17",
+      "package_pin": 92,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH6",
+          "mux": "ALT2",
+          "raw": "PWM0_CH6"
+        },
+        {
+          "signal": "PWM3_FLT0",
+          "mux": "ALT3",
+          "raw": "PWM3_FLT0"
+        },
+        {
+          "signal": "EWDG_OUT_",
+          "mux": "ALT4",
+          "raw": "EWDG_OUT_b"
+        },
+        {
+          "signal": "PWM5_FLT0",
+          "mux": "ALT5",
+          "raw": "PWM5_FLT0"
+        },
+        {
+          "signal": "SENT_SENT0A",
+          "mux": "ALT7",
+          "raw": "SENT_SENT0A"
+        }
+      ]
+    },
+    {
+      "pin": "PB17",
+      "package_pin": 93,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH5",
+          "mux": "ALT2",
+          "raw": "PWM0_CH5"
+        },
+        {
+          "signal": "SPI1_CS3",
+          "mux": "ALT3",
+          "raw": "SPI1_CS3"
+        },
+        {
+          "signal": "PWM5_FLT1",
+          "mux": "ALT4",
+          "raw": "PWM5_FLT1"
+        },
+        {
+          "signal": "SENT_SENT0B",
+          "mux": "ALT7",
+          "raw": "SENT_SENT0B"
+        }
+      ]
+    },
+    {
+      "pin": "PB16",
+      "package_pin": 94,
+      "functions": [
+        {
+          "signal": "ADC1_IN15",
+          "mux": "ALT0",
+          "raw": "ADC1_IN15"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH4",
+          "mux": "ALT2",
+          "raw": "PWM0_CH4"
+        },
+        {
+          "signal": "SPI1_SOUT",
+          "mux": "ALT3",
+          "raw": "SPI1_SOUT"
+        },
+        {
+          "signal": "UART3_TX",
+          "mux": "ALT4",
+          "raw": "UART3_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PB15",
+      "package_pin": 95,
+      "functions": [
+        {
+          "signal": "ADC1_IN14",
+          "mux": "ALT0",
+          "raw": "ADC1_IN14"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH3",
+          "mux": "ALT2",
+          "raw": "PWM0_CH3"
+        },
+        {
+          "signal": "SPI1_SIN",
+          "mux": "ALT3",
+          "raw": "SPI1_SIN"
+        },
+        {
+          "signal": "UART3_RX",
+          "mux": "ALT4",
+          "raw": "UART3_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PB14",
+      "package_pin": 96,
+      "functions": [
+        {
+          "signal": "ADC1_IN9",
+          "mux": "ALT0",
+          "raw": "ADC1_IN9/ADC0_INTERLEAVE1"
+        },
+        {
+          "signal": "ADC0_INTERLEAVE1",
+          "mux": "ALT0",
+          "raw": "ADC1_IN9/ADC0_INTERLEAVE1"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH2",
+          "mux": "ALT2",
+          "raw": "PWM0_CH2"
+        },
+        {
+          "signal": "SPI1_SCK",
+          "mux": "ALT3",
+          "raw": "SPI1_SCK"
+        }
+      ]
+    },
+    {
+      "pin": "PB13",
+      "package_pin": 97,
+      "functions": [
+        {
+          "signal": "ADC1_IN8",
+          "mux": "ALT0",
+          "raw": "ADC1_IN8/ADC0_INTERLEAVE0"
+        },
+        {
+          "signal": "ADC0_INTERLEAVE0",
+          "mux": "ALT0",
+          "raw": "ADC1_IN8/ADC0_INTERLEAVE0"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH1",
+          "mux": "ALT2",
+          "raw": "PWM0_CH1"
+        },
+        {
+          "signal": "PWM3_FLT1",
+          "mux": "ALT3",
+          "raw": "PWM3_FLT1"
+        },
+        {
+          "signal": "CAN2_TX",
+          "mux": "ALT4",
+          "raw": "CAN2_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PB12",
+      "package_pin": 98,
+      "functions": [
+        {
+          "signal": "ADC1_IN7",
+          "mux": "ALT0",
+          "raw": "ADC1_IN7"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_CH0",
+          "mux": "ALT2",
+          "raw": "PWM0_CH0"
+        },
+        {
+          "signal": "PWM3_FLT2",
+          "mux": "ALT3",
+          "raw": "PWM3_FLT2"
+        },
+        {
+          "signal": "CAN2_RX",
+          "mux": "ALT4",
+          "raw": "CAN2_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PD22",
+      "package_pin": 99,
+      "functions": [
+        {
+          "signal": "ADC1_IN18",
+          "mux": "ALT0",
+          "raw": "ADC1_IN18"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "CAN3_TX",
+          "mux": "ALT4",
+          "raw": "CAN3_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PD4",
+      "package_pin": 100,
+      "functions": [
+        {
+          "signal": "ADC1_IN6",
+          "mux": "ALT0",
+          "raw": "ADC1_IN6"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_FLT3",
+          "mux": "ALT2",
+          "raw": "PWM0_FLT3"
+        },
+        {
+          "signal": "PWM3_FLT3",
+          "mux": "ALT3",
+          "raw": "PWM3_FLT3"
+        },
+        {
+          "signal": "SPI3_CS0",
+          "mux": "ALT4",
+          "raw": "SPI3_CS0"
+        },
+        {
+          "signal": "CAN2_STB",
+          "mux": "ALT5",
+          "raw": "CAN2_STB"
+        },
+        {
+          "signal": "SENT_SENT1A",
+          "mux": "ALT7",
+          "raw": "SENT_SENT1A"
+        }
+      ]
+    },
+    {
+      "pin": "PD3",
+      "package_pin": 101,
+      "functions": [
+        {
+          "signal": "ADC1_IN3",
+          "mux": "ALT0",
+          "raw": "ADC1_IN3"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM3_CH5",
+          "mux": "ALT2",
+          "raw": "PWM3_CH5"
+        },
+        {
+          "signal": "SPI1_CS0",
+          "mux": "ALT3",
+          "raw": "SPI1_CS0"
+        },
+        {
+          "signal": "EIO_D5",
+          "mux": "ALT4",
+          "raw": "EIO_D5"
+        },
+        {
+          "signal": "EIO_D7",
+          "mux": "ALT5",
+          "raw": "EIO_D7"
+        },
+        {
+          "signal": "TRGMUX_IN4",
+          "mux": "ALT6",
+          "raw": "TRGMUX_IN4"
+        },
+        {
+          "signal": "NMI_",
+          "mux": "ALT7",
+          "raw": "NMI_b"
+        }
+      ]
+    },
+    {
+      "pin": "PD2",
+      "package_pin": 102,
+      "functions": [
+        {
+          "signal": "ADC1_IN2",
+          "mux": "ALT0",
+          "raw": "ADC1_IN2"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM3_CH4",
+          "mux": "ALT2",
+          "raw": "PWM3_CH4"
+        },
+        {
+          "signal": "SPI1_SOUT",
+          "mux": "ALT3",
+          "raw": "SPI1_SOUT"
+        },
+        {
+          "signal": "EIO_D4",
+          "mux": "ALT4",
+          "raw": "EIO_D4"
+        },
+        {
+          "signal": "EIO_D6",
+          "mux": "ALT5",
+          "raw": "EIO_D6"
+        },
+        {
+          "signal": "TRGMUX_IN5",
+          "mux": "ALT6",
+          "raw": "TRGMUX_IN5"
+        },
+        {
+          "signal": "SENT_SENT1B",
+          "mux": "ALT7",
+          "raw": "SENT_SENT1B"
+        }
+      ]
+    },
+    {
+      "pin": "PD23",
+      "package_pin": 103,
+      "functions": [
+        {
+          "signal": "ADC1_IN19",
+          "mux": "ALT0",
+          "raw": "ADC1_IN19"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "CAN3_RX",
+          "mux": "ALT4",
+          "raw": "CAN3_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PA3",
+      "package_pin": 104,
+      "functions": [
+        {
+          "signal": "ADC1_IN1",
+          "mux": "ALT0",
+          "raw": "ADC1_IN1"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM3_CH1",
+          "mux": "ALT2",
+          "raw": "PWM3_CH1"
+        },
+        {
+          "signal": "I2C0_SCL",
+          "mux": "ALT3",
+          "raw": "I2C0_SCL"
+        },
+        {
+          "signal": "EWDG_IN",
+          "mux": "ALT4",
+          "raw": "EWDG_IN"
+        },
+        {
+          "signal": "EIO_D5",
+          "mux": "ALT5",
+          "raw": "EIO_D5"
+        },
+        {
+          "signal": "UART0_TX",
+          "mux": "ALT6",
+          "raw": "UART0_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PA2",
+      "package_pin": 105,
+      "functions": [
+        {
+          "signal": "ADC1_IN0",
+          "mux": "ALT0",
+          "raw": "ADC1_IN0"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM3_CH0",
+          "mux": "ALT2",
+          "raw": "PWM3_CH0"
+        },
+        {
+          "signal": "I2C0_SDA",
+          "mux": "ALT3",
+          "raw": "I2C0_SDA"
+        },
+        {
+          "signal": "EWDG_OUT_",
+          "mux": "ALT4",
+          "raw": "EWDG_OUT_b"
+        },
+        {
+          "signal": "EIO_D4",
+          "mux": "ALT5",
+          "raw": "EIO_D4"
+        },
+        {
+          "signal": "UART0_RX",
+          "mux": "ALT6",
+          "raw": "UART0_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PD24",
+      "package_pin": 106,
+      "functions": [
+        {
+          "signal": "ADC1_IN20",
+          "mux": "ALT0",
+          "raw": "ADC1_IN20"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "CAN3_STB",
+          "mux": "ALT4",
+          "raw": "CAN3_STB"
+        },
+        {
+          "signal": "SENT_SENT1A",
+          "mux": "ALT5",
+          "raw": "SENT_SENT1A"
+        }
+      ]
+    },
+    {
+      "pin": "PB11",
+      "package_pin": 107,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM3_CH3",
+          "mux": "ALT2",
+          "raw": "PWM3_CH3"
+        }
+      ]
+    },
+    {
+      "pin": "PB10",
+      "package_pin": 108,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM3_CH2",
+          "mux": "ALT2",
+          "raw": "PWM3_CH2"
+        },
+        {
+          "signal": "I2C0_SDA",
+          "mux": "ALT3",
+          "raw": "I2C0_SDA"
+        },
+        {
+          "signal": "UART3_TX",
+          "mux": "ALT5",
+          "raw": "UART3_TX"
+        },
+        {
+          "signal": "CAN5_TX",
+          "mux": "ALT7",
+          "raw": "CAN5_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PB9",
+      "package_pin": 109,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM3_CH1",
+          "mux": "ALT2",
+          "raw": "PWM3_CH1"
+        },
+        {
+          "signal": "I2C0_SCL",
+          "mux": "ALT3",
+          "raw": "I2C0_SCL"
+        },
+        {
+          "signal": "UART3_RX",
+          "mux": "ALT5",
+          "raw": "UART3_RX"
+        },
+        {
+          "signal": "CAN5_RX",
+          "mux": "ALT7",
+          "raw": "CAN5_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PD27",
+      "package_pin": 110,
+      "functions": [
+        {
+          "signal": "ADC1_IN21",
+          "mux": "ALT0",
+          "raw": "ADC1_IN21"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "CAN4_TX",
+          "mux": "ALT4",
+          "raw": "CAN4_TX"
+        },
+        {
+          "signal": "SENT_SENT1B",
+          "mux": "ALT5",
+          "raw": "SENT_SENT1B"
+        }
+      ]
+    },
+    {
+      "pin": "PB8",
+      "package_pin": 111,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM3_CH0",
+          "mux": "ALT2",
+          "raw": "PWM3_CH0"
+        },
+        {
+          "signal": "SPI3_SCK",
+          "mux": "ALT3",
+          "raw": "SPI3_SCK"
+        },
+        {
+          "signal": "CAN5_STB",
+          "mux": "ALT7",
+          "raw": "CAN5_STB"
+        }
+      ]
+    },
+    {
+      "pin": "PD28",
+      "package_pin": 112,
+      "functions": [
+        {
+          "signal": "ADC1_IN22",
+          "mux": "ALT0",
+          "raw": "ADC1_IN22"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "CAN4_RX",
+          "mux": "ALT4",
+          "raw": "CAN4_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PA1",
+      "package_pin": 113,
+      "functions": [
+        {
+          "signal": "ADC0_IN1",
+          "mux": "ALT0",
+          "raw": "ADC0_IN1/ACMP0_IN1"
+        },
+        {
+          "signal": "ACMP0_IN1",
+          "mux": "ALT0",
+          "raw": "ADC0_IN1/ACMP0_IN1"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_CH1",
+          "mux": "ALT2",
+          "raw": "PWM1_CH1"
+        },
+        {
+          "signal": "PWM2_CH2",
+          "mux": "ALT3",
+          "raw": "PWM2_CH2"
+        },
+        {
+          "signal": "EIO_D3",
+          "mux": "ALT4",
+          "raw": "EIO_D3"
+        },
+        {
+          "signal": "PWM1_CH0",
+          "mux": "ALT5",
+          "raw": "PWM1_CH0"
+        },
+        {
+          "signal": "UART0_RTS",
+          "mux": "ALT6",
+          "raw": "UART0_RTS"
+        },
+        {
+          "signal": "TRGMUX_OUT0",
+          "mux": "ALT7",
+          "raw": "TRGMUX_OUT0"
+        }
+      ]
+    },
+    {
+      "pin": "PD29",
+      "package_pin": 114,
+      "functions": [
+        {
+          "signal": "ADC1_IN23",
+          "mux": "ALT0",
+          "raw": "ADC1_IN23"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "CAN4_STB",
+          "mux": "ALT4",
+          "raw": "CAN4_STB"
+        },
+        {
+          "signal": "SENT_SENT0A",
+          "mux": "ALT5",
+          "raw": "SENT_SENT0A"
+        }
+      ]
+    },
+    {
+      "pin": "PA0",
+      "package_pin": 115,
+      "functions": [
+        {
+          "signal": "ADC0_IN0",
+          "mux": "ALT0",
+          "raw": "ADC0_IN0/ACMP0_IN0"
+        },
+        {
+          "signal": "ACMP0_IN0",
+          "mux": "ALT0",
+          "raw": "ADC0_IN0/ACMP0_IN0"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM2_CH1",
+          "mux": "ALT2",
+          "raw": "PWM2_CH1"
+        },
+        {
+          "signal": "SPI3_SIN",
+          "mux": "ALT3",
+          "raw": "SPI3_SIN"
+        },
+        {
+          "signal": "EIO_D2",
+          "mux": "ALT4",
+          "raw": "EIO_D2"
+        },
+        {
+          "signal": "PWM2_CH0",
+          "mux": "ALT5",
+          "raw": "PWM2_CH0"
+        },
+        {
+          "signal": "UART0_CTS",
+          "mux": "ALT6",
+          "raw": "UART0_CTS"
+        },
+        {
+          "signal": "TRGMUX_OUT3",
+          "mux": "ALT7",
+          "raw": "TRGMUX_OUT3"
+        }
+      ]
+    },
+    {
+      "pin": "PD30",
+      "package_pin": 116,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "SENT_SENT0B",
+          "mux": "ALT5",
+          "raw": "SENT_SENT0B"
+        }
+      ]
+    },
+    {
+      "pin": "PC7",
+      "package_pin": 117,
+      "functions": [
+        {
+          "signal": "ADC1_IN5",
+          "mux": "ALT0",
+          "raw": "ADC1_IN5"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART1_TX",
+          "mux": "ALT2",
+          "raw": "UART1_TX"
+        },
+        {
+          "signal": "CAN1_TX",
+          "mux": "ALT3",
+          "raw": "CAN1_TX"
+        },
+        {
+          "signal": "PWM3_CH3",
+          "mux": "ALT4",
+          "raw": "PWM3_CH3"
+        },
+        {
+          "signal": "PWM1_CH0",
+          "mux": "ALT6",
+          "raw": "PWM1_CH0"
+        }
+      ]
+    },
+    {
+      "pin": "PC6",
+      "package_pin": 118,
+      "functions": [
+        {
+          "signal": "ADC1_IN4",
+          "mux": "ALT0",
+          "raw": "ADC1_IN4"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART1_RX",
+          "mux": "ALT2",
+          "raw": "UART1_RX"
+        },
+        {
+          "signal": "CAN1_RX",
+          "mux": "ALT3",
+          "raw": "CAN1_RX"
+        },
+        {
+          "signal": "PWM3_CH2",
+          "mux": "ALT4",
+          "raw": "PWM3_CH2"
+        },
+        {
+          "signal": "PWM1_CH1",
+          "mux": "ALT6",
+          "raw": "PWM1_CH1"
+        }
+      ]
+    },
+    {
+      "pin": "PA16",
+      "package_pin": 119,
+      "functions": [
+        {
+          "signal": "ADC1_IN13",
+          "mux": "ALT0",
+          "raw": "ADC1_IN13"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_CH3",
+          "mux": "ALT2",
+          "raw": "PWM1_CH3"
+        },
+        {
+          "signal": "SPI1_CS2",
+          "mux": "ALT3",
+          "raw": "SPI1_CS2"
+        },
+        {
+          "signal": "CAN5_TX",
+          "mux": "ALT7",
+          "raw": "CAN5_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PA15",
+      "package_pin": 120,
+      "functions": [
+        {
+          "signal": "ADC1_IN12",
+          "mux": "ALT0",
+          "raw": "ADC1_IN12"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_CH2",
+          "mux": "ALT2",
+          "raw": "PWM1_CH2"
+        },
+        {
+          "signal": "SPI0_CS3",
+          "mux": "ALT3",
+          "raw": "SPI0_CS3"
+        },
+        {
+          "signal": "SPI2_CS3",
+          "mux": "ALT4",
+          "raw": "SPI2_CS3"
+        },
+        {
+          "signal": "CAN5_RX",
+          "mux": "ALT7",
+          "raw": "CAN5_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PE6",
+      "package_pin": 121,
+      "functions": [
+        {
+          "signal": "ADC1_IN11",
+          "mux": "ALT0",
+          "raw": "ADC1_IN11"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "SPI0_CS2",
+          "mux": "ALT2",
+          "raw": "SPI0_CS2"
+        },
+        {
+          "signal": "PWM3_CH7",
+          "mux": "ALT4",
+          "raw": "PWM3_CH7"
+        },
+        {
+          "signal": "CAN1_STB",
+          "mux": "ALT5",
+          "raw": "CAN1_STB"
+        },
+        {
+          "signal": "UART1_RTS",
+          "mux": "ALT6",
+          "raw": "UART1_RTS"
+        },
+        {
+          "signal": "CAN5_STB",
+          "mux": "ALT7",
+          "raw": "CAN5_STB"
+        }
+      ]
+    },
+    {
+      "pin": "PE2",
+      "package_pin": 122,
+      "functions": [
+        {
+          "signal": "ADC1_IN10",
+          "mux": "ALT0",
+          "raw": "ADC1_IN10"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "SPI0_SOUT",
+          "mux": "ALT2",
+          "raw": "SPI0_SOUT"
+        },
+        {
+          "signal": "PCT0_ALT3",
+          "mux": "ALT3",
+          "raw": "PCT0_ALT3"
+        },
+        {
+          "signal": "PWM3_CH6",
+          "mux": "ALT4",
+          "raw": "PWM3_CH6"
+        },
+        {
+          "signal": "UART1_CTS",
+          "mux": "ALT6",
+          "raw": "UART1_CTS"
+        }
+      ]
+    },
+    {
+      "pin": "PE19",
+      "package_pin": 125,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        }
+      ]
+    },
+    {
+      "pin": "PE20",
+      "package_pin": 126,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM4_CH0",
+          "mux": "ALT2",
+          "raw": "PWM4_CH0"
+        },
+        {
+          "signal": "CAN5_TX",
+          "mux": "ALT3",
+          "raw": "CAN5_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PA14",
+      "package_pin": 127,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM0_FLT0",
+          "mux": "ALT2",
+          "raw": "PWM0_FLT0"
+        },
+        {
+          "signal": "PWM3_FLT1",
+          "mux": "ALT3",
+          "raw": "PWM3_FLT1"
+        },
+        {
+          "signal": "EWDG_IN",
+          "mux": "ALT4",
+          "raw": "EWDG_IN"
+        },
+        {
+          "signal": "SPI3_SOUT",
+          "mux": "ALT5",
+          "raw": "SPI3_SOUT"
+        },
+        {
+          "signal": "PWM1_FLT0",
+          "mux": "ALT6",
+          "raw": "PWM1_FLT0"
+        }
+      ]
+    },
+    {
+      "pin": "PE21",
+      "package_pin": 128,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM4_CH1",
+          "mux": "ALT2",
+          "raw": "PWM4_CH1"
+        },
+        {
+          "signal": "CAN5_RX",
+          "mux": "ALT3",
+          "raw": "CAN5_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PE22",
+      "package_pin": 129,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM4_CH2",
+          "mux": "ALT2",
+          "raw": "PWM4_CH2"
+        },
+        {
+          "signal": "CAN5_STB",
+          "mux": "ALT3",
+          "raw": "CAN5_STB"
+        }
+      ]
+    },
+    {
+      "pin": "PA13",
+      "package_pin": 130,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_CH7",
+          "mux": "ALT2",
+          "raw": "PWM1_CH7"
+        },
+        {
+          "signal": "CAN1_TX",
+          "mux": "ALT3",
+          "raw": "CAN1_TX"
+        },
+        {
+          "signal": "PWM2_CH0",
+          "mux": "ALT6",
+          "raw": "PWM2_CH0"
+        }
+      ]
+    },
+    {
+      "pin": "PE23",
+      "package_pin": 131,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM4_CH3",
+          "mux": "ALT2",
+          "raw": "PWM4_CH3"
+        },
+        {
+          "signal": "CAN2_STB",
+          "mux": "ALT3",
+          "raw": "CAN2_STB"
+        }
+      ]
+    },
+    {
+      "pin": "PE24",
+      "package_pin": 132,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM4_CH4",
+          "mux": "ALT2",
+          "raw": "PWM4_CH4"
+        },
+        {
+          "signal": "CAN2_TX",
+          "mux": "ALT3",
+          "raw": "CAN2_TX"
+        }
+      ]
+    },
+    {
+      "pin": "PE25",
+      "package_pin": 133,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM4_CH5",
+          "mux": "ALT2",
+          "raw": "PWM4_CH5"
+        },
+        {
+          "signal": "CAN2_RX",
+          "mux": "ALT3",
+          "raw": "CAN2_RX"
+        }
+      ]
+    },
+    {
+      "pin": "PA12",
+      "package_pin": 134,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_CH6",
+          "mux": "ALT2",
+          "raw": "PWM1_CH6"
+        },
+        {
+          "signal": "CAN1_RX",
+          "mux": "ALT3",
+          "raw": "CAN1_RX"
+        },
+        {
+          "signal": "PWM2_CH1",
+          "mux": "ALT6",
+          "raw": "PWM2_CH1"
+        }
+      ]
+    },
+    {
+      "pin": "PA11",
+      "package_pin": 135,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_CH5",
+          "mux": "ALT2",
+          "raw": "PWM1_CH5"
+        },
+        {
+          "signal": "CAN1_STB",
+          "mux": "ALT3",
+          "raw": "CAN1_STB"
+        },
+        {
+          "signal": "EIO_D1",
+          "mux": "ALT4",
+          "raw": "EIO_D1"
+        },
+        {
+          "signal": "ACMP0_RRT",
+          "mux": "ALT5",
+          "raw": "ACMP0_RRT"
+        }
+      ]
+    },
+    {
+      "pin": "PA10",
+      "package_pin": 136,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_CH4",
+          "mux": "ALT2",
+          "raw": "PWM1_CH4"
+        },
+        {
+          "signal": "EIO_D0",
+          "mux": "ALT4",
+          "raw": "EIO_D0"
+        },
+        {
+          "signal": "JTAG_TDO",
+          "mux": "ALT7",
+          "raw": "JTAG_TDO/noetm_TRACE_SWO"
+        },
+        {
+          "signal": "TRACE_SWO",
+          "mux": "ALT7",
+          "raw": "JTAG_TDO/noetm_TRACE_SWO"
+        }
+      ]
+    },
+    {
+      "pin": "PE1",
+      "package_pin": 137,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "SPI0_SIN",
+          "mux": "ALT2",
+          "raw": "SPI0_SIN"
+        },
+        {
+          "signal": "I2C1_SCL",
+          "mux": "ALT4",
+          "raw": "I2C1_SCL"
+        },
+        {
+          "signal": "SPI1_CS0",
+          "mux": "ALT5",
+          "raw": "SPI1_CS0"
+        },
+        {
+          "signal": "PWM1_FLT1",
+          "mux": "ALT6",
+          "raw": "PWM1_FLT1"
+        }
+      ]
+    },
+    {
+      "pin": "PE0",
+      "package_pin": 138,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "SPI0_SCK",
+          "mux": "ALT2",
+          "raw": "SPI0_SCK"
+        },
+        {
+          "signal": "PWM_CLK1",
+          "mux": "ALT3",
+          "raw": "PWM_CLK1"
+        },
+        {
+          "signal": "I2C1_SDA",
+          "mux": "ALT4",
+          "raw": "I2C1_SDA"
+        },
+        {
+          "signal": "SPI1_SOUT",
+          "mux": "ALT5",
+          "raw": "SPI1_SOUT"
+        },
+        {
+          "signal": "PWM1_FLT2",
+          "mux": "ALT6",
+          "raw": "PWM1_FLT2"
+        }
+      ]
+    },
+    {
+      "pin": "PC5",
+      "package_pin": 139,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM2_CH0",
+          "mux": "ALT2",
+          "raw": "PWM2_CH0"
+        },
+        {
+          "signal": "RTC_CLKOUT",
+          "mux": "ALT3",
+          "raw": "RTC_CLKOUT"
+        },
+        {
+          "signal": "PWM2_CH1",
+          "mux": "ALT6",
+          "raw": "PWM2_CH1"
+        },
+        {
+          "signal": "JTAG_TDI",
+          "mux": "ALT7",
+          "raw": "JTAG_TDI"
+        }
+      ]
+    },
+    {
+      "pin": "PC4",
+      "package_pin": 140,
+      "functions": [
+        {
+          "signal": "ACMP0_IN2",
+          "mux": "ALT0",
+          "raw": "ACMP0_IN2"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM1_CH0",
+          "mux": "ALT2",
+          "raw": "PWM1_CH0"
+        },
+        {
+          "signal": "RTC_CLKOUT",
+          "mux": "ALT3",
+          "raw": "RTC_CLKOUT"
+        },
+        {
+          "signal": "EWDG_IN",
+          "mux": "ALT5",
+          "raw": "EWDG_IN"
+        },
+        {
+          "signal": "PWM1_CH1",
+          "mux": "ALT6",
+          "raw": "PWM1_CH1"
+        },
+        {
+          "signal": "JTAG_TCLK",
+          "mux": "ALT7",
+          "raw": "JTAG_TCLK/SWD_CLK"
+        },
+        {
+          "signal": "SWD_CLK",
+          "mux": "ALT7",
+          "raw": "JTAG_TCLK/SWD_CLK"
+        }
+      ]
+    },
+    {
+      "pin": "PA5",
+      "package_pin": 141,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "PWM_CLK1",
+          "mux": "ALT3",
+          "raw": "PWM_CLK1"
+        },
+        {
+          "signal": "RESET_",
+          "mux": "ALT7",
+          "raw": "RESET_b"
+        }
+      ]
+    },
+    {
+      "pin": "PA4",
+      "package_pin": 142,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "ACMP0_OUT",
+          "mux": "ALT4",
+          "raw": "ACMP0_OUT"
+        },
+        {
+          "signal": "EWDG_OUT_",
+          "mux": "ALT5",
+          "raw": "EWDG_OUT_b"
+        },
+        {
+          "signal": "JTAG_TMS",
+          "mux": "ALT7",
+          "raw": "JTAG_TMS/SWD_DIO"
+        },
+        {
+          "signal": "SWD_DIO",
+          "mux": "ALT7",
+          "raw": "JTAG_TMS/SWD_DIO"
+        }
+      ]
+    },
+    {
+      "pin": "PA9",
+      "package_pin": 143,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART2_TX",
+          "mux": "ALT2",
+          "raw": "UART2_TX"
+        },
+        {
+          "signal": "SPI2_CS0",
+          "mux": "ALT3",
+          "raw": "SPI2_CS0"
+        },
+        {
+          "signal": "EIO_D7",
+          "mux": "ALT4",
+          "raw": "EIO_D7"
+        },
+        {
+          "signal": "PWM3_FLT2",
+          "mux": "ALT5",
+          "raw": "PWM3_FLT2"
+        },
+        {
+          "signal": "PWM1_FLT3",
+          "mux": "ALT6",
+          "raw": "PWM1_FLT3"
+        },
+        {
+          "signal": "PWM4_FLT0",
+          "mux": "ALT7",
+          "raw": "PWM4_FLT0"
+        }
+      ]
+    },
+    {
+      "pin": "PA8",
+      "package_pin": 144,
+      "functions": [
+        {
+          "signal": "HIGH_Z",
+          "mux": "ALT0",
+          "raw": "HIGH_Z"
+        },
+        {
+          "signal": "GPIO",
+          "mux": "ALT1",
+          "raw": "GPIO"
+        },
+        {
+          "signal": "UART2_RX",
+          "mux": "ALT2",
+          "raw": "UART2_RX"
+        },
+        {
+          "signal": "SPI2_SOUT",
+          "mux": "ALT3",
+          "raw": "SPI2_SOUT"
+        },
+        {
+          "signal": "EIO_D6",
+          "mux": "ALT4",
+          "raw": "EIO_D6"
+        },
+        {
+          "signal": "PWM3_FLT3",
+          "mux": "ALT5",
+          "raw": "PWM3_FLT3"
+        },
+        {
+          "signal": "PWM4_FLT1",
+          "mux": "ALT6",
+          "raw": "PWM4_FLT1"
+        }
+      ]
+    }
+  ],
+  "drivers": [
+    "adc",
+    "can",
+    "clock",
+    "common",
+    "csec",
+    "dma",
+    "flash",
+    "gpio",
+    "iic",
+    "irq",
+    "pmc",
+    "port",
+    "psmu",
+    "pwm",
+    "reset",
+    "spi",
+    "timer_srv",
+    "uart",
+    "wdog",
+    "xcu_spi"
+  ],
+  "sample_times": [
+    "TDrvAdcSampleTimeClk5",
+    "TDrvAdcSampleTimeClk10",
+    "TDrvAdcSampleTimeClk15",
+    "TDrvAdcSampleTimeClk23",
+    "TDrvAdcSampleTimeClk35",
+    "TDrvAdcSampleTimeClk45",
+    "TDrvAdcSampleTimeClk85",
+    "TDrvAdcSampleTimeClk185"
+  ],
+  "source": "platforms/ac78428.json",
+  "product_ids": [
+    "kBrd_VersionHq0880ar02",
+    "kBrd_VersionHq0884ar01",
+    "kBrd_VersionHq0892ar01",
+    "kBrd_VersionHq20",
+    "kBrd_VersionHq23ar01",
+    "kBrd_VersionHqa802",
+    "kBrd_VersionHqa803",
+    "kBrd_VersionHqa803_zt02",
+    "kBrd_VersionHqa806",
+    "kBrd_VersionHqb204_t01",
+    "kBrd_VersionHqb300l01",
+    "kBrd_VersionHqbe01_A",
+    "kBrd_VersionHqbe01_B",
+    "kBrd_VersionHqbe01_D",
+    "kBrd_VersionHqbs09",
+    "kBrd_VersionHqff10",
+    "kBrd_VersionHqff12",
+    "kBrd_VersionHqff21",
+    "kBrd_VersionHqff22",
+    "kBrd_VersionHqfz01",
+    "kBrd_VersionHqg608",
+    "kBrd_VersionHqg611",
+    "kBrd_VersionHqg709",
+    "kBrd_VersionHqg711",
+    "kBrd_VersionHqgc02",
+    "kBrd_VersionHqgc11",
+    "kBrd_VersionHqt4013120ar01",
+    "kBrd_VersionHqt401_k",
+    "kBrd_VersionHqt401_k00",
+    "kBrd_VersionHqt401_l10",
+    "kBrd_VersionHqt401_l11",
+    "kBrd_VersionHqt401_l20",
+    "kBrd_VersionHqt401_l30",
+    "kBrd_VersionHqt401_s01",
+    "kBrd_VersionHqt401l01",
+    "kBrd_VersionHqt401l02",
+    "kBrd_VersionHqt401p",
+    "kBrd_VersionHqt401s04ar01",
+    "kBrd_VersionHqt403ar03",
+    "kBrd_VersionHqt406_203",
+    "kBrd_VersionHqt406_301",
+    "kBrd_VersionHqt406ar01",
+    "kBrd_VersionHqt409_l05",
+    "kBrd_VersionHqt409_l4",
+    "kBrd_VersionHqt409_m01",
+    "kBrd_VersionHqt409_m03",
+    "kBrd_VersionHqt409_m04",
+    "kBrd_VersionHqt409_n01",
+    "kBrd_VersionHqt409_n02",
+    "kBrd_VersionHqt409_s01",
+    "kBrd_VersionHqt409_x01",
+    "kBrd_VersionHqt409ar01",
+    "kBrd_VersionHqt409ar02",
+    "kBrd_VersionHqt409l03",
+    "kBrd_VersionHqt40b",
+    "kBrd_VersionHqt40c",
+    "kBrd_VersionHqt40c_l02",
+    "kBrd_VersionHqt410_p01",
+    "kBrd_VersionHqt418",
+    "kBrd_VersionHqt418_02",
+    "kBrd_VersionHqt418_06",
+    "kBrd_VersionHqt418_06_nfc",
+    "kBrd_VersionHqt418_f_01",
+    "kBrd_VersionHqt418_zt01",
+    "kBrd_VersionHqt420",
+    "kBrd_VersionHqt420_s11",
+    "kBrd_VersionHqt421",
+    "kBrd_VersionHqy202ar01",
+    "kBrd_VersionSimulator",
+    "kBrd_VersionTxj_br4_cx10",
+    "kBrd_VersionTxj_br4_cx20",
+    "kBrd_VersionTxj_br4_cx20p",
+    "kBrd_VersionTxj_br4_cx20s",
+    "kBrd_VersionTxj_br4_cx22",
+    "kBrd_VersionTxj_br4_cx32",
+    "kBrd_VersionTxj_br4_hq23",
+    "kBrd_VersionTxj_br4_hq23_l",
+    "kBrd_VersionTxj_br5_cx08",
+    "kBrd_VersionWit802_n01",
+    "kBrd_VersionWit803",
+    "kBrd_VersionYlb04_a6_p01",
+    "kBrd_VersionZfd04ar01",
+    "kBrd_VersionZfd04b",
+    "kBrd_VersionZfd04b_jb",
+    "kBrd_VersionZlb04_104",
+    "kBrd_VersionZlb04_331",
+    "kBrd_VersionZlb04_lh01",
+    "kBrd_VersionZlb04_p01",
+    "kBrd_VersionZtm06_v01",
+    "kBrd_VersionZtm07_a",
+    "kBrd_VersionZtm07_b",
+    "kBrd_VersionZtm09"
+  ]
+}

@@ -1,0 +1,25 @@
+/// {{NAME}}
+static TPerAxis{{FAMILY}} g_brd_axis_per_{{CHIP}}_;
+static Brd_TAxisDev{{FAMILY}} g_brd_axis_dev_{{CHIP}}_ =
+{
+    .base =
+    {
+        .dev_drv = &g_brd_axis_per_{{CHIP}}_,
+        .mutex = &g_brd_axis_mutex_[{{INDEX}}],
+        .dev_addr = {{ADDRESS}},
+    },
+};
+
+static TDrvIicDev g_brd_axis_phy_iic_dev_{{CHIP}}_;
+static Brd_TAxisBusPhyIic g_brd_axis_bus_phy_iic_dev_{{CHIP}}_ =
+{
+    .base =
+    {
+        .bus_drv = &g_brd_axis_phy_iic_dev_{{CHIP}}_,
+        .bus_drv_parent = &g_drv_iic[{{PARENT}}],
+        .bus_drv_parent_cfg = &g_drv_iic_cfgs[{{PARENT}}],
+    },
+    .event = &g_brd_axis_event_[{{INDEX}}],
+    .bus_drv_result = 0,
+    .bus_drv_size = 0,
+};

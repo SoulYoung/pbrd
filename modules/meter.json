@@ -1,0 +1,64 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "meter",
+  "name": "脉冲计量 / 输入捕获",
+  "configuration_mode": "instances",
+  "configuration_status": "template-adapter",
+  "fields": [
+    {
+      "key": "pin",
+      "label": "输入捕获引脚",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "instance",
+      "label": "PSMU / PWM 硬件实例",
+      "type": "num",
+      "value": 0,
+      "opts": []
+    },
+    {
+      "key": "channel",
+      "label": "捕获通道",
+      "type": "num",
+      "value": 6,
+      "opts": []
+    },
+    {
+      "key": "wide",
+      "label": "宽位捕获",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "power_supply",
+      "label": "前置电源基础枚举（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "net",
+      "label": "网络标签（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    }
+  ],
+  "dependencies": [
+    "drv.psmu",
+    "brd.pwr_ctrl"
+  ],
+  "implementations": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_meter.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_meter_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_meter_{mcu}.h"
+  },
+  "notes": "依据 r03v01/r04v01：使用 PSMU 输入捕获，不是普通 GPIO 中断或 timer_srv。引脚复用按 PWMn_CHm 检查。",
+  "bus_kinds": []
+}

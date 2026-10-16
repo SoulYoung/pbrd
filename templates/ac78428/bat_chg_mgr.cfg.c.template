@@ -1,0 +1,22 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// 每路充电管理包含使能、完成和可选充电中配置。
+static const Brd_TBatChgMgrCfg g_brd_bat_chg_mgr_cfg_[] =
+{{CONFIGS}};
+static Brd_TBatChgMgrItem g_brd_bat_chg_mgr_items_[] =
+{{ITEMS}};
+Brd_TBatChgMgrAttr g_brd_bat_chg_mgr_attr =
+{
+    .count = sizeof(g_brd_bat_chg_mgr_items_) / sizeof(g_brd_bat_chg_mgr_items_[0]),
+    .item = g_brd_bat_chg_mgr_items_,
+};
+
+/***** User code begin *****/
+
+/***** User code end *****/

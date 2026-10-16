@@ -1,0 +1,51 @@
+echo off
+
+set BUILD_COMMON_SCRIPT_DIR=%~dp0
+
+set BUILD_COMMON_ARGC=0
+for %%x in (%*) do Set /A BUILD_COMMON_ARGC+=1
+echo argc = %BUILD_COMMON_ARGC%
+
+:: 判断编译的脚本参数必须大于等于1
+if %BUILD_COMMON_ARGC% lss 1 (
+    echo error build_common param count = %BUILD_COMMON_ARGC%, lss One
+    exit 1
+)
+
+:: 产品芯片平台，例如rt1060，s32k144
+set BUILD_COMMON_CHIP=%1%
+
+echo auto_build_keil %BUILD_COMMON_CHIP% devp
+
+
+set BUILD_LOG=%BUILD_COMMON_SCRIPT_DIR%build.log
+
+echo BUILD_LOG=%BUILD_LOG%
+
+set UV_EXE_FULL_PATH=C:\Keil_v5\UV4\UV4.exe
+if not exist %UV_EXE_FULL_PATH% (
+  set UV_EXE_FULL_PATH=C:\Keil_v5\UV4\UV4.exe.lnk
+)
+
+echo UV4.exe=%UV_EXE_FULL_PATH%
+
+if not exist %UV_EXE_FULL_PATH% (
+  echo UV4.exe not exists, can not build!!!
+  exit 1
+)
+
+:: RebuildProjectFunc
+:: echo BuildProject %~1
+:: %UV_EXE_FULL_PATH% -j0 -r %~1 -o %BUILD_LOG%
+:: goto:eof
+if not exist %BUILD_COMMON_SCRIPT_DIR%..\%BUILD_COMMON_CHIP%\brd.uvprojx (
+  echo brd.uvprojx not exists, can not build!!!
+  exit 1
+)
+
+%UV_EXE_FULL_PATH% -j0 -r %BUILD_COMMON_SCRIPT_DIR%..\%BUILD_COMMON_CHIP%\brd.uvprojx -o %BUILD_LOG%
+
+set build_keil_result=%errorlevel%
+type %BUILD_LOG%
+
+echo brd %BUILD_COMMON_CHIP% build result: %build_keil_result%

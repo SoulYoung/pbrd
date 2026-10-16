@@ -1,0 +1,33 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// flag bit0: 0 推挽，1 开漏
+#define INIT_MISC_CTRL_CFG(group_, pin_, flag_, reverse_) \
+    { \
+        .group = kDrvPortGroup##group_, \
+        .pin = kDrvPortPin##pin_, \
+        .flag = flag_, \
+        .reverse = reverse_, \
+    }
+
+#define INIT_MISC_CTRL_ITEM(id_, cfg_, enabled_) \
+    { \
+        .id = id_, \
+        .cfg = &g_brd_misc_ctrl_cfgs_[cfg_], \
+        .enabled = enabled_, \
+    }
+
+
+static const Brd_TMiscCtrlCfg g_brd_misc_ctrl_cfgs_[] = 
+{{DATA_G_BRD_MISC_CTRL_CFGS_}};
+
+static Brd_TMiscCtrlItem g_brd_misc_ctrl_items_[] = 
+{{DATA_G_BRD_MISC_CTRL_ITEMS_}};
+
+Brd_TMiscCtrlAttr g_brd_misc_ctrl_attr  = 
+{{DATA_G_BRD_MISC_CTRL_ATTR}};

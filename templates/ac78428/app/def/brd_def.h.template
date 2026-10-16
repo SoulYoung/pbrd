@@ -1,0 +1,45 @@
+/**
+ * @addtogroup brd_def
+ * brd_def
+ * @{
+ */
+/**
+ * @file brd_def.h
+ * @brief 板级层通用数据定义
+ * @note
+ * @par 修改日志
+ * <table>
+ * <tr><th>Date                 <th>Version         <th>Author          <th>Description
+ * <tr><td>{{DATE}}           <td>1.0             <td>{{AUTHOR}}       <td>创建初始版本
+ * @copyright 杭州鸿泉物联网技术股份有限公司
+ */
+#ifndef _BRD_DEF_H_
+#define _BRD_DEF_H_
+
+#include "brd_common_def.h"
+#include "brd_analog_def.h"
+#include "brd_can_def.h"
+#include "brd_canfd_def.h"
+#include "brd_can_trx_def.h"
+#include "brd_crypto_def.h"
+#include "brd_ext_int_def.h"
+#include "brd_flash_def.h"
+#include "brd_led_def.h"
+#include "brd_misc_ctrl_def.h"
+#include "brd_reset_def.h"
+#include "brd_partition_def.h"
+#include "brd_pmc_def.h"
+#include "brd_pwr_ctrl_def.h"
+#include "brd_switch_def.h"
+#include "brd_uart_def.h"
+#include "brd_wdog_def.h"
+
+
+/***** User code begin *****/
+
+/***** User code end *****/
+
+#endif // _BRD_DEF_H_
+/**
+ * @} 
+ */

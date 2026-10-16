@@ -1,0 +1,396 @@
+{
+  "format": "pbrd-platform-defaults",
+  "schema_version": 1,
+  "adapter": "ac78428-template-v1",
+  "parameters": {
+    "ac78428/cfg/brd_common_cfg.c": {
+      "values": {
+        "g_brd_version_": {
+          "ver": [
+            "kBrd_VersionMajor",
+            "(UInt8)kBrd_VersionHqt401_l30",
+            "kBrd_VersionApp",
+            0
+          ],
+          "build_time": 1770369601
+        },
+        "g_brd_version_attr": {
+          "cfg": "&g_brd_version_"
+        },
+        "g_drv_iic_cfgs": [
+          {
+            "scl_group": "kDrvPortGroupB",
+            "scl_pin": "kDrvPortPin9",
+            "scl_pin_mux": "kDrvPortMuxAlt3",
+            "sda_group": "kDrvPortGroupB",
+            "sda_pin": "kDrvPortPin10",
+            "sda_pin_mux": "kDrvPortMuxAlt3",
+            "index": 0
+          },
+          {
+            "scl_group": "kDrvPortGroupD",
+            "scl_pin": "kDrvPortPin9",
+            "scl_pin_mux": "kDrvPortMuxAlt2",
+            "sda_group": "kDrvPortGroupD",
+            "sda_pin": "kDrvPortPin8",
+            "sda_pin_mux": "kDrvPortMuxAlt2",
+            "index": 1
+          }
+        ],
+        "g_drv_spi_cfgs": [
+          {
+            "clk_group": "kDrvPortGroupE",
+            "clk_pin": "kDrvPortPin15",
+            "clk_mux": "kDrvPortMuxAlt3",
+            "sin_group": "kDrvPortGroupE",
+            "sin_pin": "kDrvPortPin16",
+            "sin_mux": "kDrvPortMuxAlt3",
+            "sout_group": "kDrvPortGroupA",
+            "sout_pin": "kDrvPortPin8",
+            "sout_mux": "kDrvPortMuxAlt3",
+            "index": 2,
+            "reverse": false
+          },
+          {
+            "clk_group": "kDrvPortGroupC",
+            "clk_pin": "kDrvPortPin29",
+            "clk_mux": "kDrvPortMuxAlt6",
+            "sin_group": "kDrvPortGroupC",
+            "sin_pin": "kDrvPortPin28",
+            "sin_mux": "kDrvPortMuxAlt6",
+            "sout_group": "kDrvPortGroupC",
+            "sout_pin": "kDrvPortPin27",
+            "sout_mux": "kDrvPortMuxAlt6",
+            "index": 3,
+            "reverse": false
+          },
+          {
+            "clk_group": "kDrvPortGroupE",
+            "clk_pin": "kDrvPortPin0",
+            "clk_mux": "kDrvPortMuxAlt2",
+            "sin_group": "kDrvPortGroupE",
+            "sin_pin": "kDrvPortPin1",
+            "sin_mux": "kDrvPortMuxAlt2",
+            "sout_group": "kDrvPortGroupE",
+            "sout_pin": "kDrvPortPin2",
+            "sout_mux": "kDrvPortMuxAlt2",
+            "index": 0,
+            "reverse": false
+          }
+        ]
+      },
+      "comments": {
+        "g_drv_iic_cfgs": [
+          "SCL PB9, SDA PB10",
+          "SCL PD9, SDA PD8"
+        ],
+        "g_drv_spi_cfgs": [
+          "sout: PA8, sin: PE16, clk: PE15",
+          "sout: PC27, sin: PC28, clk: PC29",
+          "sout: PE2, sin: PE1, clk: PE0"
+        ]
+      }
+    },
+    "ac78428/def/brd_canfd_def.h": {
+      "definitions": [
+        {
+          "enum": "kBrd_CanfdId0",
+          "base_enum": "kBrdCanfdBaseId0",
+          "name": "第一路CANFD",
+          "value": "BRD_DEF_BASE_ID(kBrdCanfdBaseId0, 0)"
+        },
+        {
+          "enum": "kBrd_CanfdId1",
+          "base_enum": "kBrdCanfdBaseId0",
+          "name": "第一路CANFD",
+          "value": "BRD_DEF_BASE_ID(kBrdCanfdBaseId0, 1)"
+        },
+        {
+          "enum": "kBrd_CanfdId2",
+          "base_enum": "kBrdCanfdBaseId0",
+          "name": "第一路CANFD",
+          "value": "BRD_DEF_BASE_ID(kBrdCanfdBaseId0, 2)"
+        },
+        {
+          "enum": "kBrd_CanfdId3",
+          "base_enum": "kBrdCanfdBaseId0",
+          "name": "第一路CANFD",
+          "value": "BRD_DEF_BASE_ID(kBrdCanfdBaseId0, 3)"
+        }
+      ]
+    },
+    "ac78428/def/brd_partition_def.h": {
+      "definitions": [
+        {
+          "enum": "kBrdPartitionIdBoot1",
+          "base_enum": "",
+          "name": "Boot1分区",
+          "value": "kBrdPartitionIdBase"
+        },
+        {
+          "enum": "kBrdPartitionIdBootInfo",
+          "base_enum": "",
+          "name": "分区表",
+          "value": "0x01"
+        },
+        {
+          "enum": "kBrdPartitionIdLogo",
+          "base_enum": "",
+          "name": "开机启动画面存储分区",
+          "value": "0x05"
+        },
+        {
+          "enum": "kBrdPartitionIdLogoBak",
+          "base_enum": "",
+          "name": "开机启动画面备份分区",
+          "value": "0x85"
+        },
+        {
+          "enum": "kBrdPartitionIdProduct",
+          "base_enum": "",
+          "name": "产品信息区",
+          "value": "0x03"
+        },
+        {
+          "enum": "kBrdPartitionIdProfile",
+          "base_enum": "",
+          "name": "配置分区",
+          "value": "0x04"
+        },
+        {
+          "enum": "kBrdPartitionIdProfileBak",
+          "base_enum": "",
+          "name": "配置备份分区",
+          "value": "0x84"
+        },
+        {
+          "enum": "kBrdPartitionIdBoot2",
+          "base_enum": "",
+          "name": "Boot2分区",
+          "value": "0x02"
+        },
+        {
+          "enum": "kBrdPartitionIdBoot2Data",
+          "base_enum": "",
+          "name": "Boot2数据区",
+          "value": "0x08"
+        },
+        {
+          "enum": "kBrdPartitionIdBoot2Dialog",
+          "base_enum": "",
+          "name": "Boot2会话区",
+          "value": "0x09"
+        },
+        {
+          "enum": "kBrdPartitionIdAppData",
+          "base_enum": "",
+          "name": "应用数据分区",
+          "value": "0x06"
+        },
+        {
+          "enum": "kBrdPartitionIdApp1",
+          "base_enum": "",
+          "name": "应用程序1分区",
+          "value": "0x07"
+        },
+        {
+          "enum": "kBrdPartitionIdApp2",
+          "base_enum": "",
+          "name": "应用程序2分区",
+          "value": "0x87"
+        },
+        {
+          "enum": "kBrdPartitionIdAppDl",
+          "base_enum": "",
+          "name": "应用程序下载分区",
+          "value": "0x0A"
+        }
+      ]
+    },
+    "ac78428/def/brd_pmc_def.h": {
+      "definitions": [
+        {
+          "enum": "kBrd_PmcIdNormal",
+          "base_enum": "kBrdPmcBaseIdNormal",
+          "name": "正常运行",
+          "value": "BRD_DEF_BASE_ID(kBrdPmcBaseIdNormal, 0)"
+        },
+        {
+          "enum": "kBrd_PmcIdVlps",
+          "base_enum": "kBrdPmcBaseIdVlps",
+          "name": "深度睡眠",
+          "value": "BRD_DEF_BASE_ID(kBrdPmcBaseIdVlps, 1)"
+        }
+      ]
+    },
+    "ac78428/def/brd_wdog_def.h": {
+      "definitions": []
+    },
+    "ac78428_boot/cfg/brd_common_cfg_boot.c": {
+      "values": {
+        "g_brd_version_": {
+          "ver": [
+            "kBrd_VersionMajor",
+            "(UInt8)kBrd_VersionHqt401_l30",
+            "kBrd_VersionBoot",
+            0
+          ],
+          "build_time": 1773034450
+        },
+        "g_brd_version_attr": {
+          "cfg": "&g_brd_version_"
+        },
+        "g_drv_iic_cfgs": [
+          {
+            "scl_group": "kDrvPortGroupB",
+            "scl_pin": "kDrvPortPin9",
+            "scl_pin_mux": "kDrvPortMuxAlt3",
+            "sda_group": "kDrvPortGroupB",
+            "sda_pin": "kDrvPortPin10",
+            "sda_pin_mux": "kDrvPortMuxAlt3",
+            "index": 0
+          },
+          {
+            "scl_group": "kDrvPortGroupD",
+            "scl_pin": "kDrvPortPin9",
+            "scl_pin_mux": "kDrvPortMuxAlt2",
+            "sda_group": "kDrvPortGroupD",
+            "sda_pin": "kDrvPortPin8",
+            "sda_pin_mux": "kDrvPortMuxAlt2",
+            "index": 1
+          }
+        ],
+        "g_drv_spi_cfgs": [
+          {
+            "clk_group": "kDrvPortGroupE",
+            "clk_pin": "kDrvPortPin15",
+            "clk_mux": "kDrvPortMuxAlt3",
+            "sin_group": "kDrvPortGroupE",
+            "sin_pin": "kDrvPortPin16",
+            "sin_mux": "kDrvPortMuxAlt3",
+            "sout_group": "kDrvPortGroupA",
+            "sout_pin": "kDrvPortPin8",
+            "sout_mux": "kDrvPortMuxAlt3",
+            "index": 2,
+            "reverse": false
+          },
+          {
+            "clk_group": "kDrvPortGroupC",
+            "clk_pin": "kDrvPortPin29",
+            "clk_mux": "kDrvPortMuxAlt6",
+            "sin_group": "kDrvPortGroupC",
+            "sin_pin": "kDrvPortPin28",
+            "sin_mux": "kDrvPortMuxAlt6",
+            "sout_group": "kDrvPortGroupC",
+            "sout_pin": "kDrvPortPin27",
+            "sout_mux": "kDrvPortMuxAlt6",
+            "index": 3,
+            "reverse": false
+          }
+        ]
+      },
+      "comments": {
+        "g_drv_iic_cfgs": [
+          "SCL PB9, SDA PB10",
+          "SCL PD9, SDA PD8"
+        ],
+        "g_drv_spi_cfgs": [
+          "sout: PA8, sin: PE16, clk: PE15",
+          "sout: PC27, sin: PC28, clk: PC29"
+        ]
+      }
+    },
+    "ac78428_boot/cfg/brd_debugger_cfg_boot.c": {
+      "values": {
+        "g_brd_debugger_clk_pin_cfg_": {
+          "group": "kDrvPortGroupC",
+          "pin": "kDrvPortPin4",
+          "amux": "kDrvPortMuxGpio",
+          "bmux": "kDrvPortMuxAlt7",
+          "reverse": false
+        },
+        "g_brd_debugger_clk_int_cfg_": {
+          "group": "kDrvPortGroupC",
+          "pin": "kDrvPortPin4",
+          "run_trigger": "kDrvGpioIntTriggerRising",
+          "sleep_trigger": "kDrvGpioIntTriggerRising"
+        },
+        "g_brd_debugger_dio_pin_cfg_": {
+          "group": "kDrvPortGroupA",
+          "pin": "kDrvPortPin4",
+          "amux": "kDrvPortMuxGpio",
+          "bmux": "kDrvPortMuxAlt7",
+          "reverse": false
+        },
+        "g_brd_debugger_bus_cido_cfg_": {
+          "base": {
+            "bus_drv": "&g_brd_debugger_clk_int_drv",
+            "bus_drv_cfg": "&g_brd_debugger_clk_int_cfg_"
+          },
+          "clk": "&g_brd_debugger_clk_pin_cfg_",
+          "dio": "&g_brd_debugger_dio_pin_cfg_"
+        },
+        "g_brd_debugger_dev_swd_cfg_": {
+          "enable": true
+        },
+        "g_brd_debugger_items_": [
+          {
+            "id": "kBrd_DebuggerIdSwdCintDi",
+            "dev": "kBrd_DebuggerDevSwd",
+            "dev_cfg": "&g_brd_debugger_dev_swd_cfg_",
+            "bus": "kBrd_DebuggerBusCintDi",
+            "bus_cfg": "&g_brd_debugger_bus_cido_cfg_",
+            "is_open": false
+          }
+        ],
+        "g_brd_debugger_attr": {
+          "count": "sizeof(g_brd_debugger_items_) / sizeof(g_brd_debugger_items_[0])",
+          "item": "g_brd_debugger_items_"
+        }
+      },
+      "comments": {}
+    },
+    "ac78428_boot/cfg/brd_security_boot_cfg_boot.c": {
+      "values": {
+        "g_security_boot_dev_base": {
+          "base": {
+            "dev_drv": "&g_drv_csec"
+          }
+        },
+        "g_security_boot_items": [
+          {
+            "id": "kBrd_SecurityBootIdCsec",
+            "bus": "kBrd_SecurityBootBusNull",
+            "dev": "kBrd_SecurityBootDevInChip",
+            "dev_cfg": "&g_security_boot_dev_base"
+          }
+        ],
+        "g_brd_security_boot_attr": {
+          "items": "g_security_boot_items",
+          "count": "sizeof(g_security_boot_items) / sizeof(g_security_boot_items[0])"
+        }
+      },
+      "comments": {}
+    },
+    "ac78428_boot/def/brd_debugger_def.h": {
+      "definitions": [
+        {
+          "enum": "kBrd_DebuggerIdSwdCintDi",
+          "base_enum": "kBrdDebuggerIdSwdCintDi",
+          "name": "SWD clk->int dio->input",
+          "value": "BRD_DEF_BASE_ID(kBrdDebuggerIdSwdCintDi, 0)"
+        }
+      ]
+    },
+    "ac78428_boot/def/brd_security_boot_def.h": {
+      "definitions": [
+        {
+          "enum": "kBrd_SecurityBootIdCsec",
+          "base_enum": "kBrdSecurityBootBaseIdCsec",
+          "name": "CSEC",
+          "value": "BRD_DEF_BASE_ID(kBrdSecurityBootBaseIdCsec, 0)"
+        }
+      ]
+    }
+  }
+}

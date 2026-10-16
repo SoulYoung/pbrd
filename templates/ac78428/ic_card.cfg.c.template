@@ -1,0 +1,21 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// 同一卡槽支持多个卡型识别；每个卡槽拥有独立引脚和驱动对象。
+{{OBJECTS}}
+static Brd_TIcCardItem g_brd_ic_card_item_[] =
+{{ITEMS}};
+Brd_TIcCardAttr g_brd_ic_card_attr =
+{
+    .count = sizeof(g_brd_ic_card_item_) / sizeof(g_brd_ic_card_item_[0]),
+    .item = g_brd_ic_card_item_,
+};
+
+/***** User code begin *****/
+
+/***** User code end *****/

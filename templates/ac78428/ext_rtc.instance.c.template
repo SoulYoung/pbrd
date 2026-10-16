@@ -1,0 +1,18 @@
+/// {{NAME}}
+{{TIMER}}
+static TPerRtc{{FAMILY}} g_brd_ext_rtc_{{INDEX}}_per;
+static {{DEVICE_TYPE}} g_brd_ext_rtc_{{INDEX}}_dev =
+{{DEVICE_CONFIG}};
+static TDrvIicDev g_brd_ext_rtc_{{INDEX}}_iic;
+static Brd_TExtRtcBusPhyIic g_brd_ext_rtc_{{INDEX}}_bus =
+{
+    .base =
+    {
+        .bus_drv = &g_brd_ext_rtc_{{INDEX}}_iic,
+        .bus_drv_parent = &g_drv_iic[{{PARENT}}],
+        .bus_drv_parent_cfg = &g_drv_iic_cfgs[{{PARENT}}],
+    },
+    .event = &g_brd_ext_rtc_event_[{{INDEX}}],
+    .bus_drv_result = 0,
+    .bus_drv_size = 0,
+};

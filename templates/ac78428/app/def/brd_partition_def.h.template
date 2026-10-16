@@ -1,0 +1,46 @@
+/**
+ * @addtogroup brd_partition_def
+ * brd_partition_def
+ * @{
+ */
+/**
+ * @file brd_partition_def.h
+ * @brief 板级层分区定义
+ * @note
+ * @par 修改日志
+ * <table>
+ * <tr><th>Date                 <th>Version         <th>Author          <th>Description
+ * <tr><td>{{DATE}}           <td>1.0             <td>{{AUTHOR}}       <td>创建初始版本
+ * @copyright 杭州鸿泉物联网技术股份有限公司
+ */
+#ifndef _BRD_PARTITION_DEF_H_
+#define _BRD_PARTITION_DEF_H_
+
+#include <brd_def_base.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/// 分区表类型的枚举
+enum Brd_TPartitionIdTag 
+{
+{{ENUM_CONTENT}}
+};
+typedef enum Brd_TPartitionIdTag Brd_TPartitionId;
+
+{{DEFINE_CONTENT}}
+
+#ifdef __cplusplus
+}  ///  < extern "C"
+#endif
+
+
+/***** User code begin *****/
+
+/***** User code end *****/
+
+#endif // _BRD_PARTITION_DEF_H_
+/**
+ * @} 
+ */

@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+~$*
+*.log
+node_modules/
+.venv/
+.env
+output/
+generated/
+
+.reports/
+
+# Local user data and historical references
+/configs/
+/old/
+/maintenance/
+# Rebuilt automatically when the local service starts
+/board-config-preview.html
+/ui/platform-data.js

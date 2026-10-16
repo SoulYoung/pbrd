@@ -1,0 +1,44 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// 外部引用对象
+
+/// -------使用到的总线配置-------
+#define BRD_DEBUGGER_BUS_CINTDI
+/// -------使用到的设备配置-------
+#define BRD_DEBUGGER_DEV_SWD
+
+/// 锁对象
+
+
+/// 事件对象
+
+/// 总线配置
+static TDrvGpioInt g_brd_debugger_clk_int_drv;
+static const Brd_TDebuggerPinCfg  g_brd_debugger_clk_pin_cfg_ =
+{{DATA_G_BRD_DEBUGGER_CLK_PIN_CFG_}};
+
+static const TDrvGpioIntCfg g_brd_debugger_clk_int_cfg_ =
+{{DATA_G_BRD_DEBUGGER_CLK_INT_CFG_}};
+
+static const Brd_TDebuggerPinCfg  g_brd_debugger_dio_pin_cfg_ =
+{{DATA_G_BRD_DEBUGGER_DIO_PIN_CFG_}};
+
+static Brd_TDebuggerBusCintDi g_brd_debugger_bus_cido_cfg_ =
+{{DATA_G_BRD_DEBUGGER_BUS_CIDO_CFG_}};
+
+/// 设备配置
+static Brd_TDebuggerDevSwd g_brd_debugger_dev_swd_cfg_ =
+{{DATA_G_BRD_DEBUGGER_DEV_SWD_CFG_}};
+
+
+static Brd_TDebuggerItem g_brd_debugger_items_[] = 
+{{DATA_G_BRD_DEBUGGER_ITEMS_}};
+
+Brd_TDebuggerAttr g_brd_debugger_attr  = 
+{{DATA_G_BRD_DEBUGGER_ATTR}};

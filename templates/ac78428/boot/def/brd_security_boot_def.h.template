@@ -1,0 +1,53 @@
+/**
+ * @addtogroup brd_security_boot_def
+ * brd_security_boot_def
+ * @{
+ */
+/**
+ * @file brd_security_boot_def.h
+ * @brief 安全启动板级层定义
+ * @note
+ * @par 修改日志
+ * <table>
+ * <tr><th>Date             <th>Version         <th>Author              <th>Description
+ * <tr><td>{{DATE}}       <td>1.0             <td>{{AUTHOR}}           <td>创建初始版本
+ * @copyright 杭州鸿泉物联网技术股份有限公司
+ */
+#ifndef _BRD_SECURITY_BOOT_DEF_H_
+#define _BRD_SECURITY_BOOT_DEF_H_
+
+#include <brd_def_base.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/// 安全启动类型
+enum Brd_TSecurityBootIdTag 
+{
+{{ENUM_CONTENT}}
+};
+typedef enum Brd_TSecurityBootIdTag Brd_TSecurityBootId;
+
+{{DEFINE_CONTENT}}
+
+/// 安全启动认证镜像信息
+typedef struct Brd_TSecurityBootImageInfoTag Brd_TSecurityBootImageInfo;
+struct Brd_TSecurityBootImageInfoTag
+{
+    UInt32 image_addr;  ///< 镜像绝对地址
+};
+
+#ifdef __cplusplus
+}  ///  < extern "C"
+#endif
+
+
+/***** User code begin *****/
+
+/***** User code end *****/
+
+#endif // _BRD_SECURITY_BOOT_DEF_H_
+/**
+ * @} 
+ */

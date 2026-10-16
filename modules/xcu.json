@@ -1,0 +1,68 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "xcu",
+  "name": "XCU",
+  "configuration_mode": "instances",
+  "configuration_status": "reference-only",
+  "fields": [
+    {
+      "key": "role",
+      "label": "角色",
+      "type": "select",
+      "value": "master",
+      "opts": [
+        "master",
+        "slave"
+      ]
+    },
+    {
+      "key": "bus",
+      "label": "通信总线",
+      "type": "bus",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "cs",
+      "label": "片选（选填）",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "request_pin",
+      "label": "请求引脚（选填）",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "ready_pin",
+      "label": "就绪引脚（选填）",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "timeout_ms",
+      "label": "超时 / ms",
+      "type": "num",
+      "value": 1000,
+      "opts": []
+    }
+  ],
+  "dependencies": [
+    "hal.xcu"
+  ],
+  "implementations": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_xcu.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_xcu_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_xcu_{mcu}.h"
+  },
+  "notes": "参考 r02v01/r03v01/r04v01 的 XCU SPI、REQ、DMA 及线程栈配置；当前项目未发现 xcu.h / HAL 实现，缺少完整工程集成依据。",
+  "bus_kinds": [
+    "spi"
+  ]
+}

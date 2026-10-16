@@ -1,0 +1,55 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "switch",
+  "name": "开关量",
+  "configuration_mode": "instances",
+  "configuration_status": "template-adapter",
+  "fields": [
+    {
+      "key": "pin",
+      "label": "输入引脚",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "reverse",
+      "label": "反相",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "pull",
+      "label": "上下拉",
+      "type": "select",
+      "value": "disabled",
+      "opts": [
+        "disabled",
+        "up",
+        "down"
+      ]
+    },
+    {
+      "key": "net",
+      "label": "网络标签（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    }
+  ],
+  "dependencies": [
+    "drv.gpio"
+  ],
+  "implementations": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_switch.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_switch_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_switch_{mcu}.h"
+  },
+  "notes": "配置字段需要对照实际驱动及板级接口审核。未使用不代表不支持。",
+  "bus_kinds": [
+    "spi"
+  ]
+}

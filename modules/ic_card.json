@@ -1,0 +1,169 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "ic_card",
+  "name": "IC 卡接口",
+  "configuration_mode": "instances",
+  "configuration_status": "template-adapter",
+  "fields": [
+    {
+      "key": "support_at24",
+      "label": "支持 AT24 卡",
+      "type": "bool",
+      "control": "checkbox",
+      "value": true,
+      "opts": []
+    },
+    {
+      "key": "support_sle4428",
+      "label": "支持 SLE4428 卡",
+      "type": "bool",
+      "control": "checkbox",
+      "value": true,
+      "opts": []
+    },
+    {
+      "key": "support_sle4442",
+      "label": "支持 SLE4442 卡",
+      "type": "bool",
+      "control": "checkbox",
+      "value": true,
+      "opts": []
+    },
+    {
+      "key": "power_pin",
+      "label": "卡电源引脚",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "power_reverse",
+      "label": "电源低电平有效",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "reset_pin",
+      "label": "卡复位引脚",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "reset_reverse",
+      "label": "复位低电平有效",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "detect_pin",
+      "label": "插卡检测引脚",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "detect_reverse",
+      "label": "检测低电平有效",
+      "type": "bool",
+      "value": true,
+      "opts": []
+    },
+    {
+      "key": "clock_pin",
+      "label": "卡时钟 / SCL",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "io_pin",
+      "label": "卡数据 / SDA",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "address",
+      "label": "AT24 8 位地址（选填）",
+      "type": "text",
+      "value": "",
+      "opts": [],
+      "visible_if": "support_at24"
+    },
+    {
+      "key": "power_supply",
+      "label": "前置电源基础枚举（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "net",
+      "label": "网络标签（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    }
+  ],
+  "dependencies": [
+    "drv.gpio",
+    "idp.iic",
+    "brd.pwr_ctrl",
+    "per.ic_card.sle4428",
+    "per.ic_card.sle4442",
+    "per.fram.at24"
+  ],
+  "implementations": [
+    {
+      "value": "sle4428",
+      "module": "per.ic_card.sle4428",
+      "bus_kinds": [],
+      "dependencies": [
+        "drv.gpio"
+      ],
+      "source_globs": [
+        "product/src/per/ic_card/*sle4428*.c",
+        "product/src/per/ic_card/*sle4428*.h"
+      ],
+      "enable_field": "support_sle4428"
+    },
+    {
+      "value": "sle4442",
+      "module": "per.ic_card.sle4442",
+      "bus_kinds": [],
+      "dependencies": [
+        "drv.gpio"
+      ],
+      "source_globs": [
+        "product/src/per/ic_card/*sle4442*.c",
+        "product/src/per/ic_card/*sle4442*.h"
+      ],
+      "enable_field": "support_sle4442"
+    },
+    {
+      "value": "at24",
+      "module": "per.fram.at24",
+      "bus_kinds": [],
+      "dependencies": [
+        "idp.iic",
+        "drv.gpio"
+      ],
+      "source_globs": [
+        "product/src/per/fram/at24/**/*.c",
+        "product/src/per/fram/at24/**/*.h"
+      ],
+      "enable_field": "support_at24"
+    }
+  ],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_ic_card.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_ic_card_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_ic_card_{mcu}.h"
+  },
+  "notes": "同一卡槽可独立勾选 AT24、SLE4428、SLE4442；至少选一种，生成的识别链只包含勾选卡型。AT24 使用卡槽 GPIO 模拟 IIC，不绑定公共物理 IIC。当前平台公共实现仍引用三类驱动，工程需保留这些编译依赖。",
+  "bus_kinds": []
+}

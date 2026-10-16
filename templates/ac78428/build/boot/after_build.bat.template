@@ -1,0 +1,34 @@
+@echo off
+
+:: 编译脚本路径
+set AFTER_BUILD_SCRIPT_DIR=%~dp0
+
+:: 获取编译脚本参数
+set AFTER_BUILD_ARGC=0
+for %%x in (%*) do Set /A AFTER_BUILD_ARGC+=1
+echo argc = %AFTER_BUILD_ARGC%
+
+:: 判断编译的脚本参数必须大于等于2
+if %AFTER_BUILD_ARGC% lss 2 (
+    echo error after build param count = %AFTER_BUILD_ARGC%, lss Two
+    exit 1
+)
+
+:: 组件模块名称，例如ofc，sfc
+set AFTER_BUILD_PROJ=%1
+
+:: 产品芯片平台，例如rt1060，s32k144
+set AFTER_BUILD_CHIP=%2
+@REM 删掉AFTER_BUILD_CHIP后面的_IAR
+set AFTER_BUILD_CHIP_NO_IAR=%AFTER_BUILD_CHIP:_iar=%
+@REM 删掉AFTER_BUILD_CHIP_NO_IAR后面的BOOT
+set AFTER_BUILD_CHIP_NO_IAR_NO_BOOT=%AFTER_BUILD_CHIP_NO_IAR:_boot=%
+
+:: The project selects the modules exported to its SDK.
+set BRD_INCS=analog,bat_chg,cmp,clock,common,crypto,debugger,delayext_int,ext_rtc,flash,led
+set BRD_INCS=%BRD_INCS%,misc_ctrl,partition,pmc,pwr_ctrl,reset,security_boot,switch,timer,uart,wdog
+
+:: Forward the export list, original IAR arguments and project script directory.
+call "%~dp0..\..\..\%AFTER_BUILD_CHIP_NO_IAR_NO_BOOT%\script\common\after_build.bat" "%~dp0" "%BRD_INCS%" %*
+exit /b %errorlevel%
+

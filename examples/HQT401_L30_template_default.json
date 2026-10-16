@@ -1,0 +1,3639 @@
+{
+  "format": "pbrd-project",
+  "schema_version": 1,
+  "project": {
+    "model": "HQT401_L30",
+    "revision": "R01V01",
+    "author": "",
+    "date": "2026-10-14",
+    "product_enum": "kBrd_VersionHqt401_l30"
+  },
+  "platform": {
+    "mcu": "ac78428",
+    "package": "144LQFP"
+  },
+  "build": {
+    "adapter": "keil",
+    "version": "5.23"
+  },
+  "targets": {
+    "app": {
+      "requested": [
+        "brd.analog",
+        "brd.bat_chg",
+        "brd.can",
+        "brd.can_trx",
+        "brd.clock",
+        "brd.common",
+        "brd.crypto",
+        "brd.delay",
+        "brd.dma",
+        "brd.ext_int",
+        "brd.ext_rtc",
+        "brd.flash",
+        "brd.handle_map",
+        "brd.led",
+        "brd.misc_ctrl",
+        "brd.partition",
+        "brd.pmc",
+        "brd.pwr_ctrl",
+        "brd.reset",
+        "brd.switch",
+        "brd.timer",
+        "brd.uart",
+        "brd.wdog",
+        "drv.adc",
+        "drv.can",
+        "drv.clock",
+        "drv.common",
+        "drv.csec",
+        "drv.dma",
+        "drv.flash",
+        "drv.gpio",
+        "drv.iic",
+        "drv.irq",
+        "drv.pmc",
+        "drv.port",
+        "drv.psmu",
+        "drv.pwm",
+        "drv.reset",
+        "drv.spi",
+        "drv.timer_srv",
+        "drv.uart",
+        "drv.wdog",
+        "drv.xcu_spi"
+      ],
+      "disabled": [],
+      "touched": []
+    },
+    "boot": {
+      "requested": [
+        "brd.analog",
+        "brd.bat_chg",
+        "brd.clock",
+        "brd.common",
+        "brd.crypto",
+        "brd.debugger",
+        "brd.delay",
+        "brd.dma",
+        "brd.ext_int",
+        "brd.ext_rtc",
+        "brd.flash",
+        "brd.handle_map",
+        "brd.led",
+        "brd.misc_ctrl",
+        "brd.partition",
+        "brd.pmc",
+        "brd.pwr_ctrl",
+        "brd.reset",
+        "brd.security_boot",
+        "brd.switch",
+        "brd.timer",
+        "brd.uart",
+        "brd.wdog",
+        "drv.adc",
+        "drv.can",
+        "drv.clock",
+        "drv.common",
+        "drv.csec",
+        "drv.dma",
+        "drv.flash",
+        "drv.gpio",
+        "drv.iic",
+        "drv.irq",
+        "drv.pmc",
+        "drv.port",
+        "drv.psmu",
+        "drv.pwm",
+        "drv.reset",
+        "drv.spi",
+        "drv.timer_srv",
+        "drv.uart",
+        "drv.wdog",
+        "drv.xcu_spi"
+      ],
+      "disabled": [],
+      "touched": []
+    }
+  },
+  "board": {
+    "modules": {
+      "analog": [
+        {
+          "uid": "analog_0",
+          "name": "主电电压",
+          "enum": "kBrd_AnalogIdMajorPower",
+          "base_enum": "kBrdAnalogBaseIdMajorPower",
+          "enum_override": false,
+          "params": {
+            "pin": "PC14",
+            "channel": "ADC0_IN12",
+            "x": 11,
+            "y": 1,
+            "offset": 0,
+            "reference_mv": 3300,
+            "sample_time": "TDrvAdcSampleTimeClk85",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "analog_1",
+          "name": "备电(锂电池)电压",
+          "enum": "kBrd_AnalogIdBackupPower",
+          "base_enum": "kBrdAnalogBaseIdBackupPower",
+          "enum_override": false,
+          "params": {
+            "pin": "PB18",
+            "channel": "ADC0_IN16",
+            "x": 2,
+            "y": 1,
+            "offset": 0,
+            "reference_mv": 3300,
+            "sample_time": "TDrvAdcSampleTimeClk85",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "analog_2",
+          "name": "平台电压",
+          "enum": "kBrd_AnalogIdPlat",
+          "base_enum": "kBrdAnalogBaseIdPlat",
+          "enum_override": false,
+          "params": {
+            "pin": "PD27",
+            "channel": "ADC1_IN21",
+            "x": 1,
+            "y": 1,
+            "offset": 0,
+            "reference_mv": 3300,
+            "sample_time": "TDrvAdcSampleTimeClk85",
+            "net": ""
+          },
+          "label_source": "catalog"
+        }
+      ],
+      "axis": [],
+      "bat_chg": [
+        {
+          "uid": "legacy_bat_chg_0",
+          "name": "电池充电",
+          "enum": "kBrd_BatChgId0",
+          "base_enum": "",
+          "enum_override": false,
+          "params": {
+            "enable_mode": "power",
+            "enable_pin": "",
+            "enable_reverse": false,
+            "control_ref": "kBrd_PwrCtrlBaseId5vPer",
+            "done_pin": "PD13",
+            "done_reverse": false,
+            "charging_pin": "PB25",
+            "charging_reverse": true,
+            "done_power_ref": "",
+            "charging_power_ref": "kBrd_PwrCtrlBaseId3v3Per"
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        }
+      ],
+      "can": [
+        {
+          "uid": "can_0",
+          "name": "第一路CAN",
+          "enum": "kBrd_CanId0",
+          "base_enum": "kBrdCanBaseId0",
+          "enum_override": false,
+          "params": {
+            "instance": "CAN0",
+            "rx": "PE4",
+            "tx": "PE5",
+            "stb": "PA30",
+            "stb_reverse": false,
+            "fd_enum": "kBrd_CanfdId0",
+            "fd_enabled": true
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "can_1",
+          "name": "第二路CAN",
+          "enum": "kBrd_CanId1",
+          "base_enum": "kBrdCanBaseId1",
+          "enum_override": false,
+          "params": {
+            "instance": "CAN1",
+            "rx": "PA12",
+            "tx": "PA13",
+            "stb": "PA11",
+            "stb_reverse": false,
+            "fd_enum": "kBrd_CanfdId1",
+            "fd_enabled": true
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "can_2",
+          "name": "第三路CAN",
+          "enum": "kBrd_CanId2",
+          "base_enum": "kBrdCanBaseId2",
+          "enum_override": false,
+          "params": {
+            "instance": "CAN2",
+            "rx": "PB12",
+            "tx": "PB13",
+            "stb": "PD4",
+            "stb_reverse": false,
+            "fd_enum": "kBrd_CanfdId2",
+            "fd_enabled": true
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "can_3",
+          "name": "第四路CAN",
+          "enum": "kBrd_CanId3",
+          "base_enum": "kBrdCanBaseId3",
+          "enum_override": false,
+          "params": {
+            "instance": "CAN3",
+            "rx": "PC12",
+            "tx": "PC13",
+            "stb": "PD24",
+            "stb_reverse": false,
+            "fd_enum": "kBrd_CanfdId3",
+            "fd_enabled": true
+          },
+          "label_source": "catalog"
+        }
+      ],
+      "can_trx": [
+        {
+          "uid": "legacy_can_trx_0",
+          "name": "第一路CAN收发器",
+          "enum": "kBrd_CanTrxId0",
+          "base_enum": "kBrdCanTrxBaseId0",
+          "enum_override": false,
+          "params": {
+            "driver": "tja1445",
+            "bus": "spi0",
+            "cs": "PE6",
+            "wakeup_pin": "PA25",
+            "interrupt_pin": "",
+            "wakeup_reverse": true
+          },
+          "targets": [
+            "app"
+          ]
+        }
+      ],
+      "clock": [],
+      "common": [],
+      "crypto": [
+        {
+          "uid": "legacy_crypto_0",
+          "name": "CIU98B",
+          "enum": "kBrd_CryptoIdCiu98b",
+          "base_enum": "kBrdCryptoBaseIdCiu98b",
+          "enum_override": false,
+          "params": {
+            "driver": "ciu98b",
+            "bus": "spi2",
+            "cs": "PA9",
+            "reset_pin": "PD1",
+            "wakeup_pin": "PD0",
+            "power_ref": "kBrd_PwrCtrlBaseId3v3Per",
+            "rst_reverse": true,
+            "wakeup_reverse": true
+          },
+          "targets": [
+            "app"
+          ]
+        },
+        {
+          "uid": "legacy_crypto_1",
+          "name": "芯片内部加密模块csec",
+          "enum": "kBrd_CryptoIdCsec",
+          "base_enum": "kBrdCryptoBaseIdCsec",
+          "enum_override": false,
+          "params": {
+            "driver": "csec",
+            "bus": "",
+            "cs": "",
+            "reset_pin": "",
+            "wakeup_pin": ""
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        }
+      ],
+      "debugger": [],
+      "delay": [],
+      "dma": [],
+      "ext_int": [
+        {
+          "uid": "ext_int_0",
+          "name": "Ig(T15)点火中断, 可作为唤醒源",
+          "enum": "kBrd_ExtIntIdIg",
+          "base_enum": "kBrdExtIntBaseIdIg",
+          "enum_override": false,
+          "params": {
+            "pin": "PC2",
+            "run_trigger": "both",
+            "sleep_trigger": "falling",
+            "pull": "disabled"
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "ext_int_1",
+          "name": "钥匙电中断, 可作为唤醒源",
+          "enum": "kBrd_ExtIntIdAcc",
+          "base_enum": "kBrdExtIntBaseIdAcc",
+          "enum_override": false,
+          "params": {
+            "pin": "PB1",
+            "run_trigger": "both",
+            "sleep_trigger": "falling",
+            "pull": "disabled"
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "ext_int_2",
+          "name": "第一路CAN中断, 可作为唤醒源",
+          "enum": "kBrd_ExtIntIdCan0",
+          "base_enum": "kBrdExtIntBaseIdCan0",
+          "enum_override": false,
+          "params": {
+            "pin": "PE4",
+            "run_trigger": "falling",
+            "sleep_trigger": "falling",
+            "pull": "disabled"
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "ext_int_3",
+          "name": "第二路CAN中断, 可作为唤醒源",
+          "enum": "kBrd_ExtIntIdCan1",
+          "base_enum": "kBrdExtIntBaseIdCan1",
+          "enum_override": false,
+          "params": {
+            "pin": "PA12",
+            "run_trigger": "falling",
+            "sleep_trigger": "falling",
+            "pull": "disabled"
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "ext_int_4",
+          "name": "第三路CAN中断, 可作为唤醒源",
+          "enum": "kBrd_ExtIntIdCan2",
+          "base_enum": "kBrdExtIntBaseIdCan2",
+          "enum_override": false,
+          "params": {
+            "pin": "PB12",
+            "run_trigger": "falling",
+            "sleep_trigger": "falling",
+            "pull": "disabled"
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "ext_int_5",
+          "name": "第四路CAN中断, 可作为唤醒源",
+          "enum": "kBrd_ExtIntIdCan3",
+          "base_enum": "kBrdExtIntBaseIdCan3",
+          "enum_override": false,
+          "params": {
+            "pin": "PC12",
+            "run_trigger": "falling",
+            "sleep_trigger": "falling",
+            "pull": "disabled"
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "ext_int_6",
+          "name": "网络唤醒MCU中断,可作为唤醒源",
+          "enum": "kBrd_ExtIntIdNetWakeupMcu",
+          "base_enum": "kBrdExtIntBaseIdNetWakeupMcu",
+          "enum_override": false,
+          "params": {
+            "pin": "PC16",
+            "run_trigger": "falling",
+            "sleep_trigger": "falling",
+            "pull": "disabled"
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "ext_int_7",
+          "name": "主电丢失中断, 可作为唤醒源",
+          "enum": "kBrd_ExtIntIdPwrLost",
+          "base_enum": "kBrdExtIntBaseIdPwrLost",
+          "enum_override": false,
+          "params": {
+            "pin": "PD7",
+            "run_trigger": "rising",
+            "sleep_trigger": "rising",
+            "pull": "disabled"
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "ext_int_8",
+          "name": "蓝牙唤醒MCU中断, 可作为唤醒源",
+          "enum": "kBrd_ExtIntIdBth",
+          "base_enum": "kBrdExtIntBaseIdBth",
+          "enum_override": false,
+          "params": {
+            "pin": "PC31",
+            "run_trigger": "falling",
+            "sleep_trigger": "rising",
+            "pull": "disabled"
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "ext_int_9",
+          "name": "外部RTC中断, 可作为唤醒源",
+          "enum": "kBrd_ExtIntIdExtRtc",
+          "base_enum": "kBrdExtIntBaseIdExtRtc",
+          "enum_override": false,
+          "params": {
+            "pin": "PC3",
+            "run_trigger": "falling",
+            "sleep_trigger": "falling",
+            "pull": "disabled"
+          },
+          "label_source": "catalog"
+        }
+      ],
+      "ext_rtc": [],
+      "flash": [
+        {
+          "uid": "legacy_flash_0",
+          "name": "芯片内部pflash",
+          "enum": "kBrd_FlashIdChipPflash",
+          "base_enum": "kBrdFlashBaseIdChipPflash",
+          "enum_override": false,
+          "params": {
+            "driver": "internal",
+            "bus": "",
+            "cs": "",
+            "power_pin": "",
+            "address": "",
+            "offset": "0x00000000",
+            "size": 2097152,
+            "eep_ram_base_addr": "",
+            "eep_flash_base_addr": "",
+            "flash_page_size": "",
+            "min_program_bytes": "",
+            "power_reverse": false
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_flash_1",
+          "name": "芯片内部模拟eeprom",
+          "enum": "kBrd_FlashIdEep",
+          "base_enum": "kBrdFlashBaseIdEep",
+          "enum_override": false,
+          "params": {
+            "driver": "fee",
+            "bus": "",
+            "cs": "",
+            "power_pin": "",
+            "address": "",
+            "offset": "0x00000000",
+            "size": 4096,
+            "eep_ram_base_addr": "0x2001E000U",
+            "eep_flash_base_addr": "0x1000000U",
+            "flash_page_size": "0x800U",
+            "min_program_bytes": "0x08U",
+            "power_reverse": false
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_flash_2",
+          "name": "片外eeprom bl24c128f",
+          "enum": "kBrd_FlashIdBl24c128f",
+          "base_enum": "kBrdFlashBaseIdBl24c128f",
+          "enum_override": false,
+          "params": {
+            "driver": "at24",
+            "bus": "iic0",
+            "cs": "",
+            "power_pin": "",
+            "address": "kPerFramAt24c32DevAddr",
+            "offset": "0x00000000",
+            "size": 16384,
+            "eep_ram_base_addr": "",
+            "eep_flash_base_addr": "",
+            "flash_page_size": "",
+            "min_program_bytes": "",
+            "power_reverse": false
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_flash_3",
+          "name": "片外sd nand flash",
+          "enum": "kBrd_FlashIdSdNand",
+          "base_enum": "kBrdFlashBaseIdSdNand",
+          "enum_override": false,
+          "params": {
+            "driver": "xtsdg01gws1g",
+            "bus": "spi3",
+            "cs": "PC30",
+            "power_pin": "PE25",
+            "address": "",
+            "offset": "0x00000000",
+            "size": 0,
+            "eep_ram_base_addr": "",
+            "eep_flash_base_addr": "",
+            "flash_page_size": "",
+            "min_program_bytes": "",
+            "power_reverse": false
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        }
+      ],
+      "handle_map": [],
+      "ic_card": [],
+      "led": [
+        {
+          "uid": "led_0",
+          "name": "CAN灯",
+          "enum": "kBrd_LedIdCan",
+          "base_enum": "kBrdLedBaseIdCan",
+          "enum_override": false,
+          "params": {
+            "pin": "PB22",
+            "reverse": false,
+            "initial": false,
+            "net": "",
+            "flag": 0
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "led_1",
+          "name": "定位灯",
+          "enum": "kBrd_LedIdGnss",
+          "base_enum": "kBrdLedBaseIdGnss",
+          "enum_override": false,
+          "params": {
+            "pin": "PB23",
+            "reverse": false,
+            "initial": false,
+            "net": "",
+            "flag": 0
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "led_2",
+          "name": "蓝牙灯",
+          "enum": "kBrd_LedIdBth",
+          "base_enum": "kBrdLedBaseIdBth",
+          "enum_override": false,
+          "params": {
+            "pin": "PB27",
+            "reverse": false,
+            "initial": false,
+            "net": "",
+            "flag": 0
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "led_3",
+          "name": "网络灯",
+          "enum": "kBrd_LedIdNet",
+          "base_enum": "kBrdLedBaseIdNet",
+          "enum_override": false,
+          "params": {
+            "pin": "PC15",
+            "reverse": false,
+            "initial": false,
+            "net": "",
+            "flag": 0
+          },
+          "label_source": "catalog"
+        }
+      ],
+      "meter": [],
+      "misc_ctrl": [
+        {
+          "uid": "misc_ctrl_0",
+          "name": "唤醒蓝牙",
+          "enum": "kBrd_MiscCtrlIdBthWakeup",
+          "base_enum": "kBrdMiscCtrlBaseIdBthWakeup",
+          "enum_override": false,
+          "params": {
+            "pin": "PA6",
+            "reverse": false,
+            "initial": false,
+            "net": "",
+            "flag": 0
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "misc_ctrl_1",
+          "name": "复位蓝牙",
+          "enum": "kBrd_MiscCtrlIdBthRst",
+          "base_enum": "kBrdMiscCtrlBaseIdBthRst",
+          "enum_override": false,
+          "params": {
+            "pin": "PA7",
+            "reverse": false,
+            "initial": false,
+            "net": "",
+            "flag": 0
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "misc_ctrl_2",
+          "name": "网络模块烧写",
+          "enum": "kBrd_MiscCtrlIdNetUsbBoot",
+          "base_enum": "kBrdMiscCtrlBaseIdNetUsbBoot",
+          "enum_override": false,
+          "params": {
+            "pin": "PA16",
+            "reverse": true,
+            "initial": false,
+            "net": "",
+            "flag": 1
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "misc_ctrl_3",
+          "name": "GNSS模块复位",
+          "enum": "kBrd_MiscCtrlIdGnssRst",
+          "base_enum": "kBrdMiscCtrlBaseIdGnssRst",
+          "enum_override": false,
+          "params": {
+            "pin": "PA28",
+            "reverse": false,
+            "initial": false,
+            "net": "",
+            "flag": 0
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "misc_ctrl_4",
+          "name": "负控输出",
+          "enum": "kBrd_MiscCtrlIdNegCtlOut",
+          "base_enum": "kBrdMiscCtrlBaseIdNegCtlOut",
+          "enum_override": false,
+          "params": {
+            "pin": "PE24",
+            "reverse": false,
+            "initial": false,
+            "net": "",
+            "flag": 0
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "misc_ctrl_5",
+          "name": "网络模块复位",
+          "enum": "kBrd_MiscCtrlIdNetRst",
+          "base_enum": "kBrdMiscCtrlBaseIdNetRst",
+          "enum_override": false,
+          "params": {
+            "pin": "PE14",
+            "reverse": false,
+            "initial": false,
+            "net": "",
+            "flag": 0
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "misc_ctrl_6",
+          "name": "网络模块开机/关机",
+          "enum": "kBrd_MiscCtrlIdNetPwrKey",
+          "base_enum": "kBrdMiscCtrlBaseIdNetPwrKey",
+          "enum_override": false,
+          "params": {
+            "pin": "PD16",
+            "reverse": false,
+            "initial": false,
+            "net": "",
+            "flag": 0
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "misc_ctrl_7",
+          "name": "网络模块唤醒",
+          "enum": "kBrd_MiscCtrlIdNetWakeup",
+          "base_enum": "kBrdMiscCtrlBaseIdNetWakeup",
+          "enum_override": false,
+          "params": {
+            "pin": "PD15",
+            "reverse": false,
+            "initial": false,
+            "net": "",
+            "flag": 0
+          },
+          "label_source": "catalog"
+        }
+      ],
+      "partition": [],
+      "pmc": [],
+      "pwm": [],
+      "pwr_ctrl": [
+        {
+          "uid": "legacy_pwr_ctrl_0",
+          "name": "5V 外设电源",
+          "enum": "kBrd_PwrCtrlBaseId5vPer",
+          "base_enum": "",
+          "enum_override": false,
+          "params": {
+            "power_kind": "base",
+            "control_mode": "gpio",
+            "pin": "PD5",
+            "reverse": false,
+            "control_ref": "",
+            "upstream_ref": "kBrd_PwrCtrlBaseId5vMain"
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_pwr_ctrl_1",
+          "name": "3.3V 外设电源",
+          "enum": "kBrd_PwrCtrlBaseId3v3Per",
+          "base_enum": "",
+          "enum_override": false,
+          "params": {
+            "power_kind": "base",
+            "control_mode": "gpio",
+            "pin": "PE7",
+            "reverse": false,
+            "control_ref": "",
+            "upstream_ref": "kBrd_PwrCtrlBaseId5vMain"
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_pwr_ctrl_2",
+          "name": "5V 主电源",
+          "enum": "kBrd_PwrCtrlBaseId5vMain",
+          "base_enum": "",
+          "enum_override": false,
+          "params": {
+            "power_kind": "base",
+            "control_mode": "gpio",
+            "pin": "PE23",
+            "reverse": false,
+            "control_ref": "",
+            "upstream_ref": ""
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_pwr_ctrl_3",
+          "name": "备用电池对板上设备供电",
+          "enum": "kBrd_PwrCtrlIdSpareBat",
+          "base_enum": "kBrdPwrCtrlBaseIdSpareBat",
+          "enum_override": false,
+          "params": {
+            "power_kind": "output",
+            "control_mode": "gpio",
+            "pin": "PA31",
+            "reverse": false,
+            "control_ref": "",
+            "upstream_ref": ""
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_pwr_ctrl_4",
+          "name": "开关量电源控制",
+          "enum": "kBrd_PwrCtrlIdSwitch",
+          "base_enum": "kBrdPwrCtrlBaseIdSwitch",
+          "enum_override": false,
+          "params": {
+            "power_kind": "output",
+            "control_mode": "power",
+            "pin": "",
+            "reverse": false,
+            "control_ref": "kBrd_PwrCtrlBaseId3v3Per",
+            "upstream_ref": ""
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_pwr_ctrl_5",
+          "name": "网络设备电源",
+          "enum": "kBrd_PwrCtrlIdNet",
+          "base_enum": "kBrdPwrCtrlBaseIdNet",
+          "enum_override": false,
+          "params": {
+            "power_kind": "output",
+            "control_mode": "gpio",
+            "pin": "PC0",
+            "reverse": false,
+            "control_ref": "",
+            "upstream_ref": ""
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_pwr_ctrl_6",
+          "name": "网络USB电源",
+          "enum": "kBrd_PwrCtrlIdNetUsb",
+          "base_enum": "kBrdPwrCtrlBaseIdNetUsb",
+          "enum_override": false,
+          "params": {
+            "power_kind": "output",
+            "control_mode": "gpio",
+            "pin": "PD18",
+            "reverse": false,
+            "control_ref": "",
+            "upstream_ref": ""
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_pwr_ctrl_7",
+          "name": "定位设备电源",
+          "enum": "kBrd_PwrCtrlIdGnss",
+          "base_enum": "kBrdPwrCtrlBaseIdGnss",
+          "enum_override": false,
+          "params": {
+            "power_kind": "output",
+            "control_mode": "gpio",
+            "pin": "PB5",
+            "reverse": false,
+            "control_ref": "",
+            "upstream_ref": ""
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_pwr_ctrl_8",
+          "name": "对外输出24V主电电源",
+          "enum": "kBrd_PwrCtrlIdExtMajor",
+          "base_enum": "kBrdPwrCtrlBaseIdExtMajor",
+          "enum_override": false,
+          "params": {
+            "power_kind": "output",
+            "control_mode": "gpio",
+            "pin": "PD10",
+            "reverse": false,
+            "control_ref": "",
+            "upstream_ref": ""
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_pwr_ctrl_9",
+          "name": "维持内部主电源",
+          "enum": "kBrd_PwrCtrlIdMajor",
+          "base_enum": "kBrdPwrCtrlBaseIdMajor",
+          "enum_override": false,
+          "params": {
+            "power_kind": "output",
+            "control_mode": "power",
+            "pin": "",
+            "reverse": false,
+            "control_ref": "kBrd_PwrCtrlBaseId5vMain",
+            "upstream_ref": ""
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        },
+        {
+          "uid": "legacy_pwr_ctrl_10",
+          "name": "蓝牙电源",
+          "enum": "kBrd_PwrCtrlIdBth",
+          "base_enum": "kBrdPwrCtrlBaseIdBth",
+          "enum_override": false,
+          "params": {
+            "power_kind": "output",
+            "control_mode": "gpio",
+            "pin": "PE20",
+            "reverse": false,
+            "control_ref": "",
+            "upstream_ref": ""
+          },
+          "targets": [
+            "app",
+            "boot"
+          ]
+        }
+      ],
+      "reset": [],
+      "security_boot": [],
+      "switch": [
+        {
+          "uid": "switch_0",
+          "name": "点火(T15)开关量",
+          "enum": "kBrd_SwitchIdIg",
+          "base_enum": "kBrdSwitchBaseIdIg",
+          "enum_override": false,
+          "params": {
+            "pin": "PC2",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_1",
+          "name": "钥匙电开关量",
+          "enum": "kBrd_SwitchIdAcc",
+          "base_enum": "kBrdSwitchBaseIdAcc",
+          "enum_override": false,
+          "params": {
+            "pin": "PB1",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_2",
+          "name": "网络状态开关量",
+          "enum": "kBrd_SwitchIdNetStatus",
+          "base_enum": "kBrdSwitchBaseIdNetStatus",
+          "enum_override": false,
+          "params": {
+            "pin": "PC1",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_3",
+          "name": "第一路外部开关量",
+          "enum": "kBrd_SwitchIdSw0",
+          "base_enum": "kBrdSwitchBaseIdSw0",
+          "enum_override": false,
+          "params": {
+            "pin": "PD6",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_4",
+          "name": "第二路外部开关量",
+          "enum": "kBrd_SwitchIdSw1",
+          "base_enum": "kBrdSwitchBaseIdSw1",
+          "enum_override": false,
+          "params": {
+            "pin": "PE21",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_5",
+          "name": "第三路外部开关量",
+          "enum": "kBrd_SwitchIdSw2",
+          "base_enum": "kBrdSwitchBaseIdSw2",
+          "enum_override": false,
+          "params": {
+            "pin": "PE22",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_6",
+          "name": "网络USB检测开关量",
+          "enum": "kBrd_SwitchIdNetUsbDet",
+          "base_enum": "kBrdSwitchBaseIdNetUsbDet",
+          "enum_override": false,
+          "params": {
+            "pin": "PE10",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_7",
+          "name": "BOM ID1开关量",
+          "enum": "kBrd_SwitchIdBomId1",
+          "base_enum": "kBrdSwitchBaseIdBomId1",
+          "enum_override": false,
+          "params": {
+            "pin": "PD29",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_8",
+          "name": "BOM ID2开关量",
+          "enum": "kBrd_SwitchIdBomId2",
+          "base_enum": "kBrdSwitchBaseIdBomId2",
+          "enum_override": false,
+          "params": {
+            "pin": "PD28",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_9",
+          "name": "BOM ID3开关量",
+          "enum": "kBrd_SwitchIdBomId3",
+          "base_enum": "kBrdSwitchBaseIdBomId3",
+          "enum_override": false,
+          "params": {
+            "pin": "PD23",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_10",
+          "name": "充电低开关量",
+          "enum": "kBrd_SwitchIdChgLow",
+          "base_enum": "kBrdSwitchBaseIdChgLow",
+          "enum_override": false,
+          "params": {
+            "pin": "PD3",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_11",
+          "name": "充电高开关量",
+          "enum": "kBrd_SwitchIdChgHigh",
+          "base_enum": "kBrdSwitchBaseIdChgHigh",
+          "enum_override": false,
+          "params": {
+            "pin": "PC7",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_12",
+          "name": "定位天线短路开关量",
+          "enum": "kBrd_SwitchIdGnssAntShort",
+          "base_enum": "kBrdSwitchBaseIdGnssAntShort",
+          "enum_override": false,
+          "params": {
+            "pin": "PA10",
+            "reverse": false,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_13",
+          "name": "定位天线开路开关量",
+          "enum": "kBrd_SwitchIdGnssAntOpen",
+          "base_enum": "kBrdSwitchBaseIdGnssAntOpen",
+          "enum_override": false,
+          "params": {
+            "pin": "PA29",
+            "reverse": false,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "switch_14",
+          "name": "GNSS 秒脉冲开关量",
+          "enum": "kBrd_SwitchIdPps",
+          "base_enum": "kBrdSwitchBaseIdPps",
+          "enum_override": false,
+          "params": {
+            "pin": "PB4",
+            "reverse": true,
+            "pull": "disabled",
+            "net": ""
+          },
+          "label_source": "catalog"
+        }
+      ],
+      "timer": [],
+      "uart": [
+        {
+          "uid": "uart_0",
+          "name": "第一路串口",
+          "enum": "kBrd_UartIdCom0",
+          "base_enum": "kBrdUartBaseIdCom0",
+          "enum_override": false,
+          "params": {
+            "instance": "UART0",
+            "rx": "PA2",
+            "tx": "PA3",
+            "rts": "",
+            "baud": 115200,
+            "mode": "232",
+            "parity": "none",
+            "dma": true,
+            "dma_rx": 2,
+            "dma_tx": 3
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "uart_1",
+          "name": "蓝牙模块串口",
+          "enum": "kBrd_UartIdBth",
+          "base_enum": "kBrdUartBaseIdBth",
+          "enum_override": false,
+          "params": {
+            "instance": "UART2",
+            "rx": "PD17",
+            "tx": "PE12",
+            "rts": "",
+            "baud": 115200,
+            "mode": "232",
+            "parity": "none",
+            "dma": true,
+            "dma_rx": 6,
+            "dma_tx": 7
+          },
+          "label_source": "catalog"
+        },
+        {
+          "uid": "uart_2",
+          "name": "网络串口",
+          "enum": "kBrd_UartIdNet",
+          "base_enum": "kBrdUartBaseIdNet1",
+          "enum_override": false,
+          "params": {
+            "instance": "UART1",
+            "rx": "PC8",
+            "tx": "PC9",
+            "rts": "",
+            "baud": 115200,
+            "mode": "232",
+            "parity": "none",
+            "dma": true,
+            "dma_rx": 4,
+            "dma_tx": 5
+          }
+        },
+        {
+          "uid": "uart_3",
+          "name": "定位模块串口",
+          "enum": "kBrd_UartIdGnss",
+          "base_enum": "kBrdUartBaseIdGnss",
+          "enum_override": false,
+          "params": {
+            "instance": "UART3",
+            "rx": "PB21",
+            "tx": "PB20",
+            "rts": "",
+            "baud": 115200,
+            "mode": "232",
+            "parity": "none",
+            "dma": true,
+            "dma_rx": 8,
+            "dma_tx": 9
+          },
+          "label_source": "catalog"
+        }
+      ],
+      "wdog": [],
+      "xcu": [],
+      "bat_chg_mgr": [],
+      "bpi": [],
+      "csec": [],
+      "flash_mgr_inner": [],
+      "hsm": [],
+      "iic_mgr_inner": [],
+      "sled": [],
+      "xcu_spi": []
+    },
+    "buses": [
+      {
+        "id": "iic0",
+        "kind": "iic",
+        "instance": 0,
+        "pins": {
+          "SDA": "PB10",
+          "SCL": "PB9"
+        },
+        "mux": {
+          "SDA": "ALT3",
+          "SCL": "ALT3"
+        },
+        "targets": [
+          "app",
+          "boot"
+        ]
+      },
+      {
+        "id": "iic1",
+        "kind": "iic",
+        "instance": 1,
+        "pins": {
+          "SDA": "PD8",
+          "SCL": "PD9"
+        },
+        "mux": {
+          "SDA": "ALT2",
+          "SCL": "ALT2"
+        },
+        "targets": [
+          "app",
+          "boot"
+        ]
+      },
+      {
+        "id": "spi2",
+        "kind": "spi",
+        "instance": 2,
+        "pins": {
+          "SCK": "PE15",
+          "SIN": "PE16",
+          "SOUT": "PA8"
+        },
+        "mux": {
+          "SCK": "ALT3",
+          "SIN": "ALT3",
+          "SOUT": "ALT3"
+        },
+        "targets": [
+          "app",
+          "boot"
+        ]
+      },
+      {
+        "id": "spi3",
+        "kind": "spi",
+        "instance": 3,
+        "pins": {
+          "SCK": "PC29",
+          "SIN": "PC28",
+          "SOUT": "PC27"
+        },
+        "mux": {
+          "SCK": "ALT6",
+          "SIN": "ALT6",
+          "SOUT": "ALT6"
+        },
+        "targets": [
+          "app",
+          "boot"
+        ]
+      },
+      {
+        "id": "spi0",
+        "kind": "spi",
+        "instance": 0,
+        "pins": {
+          "SCK": "PE0",
+          "SIN": "PE1",
+          "SOUT": "PE2"
+        },
+        "mux": {
+          "SCK": "ALT2",
+          "SIN": "ALT2",
+          "SOUT": "ALT2"
+        },
+        "targets": [
+          "app"
+        ]
+      }
+    ]
+  },
+  "driver_settings": {},
+  "codegen": {
+    "adapter": "ac78428-template-v1",
+    "parameters": {
+      "ac78428/cfg/brd_analog_cfg.c": {
+        "values": {
+          "g_drv_adc_cfgs_": [
+            {
+              "index": 0
+            },
+            {
+              "index": 1
+            }
+          ],
+          "g_drv_adc_ch_cfgs_": [
+            {
+              "group": "kDrvPortGroupC",
+              "pin": "kDrvPortPin14",
+              "mux": "kDrvPortMuxDefault",
+              "x": 11,
+              "y": 1,
+              "offset": 0,
+              "ref_vol": "3300U",
+              "spt": "TDrvAdcSampleTimeClk85",
+              "index": 12
+            },
+            {
+              "group": "kDrvPortGroupB",
+              "pin": "kDrvPortPin18",
+              "mux": "kDrvPortMuxDefault",
+              "x": 2,
+              "y": 1,
+              "offset": 0,
+              "ref_vol": "3300U",
+              "spt": "TDrvAdcSampleTimeClk85",
+              "index": 16
+            },
+            {
+              "group": "kDrvPortGroupD",
+              "pin": "kDrvPortPin27",
+              "mux": "kDrvPortMuxDefault",
+              "x": 1,
+              "y": 1,
+              "offset": 0,
+              "ref_vol": "3300U",
+              "spt": "TDrvAdcSampleTimeClk85",
+              "index": 21
+            }
+          ],
+          "g_brd_analog_dev_in_chips_": [
+            {
+              "base": {
+                "dev_drv": "&g_drv_adc_chs_[0]",
+                "dev_drv_cfg": "&g_drv_adc_ch_cfgs_[0]"
+              },
+              "dev_drv_parent": "&g_drv_adcs_[0]",
+              "dev_drv_parent_cfg": "&g_drv_adc_cfgs_[0]"
+            },
+            {
+              "base": {
+                "dev_drv": "&g_drv_adc_chs_[1]",
+                "dev_drv_cfg": "&g_drv_adc_ch_cfgs_[1]"
+              },
+              "dev_drv_parent": "&g_drv_adcs_[0]",
+              "dev_drv_parent_cfg": "&g_drv_adc_cfgs_[0]"
+            },
+            {
+              "base": {
+                "dev_drv": "&g_drv_adc_chs_[2]",
+                "dev_drv_cfg": "&g_drv_adc_ch_cfgs_[2]"
+              },
+              "dev_drv_parent": "&g_drv_adcs_[1]",
+              "dev_drv_parent_cfg": "&g_drv_adc_cfgs_[1]"
+            }
+          ],
+          "g_brd_analog_items_": [
+            {
+              "id": "kBrd_AnalogIdMajorPower",
+              "dev": "kBrd_AnalogDevInChip",
+              "dev_cfg": "(void*)&g_brd_analog_dev_in_chips_[0]",
+              "bus": "kBrd_AnalogBusNull",
+              "bus_cfg": "NULL"
+            },
+            {
+              "id": "kBrd_AnalogIdBackupPower",
+              "dev": "kBrd_AnalogDevInChip",
+              "dev_cfg": "(void*)&g_brd_analog_dev_in_chips_[1]",
+              "bus": "kBrd_AnalogBusNull",
+              "bus_cfg": "NULL"
+            },
+            {
+              "id": "kBrd_AnalogIdPlat",
+              "dev": "kBrd_AnalogDevInChip",
+              "dev_cfg": "(void*)&g_brd_analog_dev_in_chips_[2]",
+              "bus": "kBrd_AnalogBusNull",
+              "bus_cfg": "NULL"
+            }
+          ],
+          "g_brd_analog_attr": {
+            "count": "sizeof(g_brd_analog_items_) / sizeof(g_brd_analog_items_[0])",
+            "item": "g_brd_analog_items_"
+          }
+        },
+        "comments": {
+          "g_drv_adc_ch_cfgs_": [
+            "ADC0_IN12",
+            "ADC0_IN16",
+            "ADC1_IN21"
+          ]
+        }
+      },
+      "ac78428/cfg/brd_bat_chg_cfg.c": {
+        "values": {
+          "g_brd_bat_chg_cfg_": [
+            {
+              "DoEnable": "Brd_BatChgDoSet5VPer",
+              "group": "kDrvPortGroupMax",
+              "reverse": false
+            },
+            {
+              "DoEnable": "NULL",
+              "group": "kDrvPortGroupD",
+              "pin": "kDrvPortPin13",
+              "reverse": false
+            },
+            {
+              "DoEnable": "Brd_BatChgDoSet3V3Per",
+              "group": "kDrvPortGroupB",
+              "pin": "kDrvPortPin25",
+              "reverse": true
+            }
+          ],
+          "g_brd_bat_chg_items_": [
+            {
+              "id": 0,
+              "out": "&g_brd_bat_chg_cfg_[0]",
+              "in": "&g_brd_bat_chg_cfg_[1]",
+              "incharge": "&g_brd_bat_chg_cfg_[2]",
+              "enabled": false
+            }
+          ],
+          "g_brd_bat_chg_attr": {
+            "count": "sizeof(g_brd_bat_chg_items_) / sizeof(g_brd_bat_chg_items_[0])",
+            "item": "g_brd_bat_chg_items_"
+          }
+        },
+        "comments": {
+          "g_brd_bat_chg_cfg_": [
+            "充电使能脚, NULL, 依赖于 5V外设电源",
+            "充电完成脚, PD13",
+            "充电状态脚, PB25"
+          ]
+        }
+      },
+      "ac78428/cfg/brd_can_cfg.c": {
+        "values": {
+          "g_drv_can_cfgs_": [
+            {
+              "rx_group": "kDrvPortGroupE",
+              "tx_group": "kDrvPortGroupE",
+              "stb_group": "kDrvPortGroupA",
+              "rx_pin": "kDrvPortPin4",
+              "tx_pin": "kDrvPortPin5",
+              "stb_pin": "kDrvPortPin30",
+              "tx_pin_mux": "kDrvPortMuxAlt5",
+              "rx_pin_mux": "kDrvPortMuxAlt5",
+              "id": "kBrd_CanId0",
+              "index": 0
+            },
+            {
+              "rx_group": "kDrvPortGroupA",
+              "tx_group": "kDrvPortGroupA",
+              "stb_group": "kDrvPortGroupA",
+              "rx_pin": "kDrvPortPin12",
+              "tx_pin": "kDrvPortPin13",
+              "stb_pin": "kDrvPortPin11",
+              "tx_pin_mux": "kDrvPortMuxAlt3",
+              "rx_pin_mux": "kDrvPortMuxAlt3",
+              "id": "kBrd_CanId1",
+              "index": 1
+            },
+            {
+              "rx_group": "kDrvPortGroupB",
+              "tx_group": "kDrvPortGroupB",
+              "stb_group": "kDrvPortGroupD",
+              "rx_pin": "kDrvPortPin12",
+              "tx_pin": "kDrvPortPin13",
+              "stb_pin": "kDrvPortPin4",
+              "tx_pin_mux": "kDrvPortMuxAlt4",
+              "rx_pin_mux": "kDrvPortMuxAlt4",
+              "id": "kBrd_CanId2",
+              "index": 2
+            },
+            {
+              "rx_group": "kDrvPortGroupC",
+              "tx_group": "kDrvPortGroupC",
+              "stb_group": "kDrvPortGroupD",
+              "rx_pin": "kDrvPortPin12",
+              "tx_pin": "kDrvPortPin13",
+              "stb_pin": "kDrvPortPin24",
+              "tx_pin_mux": "kDrvPortMuxAlt5",
+              "rx_pin_mux": "kDrvPortMuxAlt5",
+              "id": "kBrd_CanId3",
+              "index": 3
+            }
+          ],
+          "g_brd_can_dev_in_chip_": [
+            {
+              "base": {
+                "dev_drv": "&g_drv_can_[0]",
+                "dev_drv_cfg": "&g_drv_can_cfgs_[0]"
+              },
+              "fd_buf": "&g_brd_canfd_data_[0]"
+            },
+            {
+              "base": {
+                "dev_drv": "&g_drv_can_[1]",
+                "dev_drv_cfg": "&g_drv_can_cfgs_[1]"
+              },
+              "fd_buf": "&g_brd_canfd_data_[1]"
+            },
+            {
+              "base": {
+                "dev_drv": "&g_drv_can_[2]",
+                "dev_drv_cfg": "&g_drv_can_cfgs_[2]"
+              },
+              "fd_buf": "&g_brd_canfd_data_[2]"
+            },
+            {
+              "base": {
+                "dev_drv": "&g_drv_can_[3]",
+                "dev_drv_cfg": "&g_drv_can_cfgs_[3]"
+              },
+              "fd_buf": "&g_brd_canfd_data_[3]"
+            }
+          ],
+          "g_brd_can_items_": [
+            {
+              "id": "kBrd_CanId0",
+              "dev": "kBrd_CanDevInChip",
+              "dev_cfg": "&g_brd_can_dev_in_chip_[0]",
+              "bus": "kBrd_CanBusNull",
+              "bus_cfg": "NULL"
+            },
+            {
+              "id": "kBrd_CanId1",
+              "dev": "kBrd_CanDevInChip",
+              "dev_cfg": "&g_brd_can_dev_in_chip_[1]",
+              "bus": "kBrd_CanBusNull",
+              "bus_cfg": "NULL"
+            },
+            {
+              "id": "kBrd_CanId2",
+              "dev": "kBrd_CanDevInChip",
+              "dev_cfg": "&g_brd_can_dev_in_chip_[2]",
+              "bus": "kBrd_CanBusNull",
+              "bus_cfg": "NULL"
+            },
+            {
+              "id": "kBrd_CanId3",
+              "dev": "kBrd_CanDevInChip",
+              "dev_cfg": "&g_brd_can_dev_in_chip_[3]",
+              "bus": "kBrd_CanBusNull",
+              "bus_cfg": "NULL"
+            }
+          ],
+          "g_brd_canfd_items_": [
+            {
+              "id": "kBrd_CanfdId0",
+              "dev": "kBrd_CanDevInChip",
+              "dev_cfg": "&g_brd_can_dev_in_chip_[0]",
+              "bus": "kBrd_CanBusNull",
+              "bus_cfg": "NULL"
+            },
+            {
+              "id": "kBrd_CanfdId1",
+              "dev": "kBrd_CanDevInChip",
+              "dev_cfg": "&g_brd_can_dev_in_chip_[1]",
+              "bus": "kBrd_CanBusNull",
+              "bus_cfg": "NULL"
+            },
+            {
+              "id": "kBrd_CanfdId2",
+              "dev": "kBrd_CanDevInChip",
+              "dev_cfg": "&g_brd_can_dev_in_chip_[2]",
+              "bus": "kBrd_CanBusNull",
+              "bus_cfg": "NULL"
+            },
+            {
+              "id": "kBrd_CanfdId3",
+              "dev": "kBrd_CanDevInChip",
+              "dev_cfg": "&g_brd_can_dev_in_chip_[3]",
+              "bus": "kBrd_CanBusNull",
+              "bus_cfg": "NULL"
+            }
+          ],
+          "g_brd_can_attr": {
+            "count": "sizeof(g_brd_can_items_) / sizeof(g_brd_can_items_[0])",
+            "item": "g_brd_can_items_"
+          },
+          "g_brd_canfd_attr": {
+            "count": "sizeof(g_brd_canfd_items_) / sizeof(g_brd_canfd_items_[0])",
+            "item": "g_brd_canfd_items_"
+          }
+        },
+        "comments": {
+          "g_drv_can_cfgs_": [
+            "0, RXD PE4, TXD PE5, STB PA30",
+            "1, RXD PA12, TXD PA13 STB PA11",
+            "2, RXD PB12, TXD PB13 STB PD4",
+            "3, RXD PC12, TXD PC13 STB PD24"
+          ]
+        }
+      },
+      "ac78428/cfg/brd_can_trx_cfg.c": {
+        "values": {
+          "g_brd_can_trx_spi_port_cfg_": {
+            "group": "kDrvPortGroupE",
+            "pin": "kDrvPortPin6",
+            "index": 2
+          },
+          "g_brd_can_trx_tja1445_wakeup_pin_cfg_": {
+            "group": "kDrvPortGroupA",
+            "pin": 25,
+            "reverse": true
+          },
+          "g_brd_can_trx_phy_spi_bus_": {
+            "base": {
+              "bus_drv": "&g_brd_can_trx_spi_port_",
+              "bus_drv_cfg": "&g_brd_can_trx_spi_port_cfg_",
+              "bus_drv_parent": {
+                "$resource": {
+                  "kind": "spi",
+                  "id": "spi0",
+                  "configuration": false
+                }
+              },
+              "bus_drv_parent_cfg": {
+                "$resource": {
+                  "kind": "spi",
+                  "id": "spi0",
+                  "configuration": true
+                }
+              }
+            },
+            "event": "&g_brd_can_trx_event_[0]"
+          },
+          "g_can_trx_local_error_info_": [
+            0
+          ],
+          "g_brd_can_trx_tja1445_dev_": {
+            "base": {
+              "dev_drv": "&g_brd_can_trx_tja1445_per",
+              "error_info": "&g_can_trx_local_error_info_"
+            },
+            "wakeup_pin_cfg": "&g_brd_can_trx_tja1445_wakeup_pin_cfg_"
+          },
+          "g_brd_can_trx_items_": [
+            {
+              "id": "kBrd_CanTrxId0",
+              "dev": "kBrd_CanTrxDevTja1445",
+              "bus": "kBrd_CanTrxBusPhySpi",
+              "bus_cfg": "&g_brd_can_trx_phy_spi_bus_",
+              "dev_cfg": "&g_brd_can_trx_tja1445_dev_"
+            }
+          ],
+          "g_brd_can_trx_attr": {
+            "count": "sizeof(g_brd_can_trx_items_) / sizeof(g_brd_can_trx_items_[0])",
+            "item": "g_brd_can_trx_items_"
+          }
+        },
+        "comments": {}
+      },
+      "ac78428/cfg/brd_common_cfg.c": {
+        "values": {
+          "g_brd_version_": {
+            "ver": [
+              "kBrd_VersionMajor",
+              "(UInt8)kBrd_VersionHqt401_l30",
+              "kBrd_VersionApp",
+              0
+            ],
+            "build_time": 1770369601
+          },
+          "g_brd_version_attr": {
+            "cfg": "&g_brd_version_"
+          },
+          "g_drv_iic_cfgs": [
+            {
+              "scl_group": "kDrvPortGroupB",
+              "scl_pin": "kDrvPortPin9",
+              "scl_pin_mux": "kDrvPortMuxAlt3",
+              "sda_group": "kDrvPortGroupB",
+              "sda_pin": "kDrvPortPin10",
+              "sda_pin_mux": "kDrvPortMuxAlt3",
+              "index": 0
+            },
+            {
+              "scl_group": "kDrvPortGroupD",
+              "scl_pin": "kDrvPortPin9",
+              "scl_pin_mux": "kDrvPortMuxAlt2",
+              "sda_group": "kDrvPortGroupD",
+              "sda_pin": "kDrvPortPin8",
+              "sda_pin_mux": "kDrvPortMuxAlt2",
+              "index": 1
+            }
+          ],
+          "g_drv_spi_cfgs": [
+            {
+              "clk_group": "kDrvPortGroupE",
+              "clk_pin": "kDrvPortPin15",
+              "clk_mux": "kDrvPortMuxAlt3",
+              "sin_group": "kDrvPortGroupE",
+              "sin_pin": "kDrvPortPin16",
+              "sin_mux": "kDrvPortMuxAlt3",
+              "sout_group": "kDrvPortGroupA",
+              "sout_pin": "kDrvPortPin8",
+              "sout_mux": "kDrvPortMuxAlt3",
+              "index": 2,
+              "reverse": false
+            },
+            {
+              "clk_group": "kDrvPortGroupC",
+              "clk_pin": "kDrvPortPin29",
+              "clk_mux": "kDrvPortMuxAlt6",
+              "sin_group": "kDrvPortGroupC",
+              "sin_pin": "kDrvPortPin28",
+              "sin_mux": "kDrvPortMuxAlt6",
+              "sout_group": "kDrvPortGroupC",
+              "sout_pin": "kDrvPortPin27",
+              "sout_mux": "kDrvPortMuxAlt6",
+              "index": 3,
+              "reverse": false
+            },
+            {
+              "clk_group": "kDrvPortGroupE",
+              "clk_pin": "kDrvPortPin0",
+              "clk_mux": "kDrvPortMuxAlt2",
+              "sin_group": "kDrvPortGroupE",
+              "sin_pin": "kDrvPortPin1",
+              "sin_mux": "kDrvPortMuxAlt2",
+              "sout_group": "kDrvPortGroupE",
+              "sout_pin": "kDrvPortPin2",
+              "sout_mux": "kDrvPortMuxAlt2",
+              "index": 0,
+              "reverse": false
+            }
+          ]
+        },
+        "comments": {
+          "g_drv_iic_cfgs": [
+            "SCL PB9, SDA PB10",
+            "SCL PD9, SDA PD8"
+          ],
+          "g_drv_spi_cfgs": [
+            "sout: PA8, sin: PE16, clk: PE15",
+            "sout: PC27, sin: PC28, clk: PC29",
+            "sout: PE2, sin: PE1, clk: PE0"
+          ]
+        }
+      },
+      "ac78428/cfg/brd_crypto_cfg.c": {
+        "values": {
+          "g_brd_crypto_wakeup_cfg_": {
+            "group": "kDrvPortGroupD",
+            "pin": "kDrvPortPin0",
+            "reverse": true
+          },
+          "g_brd_crypto_rst_cfg_": {
+            "group": "kDrvPortGroupD",
+            "pin": "kDrvPortPin1",
+            "reverse": true
+          },
+          "g_brd_crypto_dev_ciu98b_": {
+            "base": {
+              "dev_drv": "&g_per_hsm_ciu98b"
+            },
+            "DoEnable": "Brd_CryptoPowerDoEnable",
+            "wakeup": "&g_brd_crypto_wakeup_cfg_",
+            "rst": "&g_brd_crypto_rst_cfg_"
+          },
+          "g_brd_crypto_spi_port_cfg_": {
+            "group": "kDrvPortGroupA",
+            "pin": "kDrvPortPin9",
+            "mux": "kDrvPortMuxAlt3",
+            "index": 0
+          },
+          "g_brd_crypto_bus_phy_spi_": {
+            "base": {
+              "bus_drv": "&g_brd_crypto_bus_spi_port_",
+              "bus_drv_parent": {
+                "$resource": {
+                  "kind": "spi",
+                  "id": "spi2",
+                  "configuration": false
+                }
+              },
+              "bus_drv_cfg": "&g_brd_crypto_spi_port_cfg_",
+              "bus_drv_parent_cfg": {
+                "$resource": {
+                  "kind": "spi",
+                  "id": "spi2",
+                  "configuration": true
+                }
+              }
+            },
+            "event": "&g_brd_crypto_event_[0]"
+          },
+          "g_brd_crypto_dev_inchip_": {
+            "base": {
+              "dev_drv": "&g_drv_csec"
+            },
+            "event": "&g_brd_crypto_event_[1]"
+          },
+          "g_brd_crypto_items_": [
+            {
+              "id": "kBrd_CryptoIdCiu98b",
+              "dev": "kBrd_CryptoDevCiu98b",
+              "dev_cfg": "&g_brd_crypto_dev_ciu98b_",
+              "bus": "kBrd_CryptoBusPhySpi",
+              "bus_cfg": "&g_brd_crypto_bus_phy_spi_",
+              "is_open": false
+            },
+            {
+              "id": "kBrd_CryptoIdCsec",
+              "dev": "kBrd_CryptoDevInChip",
+              "dev_cfg": "&g_brd_crypto_dev_inchip_",
+              "bus": "kBrd_CryptoBusNull",
+              "bus_cfg": "NULL",
+              "is_open": false
+            }
+          ],
+          "g_brd_crypto_attr": {
+            "count": "sizeof(g_brd_crypto_items_) / sizeof(g_brd_crypto_items_[0])",
+            "item": "&g_brd_crypto_items_[0]"
+          }
+        },
+        "comments": {}
+      },
+      "ac78428/cfg/brd_ext_int_cfg.c": {
+        "values": {
+          "g_brd_ext_int_cfgs": [
+            {
+              "group": "kDrvPortGroupC",
+              "pin": "kDrvPortPin2",
+              "run_trigger": "kDrvGpioIntTriggerEdgeBoth",
+              "sleep_trigger": "kDrvGpioIntTriggerFalling"
+            },
+            {
+              "group": "kDrvPortGroupB",
+              "pin": "kDrvPortPin1",
+              "run_trigger": "kDrvGpioIntTriggerEdgeBoth",
+              "sleep_trigger": "kDrvGpioIntTriggerFalling"
+            },
+            {
+              "group": "kDrvPortGroupE",
+              "pin": "kDrvPortPin4",
+              "run_trigger": "kDrvGpioIntTriggerFalling",
+              "sleep_trigger": "kDrvGpioIntTriggerFalling"
+            },
+            {
+              "group": "kDrvPortGroupA",
+              "pin": "kDrvPortPin12",
+              "run_trigger": "kDrvGpioIntTriggerFalling",
+              "sleep_trigger": "kDrvGpioIntTriggerFalling"
+            },
+            {
+              "group": "kDrvPortGroupB",
+              "pin": "kDrvPortPin12",
+              "run_trigger": "kDrvGpioIntTriggerFalling",
+              "sleep_trigger": "kDrvGpioIntTriggerFalling"
+            },
+            {
+              "group": "kDrvPortGroupC",
+              "pin": "kDrvPortPin12",
+              "run_trigger": "kDrvGpioIntTriggerFalling",
+              "sleep_trigger": "kDrvGpioIntTriggerFalling"
+            },
+            {
+              "group": "kDrvPortGroupC",
+              "pin": "kDrvPortPin16",
+              "run_trigger": "kDrvGpioIntTriggerFalling",
+              "sleep_trigger": "kDrvGpioIntTriggerFalling"
+            },
+            {
+              "group": "kDrvPortGroupD",
+              "pin": "kDrvPortPin7",
+              "run_trigger": "kDrvGpioIntTriggerRising",
+              "sleep_trigger": "kDrvGpioIntTriggerRising"
+            },
+            {
+              "group": "kDrvPortGroupC",
+              "pin": "kDrvPortPin31",
+              "run_trigger": "kDrvGpioIntTriggerFalling",
+              "sleep_trigger": "kDrvGpioIntTriggerRising"
+            },
+            {
+              "group": "kDrvPortGroupC",
+              "pin": "kDrvPortPin3",
+              "run_trigger": "kDrvGpioIntTriggerFalling",
+              "sleep_trigger": "kDrvGpioIntTriggerFalling"
+            }
+          ],
+          "g_brd_ext_int_items_": [
+            {
+              "id": "kBrd_ExtIntIdIg",
+              "drv_cfg": "&g_brd_ext_int_cfgs[0]",
+              "is_open": false
+            },
+            {
+              "id": "kBrd_ExtIntIdAcc",
+              "drv_cfg": "&g_brd_ext_int_cfgs[1]",
+              "is_open": false
+            },
+            {
+              "id": "kBrd_ExtIntIdCan0",
+              "drv_cfg": "&g_brd_ext_int_cfgs[2]",
+              "is_open": false
+            },
+            {
+              "id": "kBrd_ExtIntIdCan1",
+              "drv_cfg": "&g_brd_ext_int_cfgs[3]",
+              "is_open": false
+            },
+            {
+              "id": "kBrd_ExtIntIdCan2",
+              "drv_cfg": "&g_brd_ext_int_cfgs[4]",
+              "is_open": false
+            },
+            {
+              "id": "kBrd_ExtIntIdCan3",
+              "drv_cfg": "&g_brd_ext_int_cfgs[5]",
+              "is_open": false
+            },
+            {
+              "id": "kBrd_ExtIntIdNetWakeupMcu",
+              "drv_cfg": "&g_brd_ext_int_cfgs[6]",
+              "is_open": false
+            },
+            {
+              "id": "kBrd_ExtIntIdPwrLost",
+              "drv_cfg": "&g_brd_ext_int_cfgs[7]",
+              "is_open": false
+            },
+            {
+              "id": "kBrd_ExtIntIdBth",
+              "drv_cfg": "&g_brd_ext_int_cfgs[8]",
+              "is_open": false
+            },
+            {
+              "id": "kBrd_ExtIntIdExtRtc",
+              "drv_cfg": "&g_brd_ext_int_cfgs[9]",
+              "is_open": false
+            }
+          ],
+          "g_brd_ext_int_attr": {
+            "count": "sizeof(g_brd_ext_int_items_) / sizeof(g_brd_ext_int_items_[0])",
+            "item": "g_brd_ext_int_items_"
+          }
+        },
+        "comments": {
+          "g_brd_ext_int_cfgs": [
+            "kBrd_ExtIntIdIg, PC2",
+            "kBrd_ExtIntIdAcc, PB1",
+            "kBrd_ExtIntIdCan0, PE4",
+            "kBrd_ExtIntIdCan1, PA12",
+            "kBrd_ExtIntIdCan2, PB12",
+            "kBrd_ExtIntIdCan3, PC12",
+            "kBrd_ExtIntIdNetWakeupMcu, PC16",
+            "kBrd_ExtIntIdPwrLost, PD7",
+            "kBrd_ExtIntIdBth, PC31",
+            "kBrd_ExtIntIdExtRtc, PC3"
+          ]
+        }
+      },
+      "ac78428/cfg/brd_ext_rtc_cfg.c": {
+        "values": {
+          "g_brd_ext_rtc_dev_bm8563_": {
+            "base": {
+              "dev_drv": "&g_brd_ext_rtc_bm8563_",
+              "mutex": "&g_brd_ext_rtc_mutex_[0]",
+              "dev_addr": "kBm8563ChipAddr"
+            }
+          },
+          "g_brd_ext_rtc_bus_phy_iic_dev0_": {
+            "base": {
+              "bus_drv": "&g_brd_ext_rtc_phy_iic_dev0_",
+              "bus_drv_parent": {
+                "$resource": {
+                  "kind": "iic",
+                  "id": "iic1",
+                  "configuration": false
+                }
+              },
+              "bus_drv_parent_cfg": {
+                "$resource": {
+                  "kind": "iic",
+                  "id": "iic1",
+                  "configuration": true
+                }
+              }
+            },
+            "event": "&g_brd_ext_rtc_event_[0]",
+            "bus_drv_result": 0,
+            "bus_drv_size": 0
+          },
+          "g_brd_ext_rtc_item_": [
+            {
+              "id": 0,
+              "dev": "kBrdExtRtcDevBm8563",
+              "dev_cfg": "&g_brd_ext_rtc_dev_bm8563_",
+              "bus": "kBrdExtRtcBusPhyIic",
+              "bus_cfg": "&g_brd_ext_rtc_bus_phy_iic_dev0_",
+              "is_open": false
+            }
+          ],
+          "g_brd_ext_rtc_attr": {
+            "count": "sizeof(g_brd_ext_rtc_item_) / sizeof(g_brd_ext_rtc_item_[0])",
+            "item": "g_brd_ext_rtc_item_"
+          }
+        },
+        "comments": {}
+      },
+      "ac78428/cfg/brd_flash_cfg.c": {
+        "values": {
+          "g_brd_flash_mutex_cnt_": [
+            0
+          ],
+          "g_brd_flash_dev_chip_pflash_": {
+            "base": {
+              "dev_drv": "&g_drv_flash",
+              "mutex": "&g_brd_flash_mutex_[0]",
+              "mutex_cnt": "&g_brd_flash_mutex_cnt_[0]"
+            },
+            "flag": "0x01"
+          },
+          "g_per_fee_cfg": {
+            "eep_size": "4096U",
+            "eep_ram_base_addr": "0x2001E000U",
+            "eep_flash_base_addr": "0x1000000U",
+            "flash_pagesize": "0x800U",
+            "flash_min_program_byte": "0x08U",
+            "retry": "3U"
+          },
+          "g_brd_flash_dev_chip_eep_": {
+            "base": {
+              "dev_drv": "&g_per_fee",
+              "dev_drv_cfg": "&g_per_fee_cfg",
+              "mutex": "&g_brd_flash_mutex_[0]",
+              "mutex_cnt": "&g_brd_flash_mutex_cnt_[0]"
+            }
+          },
+          "g_brd_flash_bus_on_chip_flash_": {
+            "base": {
+              "bus_drv": "&g_drv_flash"
+            },
+            "flag": "0x01"
+          },
+          "g_brd_flash_bl24c128f_dev_": {
+            "base": {
+              "dev_drv": "&g_brd_flash_bl24c128f_per_",
+              "mutex": "&g_brd_flash_mutex_[1]",
+              "mutex_cnt": "&g_brd_flash_mutex_cnt_[1]"
+            },
+            "dev_addr": "kPerFramAt24c32DevAddr"
+          },
+          "g_brd_flash_bl24c128f_bus_": {
+            "base": {
+              "bus_drv": "&g_brd_flash_phy_iic_dev0_",
+              "bus_drv_parent": {
+                "$resource": {
+                  "kind": "iic",
+                  "id": "iic0",
+                  "configuration": false
+                }
+              },
+              "bus_drv_parent_cfg": {
+                "$resource": {
+                  "kind": "iic",
+                  "id": "iic0",
+                  "configuration": true
+                }
+              }
+            },
+            "event": "&g_brd_flash_event_[0]"
+          },
+          "g_brd_flash_sd_nand_drv_port_cfg_": {
+            "group": "kDrvPortGroupC",
+            "pin": "kDrvPortPin30",
+            "index": 0
+          },
+          "g_brd_flash_sd_nand_pwr_pin_": {
+            "group": "kDrvPortGroupE",
+            "pin": "kDrvPortPin25",
+            "reverse": false
+          },
+          "g_brd_flash_sd_nand_bus_": {
+            "base": {
+              "bus_drv": "&g_brd_flash_sd_nand_drv_port_",
+              "bus_drv_cfg": "&g_brd_flash_sd_nand_drv_port_cfg_",
+              "bus_drv_parent": {
+                "$resource": {
+                  "kind": "spi",
+                  "id": "spi3",
+                  "configuration": false
+                }
+              },
+              "bus_drv_parent_cfg": {
+                "$resource": {
+                  "kind": "spi",
+                  "id": "spi3",
+                  "configuration": true
+                }
+              }
+            },
+            "event": "&g_brd_flash_event_[1]"
+          },
+          "g_brd_flash_sd_nand_dev_": {
+            "base": {
+              "dev_drv": "&g_brd_flash_sd_nand_per_",
+              "mutex": "&g_brd_flash_mutex_[2]",
+              "mutex_cnt": "&g_brd_flash_mutex_cnt_[2]"
+            },
+            "power_pin": "&g_brd_flash_sd_nand_pwr_pin_",
+            "DoEnable": "&Brd_FlashSdNandDoEnable"
+          },
+          "g_brd_flash_items_": [
+            {
+              "id": "kBrd_FlashIdChipPflash",
+              "dev": "kBrd_FlashDevChipPflash",
+              "dev_cfg": "&g_brd_flash_dev_chip_pflash_",
+              "bus": "kBrd_FlashBusNull",
+              "bus_cfg": "NULL",
+              "info": {
+                "block_count": 1,
+                "sectors_per_block": 256,
+                "pages_per_sector": 1024,
+                "page_size": 8
+              },
+              "is_open": false,
+              "default_offset": "0x00000000"
+            },
+            {
+              "$ifdef": "BRD_FLASH_DEV_CHIP_EEP",
+              "value": {
+                "id": "kBrd_FlashIdEep",
+                "dev": "kBrd_FlashDevChipEep",
+                "dev_cfg": "&g_brd_flash_dev_chip_eep_",
+                "bus": "kBrd_FlashBusOnChipFlash",
+                "bus_cfg": "&g_brd_flash_bus_on_chip_flash_",
+                "info": {
+                  "block_count": 8,
+                  "sectors_per_block": 512,
+                  "pages_per_sector": 1,
+                  "page_size": 1
+                },
+                "is_open": false,
+                "default_offset": "0x00000000"
+              }
+            },
+            {
+              "id": "kBrd_FlashIdBl24c128f",
+              "dev": "kBrd_FlashDevBl24c128f",
+              "dev_cfg": "&g_brd_flash_bl24c128f_dev_",
+              "bus": "kBrd_FlashBusPhyIic",
+              "bus_cfg": "&g_brd_flash_bl24c128f_bus_",
+              "info": {
+                "block_count": 32,
+                "sectors_per_block": 512,
+                "pages_per_sector": 1,
+                "page_size": 1
+              },
+              "is_open": false,
+              "default_offset": "0x00000000"
+            },
+            {
+              "id": "kBrd_FlashIdSdNand",
+              "dev": "kBrd_FlashDevSdNand",
+              "dev_cfg": "&g_brd_flash_sd_nand_dev_",
+              "bus": "kBrd_FlashBusPhySpi",
+              "bus_cfg": "&g_brd_flash_sd_nand_bus_",
+              "info": [
+                0
+              ],
+              "is_open": false,
+              "default_offset": "0x00000000"
+            }
+          ],
+          "g_brd_flash_attr": {
+            "count": "sizeof(g_brd_flash_items_) / sizeof(g_brd_flash_items_[0])",
+            "item": "g_brd_flash_items_"
+          }
+        },
+        "comments": {}
+      },
+      "ac78428/cfg/brd_led_cfg.c": {
+        "values": {
+          "g_brd_led_cfg_": [
+            {
+              "port": "kDrvPortGroupB",
+              "pin": "kDrvPortPin22",
+              "reverse": false
+            },
+            {
+              "port": "kDrvPortGroupB",
+              "pin": "kDrvPortPin23",
+              "reverse": false
+            },
+            {
+              "port": "kDrvPortGroupB",
+              "pin": "kDrvPortPin27",
+              "reverse": false
+            },
+            {
+              "port": "kDrvPortGroupC",
+              "pin": "kDrvPortPin15",
+              "reverse": false
+            }
+          ],
+          "g_brd_led_items_": [
+            {
+              "id": "kBrd_LedIdCan",
+              "cfg": "&g_brd_led_cfg_[0]",
+              "is_on": false
+            },
+            {
+              "id": "kBrd_LedIdGnss",
+              "cfg": "&g_brd_led_cfg_[1]",
+              "is_on": false
+            },
+            {
+              "id": "kBrd_LedIdBth",
+              "cfg": "&g_brd_led_cfg_[2]",
+              "is_on": false
+            },
+            {
+              "id": "kBrd_LedIdNet",
+              "cfg": "&g_brd_led_cfg_[3]",
+              "is_on": false
+            }
+          ],
+          "g_brd_led_attr": {
+            "count": "sizeof(g_brd_led_items_) / sizeof(g_brd_led_items_[0])",
+            "item": "g_brd_led_items_"
+          }
+        },
+        "comments": {
+          "g_brd_led_cfg_": [
+            "kBrd_LedIdCan, PB22",
+            "kBrd_LedIdGnss, PB23",
+            "kBrd_LedIdBth, PB27",
+            "kBrd_LedIdNet, PC15"
+          ]
+        }
+      },
+      "ac78428/cfg/brd_misc_ctrl_cfg.c": {
+        "values": {
+          "g_brd_misc_ctrl_cfgs_": [
+            {
+              "group": "kDrvPortGroupA",
+              "pin": "kDrvPortPin6",
+              "reverse": false
+            },
+            {
+              "group": "kDrvPortGroupA",
+              "pin": "kDrvPortPin7",
+              "reverse": false
+            },
+            {
+              "group": "kDrvPortGroupA",
+              "pin": "kDrvPortPin16",
+              "flag": "0x01",
+              "reverse": true
+            },
+            {
+              "group": "kDrvPortGroupA",
+              "pin": "kDrvPortPin28",
+              "reverse": false
+            },
+            {
+              "group": "kDrvPortGroupE",
+              "pin": "kDrvPortPin24",
+              "reverse": false
+            },
+            {
+              "group": "kDrvPortGroupE",
+              "pin": "kDrvPortPin14",
+              "reverse": false
+            },
+            {
+              "group": "kDrvPortGroupD",
+              "pin": "kDrvPortPin16",
+              "reverse": false
+            },
+            {
+              "group": "kDrvPortGroupD",
+              "pin": "kDrvPortPin15",
+              "reverse": false
+            }
+          ],
+          "g_brd_misc_ctrl_items_": [
+            {
+              "id": "kBrd_MiscCtrlIdBthWakeup",
+              "cfg": "&g_brd_misc_ctrl_cfgs_[0]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_MiscCtrlIdBthRst",
+              "cfg": "&g_brd_misc_ctrl_cfgs_[1]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_MiscCtrlIdNetUsbBoot",
+              "cfg": "&g_brd_misc_ctrl_cfgs_[2]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_MiscCtrlIdGnssRst",
+              "cfg": "&g_brd_misc_ctrl_cfgs_[3]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_MiscCtrlIdNegCtlOut",
+              "cfg": "&g_brd_misc_ctrl_cfgs_[4]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_MiscCtrlIdNetRst",
+              "cfg": "&g_brd_misc_ctrl_cfgs_[5]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_MiscCtrlIdNetPwrKey",
+              "cfg": "&g_brd_misc_ctrl_cfgs_[6]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_MiscCtrlIdNetWakeup",
+              "cfg": "&g_brd_misc_ctrl_cfgs_[7]",
+              "enabled": false
+            }
+          ],
+          "g_brd_misc_ctrl_attr": {
+            "count": "sizeof(g_brd_misc_ctrl_items_) / sizeof(g_brd_misc_ctrl_items_[0])",
+            "item": "g_brd_misc_ctrl_items_"
+          }
+        },
+        "comments": {
+          "g_brd_misc_ctrl_cfgs_": [
+            "kBrd_MiscCtrlIdBthWakeup, PA6",
+            "kBrd_MiscCtrlIdBthRst, PA7",
+            "kBrd_MiscCtrlIdNetUsbBoot, PA16",
+            "kBrd_MiscCtrlIdGnssRst, PA28",
+            "kBrd_MiscCtrlIdNegCtlOut, PE24",
+            "kBrd_MiscCtrlIdNetRst, PE14",
+            "kBrd_MiscCtrlIdNetPwrKey, PD16",
+            "kBrd_MiscCtrlIdNetWakeup, PD15"
+          ]
+        }
+      },
+      "ac78428/cfg/brd_pwr_ctrl_cfg.c": {
+        "values": {
+          "g_brd_pwr_ctrl_cfgs_": [
+            {
+              "DoEnable": "NULL",
+              "group": "kDrvPortGroupA",
+              "pin": "kDrvPortPin31",
+              "reverse": false
+            },
+            {
+              "DoEnable": "Brd_PwrCtrlSet3v3PerEnable",
+              "group": "kDrvPortGroupMax",
+              "reverse": false
+            },
+            {
+              "DoEnable": "NULL",
+              "group": "kDrvPortGroupC",
+              "pin": "kDrvPortPin0",
+              "reverse": false
+            },
+            {
+              "DoEnable": "NULL",
+              "group": "kDrvPortGroupD",
+              "pin": "kDrvPortPin18",
+              "reverse": false
+            },
+            {
+              "DoEnable": "NULL",
+              "group": "kDrvPortGroupB",
+              "pin": "kDrvPortPin5",
+              "reverse": false
+            },
+            {
+              "DoEnable": "NULL",
+              "group": "kDrvPortGroupD",
+              "pin": "kDrvPortPin10",
+              "reverse": false
+            },
+            {
+              "DoEnable": "Brd_PwrCtrlSet5VMainEnable",
+              "group": "kDrvPortGroupMax",
+              "reverse": false
+            },
+            {
+              "DoEnable": "NULL",
+              "group": "kDrvPortGroupE",
+              "pin": "kDrvPortPin20",
+              "reverse": false
+            }
+          ],
+          "g_brd_pwr_ctrl_base_cfgs_": [
+            {
+              "DoEnable": "Brd_PwrCtrlSet5VMainEnable",
+              "group": "kDrvPortGroupD",
+              "pin": "kDrvPortPin5",
+              "reverse": false
+            },
+            {
+              "DoEnable": "Brd_PwrCtrlSet5VMainEnable",
+              "group": "kDrvPortGroupE",
+              "pin": "kDrvPortPin7",
+              "reverse": false
+            },
+            {
+              "DoEnable": "NULL",
+              "group": "kDrvPortGroupE",
+              "pin": "kDrvPortPin23",
+              "reverse": false
+            }
+          ],
+          "g_brd_pwr_ctrl_items_": [
+            {
+              "id": "kBrd_PwrCtrlIdSpareBat",
+              "cfg": "&g_brd_pwr_ctrl_cfgs_[0]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_PwrCtrlIdSwitch",
+              "cfg": "&g_brd_pwr_ctrl_cfgs_[1]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_PwrCtrlIdNet",
+              "cfg": "&g_brd_pwr_ctrl_cfgs_[2]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_PwrCtrlIdNetUsb",
+              "cfg": "&g_brd_pwr_ctrl_cfgs_[3]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_PwrCtrlIdGnss",
+              "cfg": "&g_brd_pwr_ctrl_cfgs_[4]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_PwrCtrlIdExtMajor",
+              "cfg": "&g_brd_pwr_ctrl_cfgs_[5]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_PwrCtrlIdMajor",
+              "cfg": "&g_brd_pwr_ctrl_cfgs_[6]",
+              "enabled": false
+            },
+            {
+              "id": "kBrd_PwrCtrlIdBth",
+              "cfg": "&g_brd_pwr_ctrl_cfgs_[7]",
+              "enabled": false
+            }
+          ],
+          "g_brd_pwr_ctrl_base_": [
+            {
+              "id": "kBrd_PwrCtrlBaseId5vPer",
+              "cfg": "&g_brd_pwr_ctrl_base_cfgs_[0]",
+              "ref": 0
+            },
+            {
+              "id": "kBrd_PwrCtrlBaseId3v3Per",
+              "cfg": "&g_brd_pwr_ctrl_base_cfgs_[1]",
+              "ref": 0
+            },
+            {
+              "id": "kBrd_PwrCtrlBaseId5vMain",
+              "cfg": "&g_brd_pwr_ctrl_base_cfgs_[2]",
+              "ref": 0
+            }
+          ],
+          "g_brd_pwr_ctrl_attr": {
+            "count": "sizeof(g_brd_pwr_ctrl_items_) / sizeof(g_brd_pwr_ctrl_items_[0])",
+            "item": "g_brd_pwr_ctrl_items_",
+            "base_count": "sizeof(g_brd_pwr_ctrl_base_) / sizeof(g_brd_pwr_ctrl_base_[0])",
+            "base": "g_brd_pwr_ctrl_base_"
+          }
+        },
+        "comments": {
+          "g_brd_pwr_ctrl_cfgs_": [
+            "kBrd_PwrCtrlIdSpareBat, PA31",
+            "kBrd_PwrCtrlIdSwitch, 引用3.3V_PER",
+            "kBrd_PwrCtrlIdNet, PC0",
+            "kBrd_PwrCtrlIdNetUsb, PD18",
+            "kBrd_PwrCtrlIdGnss, PB5",
+            "kBrd_PwrCtrlIdExtMajor, PD10",
+            "kBrd_PwrCtrlItMajor, 5V_MAIN_EN",
+            "kBrd_PwrCtrlIdBth, PE20"
+          ],
+          "g_brd_pwr_ctrl_base_cfgs_": [
+            "5V_PER_EN, PD5, 外设5V电源",
+            "3V3_PER_EN, PE7, 外设3.3V电源",
+            "5V_MAIN_EN, PE23, 主电5V电源"
+          ]
+        }
+      },
+      "ac78428/cfg/brd_switch_cfg.c": {
+        "values": {
+          "g_brd_switch_cfgs_": [
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(C, 2, Disabled, True)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(B, 1, Disabled, True)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(C, 1, Disabled, True)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(D, 6, Disabled, True)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(E, 21, Disabled, True)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(E, 22, Disabled, True)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(E, 10, Disabled, True)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(D, 29, Disabled, True)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(D, 28, Disabled, True)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(D, 23, Disabled, True)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(D, 3, Disabled, True)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(C, 7, Disabled, True)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(A, 10, Disabled, False)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(A, 29, Disabled, False)",
+            "INIT_SWITCH_DEV_IN_CHIP_CFG(B, 4, Disabled, True)"
+          ],
+          "g_brd_switch_dev_in_chip_": [
+            "INIT_SWITCH_DEV_IN_CHIP(0)",
+            "INIT_SWITCH_DEV_IN_CHIP(1)",
+            "INIT_SWITCH_DEV_IN_CHIP(2)",
+            "INIT_SWITCH_DEV_IN_CHIP(3)",
+            "INIT_SWITCH_DEV_IN_CHIP(4)",
+            "INIT_SWITCH_DEV_IN_CHIP(5)",
+            "INIT_SWITCH_DEV_IN_CHIP(6)",
+            "INIT_SWITCH_DEV_IN_CHIP(7)",
+            "INIT_SWITCH_DEV_IN_CHIP(8)",
+            "INIT_SWITCH_DEV_IN_CHIP(9)",
+            "INIT_SWITCH_DEV_IN_CHIP(10)",
+            "INIT_SWITCH_DEV_IN_CHIP(11)",
+            "INIT_SWITCH_DEV_IN_CHIP(12)",
+            "INIT_SWITCH_DEV_IN_CHIP(13)",
+            "INIT_SWITCH_DEV_IN_CHIP(14)"
+          ],
+          "g_brd_switch_items_": [
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(0, kBrd_SwitchDevInChip, kBrd_SwitchIdIg)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(1, kBrd_SwitchDevInChip, kBrd_SwitchIdAcc)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(2, kBrd_SwitchDevInChip, kBrd_SwitchIdNetStatus)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(3, kBrd_SwitchDevInChip, kBrd_SwitchIdSw0)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(4, kBrd_SwitchDevInChip, kBrd_SwitchIdSw1)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(5, kBrd_SwitchDevInChip, kBrd_SwitchIdSw2)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(6, kBrd_SwitchDevInChip, kBrd_SwitchIdNetUsbDet)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(7, kBrd_SwitchDevInChip, kBrd_SwitchIdBomId1)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(8, kBrd_SwitchDevInChip, kBrd_SwitchIdBomId2)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(9, kBrd_SwitchDevInChip, kBrd_SwitchIdBomId3)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(10, kBrd_SwitchDevInChip, kBrd_SwitchIdChgLow)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(11, kBrd_SwitchDevInChip, kBrd_SwitchIdChgHigh)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(12, kBrd_SwitchDevInChip, kBrd_SwitchIdGnssAntShort)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(13, kBrd_SwitchDevInChip, kBrd_SwitchIdGnssAntOpen)",
+            "INIT_SWITCH_DEV_IN_CHIP_ITEM(14, kBrd_SwitchDevInChip, kBrd_SwitchIdPps)"
+          ],
+          "g_brd_switch_attr": {
+            "count": "sizeof(g_brd_switch_items_) / sizeof(g_brd_switch_items_[0])",
+            "item": "g_brd_switch_items_"
+          }
+        },
+        "comments": {}
+      },
+      "ac78428/cfg/brd_uart_cfg.c": {
+        "values": {
+          "g_drv_uart_cfgs_": [
+            {
+              "rx_group": "kDrvPortGroupA",
+              "tx_group": "kDrvPortGroupA",
+              "rts_group": "kDrvPortGroupMax",
+              "rx_pin": "kDrvPortPin2",
+              "tx_pin": "kDrvPortPin3",
+              "tx_pin_mux": "kDrvPortMuxAlt6",
+              "rx_pin_mux": "kDrvPortMuxAlt6",
+              "index": 0,
+              "mode": "kDrvUartMode232",
+              "dma_en": true,
+              "dma_ch_rx": 2,
+              "dma_ch_tx": 3,
+              "dma_src_rx": "DMA_REQ_UART0_RX",
+              "dma_src_tx": "DMA_REQ_UART0_TX"
+            },
+            {
+              "rx_group": "kDrvPortGroupC",
+              "tx_group": "kDrvPortGroupC",
+              "rts_group": "kDrvPortGroupMax",
+              "rx_pin": "kDrvPortPin8",
+              "tx_pin": "kDrvPortPin9",
+              "tx_pin_mux": "kDrvPortMuxAlt2",
+              "rx_pin_mux": "kDrvPortMuxAlt2",
+              "index": 1,
+              "mode": "kDrvUartMode232",
+              "dma_en": true,
+              "dma_ch_rx": 4,
+              "dma_ch_tx": 5,
+              "dma_src_rx": "DMA_REQ_UART1_RX",
+              "dma_src_tx": "DMA_REQ_UART1_TX"
+            },
+            {
+              "rx_group": "kDrvPortGroupD",
+              "tx_group": "kDrvPortGroupE",
+              "rts_group": "kDrvPortGroupMax",
+              "rx_pin": "kDrvPortPin17",
+              "tx_pin": "kDrvPortPin12",
+              "tx_pin_mux": "kDrvPortMuxAlt3",
+              "rx_pin_mux": "kDrvPortMuxAlt3",
+              "index": 2,
+              "mode": "kDrvUartMode232",
+              "dma_en": true,
+              "dma_ch_rx": 6,
+              "dma_ch_tx": 7,
+              "dma_src_rx": "DMA_REQ_UART2_RX",
+              "dma_src_tx": "DMA_REQ_UART2_TX"
+            },
+            {
+              "rx_group": "kDrvPortGroupB",
+              "tx_group": "kDrvPortGroupB",
+              "rts_group": "kDrvPortGroupMax",
+              "rx_pin": "kDrvPortPin21",
+              "tx_pin": "kDrvPortPin20",
+              "tx_pin_mux": "kDrvPortMuxAlt4",
+              "rx_pin_mux": "kDrvPortMuxAlt4",
+              "index": 3,
+              "mode": "kDrvUartMode232",
+              "dma_en": true,
+              "dma_ch_rx": 8,
+              "dma_ch_tx": 9,
+              "dma_src_rx": "DMA_REQ_UART3_RX",
+              "dma_src_tx": "DMA_REQ_UART3_TX"
+            }
+          ],
+          "g_brd_uart_dev_in_chip_": [
+            {
+              "base": {
+                "dev_drv": "&g_drv_uart_[0]",
+                "dev_drv_cfg": "&g_drv_uart_cfgs_[0]"
+              }
+            },
+            {
+              "base": {
+                "dev_drv": "&g_drv_uart_[1]",
+                "dev_drv_cfg": "&g_drv_uart_cfgs_[1]"
+              }
+            },
+            {
+              "base": {
+                "dev_drv": "&g_drv_uart_[2]",
+                "dev_drv_cfg": "&g_drv_uart_cfgs_[2]"
+              }
+            },
+            {
+              "base": {
+                "dev_drv": "&g_drv_uart_[3]",
+                "dev_drv_cfg": "&g_drv_uart_cfgs_[3]"
+              }
+            }
+          ],
+          "g_brd_uart_items_": [
+            {
+              "id": "kBrd_UartIdCom0",
+              "dev": "kBrd_UartDevInChip",
+              "dev_cfg": "&g_brd_uart_dev_in_chip_[0]",
+              "bus": "kBrd_UartBusNull",
+              "bus_cfg": "NULL"
+            },
+            {
+              "id": "kBrd_UartIdBth",
+              "dev": "kBrd_UartDevInChip",
+              "dev_cfg": "&g_brd_uart_dev_in_chip_[2]",
+              "bus": "kBrd_UartBusNull",
+              "bus_cfg": "NULL"
+            },
+            {
+              "id": "kBrd_UartIdNet",
+              "dev": "kBrd_UartDevInChip",
+              "dev_cfg": "&g_brd_uart_dev_in_chip_[1]",
+              "bus": "kBrd_UartBusNull",
+              "bus_cfg": "NULL"
+            },
+            {
+              "id": "kBrd_UartIdGnss",
+              "dev": "kBrd_UartDevInChip",
+              "dev_cfg": "&g_brd_uart_dev_in_chip_[3]",
+              "bus": "kBrd_UartBusNull",
+              "bus_cfg": "NULL"
+            }
+          ],
+          "g_brd_uart_attr": {
+            "count": "sizeof(g_brd_uart_items_) / sizeof(g_brd_uart_items_[0])",
+            "item": "g_brd_uart_items_"
+          }
+        },
+        "comments": {
+          "g_drv_uart_cfgs_": [
+            "0, RXD PA2, TXD PA3, 第二路外部串口",
+            "1, RXD PC8, TXD PC9, 网络串口",
+            "2, RXD PD17, TXD PE12, 蓝牙串口",
+            "3, RXD PB21, TXD PB20, GPS串口"
+          ]
+        }
+      },
+      "ac78428/def/brd_analog_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_AnalogIdMajorPower",
+            "base_enum": "kBrdAnalogBaseIdMajorPower",
+            "name": "主电电压",
+            "value": "BRD_DEF_BASE_ID(kBrdAnalogBaseIdMajorPower, 0)"
+          },
+          {
+            "enum": "kBrd_AnalogIdBackupPower",
+            "base_enum": "kBrdAnalogBaseIdBackupPower",
+            "name": "备电(锂电池)电压",
+            "value": "BRD_DEF_BASE_ID(kBrdAnalogBaseIdBackupPower, 1)"
+          },
+          {
+            "enum": "kBrd_AnalogIdPlat",
+            "base_enum": "kBrdAnalogBaseIdPlat",
+            "name": "平台电压",
+            "value": "BRD_DEF_BASE_ID(kBrdAnalogBaseIdPlat, 2)"
+          }
+        ]
+      },
+      "ac78428/def/brd_can_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_CanId0",
+            "base_enum": "kBrdCanBaseId0",
+            "name": "第一路CAN",
+            "value": "BRD_DEF_BASE_ID(kBrdCanBaseId0, 0)"
+          },
+          {
+            "enum": "kBrd_CanId1",
+            "base_enum": "kBrdCanBaseId1",
+            "name": "第二路CAN",
+            "value": "BRD_DEF_BASE_ID(kBrdCanBaseId1, 1)"
+          },
+          {
+            "enum": "kBrd_CanId2",
+            "base_enum": "kBrdCanBaseId2",
+            "name": "第三路CAN",
+            "value": "BRD_DEF_BASE_ID(kBrdCanBaseId2, 2)"
+          },
+          {
+            "enum": "kBrd_CanId3",
+            "base_enum": "kBrdCanBaseId3",
+            "name": "第四路CAN",
+            "value": "BRD_DEF_BASE_ID(kBrdCanBaseId3, 3)"
+          }
+        ]
+      },
+      "ac78428/def/brd_can_trx_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_CanTrxId0",
+            "base_enum": "kBrdCanTrxBaseId0",
+            "name": "第一路CAN收发器",
+            "value": "BRD_DEF_BASE_ID(kBrdCanTrxBaseId0, 0)"
+          }
+        ]
+      },
+      "ac78428/def/brd_canfd_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_CanfdId0",
+            "base_enum": "kBrdCanfdBaseId0",
+            "name": "第一路CANFD",
+            "value": "BRD_DEF_BASE_ID(kBrdCanfdBaseId0, 0)"
+          },
+          {
+            "enum": "kBrd_CanfdId1",
+            "base_enum": "kBrdCanfdBaseId0",
+            "name": "第一路CANFD",
+            "value": "BRD_DEF_BASE_ID(kBrdCanfdBaseId0, 1)"
+          },
+          {
+            "enum": "kBrd_CanfdId2",
+            "base_enum": "kBrdCanfdBaseId0",
+            "name": "第一路CANFD",
+            "value": "BRD_DEF_BASE_ID(kBrdCanfdBaseId0, 2)"
+          },
+          {
+            "enum": "kBrd_CanfdId3",
+            "base_enum": "kBrdCanfdBaseId0",
+            "name": "第一路CANFD",
+            "value": "BRD_DEF_BASE_ID(kBrdCanfdBaseId0, 3)"
+          }
+        ]
+      },
+      "ac78428/def/brd_crypto_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_CryptoIdCsec",
+            "base_enum": "kBrdCryptoBaseIdCsec",
+            "name": "芯片内部加密模块csec",
+            "value": "BRD_DEF_BASE_ID(kBrdCryptoBaseIdCsec, 0)"
+          },
+          {
+            "enum": "kBrd_CryptoIdCiu98b",
+            "base_enum": "kBrdCryptoBaseIdCiu98b",
+            "name": "CIU98B",
+            "value": "BRD_DEF_BASE_ID(kBrdCryptoBaseIdCiu98b, 1)"
+          }
+        ]
+      },
+      "ac78428/def/brd_ext_int_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_ExtIntIdIg",
+            "base_enum": "kBrdExtIntBaseIdIg",
+            "name": "Ig(T15)点火中断, 可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdIg, 0)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdAcc",
+            "base_enum": "kBrdExtIntBaseIdAcc",
+            "name": "钥匙电中断, 可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdAcc, 1)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdCan0",
+            "base_enum": "kBrdExtIntBaseIdCan0",
+            "name": "第一路CAN中断, 可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdCan0, 2)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdCan1",
+            "base_enum": "kBrdExtIntBaseIdCan1",
+            "name": "第二路CAN中断, 可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdCan1, 3)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdCan2",
+            "base_enum": "kBrdExtIntBaseIdCan2",
+            "name": "第三路CAN中断, 可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdCan2, 4)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdCan3",
+            "base_enum": "kBrdExtIntBaseIdCan3",
+            "name": "第四路CAN中断, 可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdCan3, 5)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdNetWakeupMcu",
+            "base_enum": "kBrdExtIntBaseIdNetWakeupMcu",
+            "name": "网络唤醒MCU中断,可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdNetWakeupMcu, 6)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdPwrLost",
+            "base_enum": "kBrdExtIntBaseIdPwrLost",
+            "name": "主电丢失中断, 可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdPwrLost, 7)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdBth",
+            "base_enum": "kBrdExtIntBaseIdBth",
+            "name": "蓝牙唤醒MCU中断, 可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdBth, 8)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdExtRtc",
+            "base_enum": "kBrdExtIntBaseIdExtRtc",
+            "name": "外部RTC中断, 可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdExtRtc, 9)"
+          }
+        ]
+      },
+      "ac78428/def/brd_flash_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_FlashIdChipPflash",
+            "base_enum": "kBrdFlashBaseIdChipPflash",
+            "name": "芯片内部pflash",
+            "value": "BRD_DEF_BASE_ID(kBrdFlashBaseIdChipPflash, 0)"
+          },
+          {
+            "enum": "kBrd_FlashIdEep",
+            "base_enum": "kBrdFlashBaseIdEep",
+            "name": "芯片内部模拟eeprom",
+            "value": "BRD_DEF_BASE_ID(kBrdFlashBaseIdEep, 1)"
+          },
+          {
+            "enum": "kBrd_FlashIdBl24c128f",
+            "base_enum": "kBrdFlashBaseIdBl24c128f",
+            "name": "片外eeprom bl24c128f",
+            "value": "BRD_DEF_BASE_ID(kBrdFlashBaseIdBl24c128f, 2)"
+          },
+          {
+            "enum": "kBrd_FlashIdSdNand",
+            "base_enum": "kBrdFlashBaseIdSdNand",
+            "name": "片外sd nand flash",
+            "value": "BRD_DEF_BASE_ID(kBrdFlashBaseIdSdNand, 3)"
+          }
+        ]
+      },
+      "ac78428/def/brd_led_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_LedIdCan",
+            "base_enum": "kBrdLedBaseIdCan",
+            "name": "CAN灯",
+            "value": "BRD_DEF_BASE_ID(kBrdLedBaseIdCan, 0)"
+          },
+          {
+            "enum": "kBrd_LedIdGnss",
+            "base_enum": "kBrdLedBaseIdGnss",
+            "name": "定位灯",
+            "value": "BRD_DEF_BASE_ID(kBrdLedBaseIdGnss, 1)"
+          },
+          {
+            "enum": "kBrd_LedIdBth",
+            "base_enum": "kBrdLedBaseIdBth",
+            "name": "蓝牙灯",
+            "value": "BRD_DEF_BASE_ID(kBrdLedBaseIdBth, 2)"
+          },
+          {
+            "enum": "kBrd_LedIdNet",
+            "base_enum": "kBrdLedBaseIdNet",
+            "name": "网络灯",
+            "value": "BRD_DEF_BASE_ID(kBrdLedBaseIdNet, 3)"
+          }
+        ]
+      },
+      "ac78428/def/brd_misc_ctrl_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_MiscCtrlIdBthWakeup",
+            "base_enum": "kBrdMiscCtrlBaseIdBthWakeup",
+            "name": "唤醒蓝牙",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdBthWakeup, 0)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdBthRst",
+            "base_enum": "kBrdMiscCtrlBaseIdBthRst",
+            "name": "复位蓝牙",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdBthRst, 1)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdNetUsbBoot",
+            "base_enum": "kBrdMiscCtrlBaseIdNetUsbBoot",
+            "name": "网络模块烧写",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdNetUsbBoot, 2)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdGnssRst",
+            "base_enum": "kBrdMiscCtrlBaseIdGnssRst",
+            "name": "GNSS模块复位",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdGnssRst, 3)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdNegCtlOut",
+            "base_enum": "kBrdMiscCtrlBaseIdNegCtlOut",
+            "name": "负控输出",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdNegCtlOut, 4)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdNetRst",
+            "base_enum": "kBrdMiscCtrlBaseIdNetRst",
+            "name": "网络模块复位",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdNetRst, 5)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdNetPwrKey",
+            "base_enum": "kBrdMiscCtrlBaseIdNetPwrKey",
+            "name": "网络模块开机/关机",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdNetPwrKey, 6)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdNetWakeup",
+            "base_enum": "kBrdMiscCtrlBaseIdNetWakeup",
+            "name": "网络模块唤醒",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdNetWakeup, 7)"
+          }
+        ]
+      },
+      "ac78428/def/brd_partition_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrdPartitionIdBoot1",
+            "base_enum": "",
+            "name": "Boot1分区",
+            "value": "kBrdPartitionIdBase"
+          },
+          {
+            "enum": "kBrdPartitionIdBootInfo",
+            "base_enum": "",
+            "name": "分区表",
+            "value": "0x01"
+          },
+          {
+            "enum": "kBrdPartitionIdLogo",
+            "base_enum": "",
+            "name": "开机启动画面存储分区",
+            "value": "0x05"
+          },
+          {
+            "enum": "kBrdPartitionIdLogoBak",
+            "base_enum": "",
+            "name": "开机启动画面备份分区",
+            "value": "0x85"
+          },
+          {
+            "enum": "kBrdPartitionIdProduct",
+            "base_enum": "",
+            "name": "产品信息区",
+            "value": "0x03"
+          },
+          {
+            "enum": "kBrdPartitionIdProfile",
+            "base_enum": "",
+            "name": "配置分区",
+            "value": "0x04"
+          },
+          {
+            "enum": "kBrdPartitionIdProfileBak",
+            "base_enum": "",
+            "name": "配置备份分区",
+            "value": "0x84"
+          },
+          {
+            "enum": "kBrdPartitionIdBoot2",
+            "base_enum": "",
+            "name": "Boot2分区",
+            "value": "0x02"
+          },
+          {
+            "enum": "kBrdPartitionIdBoot2Data",
+            "base_enum": "",
+            "name": "Boot2数据区",
+            "value": "0x08"
+          },
+          {
+            "enum": "kBrdPartitionIdBoot2Dialog",
+            "base_enum": "",
+            "name": "Boot2会话区",
+            "value": "0x09"
+          },
+          {
+            "enum": "kBrdPartitionIdAppData",
+            "base_enum": "",
+            "name": "应用数据分区",
+            "value": "0x06"
+          },
+          {
+            "enum": "kBrdPartitionIdApp1",
+            "base_enum": "",
+            "name": "应用程序1分区",
+            "value": "0x07"
+          },
+          {
+            "enum": "kBrdPartitionIdApp2",
+            "base_enum": "",
+            "name": "应用程序2分区",
+            "value": "0x87"
+          },
+          {
+            "enum": "kBrdPartitionIdAppDl",
+            "base_enum": "",
+            "name": "应用程序下载分区",
+            "value": "0x0A"
+          }
+        ]
+      },
+      "ac78428/def/brd_pmc_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_PmcIdNormal",
+            "base_enum": "kBrdPmcBaseIdNormal",
+            "name": "正常运行",
+            "value": "BRD_DEF_BASE_ID(kBrdPmcBaseIdNormal, 0)"
+          },
+          {
+            "enum": "kBrd_PmcIdVlps",
+            "base_enum": "kBrdPmcBaseIdVlps",
+            "name": "深度睡眠",
+            "value": "BRD_DEF_BASE_ID(kBrdPmcBaseIdVlps, 1)"
+          }
+        ]
+      },
+      "ac78428/def/brd_pwr_ctrl_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_PwrCtrlIdSpareBat",
+            "base_enum": "kBrdPwrCtrlBaseIdSpareBat",
+            "name": "备用电池对板上设备供电",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdSpareBat, 0)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdSwitch",
+            "base_enum": "kBrdPwrCtrlBaseIdSwitch",
+            "name": "开关量电源控制",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdSwitch, 1)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdNet",
+            "base_enum": "kBrdPwrCtrlBaseIdNet",
+            "name": "网络设备电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdNet, 2)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdNetUsb",
+            "base_enum": "kBrdPwrCtrlBaseIdNetUsb",
+            "name": "网络USB电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdNetUsb, 3)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdGnss",
+            "base_enum": "kBrdPwrCtrlBaseIdGnss",
+            "name": "定位设备电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdGnss, 4)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdExtMajor",
+            "base_enum": "kBrdPwrCtrlBaseIdExtMajor",
+            "name": "对外输出24V主电电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdExtMajor, 5)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdMajor",
+            "base_enum": "kBrdPwrCtrlBaseIdMajor",
+            "name": "维持内部主电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdMajor, 6)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdBth",
+            "base_enum": "kBrdPwrCtrlBaseIdBth",
+            "name": "蓝牙电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdBth, 7)"
+          }
+        ]
+      },
+      "ac78428/def/brd_switch_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_SwitchIdIg",
+            "base_enum": "kBrdSwitchBaseIdIg",
+            "name": "点火(T15)开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdIg, 0)"
+          },
+          {
+            "enum": "kBrd_SwitchIdAcc",
+            "base_enum": "kBrdSwitchBaseIdAcc",
+            "name": "钥匙电开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdAcc, 1)"
+          },
+          {
+            "enum": "kBrd_SwitchIdNetStatus",
+            "base_enum": "kBrdSwitchBaseIdNetStatus",
+            "name": "网络状态开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdNetStatus, 2)"
+          },
+          {
+            "enum": "kBrd_SwitchIdSw0",
+            "base_enum": "kBrdSwitchBaseIdSw0",
+            "name": "第一路外部开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdSw0, 3)"
+          },
+          {
+            "enum": "kBrd_SwitchIdSw1",
+            "base_enum": "kBrdSwitchBaseIdSw1",
+            "name": "第二路外部开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdSw1, 4)"
+          },
+          {
+            "enum": "kBrd_SwitchIdSw2",
+            "base_enum": "kBrdSwitchBaseIdSw2",
+            "name": "第三路外部开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdSw2, 5)"
+          },
+          {
+            "enum": "kBrd_SwitchIdNetUsbDet",
+            "base_enum": "kBrdSwitchBaseIdNetUsbDet",
+            "name": "网络USB检测开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdNetUsbDet, 6)"
+          },
+          {
+            "enum": "kBrd_SwitchIdBomId1",
+            "base_enum": "kBrdSwitchBaseIdBomId1",
+            "name": "BOM ID1开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdBomId1, 7)"
+          },
+          {
+            "enum": "kBrd_SwitchIdBomId2",
+            "base_enum": "kBrdSwitchBaseIdBomId2",
+            "name": "BOM ID2开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdBomId2, 8)"
+          },
+          {
+            "enum": "kBrd_SwitchIdBomId3",
+            "base_enum": "kBrdSwitchBaseIdBomId3",
+            "name": "BOM ID3开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdBomId3, 9)"
+          },
+          {
+            "enum": "kBrd_SwitchIdChgLow",
+            "base_enum": "kBrdSwitchBaseIdChgLow",
+            "name": "充电低开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdChgLow, 10)"
+          },
+          {
+            "enum": "kBrd_SwitchIdChgHigh",
+            "base_enum": "kBrdSwitchBaseIdChgHigh",
+            "name": "充电高开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdChgHigh, 11)"
+          },
+          {
+            "enum": "kBrd_SwitchIdGnssAntShort",
+            "base_enum": "kBrdSwitchBaseIdGnssAntShort",
+            "name": "定位天线短路开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdGnssAntShort, 12)"
+          },
+          {
+            "enum": "kBrd_SwitchIdGnssAntOpen",
+            "base_enum": "kBrdSwitchBaseIdGnssAntOpen",
+            "name": "定位天线开路开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdGnssAntOpen, 13)"
+          },
+          {
+            "enum": "kBrd_SwitchIdPps",
+            "base_enum": "kBrdSwitchBaseIdPps",
+            "name": "GNSS 秒脉冲开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdPps, 14)"
+          }
+        ]
+      },
+      "ac78428/def/brd_uart_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_UartIdCom0",
+            "base_enum": "kBrdUartBaseIdCom0",
+            "name": "第一路串口",
+            "value": "BRD_DEF_BASE_ID(kBrdUartBaseIdCom0, 0)"
+          },
+          {
+            "enum": "kBrd_UartIdBth",
+            "base_enum": "kBrdUartBaseIdBth",
+            "name": "蓝牙模块串口",
+            "value": "BRD_DEF_BASE_ID(kBrdUartBaseIdBth, 1)"
+          },
+          {
+            "enum": "kBrd_UartIdNet",
+            "base_enum": "kBrdUartBaseIdNet1",
+            "name": "第二路网络串口",
+            "value": "BRD_DEF_BASE_ID(kBrdUartBaseIdNet1, 2)"
+          },
+          {
+            "enum": "kBrd_UartIdGnss",
+            "base_enum": "kBrdUartBaseIdGnss",
+            "name": "定位模块串口",
+            "value": "BRD_DEF_BASE_ID(kBrdUartBaseIdGnss, 3)"
+          }
+        ]
+      },
+      "ac78428/def/brd_wdog_def.h": {
+        "definitions": []
+      },
+      "ac78428_boot/cfg/brd_common_cfg_boot.c": {
+        "values": {
+          "g_brd_version_": {
+            "ver": [
+              "kBrd_VersionMajor",
+              "(UInt8)kBrd_VersionHqt401_l30",
+              "kBrd_VersionBoot",
+              0
+            ],
+            "build_time": 1773034450
+          },
+          "g_brd_version_attr": {
+            "cfg": "&g_brd_version_"
+          },
+          "g_drv_iic_cfgs": [
+            {
+              "scl_group": "kDrvPortGroupB",
+              "scl_pin": "kDrvPortPin9",
+              "scl_pin_mux": "kDrvPortMuxAlt3",
+              "sda_group": "kDrvPortGroupB",
+              "sda_pin": "kDrvPortPin10",
+              "sda_pin_mux": "kDrvPortMuxAlt3",
+              "index": 0
+            },
+            {
+              "scl_group": "kDrvPortGroupD",
+              "scl_pin": "kDrvPortPin9",
+              "scl_pin_mux": "kDrvPortMuxAlt2",
+              "sda_group": "kDrvPortGroupD",
+              "sda_pin": "kDrvPortPin8",
+              "sda_pin_mux": "kDrvPortMuxAlt2",
+              "index": 1
+            }
+          ],
+          "g_drv_spi_cfgs": [
+            {
+              "clk_group": "kDrvPortGroupE",
+              "clk_pin": "kDrvPortPin15",
+              "clk_mux": "kDrvPortMuxAlt3",
+              "sin_group": "kDrvPortGroupE",
+              "sin_pin": "kDrvPortPin16",
+              "sin_mux": "kDrvPortMuxAlt3",
+              "sout_group": "kDrvPortGroupA",
+              "sout_pin": "kDrvPortPin8",
+              "sout_mux": "kDrvPortMuxAlt3",
+              "index": 2,
+              "reverse": false
+            },
+            {
+              "clk_group": "kDrvPortGroupC",
+              "clk_pin": "kDrvPortPin29",
+              "clk_mux": "kDrvPortMuxAlt6",
+              "sin_group": "kDrvPortGroupC",
+              "sin_pin": "kDrvPortPin28",
+              "sin_mux": "kDrvPortMuxAlt6",
+              "sout_group": "kDrvPortGroupC",
+              "sout_pin": "kDrvPortPin27",
+              "sout_mux": "kDrvPortMuxAlt6",
+              "index": 3,
+              "reverse": false
+            }
+          ]
+        },
+        "comments": {
+          "g_drv_iic_cfgs": [
+            "SCL PB9, SDA PB10",
+            "SCL PD9, SDA PD8"
+          ],
+          "g_drv_spi_cfgs": [
+            "sout: PA8, sin: PE16, clk: PE15",
+            "sout: PC27, sin: PC28, clk: PC29"
+          ]
+        }
+      },
+      "ac78428_boot/cfg/brd_crypto_cfg_boot.c": {
+        "values": {
+          "g_brd_crypto_wakeup_cfg_": {
+            "group": "kDrvPortGroupD",
+            "pin": "kDrvPortPin0",
+            "reverse": true
+          },
+          "g_brd_crypto_rst_cfg_": {
+            "group": "kDrvPortGroupD",
+            "pin": "kDrvPortPin1",
+            "reverse": true
+          },
+          "g_brd_crypto_dev_ciu98b_": {
+            "base": {
+              "dev_drv": "&g_per_hsm_ciu98b"
+            },
+            "DoEnable": "Brd_CryptoPowerDoEnable",
+            "wakeup": "&g_brd_crypto_wakeup_cfg_",
+            "rst": "&g_brd_crypto_rst_cfg_"
+          },
+          "g_brd_crypto_spi_port_cfg_": {
+            "group": "kDrvPortGroupA",
+            "pin": "kDrvPortPin9",
+            "mux": "kDrvPortMuxAlt3",
+            "index": 0
+          },
+          "g_brd_crypto_bus_phy_spi_": {
+            "base": {
+              "bus_drv": "&g_brd_crypto_bus_spi_port_",
+              "bus_drv_parent": {
+                "$resource": {
+                  "kind": "spi",
+                  "id": "spi2",
+                  "configuration": false
+                }
+              },
+              "bus_drv_cfg": "&g_brd_crypto_spi_port_cfg_",
+              "bus_drv_parent_cfg": {
+                "$resource": {
+                  "kind": "spi",
+                  "id": "spi2",
+                  "configuration": true
+                }
+              }
+            },
+            "event": "&g_brd_crypto_event_[0]"
+          },
+          "g_brd_crypto_dev_inchip_": {
+            "base": {
+              "dev_drv": "&g_drv_csec"
+            },
+            "event": "&g_brd_crypto_event_[1]"
+          },
+          "g_brd_crypto_items_": [
+            {
+              "$ifdef": "BRD_CRYPTO_DEV_CIU98B",
+              "value": {
+                "id": "kBrd_CryptoIdCiu98b",
+                "dev": "kBrd_CryptoDevCiu98b",
+                "dev_cfg": "&g_brd_crypto_dev_ciu98b_",
+                "bus": "kBrd_CryptoBusPhySpi",
+                "bus_cfg": "&g_brd_crypto_bus_phy_spi_",
+                "is_open": false
+              }
+            },
+            {
+              "id": "kBrd_CryptoIdCsec",
+              "dev": "kBrd_CryptoDevInChip",
+              "dev_cfg": "&g_brd_crypto_dev_inchip_",
+              "bus": "kBrd_CryptoBusNull",
+              "bus_cfg": "NULL",
+              "is_open": false
+            }
+          ],
+          "g_brd_crypto_attr": {
+            "count": "sizeof(g_brd_crypto_items_) / sizeof(g_brd_crypto_items_[0])",
+            "item": "&g_brd_crypto_items_[0]"
+          }
+        },
+        "comments": {}
+      },
+      "ac78428_boot/cfg/brd_debugger_cfg_boot.c": {
+        "values": {
+          "g_brd_debugger_clk_pin_cfg_": {
+            "group": "kDrvPortGroupC",
+            "pin": "kDrvPortPin4",
+            "amux": "kDrvPortMuxGpio",
+            "bmux": "kDrvPortMuxAlt7",
+            "reverse": false
+          },
+          "g_brd_debugger_clk_int_cfg_": {
+            "group": "kDrvPortGroupC",
+            "pin": "kDrvPortPin4",
+            "run_trigger": "kDrvGpioIntTriggerRising",
+            "sleep_trigger": "kDrvGpioIntTriggerRising"
+          },
+          "g_brd_debugger_dio_pin_cfg_": {
+            "group": "kDrvPortGroupA",
+            "pin": "kDrvPortPin4",
+            "amux": "kDrvPortMuxGpio",
+            "bmux": "kDrvPortMuxAlt7",
+            "reverse": false
+          },
+          "g_brd_debugger_bus_cido_cfg_": {
+            "base": {
+              "bus_drv": "&g_brd_debugger_clk_int_drv",
+              "bus_drv_cfg": "&g_brd_debugger_clk_int_cfg_"
+            },
+            "clk": "&g_brd_debugger_clk_pin_cfg_",
+            "dio": "&g_brd_debugger_dio_pin_cfg_"
+          },
+          "g_brd_debugger_dev_swd_cfg_": {
+            "enable": true
+          },
+          "g_brd_debugger_items_": [
+            {
+              "id": "kBrd_DebuggerIdSwdCintDi",
+              "dev": "kBrd_DebuggerDevSwd",
+              "dev_cfg": "&g_brd_debugger_dev_swd_cfg_",
+              "bus": "kBrd_DebuggerBusCintDi",
+              "bus_cfg": "&g_brd_debugger_bus_cido_cfg_",
+              "is_open": false
+            }
+          ],
+          "g_brd_debugger_attr": {
+            "count": "sizeof(g_brd_debugger_items_) / sizeof(g_brd_debugger_items_[0])",
+            "item": "g_brd_debugger_items_"
+          }
+        },
+        "comments": {}
+      },
+      "ac78428_boot/cfg/brd_security_boot_cfg_boot.c": {
+        "values": {
+          "g_security_boot_dev_base": {
+            "base": {
+              "dev_drv": "&g_drv_csec"
+            }
+          },
+          "g_security_boot_items": [
+            {
+              "id": "kBrd_SecurityBootIdCsec",
+              "bus": "kBrd_SecurityBootBusNull",
+              "dev": "kBrd_SecurityBootDevInChip",
+              "dev_cfg": "&g_security_boot_dev_base"
+            }
+          ],
+          "g_brd_security_boot_attr": {
+            "items": "g_security_boot_items",
+            "count": "sizeof(g_security_boot_items) / sizeof(g_security_boot_items[0])"
+          }
+        },
+        "comments": {}
+      },
+      "ac78428_boot/def/brd_crypto_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_CryptoIdCsec",
+            "base_enum": "kBrdCryptoBaseIdCsec",
+            "name": "芯片内部加密模块csec",
+            "value": "BRD_DEF_BASE_ID(kBrdCryptoBaseIdCsec, 0)"
+          }
+        ]
+      },
+      "ac78428_boot/def/brd_debugger_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_DebuggerIdSwdCintDi",
+            "base_enum": "kBrdDebuggerIdSwdCintDi",
+            "name": "SWD clk->int dio->input",
+            "value": "BRD_DEF_BASE_ID(kBrdDebuggerIdSwdCintDi, 0)"
+          }
+        ]
+      },
+      "ac78428_boot/def/brd_security_boot_def.h": {
+        "definitions": [
+          {
+            "enum": "kBrd_SecurityBootIdCsec",
+            "base_enum": "kBrdSecurityBootBaseIdCsec",
+            "name": "CSEC",
+            "value": "BRD_DEF_BASE_ID(kBrdSecurityBootBaseIdCsec, 0)"
+          }
+        ]
+      }
+    }
+  },
+  "output": {
+    "directory": "",
+    "automatic": true,
+    "mode": "create",
+    "compare_to": "r01v01",
+    "json_directory": "pbrd/configs",
+    "json_filename": ""
+  },
+  "ui_schema_version": 2,
+  "metadata": {
+    "frontend_stage": "configuration_only",
+    "enum_source": "product/src/brd/base/def/brd_def_base.h",
+    "enum_source_sha256": "92fcd2b81e5ac115dc8d6772a2b6e8984b797d45ce71fa480808f09273ba6a3f",
+    "product_enum_source": "product/src/brd/base/cfg/brd_version_base.h",
+    "source_settings": {
+      "schema_version": 1,
+      "version_header": "product/src/brd/base/cfg/brd_version_base.h",
+      "enum_header": "product/src/brd/base/def/brd_def_base.h",
+      "platforms": {
+        "ac78428": {
+          "brd_directory": "product/src/brd/ac78428",
+          "drv_directory": "product/src/drv/ac78428",
+          "pin_file": "platforms/ac78428.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+#include "brd_inc_all.h"
+#include "brd_crypto_cfg_boot.c"
+#include "brd_crypto_ac78428.c"
+
+/***** User code begin *****/
+
+/***** User code end *****/
+

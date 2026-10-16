@@ -1,0 +1,7 @@
+#include "brd_inc_all.h"
+#include "brd_{{MODULE}}_cfg.c"
+#include "brd_{{MODULE}}_{{MCU}}.c"
+
+/***** User code begin *****/
+
+/***** User code end *****/

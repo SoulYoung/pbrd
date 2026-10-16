@@ -1,0 +1,56 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "pwr_ctrl",
+  "name": "电源控制",
+  "configuration_mode": "instances",
+  "configuration_status": "initial",
+  "fields": [
+    {
+      "key": "control_ref",
+      "label": "引用控制项枚举",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "pin",
+      "label": "独立控制引脚（选填）",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "reverse",
+      "label": "反相",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "initial",
+      "label": "初始使能",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "delay_ms",
+      "label": "开启延时 / ms",
+      "type": "num",
+      "value": 0,
+      "opts": []
+    }
+  ],
+  "dependencies": [],
+  "implementations": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_pwr_ctrl.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_pwr_ctrl_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_pwr_ctrl_{mcu}.h"
+  },
+  "notes": "配置字段需要对照实际驱动及板级接口审核。未使用不代表不支持。",
+  "bus_kinds": [
+    "spi"
+  ]
+}

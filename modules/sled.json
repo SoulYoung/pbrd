@@ -1,0 +1,14 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "sled",
+  "implementations": [],
+  "sources": {},
+  "name": "串行 LED",
+  "configuration_mode": "platform",
+  "configuration_status": "reference-only",
+  "fields": [],
+  "dependencies": [],
+  "bus_kinds": [],
+  "notes": "参考工程存在包装源码，但当前参考未提供完整配置及工程集成依据；已收录显示，生成前需补齐适配，不能直接推断为空配置。"
+}

@@ -1,0 +1,51 @@
+/**
+ * @addtogroup brd_inc
+ * brd_inc
+ * @{
+ */
+/**
+ * @file brd_inc.h
+ * @brief 板级层所有接口头文件
+ * @note
+ * @par 修改日志
+ * <table>
+ * <tr><th>Date                 <th>Version         <th>Author          <th>Description
+ * <tr><td>{{DATE}}           <td>1.0             <td>{{AUTHOR}}       <td>创建初始版本
+ * @copyright 杭州鸿泉物联网技术股份有限公司
+ */
+#ifndef _BRD_INC_H_
+#define _BRD_INC_H_
+
+#include "brd_def.h"
+#include "brd_common.h"
+#include "brd_analog.h"
+#include "brd_bat_chg.h"
+#include "brd_can.h"
+#include "brd_canfd.h"
+#include "brd_can_trx.h"
+#include "brd_clock.h"
+#include "brd_crypto.h"
+#include "brd_delay.h"
+#include "brd_ext_int.h"
+#include "brd_ext_rtc.h"
+#include "brd_flash.h"
+#include "brd_led.h"
+#include "brd_misc_ctrl.h"
+#include "brd_reset.h"
+#include "brd_partition.h"
+#include "brd_pmc.h"
+#include "brd_pwr_ctrl.h"
+#include "brd_switch.h"
+#include "brd_timer.h"
+#include "brd_uart.h"
+#include "brd_wdog.h"
+
+
+/***** User code begin *****/
+
+/***** User code end *****/
+
+#endif // _BRD_INC_H_
+/**
+ * @} 
+ */

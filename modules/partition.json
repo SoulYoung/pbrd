@@ -1,0 +1,48 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "partition",
+  "name": "存储分区",
+  "configuration_mode": "platform",
+  "configuration_status": "platform-layout",
+  "dependencies": [
+    "brd.flash"
+  ],
+  "implementations": [],
+  "bus_kinds": [],
+  "fields": [
+    {
+      "key": "storage_ref",
+      "label": "存储实例枚举",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "offset",
+      "label": "偏移 / bytes",
+      "type": "num",
+      "value": 0,
+      "opts": []
+    },
+    {
+      "key": "size",
+      "label": "大小 / bytes",
+      "type": "num",
+      "value": 0,
+      "opts": []
+    },
+    {
+      "key": "backup_ref",
+      "label": "备份分区枚举（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    }
+  ],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_partition.c"
+  },
+  "notes": "当前使用 AC78428 平台公共分区布局，本版不生成自定义布局；板级定义枚举随 JSON 保存。",
+  "default_enabled": true
+}

@@ -1,0 +1,2671 @@
+{
+  "format": "pbrd-template-platform",
+  "schema_version": 1,
+  "mcu": "ac78428",
+  "files": {
+    ".gitignore": {
+      "template": "ac78428/.gitignore.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/cfg/brd_analog_cfg.c": {
+      "template": "ac78428/app/cfg/brd_analog_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_drv_adc_cfgs_",
+          "type": "TDrvAdcCfg",
+          "array": true
+        },
+        {
+          "name": "g_drv_adc_ch_cfgs_",
+          "type": "TDrvAdcChCfg",
+          "array": true
+        },
+        {
+          "name": "g_brd_analog_dev_in_chips_",
+          "type": "Brd_TAnalogDevInChip",
+          "array": true
+        },
+        {
+          "name": "g_brd_analog_items_",
+          "type": "Brd_TAnalogItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_analog_attr",
+          "type": "Brd_TAnalogAttr",
+          "array": false
+        }
+      ],
+      "counts": [
+        {
+          "name": "g_drv_adcs_",
+          "original": 2
+        },
+        {
+          "name": "g_drv_adc_chs_",
+          "original": 3
+        }
+      ],
+      "definition": null
+    },
+    "ac78428/cfg/brd_bat_chg_cfg.c": {
+      "template": "ac78428/app/cfg/brd_bat_chg_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_bat_chg_cfg_",
+          "type": "Brd_TBatChgCfg",
+          "array": true
+        },
+        {
+          "name": "g_brd_bat_chg_items_",
+          "type": "Brd_TBatChgItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_bat_chg_attr",
+          "type": "Brd_TBatChgAttr",
+          "array": false
+        }
+      ],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/cfg/brd_can_cfg.c": {
+      "template": "ac78428/app/cfg/brd_can_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_drv_can_cfgs_",
+          "type": "TDrvCanCfg",
+          "array": true
+        },
+        {
+          "name": "g_brd_can_dev_in_chip_",
+          "type": "Brd_TCanDevInChip",
+          "array": true
+        },
+        {
+          "name": "g_brd_can_items_",
+          "type": "Brd_TCanItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_canfd_items_",
+          "type": "Brd_TCanItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_can_attr",
+          "type": "Brd_TCanAttr",
+          "array": false
+        },
+        {
+          "name": "g_brd_canfd_attr",
+          "type": "Brd_TCanfdAttr",
+          "array": false
+        }
+      ],
+      "counts": [
+        {
+          "name": "g_drv_can_",
+          "original": 4
+        },
+        {
+          "name": "g_brd_canfd_data_",
+          "original": 4
+        }
+      ],
+      "definition": null
+    },
+    "ac78428/cfg/brd_can_trx_cfg.c": {
+      "template": "ac78428/app/cfg/brd_can_trx_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_can_trx_spi_port_cfg_",
+          "type": "TDrvSpiCsCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_can_trx_tja1445_wakeup_pin_cfg_",
+          "type": "Brd_TCanTrxPinCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_can_trx_phy_spi_bus_",
+          "type": "Brd_TCanTrxBusPhySpi",
+          "array": false
+        },
+        {
+          "name": "g_can_trx_local_error_info_",
+          "type": "Brd_TCanTrxLocalErrorInfo",
+          "array": false
+        },
+        {
+          "name": "g_brd_can_trx_tja1445_dev_",
+          "type": "Brd_TCanTrxDevTja1445",
+          "array": false
+        },
+        {
+          "name": "g_brd_can_trx_items_",
+          "type": "Brd_TCanTrxItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_can_trx_attr",
+          "type": "Brd_TCanTrxAttr",
+          "array": false
+        }
+      ],
+      "counts": [
+        {
+          "name": "g_brd_can_trx_mutex_",
+          "original": 3
+        },
+        {
+          "name": "g_brd_can_trx_event_",
+          "original": 1
+        }
+      ],
+      "definition": null
+    },
+    "ac78428/cfg/brd_common_cfg.c": {
+      "template": "ac78428/app/cfg/brd_common_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_version_",
+          "type": "Brd_TVersion",
+          "array": false
+        },
+        {
+          "name": "g_brd_version_attr",
+          "type": "Brd_TVersionAttr",
+          "array": false
+        },
+        {
+          "name": "g_drv_iic_cfgs",
+          "type": "TDrvIicCfg",
+          "array": true
+        },
+        {
+          "name": "g_drv_spi_cfgs",
+          "type": "TDrvSpiCfg",
+          "array": true
+        }
+      ],
+      "counts": [
+        {
+          "name": "g_drv_iic",
+          "original": 2
+        },
+        {
+          "name": "g_drv_spi",
+          "original": 3
+        }
+      ],
+      "definition": null
+    },
+    "ac78428/cfg/brd_crypto_cfg.c": {
+      "template": "ac78428/app/cfg/brd_crypto_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_crypto_wakeup_cfg_",
+          "type": "Brd_TCryptoGpioCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_crypto_rst_cfg_",
+          "type": "Brd_TCryptoGpioCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_crypto_dev_ciu98b_",
+          "type": "Brd_TCryptoDevCiu98b",
+          "array": false
+        },
+        {
+          "name": "g_brd_crypto_spi_port_cfg_",
+          "type": "TDrvSpiCsCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_crypto_bus_phy_spi_",
+          "type": "Brd_TCryptoBusPhySpi",
+          "array": false
+        },
+        {
+          "name": "g_brd_crypto_dev_inchip_",
+          "type": "Brd_TCryptoDevInChip",
+          "array": false
+        },
+        {
+          "name": "g_brd_crypto_items_",
+          "type": "Brd_TCryptoItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_crypto_attr",
+          "type": "Brd_TCryptoAttr",
+          "array": false
+        }
+      ],
+      "counts": [
+        {
+          "name": "g_brd_crypto_mutex_",
+          "original": 1
+        },
+        {
+          "name": "g_brd_crypto_event_",
+          "original": 2
+        }
+      ],
+      "definition": null
+    },
+    "ac78428/cfg/brd_ext_int_cfg.c": {
+      "template": "ac78428/app/cfg/brd_ext_int_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_ext_int_cfgs",
+          "type": "TDrvGpioIntCfg",
+          "array": true
+        },
+        {
+          "name": "g_brd_ext_int_items_",
+          "type": "Brd_TExtIntItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_ext_int_attr",
+          "type": "Brd_TExtIntAttr",
+          "array": false
+        }
+      ],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/cfg/brd_ext_rtc_cfg.c": {
+      "template": "ac78428/app/cfg/brd_ext_rtc_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_ext_rtc_dev_bm8563_",
+          "type": "Brd_TExtRtcDevBm8563",
+          "array": false
+        },
+        {
+          "name": "g_brd_ext_rtc_bus_phy_iic_dev0_",
+          "type": "Brd_TExtRtcBusPhyIic",
+          "array": false
+        },
+        {
+          "name": "g_brd_ext_rtc_item_",
+          "type": "Brd_TExtRtcItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_ext_rtc_attr",
+          "type": "Brd_TExtRtcAttr",
+          "array": false
+        }
+      ],
+      "counts": [
+        {
+          "name": "g_brd_ext_rtc_mutex_",
+          "original": 1
+        },
+        {
+          "name": "g_brd_ext_rtc_event_",
+          "original": 1
+        }
+      ],
+      "definition": null
+    },
+    "ac78428/cfg/brd_flash_cfg.c": {
+      "template": "ac78428/app/cfg/brd_flash_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_flash_mutex_cnt_",
+          "type": "Int32",
+          "array": true
+        },
+        {
+          "name": "g_brd_flash_dev_chip_pflash_",
+          "type": "Brd_TFlashDevChipPflash",
+          "array": false
+        },
+        {
+          "name": "g_per_fee_cfg",
+          "type": "TPerFeeCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_flash_dev_chip_eep_",
+          "type": "Brd_TFlashDevChipEep",
+          "array": false
+        },
+        {
+          "name": "g_brd_flash_bus_on_chip_flash_",
+          "type": "Brd_TFlashBusOnChipFlash",
+          "array": false
+        },
+        {
+          "name": "g_brd_flash_bl24c128f_dev_",
+          "type": "Brd_TFlashDevEeprom",
+          "array": false
+        },
+        {
+          "name": "g_brd_flash_bl24c128f_bus_",
+          "type": "Brd_TFlashBusPhyIic",
+          "array": false
+        },
+        {
+          "name": "g_brd_flash_sd_nand_drv_port_cfg_",
+          "type": "TDrvSpiCsCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_flash_sd_nand_pwr_pin_",
+          "type": "Brd_TFlashPin",
+          "array": false
+        },
+        {
+          "name": "g_brd_flash_sd_nand_bus_",
+          "type": "Brd_TFlashBusPhySpi",
+          "array": false
+        },
+        {
+          "name": "g_brd_flash_sd_nand_dev_",
+          "type": "Brd_TFlashDevSdNand",
+          "array": false
+        },
+        {
+          "name": "g_brd_flash_items_",
+          "type": "Brd_TFlashItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_flash_attr",
+          "type": "Brd_TFlashAttr",
+          "array": false
+        }
+      ],
+      "counts": [
+        {
+          "name": "g_brd_flash_mutex_",
+          "original": 3
+        },
+        {
+          "name": "g_brd_flash_event_",
+          "original": 2
+        }
+      ],
+      "definition": null
+    },
+    "ac78428/cfg/brd_led_cfg.c": {
+      "template": "ac78428/app/cfg/brd_led_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_led_cfg_",
+          "type": "Brd_TLedCfg",
+          "array": true
+        },
+        {
+          "name": "g_brd_led_items_",
+          "type": "Brd_TLedItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_led_attr",
+          "type": "Brd_TLedAttr",
+          "array": false
+        }
+      ],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/cfg/brd_misc_ctrl_cfg.c": {
+      "template": "ac78428/app/cfg/brd_misc_ctrl_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_misc_ctrl_cfgs_",
+          "type": "Brd_TMiscCtrlCfg",
+          "array": true
+        },
+        {
+          "name": "g_brd_misc_ctrl_items_",
+          "type": "Brd_TMiscCtrlItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_misc_ctrl_attr",
+          "type": "Brd_TMiscCtrlAttr",
+          "array": false
+        }
+      ],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/cfg/brd_pwr_ctrl_cfg.c": {
+      "template": "ac78428/app/cfg/brd_pwr_ctrl_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_pwr_ctrl_cfgs_",
+          "type": "Brd_TPwrCtrlCfg",
+          "array": true
+        },
+        {
+          "name": "g_brd_pwr_ctrl_base_cfgs_",
+          "type": "Brd_TPwrCtrlCfg",
+          "array": true
+        },
+        {
+          "name": "g_brd_pwr_ctrl_items_",
+          "type": "Brd_TPwrCtrlItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_pwr_ctrl_base_",
+          "type": "Brd_TPwrCtrlBase",
+          "array": true
+        },
+        {
+          "name": "g_brd_pwr_ctrl_attr",
+          "type": "Brd_TPwrCtrlAttr",
+          "array": false
+        }
+      ],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/cfg/brd_switch_cfg.c": {
+      "template": "ac78428/app/cfg/brd_switch_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_switch_cfgs_",
+          "type": "Brd_TSwitchCfg",
+          "array": true
+        },
+        {
+          "name": "g_brd_switch_dev_in_chip_",
+          "type": "Brd_TSwitchDevInChip",
+          "array": true
+        },
+        {
+          "name": "g_brd_switch_items_",
+          "type": "Brd_TSwitchItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_switch_attr",
+          "type": "Brd_TSwitchAttr",
+          "array": false
+        }
+      ],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/cfg/brd_uart_cfg.c": {
+      "template": "ac78428/app/cfg/brd_uart_cfg.c.template",
+      "declarations": [
+        {
+          "name": "g_drv_uart_cfgs_",
+          "type": "TDrvUartCfg",
+          "array": true
+        },
+        {
+          "name": "g_brd_uart_dev_in_chip_",
+          "type": "Brd_TUartDevInChip",
+          "array": true
+        },
+        {
+          "name": "g_brd_uart_items_",
+          "type": "Brd_TUartItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_uart_attr",
+          "type": "Brd_TUartAttr",
+          "array": false
+        }
+      ],
+      "counts": [
+        {
+          "name": "g_drv_uart_",
+          "original": 4
+        }
+      ],
+      "definition": null
+    },
+    "ac78428/check_list.md": {
+      "template": "ac78428/app/check_list.md.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/def/brd_analog_def.h": {
+      "template": "ac78428/app/def/brd_analog_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "Analog",
+        "entries": [
+          {
+            "enum": "kBrd_AnalogIdMajorPower",
+            "base_enum": "kBrdAnalogBaseIdMajorPower",
+            "name": "主电电压",
+            "value": "BRD_DEF_BASE_ID(kBrdAnalogBaseIdMajorPower, 0)"
+          },
+          {
+            "enum": "kBrd_AnalogIdBackupPower",
+            "base_enum": "kBrdAnalogBaseIdBackupPower",
+            "name": "备电(锂电池)电压",
+            "value": "BRD_DEF_BASE_ID(kBrdAnalogBaseIdBackupPower, 1)"
+          },
+          {
+            "enum": "kBrd_AnalogIdPlat",
+            "base_enum": "kBrdAnalogBaseIdPlat",
+            "name": "平台电压",
+            "value": "BRD_DEF_BASE_ID(kBrdAnalogBaseIdPlat, 2)"
+          }
+        ],
+        "base_name": "kBrd_AnalogIdBase",
+        "max_name": "kBrd_AnalogIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_can_def.h": {
+      "template": "ac78428/app/def/brd_can_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "Can",
+        "entries": [
+          {
+            "enum": "kBrd_CanId0",
+            "base_enum": "kBrdCanBaseId0",
+            "name": "第一路CAN",
+            "value": "BRD_DEF_BASE_ID(kBrdCanBaseId0, 0)"
+          },
+          {
+            "enum": "kBrd_CanId1",
+            "base_enum": "kBrdCanBaseId1",
+            "name": "第二路CAN",
+            "value": "BRD_DEF_BASE_ID(kBrdCanBaseId1, 1)"
+          },
+          {
+            "enum": "kBrd_CanId2",
+            "base_enum": "kBrdCanBaseId2",
+            "name": "第三路CAN",
+            "value": "BRD_DEF_BASE_ID(kBrdCanBaseId2, 2)"
+          },
+          {
+            "enum": "kBrd_CanId3",
+            "base_enum": "kBrdCanBaseId3",
+            "name": "第四路CAN",
+            "value": "BRD_DEF_BASE_ID(kBrdCanBaseId3, 3)"
+          }
+        ],
+        "base_name": "kBrd_CanIdBase",
+        "max_name": "kBrd_CanIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_can_trx_def.h": {
+      "template": "ac78428/app/def/brd_can_trx_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "CanTrx",
+        "entries": [
+          {
+            "enum": "kBrd_CanTrxId0",
+            "base_enum": "kBrdCanTrxBaseId0",
+            "name": "第一路CAN收发器, SIT1145和TJA1445兼容",
+            "value": "BRD_DEF_BASE_ID(kBrdCanTrxBaseId0, 0)"
+          }
+        ],
+        "base_name": "kBrd_CanTrxIdBase",
+        "max_name": "kBrd_CanTrxIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_canfd_def.h": {
+      "template": "ac78428/app/def/brd_canfd_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "Canfd",
+        "entries": [
+          {
+            "enum": "kBrd_CanfdId0",
+            "base_enum": "kBrdCanfdBaseId0",
+            "name": "第一路 CANFD",
+            "value": "BRD_DEF_BASE_ID(kBrdCanfdBaseId0, 0)"
+          },
+          {
+            "enum": "kBrd_CanfdId1",
+            "base_enum": "kBrdCanfdBaseId0",
+            "name": "第二路 CANFD",
+            "value": "BRD_DEF_BASE_ID(kBrdCanfdBaseId0, 1)"
+          },
+          {
+            "enum": "kBrd_CanfdId2",
+            "base_enum": "kBrdCanfdBaseId0",
+            "name": "第三路 CANFD",
+            "value": "BRD_DEF_BASE_ID(kBrdCanfdBaseId0, 2)"
+          },
+          {
+            "enum": "kBrd_CanfdId3",
+            "base_enum": "kBrdCanfdBaseId0",
+            "name": "第四路 CANFD",
+            "value": "BRD_DEF_BASE_ID(kBrdCanfdBaseId0, 3)"
+          }
+        ],
+        "base_name": "kBrd_CanfdIdBase",
+        "max_name": "kBrd_CanfdIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_crypto_def.h": {
+      "template": "ac78428/app/def/brd_crypto_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "Crypto",
+        "entries": [
+          {
+            "enum": "kBrd_CryptoIdCsec",
+            "base_enum": "kBrdCryptoBaseIdCsec",
+            "name": "芯片内部加密模块",
+            "value": "BRD_DEF_BASE_ID(kBrdCryptoBaseIdCsec, 0)"
+          },
+          {
+            "enum": "kBrd_CryptoIdCiu98b",
+            "base_enum": "kBrdCryptoBaseIdCiu98b",
+            "name": "CIU98B",
+            "value": "BRD_DEF_BASE_ID(kBrdCryptoBaseIdCiu98b, 1)"
+          }
+        ],
+        "base_name": "kBrd_CryptoIdBase",
+        "max_name": "kBrd_CryptoIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_def.h": {
+      "template": "ac78428/app/def/brd_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/def/brd_ext_int_def.h": {
+      "template": "ac78428/app/def/brd_ext_int_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "ExtInt",
+        "entries": [
+          {
+            "enum": "kBrd_ExtIntIdIg",
+            "base_enum": "kBrdExtIntBaseIdIg",
+            "name": "Ig(T15)点火中断唤醒，可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdIg, 0)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdAcc",
+            "base_enum": "kBrdExtIntBaseIdAcc",
+            "name": "钥匙电(T30)中断唤醒，可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdAcc, 1)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdCan0",
+            "base_enum": "kBrdExtIntBaseIdCan0",
+            "name": "第一路CAN中断唤醒，可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdCan0, 2)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdCan1",
+            "base_enum": "kBrdExtIntBaseIdCan1",
+            "name": "第二路CAN中断唤醒，可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdCan1, 3)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdCan2",
+            "base_enum": "kBrdExtIntBaseIdCan2",
+            "name": "第三路CAN中断唤醒，可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdCan2, 4)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdCan3",
+            "base_enum": "kBrdExtIntBaseIdCan3",
+            "name": "第四路CAN中断唤醒，可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdCan3, 5)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdNetWakeupMcu",
+            "base_enum": "kBrdExtIntBaseIdNetWakeupMcu",
+            "name": "网络唤醒MCU中断，可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdNetWakeupMcu, 6)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdPwrLost",
+            "base_enum": "kBrdExtIntBaseIdPwrLost",
+            "name": "主电丢失中断，可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdPwrLost, 7)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdBth",
+            "base_enum": "kBrdExtIntBaseIdBth",
+            "name": "蓝牙唤醒MCU，可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdBth, 8)"
+          },
+          {
+            "enum": "kBrd_ExtIntIdExtRtc",
+            "base_enum": "kBrdExtIntBaseIdExtRtc",
+            "name": "外部RTC中断，可作为唤醒源",
+            "value": "BRD_DEF_BASE_ID(kBrdExtIntBaseIdExtRtc, 9)"
+          }
+        ],
+        "base_name": "kBrd_ExtIntIdBase",
+        "max_name": "kBrd_ExtIntIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_flash_def.h": {
+      "template": "ac78428/app/def/brd_flash_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "Flash",
+        "entries": [
+          {
+            "enum": "kBrd_FlashIdChipPflash",
+            "base_enum": "kBrdFlashBaseIdChipPflash",
+            "name": "ac78428内部pflash",
+            "value": "BRD_DEF_BASE_ID(kBrdFlashBaseIdChipPflash, 0)"
+          },
+          {
+            "enum": "kBrd_FlashIdEep",
+            "base_enum": "kBrdFlashBaseIdEep",
+            "name": "ac78428内部模拟eep",
+            "value": "BRD_DEF_BASE_ID(kBrdFlashBaseIdEep, 1)"
+          },
+          {
+            "enum": "kBrd_FlashIdBl24c128f",
+            "base_enum": "kBrdFlashBaseIdBl24c128f",
+            "name": "片外eeprom bl24c128f",
+            "value": "BRD_DEF_BASE_ID(kBrdFlashBaseIdBl24c128f, 2)"
+          },
+          {
+            "enum": "kBrd_FlashIdSdNand",
+            "base_enum": "kBrdFlashBaseIdSdNand",
+            "name": "片外sd nand flash",
+            "value": "BRD_DEF_BASE_ID(kBrdFlashBaseIdSdNand, 3)"
+          }
+        ],
+        "base_name": "kBrd_FlashIdBase",
+        "max_name": "kBrd_FlashIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_inc.h": {
+      "template": "ac78428/app/def/brd_inc.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/def/brd_led_def.h": {
+      "template": "ac78428/app/def/brd_led_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "Led",
+        "entries": [
+          {
+            "enum": "kBrd_LedIdCan",
+            "base_enum": "kBrdLedBaseIdCan",
+            "name": "CAN灯",
+            "value": "BRD_DEF_BASE_ID(kBrdLedBaseIdCan, 0)"
+          },
+          {
+            "enum": "kBrd_LedIdGnss",
+            "base_enum": "kBrdLedBaseIdGnss",
+            "name": "GNSS灯",
+            "value": "BRD_DEF_BASE_ID(kBrdLedBaseIdGnss, 1)"
+          },
+          {
+            "enum": "kBrd_LedIdBth",
+            "base_enum": "kBrdLedBaseIdBth",
+            "name": "蓝牙灯",
+            "value": "BRD_DEF_BASE_ID(kBrdLedBaseIdBth, 2)"
+          },
+          {
+            "enum": "kBrd_LedIdNet",
+            "base_enum": "kBrdLedBaseIdNet",
+            "name": "网络灯",
+            "value": "BRD_DEF_BASE_ID(kBrdLedBaseIdNet, 3)"
+          }
+        ],
+        "base_name": "kBrd_LedIdBase",
+        "max_name": "kBrd_LedIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_misc_ctrl_def.h": {
+      "template": "ac78428/app/def/brd_misc_ctrl_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "MiscCtrl",
+        "entries": [
+          {
+            "enum": "kBrd_MiscCtrlIdBthWakeup",
+            "base_enum": "kBrdMiscCtrlBaseIdBthWakeup",
+            "name": "唤醒蓝牙",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdBthWakeup, 0)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdBthRst",
+            "base_enum": "kBrdMiscCtrlBaseIdBthRst",
+            "name": "复位蓝牙",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdBthRst, 1)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdNetUsbBoot",
+            "base_enum": "kBrdMiscCtrlBaseIdNetUsbBoot",
+            "name": "网络模块烧写",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdNetUsbBoot, 2)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdGnssRst",
+            "base_enum": "kBrdMiscCtrlBaseIdGnssRst",
+            "name": "定位模块复位",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdGnssRst, 3)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdNegCtlOut",
+            "base_enum": "kBrdMiscCtrlBaseIdNegCtlOut",
+            "name": "负控输出",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdNegCtlOut, 4)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdNetRst",
+            "base_enum": "kBrdMiscCtrlBaseIdNetRst",
+            "name": "网络模块复位",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdNetRst, 5)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdNetPwrKey",
+            "base_enum": "kBrdMiscCtrlBaseIdNetPwrKey",
+            "name": "网络模块开机/关机",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdNetPwrKey, 6)"
+          },
+          {
+            "enum": "kBrd_MiscCtrlIdNetWakeup",
+            "base_enum": "kBrdMiscCtrlBaseIdNetWakeup",
+            "name": "网络模块唤醒",
+            "value": "BRD_DEF_BASE_ID(kBrdMiscCtrlBaseIdNetWakeup, 7)"
+          }
+        ],
+        "base_name": "kBrd_MiscCtrlIdBase",
+        "max_name": "kBrd_MiscCtrlIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_partition_def.h": {
+      "template": "ac78428/app/def/brd_partition_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "Partition",
+        "entries": [
+          {
+            "enum": "kBrdPartitionIdBoot1",
+            "base_enum": "",
+            "name": "Boot1分区",
+            "value": "kBrdPartitionIdBase"
+          },
+          {
+            "enum": "kBrdPartitionIdBootInfo",
+            "base_enum": "",
+            "name": "分区表",
+            "value": "0x01"
+          },
+          {
+            "enum": "kBrdPartitionIdLogo",
+            "base_enum": "",
+            "name": "开机启动画面存储分区",
+            "value": "0x05"
+          },
+          {
+            "enum": "kBrdPartitionIdLogoBak",
+            "base_enum": "",
+            "name": "开机启动画面备份分区",
+            "value": "0x85"
+          },
+          {
+            "enum": "kBrdPartitionIdProduct",
+            "base_enum": "",
+            "name": "产品信息区",
+            "value": "0x03"
+          },
+          {
+            "enum": "kBrdPartitionIdProfile",
+            "base_enum": "",
+            "name": "配置分区",
+            "value": "0x04"
+          },
+          {
+            "enum": "kBrdPartitionIdProfileBak",
+            "base_enum": "",
+            "name": "配置备份分区",
+            "value": "0x84"
+          },
+          {
+            "enum": "kBrdPartitionIdBoot2",
+            "base_enum": "",
+            "name": "Boot2分区",
+            "value": "0x02"
+          },
+          {
+            "enum": "kBrdPartitionIdBoot2Data",
+            "base_enum": "",
+            "name": "Boot2数据区",
+            "value": "0x08"
+          },
+          {
+            "enum": "kBrdPartitionIdBoot2Dialog",
+            "base_enum": "",
+            "name": "Boot2会话区",
+            "value": "0x09"
+          },
+          {
+            "enum": "kBrdPartitionIdAppData",
+            "base_enum": "",
+            "name": "应用数据分区",
+            "value": "0x06"
+          },
+          {
+            "enum": "kBrdPartitionIdApp1",
+            "base_enum": "",
+            "name": "应用程序1分区",
+            "value": "0x07"
+          },
+          {
+            "enum": "kBrdPartitionIdApp2",
+            "base_enum": "",
+            "name": "应用程序2分区",
+            "value": "0x87"
+          },
+          {
+            "enum": "kBrdPartitionIdAppDl",
+            "base_enum": "",
+            "name": "应用程序下载分区",
+            "value": "0x0A"
+          }
+        ],
+        "base_name": "kBrdPartitionIdBase",
+        "max_name": "kBrdPartitionIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_pmc_def.h": {
+      "template": "ac78428/app/def/brd_pmc_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "Pmc",
+        "entries": [
+          {
+            "enum": "kBrd_PmcIdNormal",
+            "base_enum": "kBrdPmcBaseIdNormal",
+            "name": "正常运行",
+            "value": "BRD_DEF_BASE_ID(kBrdPmcBaseIdNormal, 0)"
+          },
+          {
+            "enum": "kBrd_PmcIdVlps",
+            "base_enum": "kBrdPmcBaseIdVlps",
+            "name": "深度睡眠",
+            "value": "BRD_DEF_BASE_ID(kBrdPmcBaseIdVlps, 1)"
+          }
+        ],
+        "base_name": "kBrd_PmcIdBase",
+        "max_name": "kBrd_PmcIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_pwr_ctrl_def.h": {
+      "template": "ac78428/app/def/brd_pwr_ctrl_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "PwrCtrl",
+        "entries": [
+          {
+            "enum": "kBrd_PwrCtrlIdSpareBat",
+            "base_enum": "kBrdPwrCtrlBaseIdSpareBat",
+            "name": "备用电池对板上设备供电",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdSpareBat, 0)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdSwitch",
+            "base_enum": "kBrdPwrCtrlBaseIdSwitch",
+            "name": "开关量电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdSwitch, 1)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdNet",
+            "base_enum": "kBrdPwrCtrlBaseIdNet",
+            "name": "网络设备电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdNet, 2)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdNetUsb",
+            "base_enum": "kBrdPwrCtrlBaseIdNetUsb",
+            "name": "网络USB电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdNetUsb, 3)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdGnss",
+            "base_enum": "kBrdPwrCtrlBaseIdGnss",
+            "name": "定位设备电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdGnss, 4)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdExtMajor",
+            "base_enum": "kBrdPwrCtrlBaseIdExtMajor",
+            "name": "对外输出24V主电电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdExtMajor, 5)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdMajor",
+            "base_enum": "kBrdPwrCtrlBaseIdMajor",
+            "name": "维持内部主电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdMajor, 6)"
+          },
+          {
+            "enum": "kBrd_PwrCtrlIdBth",
+            "base_enum": "kBrdPwrCtrlBaseIdBth",
+            "name": "蓝牙电源",
+            "value": "BRD_DEF_BASE_ID(kBrdPwrCtrlBaseIdBth, 7)"
+          }
+        ],
+        "base_name": "kBrd_PwrCtrlIdBase",
+        "max_name": "kBrd_PwrCtrlIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_reset_def.h": {
+      "template": "ac78428/app/def/brd_reset_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/def/brd_switch_def.h": {
+      "template": "ac78428/app/def/brd_switch_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "Switch",
+        "entries": [
+          {
+            "enum": "kBrd_SwitchIdIg",
+            "base_enum": "kBrdSwitchBaseIdIg",
+            "name": "点火(T15)开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdIg, 0)"
+          },
+          {
+            "enum": "kBrd_SwitchIdAcc",
+            "base_enum": "kBrdSwitchBaseIdAcc",
+            "name": "钥匙电开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdAcc, 1)"
+          },
+          {
+            "enum": "kBrd_SwitchIdNetStatus",
+            "base_enum": "kBrdSwitchBaseIdNetStatus",
+            "name": "网络状态开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdNetStatus, 2)"
+          },
+          {
+            "enum": "kBrd_SwitchIdSw0",
+            "base_enum": "kBrdSwitchBaseIdSw0",
+            "name": "第一路外部开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdSw0, 3)"
+          },
+          {
+            "enum": "kBrd_SwitchIdSw1",
+            "base_enum": "kBrdSwitchBaseIdSw1",
+            "name": "第二路外部开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdSw1, 4)"
+          },
+          {
+            "enum": "kBrd_SwitchIdSw2",
+            "base_enum": "kBrdSwitchBaseIdSw2",
+            "name": "第三路外部开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdSw2, 5)"
+          },
+          {
+            "enum": "kBrd_SwitchIdNetUsbDet",
+            "base_enum": "kBrdSwitchBaseIdNetUsbDet",
+            "name": "网络USB插入检测开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdNetUsbDet, 6)"
+          },
+          {
+            "enum": "kBrd_SwitchIdBomId1",
+            "base_enum": "kBrdSwitchBaseIdBomId1",
+            "name": "BOM_ID1开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdBomId1, 7)"
+          },
+          {
+            "enum": "kBrd_SwitchIdBomId2",
+            "base_enum": "kBrdSwitchBaseIdBomId2",
+            "name": "BOM_ID2开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdBomId2, 8)"
+          },
+          {
+            "enum": "kBrd_SwitchIdBomId3",
+            "base_enum": "kBrdSwitchBaseIdBomId3",
+            "name": "BOM_ID3开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdBomId3, 9)"
+          },
+          {
+            "enum": "kBrd_SwitchIdChgLow",
+            "base_enum": "kBrdSwitchBaseIdChgLow",
+            "name": "充电低开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdChgLow, 10)"
+          },
+          {
+            "enum": "kBrd_SwitchIdChgHigh",
+            "base_enum": "kBrdSwitchBaseIdChgHigh",
+            "name": "充电高开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdChgHigh, 11)"
+          },
+          {
+            "enum": "kBrd_SwitchIdGnssAntShort",
+            "base_enum": "kBrdSwitchBaseIdGnssAntShort",
+            "name": "定位天线短路开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdGnssAntShort, 12)"
+          },
+          {
+            "enum": "kBrd_SwitchIdGnssAntOpen",
+            "base_enum": "kBrdSwitchBaseIdGnssAntOpen",
+            "name": "定位天线开路开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdGnssAntOpen, 13)"
+          },
+          {
+            "enum": "kBrd_SwitchIdPps",
+            "base_enum": "kBrdSwitchBaseIdPps",
+            "name": "GNSS 秒脉冲开关量",
+            "value": "BRD_DEF_BASE_ID(kBrdSwitchBaseIdPps, 14)"
+          }
+        ],
+        "base_name": "kBrd_SwitchIdBase",
+        "max_name": "kBrd_SwitchIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_uart_def.h": {
+      "template": "ac78428/app/def/brd_uart_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "Uart",
+        "entries": [
+          {
+            "enum": "kBrd_UartIdCom0",
+            "base_enum": "kBrdUartBaseIdCom0",
+            "name": "第一路外部串口",
+            "value": "BRD_DEF_BASE_ID(kBrdUartBaseIdCom0, 0)"
+          },
+          {
+            "enum": "kBrd_UartIdBth",
+            "base_enum": "kBrdUartBaseIdBth",
+            "name": "蓝牙模块串口",
+            "value": "BRD_DEF_BASE_ID(kBrdUartBaseIdBth, 1)"
+          },
+          {
+            "enum": "kBrd_UartIdNet",
+            "base_enum": "kBrdUartBaseIdNet1",
+            "name": "网络串口",
+            "value": "BRD_DEF_BASE_ID(kBrdUartBaseIdNet1, 2)"
+          },
+          {
+            "enum": "kBrd_UartIdGnss",
+            "base_enum": "kBrdUartBaseIdGnss",
+            "name": "定位模块串口",
+            "value": "BRD_DEF_BASE_ID(kBrdUartBaseIdGnss, 3)"
+          }
+        ],
+        "base_name": "kBrd_UartIdBase",
+        "max_name": "kBrd_UartIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428/def/brd_wdog_def.h": {
+      "template": "ac78428/app/def/brd_wdog_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "WDog",
+        "entries": [],
+        "base_name": "kBrd_WDogIdBase",
+        "max_name": "kBrd_WDogIdMax",
+        "max_expression": "kBrd_WDogIdBase"
+      }
+    },
+    "ac78428/src/brd_analog.c": {
+      "template": "ac78428/app/src/brd_analog.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_bat_chg.c": {
+      "template": "ac78428/app/src/brd_bat_chg.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_can.c": {
+      "template": "ac78428/app/src/brd_can.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_can_trx.c": {
+      "template": "ac78428/app/src/brd_can_trx.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_clock.c": {
+      "template": "ac78428/app/src/brd_clock.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_common.c": {
+      "template": "ac78428/app/src/brd_common.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_crypto.c": {
+      "template": "ac78428/app/src/brd_crypto.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_delay.c": {
+      "template": "ac78428/app/src/brd_delay.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_dma.c": {
+      "template": "ac78428/app/src/brd_dma.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_ext_int.c": {
+      "template": "ac78428/app/src/brd_ext_int.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_ext_rtc.c": {
+      "template": "ac78428/app/src/brd_ext_rtc.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_flash.c": {
+      "template": "ac78428/app/src/brd_flash.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_handle_map.c": {
+      "template": "ac78428/app/src/brd_handle_map.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_inc_all.h": {
+      "template": "ac78428/app/src/brd_inc_all.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_led.c": {
+      "template": "ac78428/app/src/brd_led.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_misc_ctrl.c": {
+      "template": "ac78428/app/src/brd_misc_ctrl.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_partition.c": {
+      "template": "ac78428/app/src/brd_partition.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_pmc.c": {
+      "template": "ac78428/app/src/brd_pmc.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_pwr_ctrl.c": {
+      "template": "ac78428/app/src/brd_pwr_ctrl.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_reset.c": {
+      "template": "ac78428/app/src/brd_reset.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_switch.c": {
+      "template": "ac78428/app/src/brd_switch.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_timer.c": {
+      "template": "ac78428/app/src/brd_timer.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_uart.c": {
+      "template": "ac78428/app/src/brd_uart.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_wdog.c": {
+      "template": "ac78428/app/src/brd_wdog.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/cfg/brd_common_cfg_boot.c": {
+      "template": "ac78428/boot/cfg/brd_common_cfg_boot.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_version_",
+          "type": "Brd_TVersion",
+          "array": false
+        },
+        {
+          "name": "g_brd_version_attr",
+          "type": "Brd_TVersionAttr",
+          "array": false
+        },
+        {
+          "name": "g_drv_iic_cfgs",
+          "type": "TDrvIicCfg",
+          "array": true
+        },
+        {
+          "name": "g_drv_spi_cfgs",
+          "type": "TDrvSpiCfg",
+          "array": true
+        }
+      ],
+      "counts": [
+        {
+          "name": "g_drv_iic",
+          "original": 2
+        },
+        {
+          "name": "g_drv_spi",
+          "original": 2
+        }
+      ],
+      "definition": null
+    },
+    "ac78428_boot/cfg/brd_crypto_cfg_boot.c": {
+      "template": "ac78428/boot/cfg/brd_crypto_cfg_boot.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_crypto_wakeup_cfg_",
+          "type": "Brd_TCryptoGpioCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_crypto_rst_cfg_",
+          "type": "Brd_TCryptoGpioCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_crypto_dev_ciu98b_",
+          "type": "Brd_TCryptoDevCiu98b",
+          "array": false
+        },
+        {
+          "name": "g_brd_crypto_spi_port_cfg_",
+          "type": "TDrvSpiCsCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_crypto_bus_phy_spi_",
+          "type": "Brd_TCryptoBusPhySpi",
+          "array": false
+        },
+        {
+          "name": "g_brd_crypto_dev_inchip_",
+          "type": "Brd_TCryptoDevInChip",
+          "array": false
+        },
+        {
+          "name": "g_brd_crypto_items_",
+          "type": "Brd_TCryptoItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_crypto_attr",
+          "type": "Brd_TCryptoAttr",
+          "array": false
+        }
+      ],
+      "counts": [
+        {
+          "name": "g_brd_crypto_mutex_",
+          "original": 1
+        },
+        {
+          "name": "g_brd_crypto_event_",
+          "original": 2
+        }
+      ],
+      "definition": null
+    },
+    "ac78428_boot/cfg/brd_debugger_cfg_boot.c": {
+      "template": "ac78428/boot/cfg/brd_debugger_cfg_boot.c.template",
+      "declarations": [
+        {
+          "name": "g_brd_debugger_clk_pin_cfg_",
+          "type": "Brd_TDebuggerPinCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_debugger_clk_int_cfg_",
+          "type": "TDrvGpioIntCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_debugger_dio_pin_cfg_",
+          "type": "Brd_TDebuggerPinCfg",
+          "array": false
+        },
+        {
+          "name": "g_brd_debugger_bus_cido_cfg_",
+          "type": "Brd_TDebuggerBusCintDi",
+          "array": false
+        },
+        {
+          "name": "g_brd_debugger_dev_swd_cfg_",
+          "type": "Brd_TDebuggerDevSwd",
+          "array": false
+        },
+        {
+          "name": "g_brd_debugger_items_",
+          "type": "Brd_TDebuggerItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_debugger_attr",
+          "type": "Brd_TDebuggerAttr",
+          "array": false
+        }
+      ],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/cfg/brd_security_boot_cfg_boot.c": {
+      "template": "ac78428/boot/cfg/brd_security_boot_cfg_boot.c.template",
+      "declarations": [
+        {
+          "name": "g_security_boot_dev_base",
+          "type": "Brd_TSecurityBootDevInChip",
+          "array": false
+        },
+        {
+          "name": "g_security_boot_items",
+          "type": "Brd_TSecurityBootItem",
+          "array": true
+        },
+        {
+          "name": "g_brd_security_boot_attr",
+          "type": "Brd_TSecurityBootAttr",
+          "array": false
+        }
+      ],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/def/brd_crypto_def.h": {
+      "template": "ac78428/boot/def/brd_crypto_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "Crypto",
+        "entries": [
+          {
+            "enum": "kBrd_CryptoIdCsec",
+            "base_enum": "kBrdCryptoBaseIdCsec",
+            "name": "芯片内部加密模块",
+            "value": "BRD_DEF_BASE_ID(kBrdCryptoBaseIdCsec, 0)"
+          }
+        ],
+        "base_name": "kBrd_CryptoIdBase",
+        "max_name": "kBrd_CryptoIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428_boot/def/brd_debugger_def.h": {
+      "template": "ac78428/boot/def/brd_debugger_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "Debugger",
+        "entries": [
+          {
+            "enum": "kBrd_DebuggerIdSwdCintDi",
+            "base_enum": "kBrdDebuggerIdSwdCintDi",
+            "name": "SWD clk->int dio->input",
+            "value": "BRD_DEF_BASE_ID(kBrdDebuggerIdSwdCintDi, 0)"
+          }
+        ],
+        "base_name": "kBrd_DebuggerIdBase",
+        "max_name": "kBrd_DebuggerIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428_boot/def/brd_security_boot_def.h": {
+      "template": "ac78428/boot/def/brd_security_boot_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": {
+        "family": "SecurityBoot",
+        "entries": [
+          {
+            "enum": "kBrd_SecurityBootIdCsec",
+            "base_enum": "kBrdSecurityBootBaseIdCsec",
+            "name": "Csec",
+            "value": "BRD_DEF_BASE_ID(kBrdSecurityBootBaseIdCsec, 0)"
+          }
+        ],
+        "base_name": "kBrd_SecurityBootIdBase",
+        "max_name": "kBrd_SecurityBootIdMax",
+        "max_expression": ""
+      }
+    },
+    "ac78428_boot/src/brd_analog.c": {
+      "template": "ac78428/boot/src/brd_analog.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_bat_chg.c": {
+      "template": "ac78428/boot/src/brd_bat_chg.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_clock.c": {
+      "template": "ac78428/boot/src/brd_clock.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_common.c": {
+      "template": "ac78428/boot/src/brd_common.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_crypto.c": {
+      "template": "ac78428/boot/src/brd_crypto.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_debugger.c": {
+      "template": "ac78428/boot/src/brd_debugger.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_def.h": {
+      "template": "ac78428/boot/src/brd_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_delay.c": {
+      "template": "ac78428/boot/src/brd_delay.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_dma.c": {
+      "template": "ac78428/boot/src/brd_dma.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_ext_int.c": {
+      "template": "ac78428/boot/src/brd_ext_int.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_ext_rtc.c": {
+      "template": "ac78428/boot/src/brd_ext_rtc.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_flash.c": {
+      "template": "ac78428/boot/src/brd_flash.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_handle_map.c": {
+      "template": "ac78428/boot/src/brd_handle_map.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_inc.h": {
+      "template": "ac78428/boot/src/brd_inc.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_inc_all.h": {
+      "template": "ac78428/boot/src/brd_inc_all.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_led.c": {
+      "template": "ac78428/boot/src/brd_led.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_misc_ctrl.c": {
+      "template": "ac78428/boot/src/brd_misc_ctrl.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_partition.c": {
+      "template": "ac78428/boot/src/brd_partition.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_pmc.c": {
+      "template": "ac78428/boot/src/brd_pmc.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_pwr_ctrl.c": {
+      "template": "ac78428/boot/src/brd_pwr_ctrl.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_reset.c": {
+      "template": "ac78428/boot/src/brd_reset.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_security_boot.c": {
+      "template": "ac78428/boot/src/brd_security_boot.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_switch.c": {
+      "template": "ac78428/boot/src/brd_switch.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_timer.c": {
+      "template": "ac78428/boot/src/brd_timer.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_uart.c": {
+      "template": "ac78428/boot/src/brd_uart.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_wdog.c": {
+      "template": "ac78428/boot/src/brd_wdog.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/src/brd_xcu_spi.c": {
+      "template": "ac78428/boot/src/brd_xcu_spi.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "build/ac78428/after_build.bat": {
+      "template": "ac78428/build/app/after_build.bat.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "build/ac78428/build.bat": {
+      "template": "ac78428/build/app/build.bat.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "build/ac78428_boot/after_build.bat": {
+      "template": "ac78428/build/boot/after_build.bat.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "build/ac78428_boot/build.bat": {
+      "template": "ac78428/build/boot/build.bat.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "build/common/build_common.bat": {
+      "template": "ac78428/build/common/build_common.bat.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "README.md": {
+      "template": "ac78428/README.md.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/cfg/brd_meter_cfg.c": {
+      "template": "ac78428/meter.cfg.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/def/brd_meter_def.h": {
+      "template": "ac78428/app/def/brd_meter_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_meter.c": {
+      "template": "ac78428/app/src/brd_meter.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/cfg/brd_ic_card_cfg.c": {
+      "template": "ac78428/ic_card.cfg.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/def/brd_ic_card_def.h": {
+      "template": "ac78428/app/def/brd_ic_card_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_ic_card.c": {
+      "template": "ac78428/app/src/brd_ic_card.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/cfg/brd_bat_chg_mgr_cfg.c": {
+      "template": "ac78428/bat_chg_mgr.cfg.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/def/brd_bat_chg_mgr_def.h": {
+      "template": "ac78428/app/def/brd_bat_chg_mgr_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_bat_chg_mgr.c": {
+      "template": "ac78428/app/src/brd_bat_chg_mgr.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/cfg/brd_xcu_spi_cfg.c": {
+      "template": "ac78428/xcu_spi.cfg.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428_boot/def/brd_xcu_spi_def.h": {
+      "template": "common/brd_def.h.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    }
+  },
+  "targets": {
+    "app": {
+      "folder": "ac78428",
+      "members": [
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_analog.c",
+          "module": "brd.analog",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_bat_chg.c",
+          "module": "brd.bat_chg",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_can.c",
+          "module": "brd.can",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_can_trx.c",
+          "module": "brd.can_trx",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_clock.c",
+          "module": "brd.clock",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_common.c",
+          "module": "brd.common",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_crypto.c",
+          "module": "brd.crypto",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_delay.c",
+          "module": "brd.delay",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_dma.c",
+          "module": "brd.dma",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_ext_int.c",
+          "module": "brd.ext_int",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_ext_rtc.c",
+          "module": "brd.ext_rtc",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_flash.c",
+          "module": "brd.flash",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_handle_map.c",
+          "module": "brd.handle_map",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_led.c",
+          "module": "brd.led",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_misc_ctrl.c",
+          "module": "brd.misc_ctrl",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_reset.c",
+          "module": "brd.reset",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_partition.c",
+          "module": "brd.partition",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_pmc.c",
+          "module": "brd.pmc",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_pwr_ctrl.c",
+          "module": "brd.pwr_ctrl",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_switch.c",
+          "module": "brd.switch",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_timer.c",
+          "module": "brd.timer",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_uart.c",
+          "module": "brd.uart",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_wdog.c",
+          "module": "brd.wdog",
+          "generated": true
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_adc.c",
+          "module": "drv.adc",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_can.c",
+          "module": "drv.can",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_clock.c",
+          "module": "drv.clock",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_common.c",
+          "module": "drv.common",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_csec.c",
+          "module": "drv.csec",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_dma.c",
+          "module": "drv.dma",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_flash.c",
+          "module": "drv.flash",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_gpio.c",
+          "module": "drv.gpio",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_iic.c",
+          "module": "drv.iic",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_irq.c",
+          "module": "drv.irq",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_pmc.c",
+          "module": "drv.pmc",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_psmu.c",
+          "module": "drv.psmu",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_port.c",
+          "module": "drv.port",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_pwm.c",
+          "module": "drv.pwm",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_reset.c",
+          "module": "drv.reset",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_spi.c",
+          "module": "drv.spi",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_timer_srv.c",
+          "module": "drv.timer_srv",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_uart.c",
+          "module": "drv.uart",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_wdog.c",
+          "module": "drv.wdog",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_xcu_spi.c",
+          "module": "drv.xcu_spi",
+          "generated": false
+        },
+        {
+          "group": "idp",
+          "path": "product/src/idp/iic/common/idp_enum_iic_ex.c",
+          "module": null,
+          "generated": false
+        },
+        {
+          "group": "per",
+          "path": "product/src/per/fram/at24/per_fram_at24_ex.c",
+          "module": null,
+          "generated": false
+        },
+        {
+          "group": "per",
+          "path": "product/src/per/hsm/ciu98b/weichen/per_hsm_ciu98b_ex.c",
+          "module": null,
+          "generated": false
+        },
+        {
+          "group": "per",
+          "path": "product/src/per/rtc/bm8563/per_rtc_bm8563_ex.c",
+          "module": null,
+          "generated": false
+        },
+        {
+          "group": "per",
+          "path": "product/src/per/mmc/xtsdg01gws1g/per_mmc_spi_sd_ex.c",
+          "module": null,
+          "generated": false
+        },
+        {
+          "group": "per",
+          "path": "product/src/per/fee/per_fee.c",
+          "module": null,
+          "generated": false
+        },
+        {
+          "group": "per",
+          "path": "product/src/per/can_trx/tja1445/per_can_trx_tja1445.c",
+          "module": null,
+          "generated": false
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_meter.c",
+          "module": "brd.meter",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_ic_card.c",
+          "module": "brd.ic_card",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_bat_chg_mgr.c",
+          "module": "brd.bat_chg_mgr",
+          "generated": true
+        }
+      ]
+    },
+    "boot": {
+      "folder": "ac78428_boot",
+      "members": [
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_analog.c",
+          "module": "brd.analog",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_bat_chg.c",
+          "module": "brd.bat_chg",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_clock.c",
+          "module": "brd.clock",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_common.c",
+          "module": "brd.common",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_crypto.c",
+          "module": "brd.crypto",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_debugger.c",
+          "module": "brd.debugger",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_delay.c",
+          "module": "brd.delay",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_dma.c",
+          "module": "brd.dma",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_ext_int.c",
+          "module": "brd.ext_int",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_ext_rtc.c",
+          "module": "brd.ext_rtc",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_flash.c",
+          "module": "brd.flash",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_handle_map.c",
+          "module": "brd.handle_map",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_led.c",
+          "module": "brd.led",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_misc_ctrl.c",
+          "module": "brd.misc_ctrl",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_partition.c",
+          "module": "brd.partition",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_pmc.c",
+          "module": "brd.pmc",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_pwr_ctrl.c",
+          "module": "brd.pwr_ctrl",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_reset.c",
+          "module": "brd.reset",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_security_boot.c",
+          "module": "brd.security_boot",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_switch.c",
+          "module": "brd.switch",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_timer.c",
+          "module": "brd.timer",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_uart.c",
+          "module": "brd.uart",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_wdog.c",
+          "module": "brd.wdog",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_xcu_spi.c",
+          "module": "brd.xcu_spi",
+          "generated": true
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_adc.c",
+          "module": "drv.adc",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_can.c",
+          "module": "drv.can",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_clock.c",
+          "module": "drv.clock",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_common.c",
+          "module": "drv.common",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_csec.c",
+          "module": "drv.csec",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_dma.c",
+          "module": "drv.dma",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_flash.c",
+          "module": "drv.flash",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_gpio.c",
+          "module": "drv.gpio",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_iic.c",
+          "module": "drv.iic",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_irq.c",
+          "module": "drv.irq",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_pmc.c",
+          "module": "drv.pmc",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_psmu.c",
+          "module": "drv.psmu",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_port.c",
+          "module": "drv.port",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_pwm.c",
+          "module": "drv.pwm",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_reset.c",
+          "module": "drv.reset",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_spi.c",
+          "module": "drv.spi",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_timer_srv.c",
+          "module": "drv.timer_srv",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_uart.c",
+          "module": "drv.uart",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_wdog.c",
+          "module": "drv.wdog",
+          "generated": false
+        },
+        {
+          "group": "drv",
+          "path": "product/src/drv/ac78428/drv_xcu_spi.c",
+          "module": "drv.xcu_spi",
+          "generated": false
+        },
+        {
+          "group": "idp",
+          "path": "product/src/idp/iic/common/idp_enum_iic_ex.c",
+          "module": null,
+          "generated": false
+        },
+        {
+          "group": "per",
+          "path": "product/src/per/fram/at24/per_fram_at24_ex.c",
+          "module": null,
+          "generated": false
+        },
+        {
+          "group": "per",
+          "path": "product/src/per/mmc/xtsdg01gws1g/per_mmc_spi_sd_ex.c",
+          "module": null,
+          "generated": false
+        },
+        {
+          "group": "per",
+          "path": "product/src/per/rtc/bm8563/per_rtc_bm8563_ex.c",
+          "module": null,
+          "generated": false
+        },
+        {
+          "group": "per",
+          "path": "product/src/per/fee/per_fee.c",
+          "module": null,
+          "generated": false
+        },
+        {
+          "group": "src",
+          "path": "ac78428_boot/src/brd_xcu_spi.c",
+          "module": "brd.xcu_spi",
+          "generated": true
+        }
+      ]
+    }
+  },
+  "projects": {
+    "app": "projects/keil/app.uvprojx.template",
+    "boot": "projects/keil/boot.uvprojx.template"
+  },
+  "lifecycle": {
+    "app": {
+      "Brd_DiffInit": "    Brd_ClockInit();\n    TDrvIrqCreate(&g_drv_irq);      ///< 中断驱动创建\n    TDrvPortCreate(&g_drv_port);    ///< 端口驱动创建\n    TDrvGpioCreate(&g_drv_gpio);    ///< GPIO驱动创建\n\n    TDrvPortOpen(&g_drv_port);\n    TDrvGpioOpen(&g_drv_gpio);\n    TDrvIrqOpen(&g_drv_irq);\n\n    Brd_ResetInit();\n    Brd_DmaInit();\n    Brd_PmcInit();\n    Brd_PwrCtrlInit();\n    Brd_MiscCtrlInit();\n    Brd_LedInit();\n    Brd_BatChgInit();\n    Brd_SwitchInit();\n    Brd_WDogInit();\n    Brd_TimerInit();\n    Brd_CanInit();\n    Brd_FlashInit();\n    Brd_DelayInit();  ///< 必须放在定时器初始化之后\n    Brd_AnalogInit();\n    Brd_ExtRtcInit();\n    Brd_UartInit();\n    Brd_MeterInit();\n    Brd_IcCardInit();\n    Brd_BatChgMgrInit();\n\n    Brd_HandleMapInit();",
+      "Brd_DiffDone": "    Brd_HandleMapDone();\n\n    Brd_BatChgMgrDone();\n    Brd_IcCardDone();\n    Brd_MeterDone();\n\n    Brd_UartDone();\n    Brd_ExtRtcDone();\n    Brd_AnalogDone();\n    Brd_DelayDone();\n    Brd_FlashDone();\n    Brd_CanDone();\n    Brd_TimerDone();\n    Brd_SwitchDone();\n    Brd_BatChgDone();\n    Brd_LedDone();\n    Brd_MiscCtrlDone();\n    Brd_PwrCtrlDone();\n    Brd_WDogDone();\n    Brd_DmaDone();\n    Brd_ResetDone();\n    Brd_PmcDone();\n    Brd_ClockDone();\n    \n    TDrvGpioClose(&g_drv_gpio);\n    TDrvPortClose(&g_drv_port);\n    TDrvIrqClose(&g_drv_irq);\n    \n    TDrvGpioDestroy(&g_drv_gpio);    ///< GPIO驱动销毁\n    TDrvPortDestroy(&g_drv_port);    ///< 端口驱动销毁\n    TDrvIrqDestroy(&g_drv_irq);      ///< 中断驱动销毁",
+      "Brd_DiffOpen": "    Brd_DmaOpen();\n    Brd_AnalogOpen();\n    Brd_TimerOpenServer();\n    Brd_PartitionOpen();",
+      "Brd_DiffClose": "    Brd_PartitionClose();\n    Brd_TimerCloseServer();\n    Brd_AnalogClose();\n    Brd_DmaClose();"
+    },
+    "boot": {
+      "Brd_DiffInit": "    Brd_ClockInit();\n    TDrvIrqCreate(&g_drv_irq);      ///< 中断驱动创建\n    TDrvPortCreate(&g_drv_port);    ///< 端口驱动创建\n    TDrvGpioCreate(&g_drv_gpio);    ///< GPIO驱动创建\n\n    TDrvPortOpen(&g_drv_port);\n    TDrvGpioOpen(&g_drv_gpio);\n    TDrvIrqOpen(&g_drv_irq);\n\n    Brd_ResetInit();\n    Brd_DmaInit();\n    Brd_PmcInit();\n    Brd_PwrCtrlInit();\n    Brd_MiscCtrlInit();\n    Brd_BatChgInit();\n    Brd_SwitchInit();\n    Brd_WDogInit();\n    Brd_TimerInit();\n    Brd_FlashInit();\n    Brd_DelayInit();  ///< 必须放在定时器初始化之后\n    Brd_AnalogInit();\n    Brd_ExtRtcInit();\n    Brd_UartInit();\n    Brd_LedInit();\n    Brd_XcuSpiInit();\n\n    Brd_HandleMapInit();",
+      "Brd_DiffDone": "    Brd_HandleMapDone();\n\n    Brd_XcuSpiDone();\n    Brd_LedDone();\n    Brd_UartDone();\n    Brd_ExtRtcDone();\n    Brd_AnalogDone();\n    Brd_DelayDone();\n    Brd_FlashDone();\n    Brd_TimerDone();\n    Brd_SwitchDone();\n    Brd_MiscCtrlDone();\n    Brd_BatChgDone();\n    Brd_PwrCtrlDone();\n    Brd_WDogDone();\n    Brd_DmaDone();\n    Brd_ResetDone();\n    Brd_PmcDone();\n    Brd_ClockDone();\n    \n    TDrvGpioClose(&g_drv_gpio);\n    TDrvPortClose(&g_drv_port);\n    TDrvIrqClose(&g_drv_irq);\n    \n    TDrvGpioDestroy(&g_drv_gpio);    ///< GPIO驱动销毁\n    TDrvPortDestroy(&g_drv_port);    ///< 端口驱动销毁\n    TDrvIrqDestroy(&g_drv_irq);      ///< 中断驱动销毁",
+      "Brd_DiffOpen": "    Brd_DmaOpen();\n    Brd_AnalogOpen();\n    Brd_TimerOpenServer();\n    Brd_PartitionOpen();",
+      "Brd_DiffClose": "    Brd_PartitionClose();\n    Brd_TimerCloseServer();\n    Brd_AnalogClose();\n    Brd_DmaClose();"
+    }
+  },
+  "native_dependencies": {
+    "app": {
+      "brd.ext_rtc": [
+        "drv.iic"
+      ],
+      "brd.flash": [
+        "drv.iic",
+        "drv.spi",
+        "per.fram.at24",
+        "per.mmc.xtsdg01gws1g",
+        "per.fee.fee"
+      ],
+      "brd.crypto": [
+        "drv.spi",
+        "drv.csec",
+        "per.hsm.ciu98b"
+      ],
+      "brd.can_trx": [
+        "drv.spi",
+        "per.can_trx.tja1445"
+      ],
+      "brd.bat_chg": [
+        "brd.pwr_ctrl"
+      ]
+    },
+    "boot": {
+      "brd.ext_rtc": [
+        "drv.iic"
+      ],
+      "brd.flash": [
+        "drv.iic",
+        "drv.spi",
+        "per.fram.at24",
+        "per.mmc.xtsdg01gws1g",
+        "per.fee.fee"
+      ],
+      "brd.crypto": [
+        "drv.csec"
+      ],
+      "brd.bat_chg": [
+        "brd.pwr_ctrl"
+      ]
+    }
+  },
+  "extensions": {
+    "meter": {
+      "targets": [
+        "app"
+      ],
+      "required_headers": [
+        "brd_meter_ac78428.h"
+      ],
+      "sources": []
+    },
+    "ic_card": {
+      "targets": [
+        "app"
+      ],
+      "required_headers": [
+        "brd_ic_card_ac78428.h",
+        "per_ic_card_sle4428_ex.h",
+        "per_ic_card_sle4442_ex.h",
+        "per_fram_at24_ex.h",
+        "idp_enum_iic_ex.h"
+      ],
+      "sources": [
+        "product/src/per/ic_card/per_ic_card_sle4428_ex.c",
+        "product/src/per/ic_card/per_ic_card_sle4442_ex.c",
+        "product/src/per/fram/at24/per_fram_at24_ex.c",
+        "product/src/idp/iic/common/idp_enum_iic_ex.c"
+      ]
+    },
+    "bat_chg_mgr": {
+      "targets": [
+        "app"
+      ],
+      "required_headers": [
+        "brd_bat_chg_mgr_ac78428.h"
+      ],
+      "sources": []
+    },
+    "ext_rtc": {
+      "targets": [
+        "app",
+        "boot"
+      ],
+      "required_headers": [
+        "per_rtc_rx8010sj.h"
+      ],
+      "sources": [
+        "product/src/per/rtc/rx8010sj/per_rtc_rx8010sj.c"
+      ]
+    },
+    "xcu_spi": {
+      "targets": [
+        "boot"
+      ],
+      "required_headers": [
+        "drv_xcu_spi.h",
+        "brd_xcu_spi_ac78428.h"
+      ],
+      "sources": []
+    }
+  },
+  "configuration_macros": {
+    "axis": [
+      "BRD_AXIS_BUS_PHY_IIC",
+      "BRD_AXIS_DEV_DA280B",
+      "BRD_AXIS_DEV_LSM6DSL",
+      "BRD_AXIS_DEV_MMA8452",
+      "BRD_AXIS_DEV_SC7122"
+    ],
+    "can_trx": [
+      "BRD_CAN_TRX_BUS_MULTI_SPI",
+      "BRD_CAN_TRX_BUS_PHY_SPI",
+      "BRD_CAN_TRX_DEV_TJA1445"
+    ],
+    "crypto": [
+      "BRD_CRYPTO_BUS_PHY_SPI",
+      "BRD_CRYPTO_DEV_CIU98B",
+      "BRD_CRYPTO_DEV_CSEC"
+    ],
+    "debugger": [
+      "BRD_DEBUGGER_BUS_CINTDI",
+      "BRD_DEBUGGER_DEV_SWD"
+    ],
+    "ext_rtc": [
+      "BRD_EXT_RTC_BUS_PHY_IIC",
+      "BRD_EXT_RTC_DEV_BM8563",
+      "BRD_EXT_RTC_DEV_RX8010SJ"
+    ],
+    "flash": [
+      "BRD_FLASH_BUS_ON_CHIP_FLASH",
+      "BRD_FLASH_BUS_PHY_IIC",
+      "BRD_FLASH_BUS_PHY_SPI",
+      "BRD_FLASH_BUS_SIMU_IIC",
+      "BRD_FLASH_DEV_BL24C128F",
+      "BRD_FLASH_DEV_BL24C32F",
+      "BRD_FLASH_DEV_CHIP_EEP",
+      "BRD_FLASH_DEV_CHIP_PFLASH",
+      "BRD_FLASH_DEV_MX25",
+      "BRD_FLASH_DEV_SD_NAND"
+    ],
+    "security_boot": [
+      "BRD_SECURITY_BOOT_DEV_CSEC"
+    ]
+  }
+}

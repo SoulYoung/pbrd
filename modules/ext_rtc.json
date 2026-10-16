@@ -1,0 +1,107 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "ext_rtc",
+  "name": "外部 RTC",
+  "configuration_mode": "instances",
+  "configuration_status": "template-adapter",
+  "fields": [
+    {
+      "key": "driver",
+      "label": "器件",
+      "type": "select",
+      "value": "",
+      "opts": [
+        "bm8563",
+        "rx8010sj",
+        "jxr260"
+      ]
+    },
+    {
+      "key": "bus",
+      "label": "通信总线",
+      "type": "bus",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "address",
+      "label": "7 位 IIC 地址（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "timer_clock",
+      "label": "RX8010SJ 定时器时钟源",
+      "type": "select",
+      "value": "kRx8010sjClksrc1Hz",
+      "opts": [
+        "kRx8010sjClksrc4096Hz",
+        "kRx8010sjClksrc64Hz",
+        "kRx8010sjClksrc1Hz",
+        "kRx8010sjClksrcMin",
+        "kRx8010sjClksrcHour"
+      ]
+    },
+    {
+      "key": "timer_output",
+      "label": "RX8010SJ 定时器输出",
+      "type": "select",
+      "value": "kRx8010sjOutPinIrq1",
+      "opts": [
+        "kRx8010sjOutPinIrq1",
+        "kRx8010sjOutPinIrq2"
+      ]
+    }
+  ],
+  "dependencies": [],
+  "implementations": [
+    {
+      "value": "bm8563",
+      "module": "per.rtc.bm8563",
+      "bus_kinds": [
+        "iic"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/rtc/bm8563/**/*.c",
+        "product/src/per/rtc/bm8563/**/*.h"
+      ]
+    },
+    {
+      "value": "rx8010sj",
+      "module": "per.rtc.rx8010sj",
+      "bus_kinds": [
+        "iic"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/rtc/rx8010sj/**/*.c",
+        "product/src/per/rtc/rx8010sj/**/*.h"
+      ]
+    },
+    {
+      "value": "jxr260",
+      "module": "per.rtc.jxr260",
+      "bus_kinds": [
+        "iic",
+        "soft_iic"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/rtc/jxr260/**/*.c",
+        "product/src/per/rtc/jxr260/**/*.h"
+      ]
+    }
+  ],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_ext_rtc.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_ext_rtc_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_ext_rtc_{mcu}.h"
+  },
+  "notes": "依据 r01/r02/r03/r04：BM8563、RX8010SJ 使用公共物理 IIC；RX8010SJ 可选定时器时钟及 IRQ1/IRQ2 输出。芯片输出对应的 MCU 中断引脚请在 ext_int 配置。JXR260 定义保留但缺少此平台后端，不支持直接生成。",
+  "bus_kinds": [
+    "iic"
+  ]
+}

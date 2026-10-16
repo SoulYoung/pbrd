@@ -1,0 +1,9 @@
+#include "brd_inc_all.h"
+#include "brd_can_cfg.c"
+#include "brd_can_ac78428.c"
+#include "brd_canfd_ac78428.c"
+
+/***** User code begin *****/
+
+/***** User code end *****/
+

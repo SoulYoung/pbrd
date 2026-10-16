@@ -1,0 +1,3 @@
+#include "brd_inc_all.h"
+#include "brd_bat_chg_mgr_cfg.c"
+#include "brd_bat_chg_mgr_ac78428.c"

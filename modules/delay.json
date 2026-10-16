@@ -1,0 +1,19 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "delay",
+  "name": "延时",
+  "configuration_mode": "platform",
+  "configuration_status": "platform_default",
+  "fields": [],
+  "dependencies": [
+    "drv.timer_srv"
+  ],
+  "implementations": [],
+  "bus_kinds": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_delay.c"
+  },
+  "notes": "沿用平台实现；需要项目差异时先审核接口，再扩展字段。",
+  "default_enabled": true
+}

@@ -1,0 +1,15 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "iic_mgr_inner",
+  "implementations": [],
+  "sources": {},
+  "name": "IIC 内部管理",
+  "configuration_mode": "platform",
+  "configuration_status": "reference-only",
+  "fields": [],
+  "dependencies": [],
+  "bus_kinds": [],
+  "notes": "内部实现或包装文件，仅用于扫描溯源，不是独立的板级可选功能。",
+  "selection_mode": "internal"
+}

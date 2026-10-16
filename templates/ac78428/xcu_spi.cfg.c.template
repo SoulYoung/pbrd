@@ -1,0 +1,25 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// Boot XCU SPI：硬件配置、REQ 回调及板级对象分别映射。
+static TDrvXcuSpi g_drv_xcu_spi_[{{COUNT}}];
+static const TDrvXcuSpiCfg g_drv_xcu_spi_cfgs_[] =
+{{CONFIGS}};
+{{CALLBACKS}}
+static Brd_TXcuSpiDevInChip g_brd_xcu_spi_dev_in_chip_[] =
+{{DEVICES}};
+static Brd_TXcuSpiItem g_brd_xcu_spi_items_[] __attribute__((section("CodeQuickAccess"))) =
+{{ITEMS}};
+Brd_TXcuSpiAttr g_brd_xcu_spi_attr __attribute__((section("CodeQuickAccess"))) =
+{
+    .count = sizeof(g_brd_xcu_spi_items_) / sizeof(g_brd_xcu_spi_items_[0]),
+    .item = g_brd_xcu_spi_items_,
+};
+/***** User code begin *****/
+
+/***** User code end *****/

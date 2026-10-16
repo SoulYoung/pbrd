@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "version_header": "product/src/brd/base/cfg/brd_version_base.h",
+  "enum_header": "product/src/brd/base/def/brd_def_base.h",
+  "platforms": {
+    "ac78428": {
+      "brd_directory": "product/src/brd/ac78428",
+      "drv_directory": "product/src/drv/ac78428",
+      "pin_file": "platforms/ac78428.json"
+    }
+  }
+}

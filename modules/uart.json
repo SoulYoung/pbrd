@@ -1,0 +1,107 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "uart",
+  "name": "串口",
+  "configuration_mode": "instances",
+  "configuration_status": "template-adapter",
+  "fields": [
+    {
+      "key": "instance",
+      "label": "硬件实例",
+      "type": "select",
+      "value": "UART0",
+      "opts": [
+        "UART0",
+        "UART1",
+        "UART2",
+        "UART3",
+        "UART4",
+        "UART5"
+      ]
+    },
+    {
+      "key": "rx",
+      "label": "RX 引脚",
+      "type": "signal",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "tx",
+      "label": "TX 引脚",
+      "type": "signal",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "rts",
+      "label": "RTS 引脚（选填）",
+      "type": "signal",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "baud",
+      "label": "波特率（运行时设置）",
+      "type": "num",
+      "value": 115200,
+      "opts": []
+    },
+    {
+      "key": "mode",
+      "label": "接口",
+      "type": "select",
+      "value": "232",
+      "opts": [
+        "232",
+        "485"
+      ]
+    },
+    {
+      "key": "parity",
+      "label": "校验（运行时设置）",
+      "type": "select",
+      "value": "none",
+      "opts": [
+        "none",
+        "even",
+        "odd"
+      ]
+    },
+    {
+      "key": "dma",
+      "label": "DMA 使能",
+      "type": "bool",
+      "value": false,
+      "opts": []
+    },
+    {
+      "key": "dma_rx",
+      "label": "RX DMA 通道",
+      "type": "num",
+      "value": 0,
+      "opts": []
+    },
+    {
+      "key": "dma_tx",
+      "label": "TX DMA 通道",
+      "type": "num",
+      "value": 1,
+      "opts": []
+    }
+  ],
+  "dependencies": [
+    "drv.uart"
+  ],
+  "implementations": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_uart.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_uart_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_uart_{mcu}.h"
+  },
+  "notes": "配置字段需要对照实际驱动及板级接口审核。未使用不代表不支持。",
+  "bus_kinds": [
+    "spi"
+  ]
+}

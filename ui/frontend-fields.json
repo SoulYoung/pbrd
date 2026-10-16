@@ -1,0 +1,846 @@
+{
+  "bat_chg": {
+    "fields": [
+      {
+        "key": "enable_mode",
+        "label": "充电使能方式",
+        "type": "select",
+        "value": "gpio",
+        "opts": [
+          [
+            "gpio",
+            "直接 GPIO"
+          ],
+          [
+            "power",
+            "引用已配置电源"
+          ]
+        ]
+      },
+      {
+        "key": "enable_pin",
+        "label": "充电使能引脚",
+        "type": "gpio",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "enable_mode": "gpio"
+        }
+      },
+      {
+        "key": "enable_reverse",
+        "label": "使能低电平有效",
+        "type": "bool",
+        "value": false,
+        "opts": [],
+        "visible_when": {
+          "enable_mode": "gpio"
+        }
+      },
+      {
+        "key": "control_ref",
+        "label": "使能电源",
+        "type": "power_ref",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "enable_mode": "power"
+        }
+      },
+      {
+        "key": "done_pin",
+        "label": "充电完成引脚（选填）",
+        "type": "gpio",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "done_reverse",
+        "label": "完成低电平有效",
+        "type": "bool",
+        "value": false,
+        "opts": []
+      },
+      {
+        "key": "charging_pin",
+        "label": "充电状态引脚（选填）",
+        "type": "gpio",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "charging_reverse",
+        "label": "状态低电平有效",
+        "type": "bool",
+        "value": false,
+        "opts": []
+      },
+      {
+        "key": "done_power_ref",
+        "label": "充电完成检测依赖电源（选填）",
+        "type": "power_ref",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "charging_power_ref",
+        "label": "充电状态检测依赖电源（选填）",
+        "type": "power_ref",
+        "value": "",
+        "opts": []
+      }
+    ],
+    "configuration_mode": "instances",
+    "frontend_form": true,
+    "notes": "使能可使用 GPIO 或引用电源控制中的已有电源；完成、充电状态分别配置输入引脚。",
+    "configuration_scope": "shared"
+  },
+  "pwr_ctrl": {
+    "fields": [
+      {
+        "key": "power_kind",
+        "label": "电源类型",
+        "type": "select",
+        "value": "output",
+        "opts": [
+          [
+            "output",
+            "功能电源"
+          ],
+          [
+            "base",
+            "公共电源"
+          ]
+        ]
+      },
+      {
+        "key": "control_mode",
+        "label": "控制方式",
+        "type": "select",
+        "value": "gpio",
+        "opts": [
+          [
+            "gpio",
+            "直接 GPIO"
+          ],
+          [
+            "power",
+            "引用已有电源"
+          ]
+        ]
+      },
+      {
+        "key": "pin",
+        "label": "电源控制引脚",
+        "type": "gpio",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "control_mode": "gpio"
+        }
+      },
+      {
+        "key": "reverse",
+        "label": "低电平有效",
+        "type": "bool",
+        "value": false,
+        "opts": [],
+        "visible_when": {
+          "control_mode": "gpio"
+        }
+      },
+      {
+        "key": "control_ref",
+        "label": "引用电源",
+        "type": "power_ref",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "control_mode": "power"
+        }
+      },
+      {
+        "key": "upstream_ref",
+        "label": "前置公共电源（选填）",
+        "type": "power_ref",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "control_mode": "gpio"
+        }
+      }
+    ],
+    "configuration_mode": "instances",
+    "frontend_form": true,
+    "notes": "先建立公共电源，再在充电或其他设备中引用；引用下拉项跟随当前目标的电源实例。",
+    "configuration_scope": "shared"
+  },
+  "analog": {
+    "fields": [
+      {
+        "key": "pin",
+        "label": "ADC 引脚",
+        "type": "adc",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "channel",
+        "label": "ADC 通道",
+        "type": "channel",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "x",
+        "label": "分压系数 x",
+        "type": "num",
+        "value": 1,
+        "opts": []
+      },
+      {
+        "key": "y",
+        "label": "分压系数 y",
+        "type": "num",
+        "value": 1,
+        "opts": []
+      },
+      {
+        "key": "offset",
+        "label": "偏移量",
+        "type": "num",
+        "value": 0,
+        "opts": []
+      },
+      {
+        "key": "reference_mv",
+        "label": "参考电压 / mV",
+        "type": "num",
+        "value": 3300,
+        "opts": []
+      },
+      {
+        "key": "sample_time",
+        "label": "采样时间",
+        "type": "select",
+        "value": "TDrvAdcSampleTimeClk85",
+        "opts": [
+          "TDrvAdcSampleTimeClk5",
+          "TDrvAdcSampleTimeClk10",
+          "TDrvAdcSampleTimeClk15",
+          "TDrvAdcSampleTimeClk23",
+          "TDrvAdcSampleTimeClk35",
+          "TDrvAdcSampleTimeClk45",
+          "TDrvAdcSampleTimeClk85",
+          "TDrvAdcSampleTimeClk185"
+        ]
+      },
+      {
+        "key": "net",
+        "label": "网络标签（选填）",
+        "type": "text",
+        "value": "",
+        "opts": []
+      }
+    ],
+    "configuration_mode": "instances",
+    "frontend_form": true,
+    "notes": "按原理图填写分压比例；网络标签可选。",
+    "configuration_scope": "shared"
+  },
+  "can": {
+    "fields": [
+      {
+        "key": "instance",
+        "label": "硬件实例",
+        "type": "select",
+        "value": "CAN0",
+        "opts": [
+          "CAN0",
+          "CAN1",
+          "CAN2",
+          "CAN3"
+        ]
+      },
+      {
+        "key": "rx",
+        "label": "RX 引脚",
+        "type": "signal",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "tx",
+        "label": "TX 引脚",
+        "type": "signal",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "stb",
+        "label": "STB 引脚（选填）",
+        "type": "gpio",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "stb_reverse",
+        "label": "STB 反相",
+        "type": "bool",
+        "value": false,
+        "opts": []
+      },
+      {
+        "key": "fd_enabled",
+        "label": "支持 CANFD",
+        "type": "bool",
+        "value": false,
+        "opts": [],
+        "control": "checkbox"
+      },
+      {
+        "key": "fd_enum",
+        "label": "CANFD 板级枚举名",
+        "type": "text",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "fd_enabled": true
+        }
+      }
+    ],
+    "configuration_mode": "instances",
+    "frontend_form": true,
+    "notes": "普通 CAN 仅填写引脚配置；勾选 CANFD 后显示 CANFD 配置。",
+    "configuration_scope": "shared"
+  },
+  "can_trx": {
+    "fields": [
+      {
+        "key": "driver",
+        "label": "器件",
+        "type": "select",
+        "value": "",
+        "opts": [
+          "sit1145",
+          "tja1445"
+        ]
+      },
+      {
+        "key": "bus",
+        "label": "通信总线",
+        "type": "bus",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "cs",
+        "label": "片选引脚",
+        "type": "gpio",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "interrupt_pin",
+        "label": "中断引脚（选填）",
+        "type": "gpio",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "wakeup_pin",
+        "label": "唤醒引脚（选填）",
+        "type": "gpio",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "wakeup_reverse",
+        "label": "唤醒有效电平反相",
+        "type": "bool",
+        "value": true,
+        "opts": []
+      }
+    ],
+    "configuration_mode": "instances",
+    "frontend_form": true,
+    "notes": "选择收发器、相关引脚和公共总线。",
+    "configuration_scope": "shared"
+  },
+  "crypto": {
+    "fields": [
+      {
+        "key": "driver",
+        "label": "器件",
+        "type": "select",
+        "value": "",
+        "opts": [
+          "ciu98b",
+          "ciu98m25",
+          "csec"
+        ]
+      },
+      {
+        "key": "bus",
+        "label": "通信总线",
+        "type": "bus",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "cs",
+        "label": "片选引脚",
+        "type": "gpio",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "driver": [
+            "ciu98b",
+            "ciu98m25"
+          ]
+        }
+      },
+      {
+        "key": "reset_pin",
+        "label": "复位引脚（选填）",
+        "type": "gpio",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "driver": [
+            "ciu98b",
+            "ciu98m25"
+          ]
+        }
+      },
+      {
+        "key": "wakeup_pin",
+        "label": "唤醒引脚（选填）",
+        "type": "gpio",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "driver": [
+            "ciu98b",
+            "ciu98m25"
+          ]
+        }
+      },
+      {
+        "key": "power_ref",
+        "label": "器件依赖电源（选填）",
+        "type": "power_ref",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "driver": [
+            "ciu98b",
+            "ciu98m25"
+          ]
+        }
+      },
+      {
+        "key": "rst_reverse",
+        "label": "复位有效电平反相",
+        "type": "bool",
+        "value": true,
+        "opts": [],
+        "visible_when": {
+          "driver": [
+            "ciu98b",
+            "ciu98m25"
+          ]
+        }
+      },
+      {
+        "key": "wakeup_reverse",
+        "label": "唤醒有效电平反相",
+        "type": "bool",
+        "value": true,
+        "opts": [],
+        "visible_when": {
+          "driver": [
+            "ciu98b",
+            "ciu98m25"
+          ]
+        }
+      }
+    ],
+    "configuration_mode": "instances",
+    "frontend_form": true,
+    "notes": "片内 CSEC 无需外部引脚或总线；外部芯片按所选器件配置。"
+  },
+  "flash": {
+    "fields": [
+      {
+        "key": "driver",
+        "label": "器件",
+        "type": "select",
+        "value": "",
+        "opts": [
+          "internal",
+          "fee",
+          "at24",
+          "mx25",
+          "gd5f",
+          "xtsdg01gws1g"
+        ]
+      },
+      {
+        "key": "bus",
+        "label": "通信总线",
+        "type": "bus",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "cs",
+        "label": "片选引脚（选填）",
+        "type": "gpio",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "driver": [
+            "mx25",
+            "gd5f",
+            "xtsdg01gws1g"
+          ]
+        }
+      },
+      {
+        "key": "size",
+        "label": "容量 / bytes",
+        "type": "num",
+        "value": 0,
+        "opts": []
+      },
+      {
+        "key": "offset",
+        "label": "起始偏移 / bytes",
+        "type": "num",
+        "value": 0,
+        "opts": []
+      },
+      {
+        "key": "address",
+        "label": "IIC 设备地址（选填）",
+        "type": "text",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "driver": "at24"
+        }
+      },
+      {
+        "key": "eep_ram_base_addr",
+        "label": "模拟 EEPROM RAM 起始地址",
+        "type": "text",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "driver": "fee"
+        }
+      },
+      {
+        "key": "eep_flash_base_addr",
+        "label": "模拟 EEPROM Flash 起始地址",
+        "type": "text",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "driver": "fee"
+        }
+      },
+      {
+        "key": "flash_page_size",
+        "label": "Flash 擦除页大小",
+        "type": "text",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "driver": "fee"
+        }
+      },
+      {
+        "key": "min_program_bytes",
+        "label": "最小编程字节数",
+        "type": "text",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "driver": "fee"
+        }
+      },
+      {
+        "key": "power_pin",
+        "label": "器件电源引脚（选填）",
+        "type": "gpio",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "driver": [
+            "mx25",
+            "gd5f",
+            "xtsdg01gws1g"
+          ]
+        }
+      },
+      {
+        "key": "power_reverse",
+        "label": "电源使能电平反相",
+        "type": "bool",
+        "value": false,
+        "opts": [],
+        "visible_when": {
+          "driver": [
+            "xtsdg01gws1g",
+            "mx25"
+          ]
+        }
+      },
+      {
+        "key": "power_ref",
+        "label": "器件依赖电源（选填）",
+        "type": "power_ref",
+        "value": "",
+        "opts": [],
+        "visible_when": {
+          "driver": "mx25"
+        }
+      }
+    ],
+    "configuration_mode": "instances",
+    "frontend_form": true,
+    "notes": "仅显示所选存储器相关的引脚、总线和器件参数。",
+    "configuration_scope": "shared"
+  },
+  "axis": {
+    "fields": [
+      {
+        "key": "driver",
+        "label": "器件",
+        "type": "select",
+        "value": "",
+        "opts": [
+          "da280b",
+          "lsm6dsl",
+          "mma8452"
+        ]
+      },
+      {
+        "key": "bus",
+        "label": "通信总线",
+        "type": "bus",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "address",
+        "label": "IIC 地址（选填）",
+        "type": "text",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "group",
+        "label": "BOM 互斥组（选填）",
+        "type": "text",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "interrupt_pin",
+        "label": "中断引脚（选填）",
+        "type": "gpio",
+        "value": "",
+        "opts": []
+      }
+    ],
+    "configuration_mode": "instances",
+    "frontend_form": true,
+    "notes": "选择传感器及通信总线；总线引脚统一在公共初始化中配置。"
+  },
+  "ext_rtc": {
+    "fields": [
+      {
+        "key": "driver",
+        "label": "器件",
+        "type": "select",
+        "value": "",
+        "opts": [
+          "bm8563",
+          "rx8010sj",
+          "jxr260"
+        ]
+      },
+      {
+        "key": "bus",
+        "label": "通信总线",
+        "type": "bus",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "address",
+        "label": "7 位 IIC 地址（选填）",
+        "type": "text",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "timer_clock",
+        "label": "RX8010SJ 定时器时钟源",
+        "type": "select",
+        "value": "kRx8010sjClksrc1Hz",
+        "opts": [
+          "kRx8010sjClksrc4096Hz",
+          "kRx8010sjClksrc64Hz",
+          "kRx8010sjClksrc1Hz",
+          "kRx8010sjClksrcMin",
+          "kRx8010sjClksrcHour"
+        ],
+        "visible_when": {
+          "driver": "rx8010sj"
+        }
+      },
+      {
+        "key": "timer_output",
+        "label": "RX8010SJ 定时器输出",
+        "type": "select",
+        "value": "kRx8010sjOutPinIrq1",
+        "opts": [
+          "kRx8010sjOutPinIrq1",
+          "kRx8010sjOutPinIrq2"
+        ],
+        "visible_when": {
+          "driver": "rx8010sj"
+        }
+      }
+    ],
+    "configuration_mode": "instances",
+    "frontend_form": true,
+    "notes": "选择 RTC 及通信总线；RX8010SJ 的定时输出参数按需显示。",
+    "implementations": [
+      {
+        "value": "bm8563",
+        "module": "per.rtc.bm8563",
+        "bus_kinds": [
+          "iic",
+          "soft_iic"
+        ],
+        "dependencies": [],
+        "source_globs": [
+          "product/src/per/rtc/bm8563/**/*.c",
+          "product/src/per/rtc/bm8563/**/*.h"
+        ]
+      },
+      {
+        "value": "rx8010sj",
+        "module": "per.rtc.rx8010sj",
+        "bus_kinds": [
+          "iic",
+          "soft_iic"
+        ],
+        "dependencies": [],
+        "source_globs": [
+          "product/src/per/rtc/rx8010sj/**/*.c",
+          "product/src/per/rtc/rx8010sj/**/*.h"
+        ]
+      },
+      {
+        "value": "jxr260",
+        "module": "per.rtc.jxr260",
+        "bus_kinds": [
+          "iic",
+          "soft_iic"
+        ],
+        "dependencies": [],
+        "source_globs": [
+          "product/src/per/rtc/jxr260/**/*.c",
+          "product/src/per/rtc/jxr260/**/*.h"
+        ]
+      }
+    ],
+    "configuration_scope": "shared"
+  },
+  "ext_int": {
+    "fields": [
+      {
+        "key": "pin",
+        "label": "中断引脚",
+        "type": "gpio",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "run_trigger",
+        "label": "运行触发",
+        "type": "select",
+        "value": "both",
+        "opts": [
+          "disabled",
+          "rising",
+          "falling",
+          "both"
+        ]
+      },
+      {
+        "key": "sleep_trigger",
+        "label": "休眠触发",
+        "type": "select",
+        "value": "falling",
+        "opts": [
+          "disabled",
+          "rising",
+          "falling",
+          "both"
+        ]
+      },
+      {
+        "key": "pull",
+        "label": "上下拉",
+        "type": "select",
+        "value": "disabled",
+        "opts": [
+          "disabled",
+          "up",
+          "down"
+        ]
+      }
+    ],
+    "configuration_mode": "instances",
+    "frontend_form": true,
+    "notes": "总览同时显示运行触发和休眠触发方式。",
+    "configuration_scope": "shared"
+  },
+  "debugger": {
+    "targets": [
+      "boot"
+    ],
+    "notes": "Boot 专用功能，使用平台实现；项目参数表单待单独审核。"
+  },
+  "security_boot": {
+    "targets": [
+      "boot"
+    ],
+    "notes": "Boot 专用功能，使用平台实现；项目参数表单待单独审核。"
+  },
+  "xcu_spi": {
+    "targets": [
+      "boot"
+    ],
+    "notes": "Boot 专用功能，使用平台实现；项目参数表单待单独审核。"
+  },
+  "led": {
+    "configuration_scope": "shared"
+  },
+  "uart": {
+    "configuration_scope": "shared"
+  },
+  "misc_ctrl": {
+    "configuration_scope": "shared"
+  },
+  "switch": {
+    "configuration_scope": "shared"
+  }
+}

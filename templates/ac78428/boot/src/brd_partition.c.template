@@ -1,0 +1,8 @@
+#include "brd_inc_all.h"
+#include "brd_partition_cfg_ac78428.c"
+#include "brd_partition_ac78428.c"
+
+/***** User code begin *****/
+
+/***** User code end *****/
+

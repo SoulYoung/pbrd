@@ -1,0 +1,60 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// 外部引用对象
+extern TDrvSpi g_drv_spi[];
+extern TDrvSpiCfg g_drv_spi_cfgs[];
+
+/// -------使用到的总线配置-------
+// #define BRD_CRYPTO_BUS_PHY_SPI
+/// -------使用到的设备配置-------
+// #define BRD_CRYPTO_DEV_CIU98B
+#define BRD_CRYPTO_DEV_CSEC
+/// 锁对象
+// static Brd_TMutex g_brd_crypto_mutex_[{{COUNT_G_BRD_CRYPTO_MUTEX_}}];
+
+/// 事件对象
+static Brd_TEvent g_brd_crypto_event_[{{COUNT_G_BRD_CRYPTO_EVENT_}}];
+#ifdef BRD_CRYPTO_DEV_CIU98B
+///ciu98b ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+extern TPerHsmCiu98b g_per_hsm_ciu98b;
+
+static void Brd_CryptoPowerDoEnable(Bool enable)
+{
+    Brd_PwrCtrlSetBaseOn(kBrd_PwrCtrlBaseId3v3Per, enable);
+}
+
+/// wakeup引脚
+static const Brd_TCryptoGpioCfg g_brd_crypto_wakeup_cfg_ = 
+{{DATA_G_BRD_CRYPTO_WAKEUP_CFG_}};
+
+/// rst引脚
+static const Brd_TCryptoGpioCfg g_brd_crypto_rst_cfg_ = 
+{{DATA_G_BRD_CRYPTO_RST_CFG_}};
+
+static Brd_TCryptoDevCiu98b g_brd_crypto_dev_ciu98b_ =
+{{DATA_G_BRD_CRYPTO_DEV_CIU98B_}};
+/// 总线配置
+/// cs脚
+static const TDrvSpiCsCfg g_brd_crypto_spi_port_cfg_ = 
+{{DATA_G_BRD_CRYPTO_SPI_PORT_CFG_}};
+/// spi port驱动对象
+static TDrvSpiPort g_brd_crypto_bus_spi_port_;
+
+static Brd_TCryptoBusPhySpi g_brd_crypto_bus_phy_spi_ =
+{{DATA_G_BRD_CRYPTO_BUS_PHY_SPI_}};
+#endif
+///Inchip
+static Brd_TCryptoDevInChip g_brd_crypto_dev_inchip_ =
+{{DATA_G_BRD_CRYPTO_DEV_INCHIP_}};
+
+static Brd_TCryptoItem g_brd_crypto_items_[] = 
+{{DATA_G_BRD_CRYPTO_ITEMS_}};
+
+Brd_TCryptoAttr g_brd_crypto_attr = 
+{{DATA_G_BRD_CRYPTO_ATTR}};

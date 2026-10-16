@@ -1,0 +1,62 @@
+/**
+ * @addtogroup brd_ic_card_def
+ * brd_ic_card_def
+ * @{
+ */
+/**
+ * @file brd_ic_card_def.h
+ * @brief 板级层IC卡定义
+ * @note
+ * @par 修改日志
+ * <table>
+ * <tr><th>Date                 <th>Version         <th>Author          <th>Description
+ * <tr><td>2025-08-13           <td>1.0             <td>软件工程院       <td>创建初始版本
+ * @copyright 杭州鸿泉物联网技术股份有限公司
+ */
+#ifndef _BRD_IC_CARD_DEF_H_
+#define _BRD_IC_CARD_DEF_H_
+
+#include <brd_def_base.h>
+
+#include <brd_def_base.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * IC卡标识
+ */
+enum Brd_TIcCardIdTag
+{
+{{ENUM_CONTENT}}
+};
+typedef enum Brd_TIcCardIdTag Brd_TIcCardId;
+
+{{DEFINE_CONTENT}}
+
+/**
+ * IC卡种类
+ */
+enum Brd_TIcCardCatTag
+{
+    kBrd_IcCardCatBase                      = 0,
+    kBrd_IcCardCatAt24                      = kBrd_IcCardIdBase,    ///< AT24系列非加密卡
+    kBrd_IcCardCatSle4442                   = 1,                    ///< SLE4432 非加密卡 和 SLE4442 加密卡, 密码长度为3字节
+    kBrd_IcCardCatSle4428                   = 2,                    ///< SLE4418 非加密卡 和 SLE4428 加密卡, 密码长度为2字节
+    kBrd_IcCardCatMax,
+};
+typedef enum Brd_TIcCardCatTag Brd_TIcCardCat;
+
+#define BRD_IC_CARD_CAT_AT24
+#define BRD_IC_CARD_CAT_SLE4442
+#define BRD_IC_CARD_CAT_SLE4428
+
+#ifdef __cplusplus
+}  ///  < extern "C"
+#endif
+
+#endif // _BRD_IC_CARD_DEF_H_
+/**
+ * @} 
+ */

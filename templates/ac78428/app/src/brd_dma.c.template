@@ -1,0 +1,7 @@
+#include "brd_inc_all.h"
+#include "brd_dma_ac78428.c"
+
+/***** User code begin *****/
+
+/***** User code end *****/
+

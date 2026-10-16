@@ -1,0 +1,105 @@
+/**
+ * @addtogroup brd_inc_all
+ * brd_inc_all
+ * @{
+ */
+/**
+ * @file brd_inc_all.h
+ * @brief 板级层所有头文件
+ * @note
+ * @par 修改日志
+ * <table>
+ * <tr><th>Date <th>Version <th>Author <th>Description
+ * <tr><td>{{DATE}} <td>1.0 <td>{{AUTHOR}} <td>创建初始版本
+ * @copyright 杭州鸿泉物联网技术股份有限公司
+ */
+#ifndef _BRD_INC_ALL_H_
+#define _BRD_INC_ALL_H_
+
+#include <ofc_types.h>
+#include <ofc_time_codec.h>
+#include <ofc_crc16.h>
+#include <ofc_string.h>
+
+#include <sfc_api.h>
+#include <sfc_mutex.h>
+#include <sfc_event_ex.h>
+#include <sfc_thread.h>
+#include <sfc_thread_event.h>
+
+#include <drv_clock.h>
+#include <drv_dma.h>
+#include <drv_irq.h>
+#include <drv_port.h>
+#include <drv_gpio.h>
+#include <drv_timer_srv.h>
+#include <drv_adc.h>
+#include <drv_iic.h>
+#include <drv_spi.h>
+#include <drv_flash.h>
+#include <drv_pmc.h>
+#include <drv_psmu.h>
+#include <drv_reset.h>
+#include <drv_uart.h>
+#include <drv_can.h>
+#include <drv_wdog.h>
+#include <drv_pwm.h>
+#include <drv_common.h>
+#include <drv_csec.h>
+
+#include <idp_enum_iic_ex.h>
+
+#include <per_fram_at24_ex.h>
+#include <per_mmc_spi_sd_ex.h>
+
+#include <per_hsm_ciu98b_ex.h>
+
+#include <per_rtc_bm8563_ex.h>
+
+#include <per_fee.h>
+
+#include <per_can_trx_tja1445.h>
+
+#include "brd_inc.h"
+
+#include "brd_version_base.h"
+#include "brd_module_base.h"
+#include "brd_handle_map.h"
+#include "brd_event_mcu_app.h"
+#include "brd_mutex_mcu_app.h"
+#include "brd_short_event_mcu.h"
+
+#include "brd_pwr_ctrl_ac78428.h"
+#include "brd_clock_mcu.h"
+#include "brd_common_mcu.h"
+#include "brd_delay_mcu.h"
+#include "brd_dma_mcu.h"
+#include "brd_partition_mcu_ex.h"
+#include "brd_pmc_mcu.h"
+#include "brd_timer_mcu.h"
+
+#include "brd_analog_ac78428.h"
+#include "brd_axis_ac78428.h"
+#include "brd_bat_chg_ac78428.h"
+#include "brd_can_ac78428.h"
+#include "brd_can_trx_ac78428.h"
+#include "brd_crypto_ac78428.h"
+#include "brd_ext_int_ac78428.h"
+#include "brd_ext_rtc_ac78428.h"
+#include "brd_flash_ac78428.h"
+#include "brd_led_ac78428.h"
+#include "brd_misc_ctrl_ac78428.h"
+#include "brd_reset_ac78428.h"
+#include "brd_switch_ac78428.h"
+#include "brd_uart_ac78428.h"
+#include "brd_wdog_ac78428.h"
+
+
+/***** User code begin *****/
+
+/***** User code end *****/
+
+#endif // _BRD_INC_ALL_H_
+/**
+ * @} 
+ */

@@ -1,0 +1,32 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+#define INIT_PWR_CTRL_CFG(DoEnable_, group_, pin_, reverse_) \
+    { \
+        .DoEnable = DoEnable_, \
+        .group = kDrvPortGroup##group_, \
+        .pin = kDrvPortPin##pin_, \
+        .reverse = reverse_, \
+    }
+
+#define INIT_PWR_CTRL_ITEM(id_, cfg_, enabled_) \
+    { \
+        .id = id_, \
+        .cfg = &g_brd_pwr_ctrl_cfgs_[cfg_], \
+        .enabled = enabled_, \
+    }
+
+#define INIT_PWR_CTRL_BASE(id_, cfg_, ref_) \
+    { \
+        .id = id_, \
+        .cfg = &g_brd_pwr_ctrl_base_cfgs_[cfg_], \
+        .ref = ref_, \
+    }
+
+
+{{OBJECTS}}

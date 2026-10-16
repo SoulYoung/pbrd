@@ -1,0 +1,170 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "flash",
+  "name": "Flash",
+  "configuration_mode": "instances",
+  "configuration_status": "initial",
+  "fields": [
+    {
+      "key": "driver",
+      "label": "器件",
+      "type": "select",
+      "value": "",
+      "opts": [
+        "internal",
+        "fee",
+        "at24",
+        "mx25",
+        "gd5f",
+        "xtsdg01gws1g"
+      ]
+    },
+    {
+      "key": "bus",
+      "label": "通信总线",
+      "type": "bus",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "cs",
+      "label": "片选引脚（选填）",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "size",
+      "label": "容量 / bytes",
+      "type": "num",
+      "value": 0,
+      "opts": []
+    },
+    {
+      "key": "offset",
+      "label": "起始偏移 / bytes",
+      "type": "num",
+      "value": 0,
+      "opts": []
+    },
+    {
+      "key": "address",
+      "label": "IIC 设备地址（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "eep_ram_base_addr",
+      "label": "模拟 EEPROM RAM 起始地址",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "eep_flash_base_addr",
+      "label": "模拟 EEPROM Flash 起始地址",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "flash_page_size",
+      "label": "Flash 擦除页大小",
+      "type": "text",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "min_program_bytes",
+      "label": "最小编程字节数",
+      "type": "text",
+      "value": "",
+      "opts": []
+    }
+  ],
+  "dependencies": [],
+  "implementations": [
+    {
+      "value": "internal",
+      "module": null,
+      "bus_kinds": [],
+      "dependencies": [
+        "drv.flash"
+      ],
+      "source_globs": [
+        "product/src/drv/{mcu}/drv_flash.c"
+      ]
+    },
+    {
+      "value": "mx25",
+      "module": "per.flash.mx25",
+      "bus_kinds": [
+        "spi"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/flash/mx25/**/*.c",
+        "product/src/per/flash/mx25/**/*.h"
+      ]
+    },
+    {
+      "value": "gd5f",
+      "module": "per.flash.gd5f",
+      "bus_kinds": [
+        "spi"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/flash/gd5f/**/*.c",
+        "product/src/per/flash/gd5f/**/*.h"
+      ]
+    },
+    {
+      "value": "xtsdg01gws1g",
+      "module": "per.mmc.xtsdg01gws1g",
+      "bus_kinds": [
+        "spi"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/mmc/xtsdg01gws1g/**/*.c",
+        "product/src/per/mmc/xtsdg01gws1g/**/*.h"
+      ]
+    },
+    {
+      "value": "fee",
+      "module": "per.fee.fee",
+      "bus_kinds": [],
+      "dependencies": [
+        "drv.flash"
+      ],
+      "source_globs": [
+        "product/src/per/fee/per_fee.c"
+      ]
+    },
+    {
+      "value": "at24",
+      "module": "per.fram.at24",
+      "bus_kinds": [
+        "iic",
+        "soft_iic"
+      ],
+      "dependencies": [],
+      "source_globs": [
+        "product/src/per/fram/at24/**/*.c",
+        "product/src/per/fram/at24/**/*.h"
+      ]
+    }
+  ],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_flash.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_flash_cfg.c",
+    "platform_header": "product/src/brd/{mcu}/brd_flash_{mcu}.h"
+  },
+  "notes": "配置字段需要对照实际驱动及板级接口审核。未使用不代表不支持。",
+  "bus_kinds": [
+    "spi"
+  ]
+}

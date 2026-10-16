@@ -1,0 +1,43 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// 外部引用对象
+extern TDrvSpi g_drv_spi[];
+extern TDrvSpiCfg g_drv_spi_cfgs[];
+
+/// -------使用到的总线配置-------
+#define BRD_CAN_TRX_BUS_PHY_SPI
+/// -------使用到的设备配置-------
+#define BRD_CAN_TRX_DEV_TJA1445
+
+/// 锁对象
+// static Brd_TMutex g_brd_can_trx_mutex_[{{COUNT_G_BRD_CAN_TRX_MUTEX_}}];
+// static Int32 g_brd_can_trx_mutex_cnt_[3] = { 0 };
+
+/// 事件对象
+static Brd_TEvent g_brd_can_trx_event_[{{COUNT_G_BRD_CAN_TRX_EVENT_}}];
+
+static TDrvSpiPort g_brd_can_trx_spi_port_;
+static const TDrvSpiCsCfg g_brd_can_trx_spi_port_cfg_ = 
+{{DATA_G_BRD_CAN_TRX_SPI_PORT_CFG_}};
+/// wakeup引脚
+static const Brd_TCanTrxPinCfg g_brd_can_trx_tja1445_wakeup_pin_cfg_ = 
+{{DATA_G_BRD_CAN_TRX_TJA1445_WAKEUP_PIN_CFG_}};
+
+static Brd_TCanTrxBusPhySpi g_brd_can_trx_phy_spi_bus_ = 
+{{DATA_G_BRD_CAN_TRX_PHY_SPI_BUS_}};
+
+static Brd_TCanTrxLocalErrorInfo g_can_trx_local_error_info_ = {{DATA_G_CAN_TRX_LOCAL_ERROR_INFO_}};
+static TPerCanTrxTja1445 g_brd_can_trx_tja1445_per;
+static Brd_TCanTrxDevTja1445 g_brd_can_trx_tja1445_dev_ = 
+{{DATA_G_BRD_CAN_TRX_TJA1445_DEV_}};
+
+static Brd_TCanTrxItem g_brd_can_trx_items_[] = 
+{{DATA_G_BRD_CAN_TRX_ITEMS_}};
+
+Brd_TCanTrxAttr g_brd_can_trx_attr = {{DATA_G_BRD_CAN_TRX_ATTR}};

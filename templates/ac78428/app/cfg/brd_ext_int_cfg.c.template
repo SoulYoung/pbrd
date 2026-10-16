@@ -1,0 +1,17 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// 外部中断类型对应的配置对
+static const TDrvGpioIntCfg g_brd_ext_int_cfgs[] = 
+{{DATA_G_BRD_EXT_INT_CFGS}};
+
+static Brd_TExtIntItem g_brd_ext_int_items_[]  = 
+{{DATA_G_BRD_EXT_INT_ITEMS_}};
+
+Brd_TExtIntAttr g_brd_ext_int_attr = 
+{{DATA_G_BRD_EXT_INT_ATTR}};

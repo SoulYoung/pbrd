@@ -1,0 +1,36 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// -------使用到的总线配置-------
+
+/// -------使用到的设备配置-------
+#define BRD_SWITCH_DEV_IN_CHIP
+
+#define INIT_SWITCH_DEV_IN_CHIP_CFG(group, pin, pull, rev) \
+    { kDrvPortGroup##group, kDrvPortPin##pin, \
+      rev,kDrvPortPull##pull}
+
+#define INIT_SWITCH_DEV_IN_CHIP(index) \
+    { .base = { .dev_drv_cfg = &g_brd_switch_cfgs_[(index)] } }
+
+#define INIT_SWITCH_DEV_IN_CHIP_ITEM(index, device, id_name) \
+    { \
+        .id = id_name, \
+        .dev = device, \
+        .dev_cfg = &g_brd_switch_dev_in_chip_[(index)]}
+
+static const Brd_TSwitchCfg g_brd_switch_cfgs_[] = 
+{{DATA_G_BRD_SWITCH_CFGS_}};
+
+Brd_TSwitchDevInChip g_brd_switch_dev_in_chip_[] = 
+{{DATA_G_BRD_SWITCH_DEV_IN_CHIP_}};
+
+static Brd_TSwitchItem g_brd_switch_items_[] = {{DATA_G_BRD_SWITCH_ITEMS_}};
+
+Brd_TSwitchAttr g_brd_switch_attr = 
+{{DATA_G_BRD_SWITCH_ATTR}};

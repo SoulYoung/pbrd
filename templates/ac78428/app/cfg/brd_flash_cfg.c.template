@@ -1,0 +1,98 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// 外部引用对象
+extern TDrvIic g_drv_iic[];
+extern TDrvIicCfg g_drv_iic_cfgs[];
+extern TDrvSpi g_drv_spi[];
+extern TDrvSpiCfg g_drv_spi_cfgs[];
+
+/// -------使用到的总线配置-------
+#define BRD_FLASH_BUS_PHY_IIC
+#define BRD_FLASH_BUS_PHY_SPI
+#define BRD_FLASH_BUS_ON_CHIP_FLASH
+/// -------使用到的设备配置-------
+#define BRD_FLASH_DEV_CHIP_PFLASH
+#define BRD_FLASH_DEV_BL24C128F
+#define BRD_FLASH_DEV_SD_NAND
+#define BRD_FLASH_DEV_CHIP_EEP
+
+/// 锁对象
+static Brd_TMutex g_brd_flash_mutex_[{{COUNT_G_BRD_FLASH_MUTEX_}}];
+static Int32 g_brd_flash_mutex_cnt_[3] = {{DATA_G_BRD_FLASH_MUTEX_CNT_}};
+
+/// 事件对象
+static Brd_TEvent g_brd_flash_event_[{{COUNT_G_BRD_FLASH_EVENT_}}];
+
+/// 内部flash ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+static Brd_TFlashDevChipPflash g_brd_flash_dev_chip_pflash_ =
+{{DATA_G_BRD_FLASH_DEV_CHIP_PFLASH_}};
+
+/// 内部模拟eep ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#ifdef BRD_FLASH_DEV_CHIP_EEP
+static TPerFee g_per_fee;   ///< 模拟eep指定名称
+
+static TPerFeeCfg g_per_fee_cfg =
+{{DATA_G_PER_FEE_CFG}};
+
+static UInt8 g_per_fee_sram[{{EEP_RAM_SIZE}}]__attribute__((at({{EEP_RAM_ADDRESS}})));
+
+static Brd_TFlashDevChipEep g_brd_flash_dev_chip_eep_ =
+{{DATA_G_BRD_FLASH_DEV_CHIP_EEP_}};
+
+/// 总线配置
+static Brd_TFlashBusOnChipFlash g_brd_flash_bus_on_chip_flash_ = 
+{{DATA_G_BRD_FLASH_BUS_ON_CHIP_FLASH_}};
+#endif
+/// 外部eep ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/// 外设
+static TPerFramAt24 g_brd_flash_bl24c128f_per_;
+/// 外设结构体
+static Brd_TFlashDevEeprom g_brd_flash_bl24c128f_dev_ = 
+{{DATA_G_BRD_FLASH_BL24C128F_DEV_}};
+
+/// 总线配置
+static TDrvIicDev g_brd_flash_phy_iic_dev0_;
+
+/// 总线
+static Brd_TFlashBusPhyIic g_brd_flash_bl24c128f_bus_ = 
+{{DATA_G_BRD_FLASH_BL24C128F_BUS_}};
+
+/// sdnand ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+static TPerMmcSpiSd g_brd_flash_sd_nand_per_;
+static TDrvSpiPort g_brd_flash_sd_nand_drv_port_;
+static const TDrvSpiCsCfg g_brd_flash_sd_nand_drv_port_cfg_ = 
+{{DATA_G_BRD_FLASH_SD_NAND_DRV_PORT_CFG_}};
+
+static const Brd_TFlashPin g_brd_flash_sd_nand_pwr_pin_ =
+{{DATA_G_BRD_FLASH_SD_NAND_PWR_PIN_}};
+
+void Brd_FlashSdNandDoEnable(Bool enable)
+{
+    if (enable)
+    {
+        TDrvGpioSetLevel(&g_drv_gpio, g_brd_flash_sd_nand_pwr_pin_.group, g_brd_flash_sd_nand_pwr_pin_.pin, !g_brd_flash_sd_nand_pwr_pin_.reverse);
+    }
+    else
+    {
+        TDrvGpioSetLevel(&g_drv_gpio, g_brd_flash_sd_nand_pwr_pin_.group, g_brd_flash_sd_nand_pwr_pin_.pin, g_brd_flash_sd_nand_pwr_pin_.reverse);
+    }
+}
+
+static Brd_TFlashBusPhySpi g_brd_flash_sd_nand_bus_ =
+{{DATA_G_BRD_FLASH_SD_NAND_BUS_}};
+
+static Brd_TFlashDevSdNand g_brd_flash_sd_nand_dev_ =
+{{DATA_G_BRD_FLASH_SD_NAND_DEV_}};
+
+/// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+static Brd_TFlashItem g_brd_flash_items_[]  = 
+{{DATA_G_BRD_FLASH_ITEMS_}};
+
+Brd_TFlashAttr g_brd_flash_attr  = 
+{{DATA_G_BRD_FLASH_ATTR}};

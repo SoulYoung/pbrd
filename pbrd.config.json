@@ -1,0 +1,5 @@
+{
+  "project_root": "..",
+  "enum_header": "product/src/brd/base/def/brd_def_base.h",
+  "board_source_root": "product/src/brd"
+}

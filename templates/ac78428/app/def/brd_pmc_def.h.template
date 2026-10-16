@@ -1,0 +1,45 @@
+/**
+ * @addtogroup brd_pmc_def
+ * brd_pmc_def
+ * @{
+ */
+/**
+ * @file brd_pmc_def.h
+ * @brief 板级层电源模式切换定义
+ * @note
+ * @par 修改日志
+ * <table>
+ * <tr><th>Date                 <th>Version         <th>Author          <th>Description
+ * <tr><td>{{DATE}}           <td>1.0             <td>{{AUTHOR}}       <td>创建初始版本
+ * @copyright 杭州鸿泉物联网技术股份有限公司
+ */
+#ifndef _BRD_PMC_DEF_H_
+#define _BRD_PMC_DEF_H_
+
+#include <brd_def_base.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/// 电源模式切换
+enum Brd_TPmcIdTag {
+{{ENUM_CONTENT}}
+};
+typedef enum Brd_TPmcIdTag Brd_TPmcId;
+
+{{DEFINE_CONTENT}}
+
+#ifdef __cplusplus
+}  ///  < extern "C"
+#endif
+
+
+/***** User code begin *****/
+
+/***** User code end *****/
+
+#endif // _BRD_PMC_DEF_H_
+/**
+ * @} 
+ */

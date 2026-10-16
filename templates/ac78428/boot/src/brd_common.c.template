@@ -1,0 +1,11 @@
+#include "brd_inc_all.h"
+#include "brd_common_cfg_boot.c"
+#include "brd_common_mcu.c"
+#include "brd_short_event_mcu.c"
+#include "brd_event_mcu_boot.c"
+#include "brd_mutex_mcu_boot.c"
+
+/***** User code begin *****/
+
+/***** User code end *****/
+

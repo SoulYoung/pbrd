@@ -1,0 +1,90 @@
+# 板级包基础功能验证清单
+
+| 功能点 | 名称 | 枚举值 | 状态√× | 引脚 | 备注 |
+|--------|------|--------|---------|------|------|
+| analog | | | | | |
+| analog | 主电电压 | kBrd_AnalogIdMajorPower | √ | PC14 | 24V_BAT_ADC |
+| analog | 备电(锂电池)电压 | kBrd_AnalogIdBackupPower | √ | PB18 | LIBAT_AD |
+| analog | 平台电压 | kBrd_AnalogIdPlat | √ | PD27 | PLAT_ID_ADC |
+| bat_chg | | | | | |
+| bat_chg | 充电使能 |  | √ |  | 引用kBrd_PwrCtrlId5VPer |
+| bat_chg | 充电状态 |  | √ | PD13 | NIMH_CHARGE_DONE_n |
+| bat_chg | 充电状态 |  | √ | PB25 | CHARGE_SATUS_n |
+| can | | | | | |
+| can | 第一路CAN | kBrd_CanId0 | √ | PE4<br />PE5<br />PA30 | CAN1_RXD |
+| can | 第二路CAN | kBrd_CanId1 | √ | PA12<br />PA13<br />PA11 | CAN2_RXD |
+| can | 第三路CAN | kBrd_CanId2 | √ | PB12<br />PB13<br />PD4 | CAN3_RXD |
+| can | 第四路CAN | kBrd_CanId3 | √ | PC12<br />PC13<br />PD24<br />PA25<br />PE6<br />PE2<br />PE1<br />PE0<br />PB9<br />PD9<br />PE16<br />PE15<br />PC28<br />PC29<br />PE1<br />PE0 | MCU_CAN4_RXD |
+| crypto | | | | | |
+| crypto | 硬件外设加密模块CIU98B |  | √ | PA8<br />PE16<br />PE15<br />PA9<br />PD0<br />PD1 | HSM_SPI_MOSI |
+| crypto | Ig(T15)点火中断, 可作为唤醒源 | kBrd_ExtIntIdIg | √ | PC2 | IG_ON |
+| crypto | 钥匙电中断, 可作为唤醒源 | kBrd_ExtIntIdAcc | √ | PB1 | ACC_ON_n |
+| crypto | 第一路CAN中断, 可作为唤醒源 | kBrd_ExtIntIdCan0 | √ | PE4 | CAN1_RXD |
+| crypto | 第二路CAN中断, 可作为唤醒源 | kBrd_ExtIntIdCan1 | √ | PA12 | CAN2_RXD |
+| crypto | 第三路CAN中断, 可作为唤醒源 | kBrd_ExtIntIdCan2 | √ | PB12 | CAN3_RXD |
+| crypto | 第四路CAN中断, 可作为唤醒源 | kBrd_ExtIntIdCan3 | √ | PC12 | CAN4_RXD |
+| crypto | 网络唤醒MCU中断,可作为唤醒源 | kBrd_ExtIntIdNetWakeupMcu | √ | PC16 | MCU_MAIN_RI |
+| crypto | 主电丢失中断, 可作为唤醒源 | kBrd_ExtIntIdPwrLost | √ | PD7 | Power_Down_H |
+| crypto | 蓝牙唤醒MCU中断, 可作为唤醒源 | kBrd_ExtIntIdBth | √ | PC31 | BLE_WAKE_MCU |
+| crypto | 外部RTC中断, 可作为唤醒源 | kBrd_ExtIntIdExtRtc | √ | PC3 | RTC_INT_L |
+| ext_rtc | | | | | |
+| ext_rtc | bm8563 | kBrd_ExtRtcIdBm8563 | √ |  | RTC_3D_SDA |
+| flash | | | | | |
+| flash | 芯片内部pflash | kBrd_FlashIdChipPflash | √ |  |  |
+| flash | 片内eeprom | kBrd_FlashIdEep | √ |  |  |
+| flash | 片外eeprom bl24c128f | kBrd_FlashIdBl24c128f | √ | PB9<br />PB10 | EEPROM_SCL |
+| flash | 片外 SDIO NAND FLASH | kBrd_FlashIdSdNand | √ | PC30<br />PE25 |  |
+| led | | | | | |
+| led | CAN灯 | kBrd_LedIdCan | √ | PB22 | 78428_CAN_LED_H |
+| led | 定位灯 | kBrd_LedIdGnss | √ | PB23 | 78428_GPS_LED_H |
+| led | 蓝牙灯 | kBrd_LedIdBth | √ | PB27 | 78428_BTH_LED_H |
+| led | 网络灯 | kBrd_LedIdNet | √ | PC15 | 78428_4G_LED_H |
+| misc_ctrl | | | | | |
+| misc_ctrl | 唤醒蓝牙 | kBrd_MiscCtrlIdBthWakeup | √ | PA6 | MCU_WAKE_BLE |
+| misc_ctrl | 复位蓝牙 | kBrd_MiscCtrlIdBthRst | √ | PA7 | BLE_RESET |
+| misc_ctrl | 网络模块烧写 | kBrd_MiscCtrlIdNetUsbBoot | √ | PA16 | 4G_USB_BOOT |
+| misc_ctrl | 定位模块复位 | kBrd_MiscCtrlIdGnssRst | √ | PA28 | GPS_RESET_N |
+| misc_ctrl | 负控输出 | kBrd_MiscCtrlIdNegCtlOut | √ | PE24 |  |
+| misc_ctrl | 网络模块复位 | kBrd_MiscCtrlIdNetRst | √ | PE14 | 4G_RESET |
+| misc_ctrl | 网络模块开机/关机 | kBrd_MiscCtrlIdNetPwrKey | √ | PD16 | 4G_PWRKEY |
+| misc_ctrl | 网络模块唤醒 | kBrd_MiscCtrlIdNetWakeup | √ | PD15 | MCU_MAIN_DTR |
+| pwr_ctrl | | | | | |
+| pwr_ctrl | 备用电池对板上设备供电 | kBrd_PwrCtrlIdSpareBat | √ | PA31 | 5V_NIMH_OUT_PWR_ON |
+| pwr_ctrl | 开关量电源 | kBrd_PwrCtrlIdSwitch | √ |  |  |
+| pwr_ctrl | 网络设备电源 | kBrd_PwrCtrlIdNet | √ | PC0 | 4G_3V8_EN |
+| pwr_ctrl | 第二路网络设备电源 | kBrd_PwrCtrlIdNet1 | √ | PA27 | 4G_3V8_EN2 |
+| pwr_ctrl | 网络USB电源 | kBrd_PwrCtrlIdNetUsb | √ | PD18 | 4G_VBUS_PWR_ON |
+| pwr_ctrl | 第一路外部5v输出 | kBrd_PwrCtrlIdExtMain0 | √ | PD5 | 5V_OUT1_EN |
+| pwr_ctrl | MPU电源(1126) | kBrd_PwrCtrlIdMpu | √ |  |  |
+| pwr_ctrl | 定位设备电源 | kBrd_PwrCtrlIdGnss | √ | PB5 | 3V3_GPS_PWR_ON |
+| pwr_ctrl | 摄像头12V电源 | kBrd_PwrCtrlIdCamera | √ | PE25 | 12V0_PWR_ON |
+| pwr_ctrl | 对外输出24V主电电源 | kBrd_PwrCtrlIdExtMajor | √ | PD10 | 24V_OUT1_PWR_ON |
+| pwr_ctrl | 维持内部主电源 | kBrd_PwrCtrlIdMajor | √ |  |  |
+| pwr_ctrl | SOS电源 | kBrd_PwrCtrlIdSos | √ | PB29 | SOS_EN |
+| pwr_ctrl | 蓝牙电源 | kBrd_PwrCtrlIdBth | √ | PE20 | 3V3_BTH_PWR_ON |
+| pwr_ctrl | 公共电,5V外设电源 | kBrd_PwrCtrlId5VPer | √ | PD5 | VCC5V0_SYS_PWRON |
+| pwr_ctrl | 公共电,3V3外设电源 | kBrd_PwrCtrlId3v3Per | √ | PE7 | 3V3_MCU_PERI_PWR_ON |
+| pwr_ctrl | 公共电,5V主电源 | kBrd_PwrCtrlId5VMain | √ | PE23 | 5V_BAT_PWR_ON |
+| switch | | | | | |
+| switch | 点火(T15)开关量 | kBrd_SwitchIdIg | √ | PC2 | IG_ON_n |
+| switch | 钥匙电开关量 | kBrd_SwitchIdAcc | √ | PB1 | ACC_ON_n |
+| switch | 网络状态开关量 | kBrd_SwitchIdNetStatus | √ | PC1 | 4G_STATUS_n |
+| switch | 第一路外部开关量 | kBrd_SwitchIdSw0 | √ | PD6 | BUS_SW_1_n |
+| switch | 第二路外部开关量 | kBrd_SwitchIdSw1 | √ | PE21 | BUS_SW_2_n |
+| switch | 第三路外部开关量 | kBrd_SwitchIdSw2 | √ | PE22 | BUS_SW_3_n |
+| switch | 网络USB插入检测开关量 | kBrd_SwitchIdNetUsbDet | √ | PE10 | USB_DET |
+| switch | BOM_ID1开关量 | kBrd_SwitchIdBomId1 | √ | PD29 | BOM_ID1 |
+| switch | BOM_ID2开关量 | kBrd_SwitchIdBomId2 | √ | PD28 | BOM_ID2 |
+| switch | BOM_ID3开关量 | kBrd_SwitchIdBomId3 | √ | PD23 | BOM_ID3 |
+| switch | 充电低开关量 | kBrd_SwitchIdChgLow | √ | PD3 | CHARGE_L_n |
+| switch | 充电高开关量 | kBrd_SwitchIdChgHigh | √ | PC7 | CHARGE_H_n |
+| switch | 定位天线短路开关量 | kBrd_SwitchIdGnssAntShort | √ | PA10 | GPS_ANT_SHORT |
+| switch | 定位天线开路开关量 | kBrd_SwitchIdGnssAntOpen | √ | PA29 | GPS_ANT_OPEN |
+| switch | GNSS 秒脉冲开关量 | kBrd_SwitchIdPps | √ | PB4 | GPS_1PPS_4G_3V3 |
+| uart | | | | | |
+| uart | 第一路外部串口 | kBrd_UartIdCom0 | √ | PA2<br />PA3 | 232_UART0_RX |
+| uart | 蓝牙模块串口 | kBrd_UartIdBth | √ | PD17<br />PE12 | BLE_UART_TXD |
+| uart | 网络串口 | kBrd_UartIdNet | √ | PC9<br />PC8 | 4G_2_UART_RX |
+| uart | 定位模块串口 | kBrd_UartIdGnss | √ | PB20<br />PB21 | GPS_TX |
+| xcu | | | | | |
+| xcu | xcu |  | √ | PB16<br />PB15<br />PB14<br />PB17<br />PA17 | MCU_SOC_SPI_MISO |

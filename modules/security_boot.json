@@ -1,0 +1,18 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "security_boot",
+  "name": "启动安全",
+  "configuration_mode": "platform",
+  "configuration_status": "template-parameters",
+  "fields": [],
+  "dependencies": [
+    "drv.csec"
+  ],
+  "implementations": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_security_boot.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_security_boot_cfg_boot.c"
+  },
+  "notes": "当前 AC78428 Boot 实现已审核；通过模板补充参数配置。"
+}

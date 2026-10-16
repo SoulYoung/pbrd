@@ -1,0 +1,51 @@
+/**
+ * @addtogroup brd_ext_int_def
+ * brd_ext_int_def
+ * @{
+ */
+/**
+ * @file brd_ext_int_def.h
+ * @brief 板级层外部中断定义
+ * @note
+ * @par 修改日志
+ * <table>
+ * <tr><th>Date                 <th>Version         <th>Author          <th>Description
+ * <tr><td>{{DATE}}           <td>1.0             <td>{{AUTHOR}}       <td>创建初始版本
+ * @copyright 杭州鸿泉物联网技术股份有限公司
+ */
+#ifndef _BRD_EXT_INT_DEF_H_
+#define _BRD_EXT_INT_DEF_H_
+
+#include <brd_def_base.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * 外部中断类型
+ * @note:
+ * 常用于休眠唤醒, 正常模式下不要使用(由于其中部分类型是电平唤醒, 在正常模式下使用会一直响应中断, 
+ * 需要在Brd_TOnExtIntIrq事件中关闭中断, 否则会导致程序异常)
+ */
+enum Brd_TExtIntIdTag
+{
+{{ENUM_CONTENT}}
+};
+typedef enum Brd_TExtIntIdTag Brd_TExtIntId;
+
+{{DEFINE_CONTENT}}
+
+#ifdef __cplusplus
+}  ///  < extern "C"
+#endif
+
+
+/***** User code begin *****/
+
+/***** User code end *****/
+
+#endif // _BRD_EXT_INT_DEF_H_
+/**
+ * @} 
+ */

@@ -1,0 +1,25 @@
+echo off
+echo auto_build_keil devops
+
+set BRD_BUILD_CHIP=%BUILD_CHIP%
+set BRD_BUILD_SCRIPT_DIR=%~dp0
+
+echo start build brd %BRD_BUILD_CHIP% …………
+call %BRD_BUILD_SCRIPT_DIR%..\common\build_common.bat %BRD_BUILD_CHIP%
+echo end build brd %BRD_BUILD_CHIP% ~~~~~~~~~~~~
+
+set keil_build_error=%build_keil_result%
+
+echo keil_build_error: %keil_build_error%
+
+:: 禁止有警告的代码，有警告也表示错误
+if %keil_build_error% equ 0 goto build_success
+goto build_fail
+
+:build_success
+echo "keil build result: brd %BRD_BUILD_CHIP% build_success"
+exit /B 0
+
+:build_fail
+echo "keil build result: brd %BRD_BUILD_CHIP% build_fail"
+exit 1

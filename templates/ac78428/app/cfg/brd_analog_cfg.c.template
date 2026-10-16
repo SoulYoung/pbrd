@@ -1,0 +1,63 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+#define INIT_ANALOG_ADC_CFG(index_) \
+    { \
+        .index = index_, \
+    }
+
+#define INIT_ANALOG_CHANNEL_CFG(group_, pin_, mux_, x_, y_, offset_, ref_vol_, spt_, index_) \
+    { \
+        .group = kDrvPortGroup##group_, \
+        .pin = kDrvPortPin##pin_, \
+        .mux = mux_, \
+        .x = x_, \
+        .y = y_, \
+        .offset = offset_, \
+        .ref_vol = ref_vol_, \
+        .spt = spt_, \
+        .index = index_, \
+    }
+
+#define INIT_ANALOG_DEV_IN_CHIP(base_dev_drv_, base_dev_drv_cfg_, dev_drv_parent_, dev_drv_parent_cfg_) \
+    { \
+        .dev_drv_parent = &g_drv_adcs_[dev_drv_parent_], \
+        .dev_drv_parent_cfg = &g_drv_adc_cfgs_[dev_drv_parent_cfg_], \
+        .base = { .dev_drv = &g_drv_adc_chs_[base_dev_drv_], .dev_drv_cfg = &g_drv_adc_ch_cfgs_[base_dev_drv_cfg_], }, \
+    }
+
+#define INIT_ANALOG_ITEM(id_, dev_, dev_cfg_, bus_, bus_cfg_) \
+    { \
+        .id = id_, \
+        .dev = dev_, \
+        .dev_cfg = (void*)&g_brd_analog_dev_in_chips_[dev_cfg_], \
+        .bus = bus_, \
+        .bus_cfg = bus_cfg_, \
+    }
+
+
+/// ADC驱动对象
+static TDrvAdc g_drv_adcs_[{{COUNT_G_DRV_ADCS_}}];
+
+static const TDrvAdcCfg g_drv_adc_cfgs_[] = 
+{{DATA_G_DRV_ADC_CFGS_}};
+
+/// ADC通道驱动对象
+static TDrvAdcCh g_drv_adc_chs_[{{COUNT_G_DRV_ADC_CHS_}}];
+
+static const TDrvAdcChCfg g_drv_adc_ch_cfgs_[] = 
+{{DATA_G_DRV_ADC_CH_CFGS_}};
+
+static const Brd_TAnalogDevInChip g_brd_analog_dev_in_chips_[] = 
+{{DATA_G_BRD_ANALOG_DEV_IN_CHIPS_}};
+
+Brd_TAnalogItem g_brd_analog_items_[] = 
+{{DATA_G_BRD_ANALOG_ITEMS_}};
+
+Brd_TAnalogAttr g_brd_analog_attr = 
+{{DATA_G_BRD_ANALOG_ATTR}};

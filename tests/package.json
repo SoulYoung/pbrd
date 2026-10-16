@@ -1,0 +1,12 @@
+{
+  "name": "pbrd-browser-checks",
+  "private": true,
+  "scripts": {
+    "test": "node verify_frontend.cjs",
+    "test:dynamic": "node verify_dynamic.cjs",
+    "test:devices": "python verify_device_forms.py"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

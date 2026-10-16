@@ -1,0 +1,18 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "wdog",
+  "name": "看门狗",
+  "configuration_mode": "platform",
+  "configuration_status": "platform_default",
+  "fields": [],
+  "dependencies": [
+    "drv.wdog"
+  ],
+  "implementations": [],
+  "bus_kinds": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_wdog.c"
+  },
+  "notes": "沿用平台实现；需要项目差异时先审核接口，再扩展字段。"
+}

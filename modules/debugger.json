@@ -1,0 +1,19 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "debugger",
+  "name": "调试接口",
+  "configuration_mode": "platform",
+  "configuration_status": "template-parameters",
+  "fields": [],
+  "dependencies": [
+    "drv.gpio",
+    "drv.irq"
+  ],
+  "implementations": [],
+  "sources": {
+    "board_wrapper": "product/src/brd/{version}/{target}/src/brd_debugger.c",
+    "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_debugger_cfg_boot.c"
+  },
+  "notes": "当前 AC78428 Boot 实现已审核；通过模板补充参数配置。"
+}

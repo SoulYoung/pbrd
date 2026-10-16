@@ -1,0 +1,16 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+static const Brd_TLedCfg g_brd_led_cfg_[] = 
+{{DATA_G_BRD_LED_CFG_}};
+
+static Brd_TLedItem g_brd_led_items_[] = 
+{{DATA_G_BRD_LED_ITEMS_}};
+
+Brd_TLedAttr g_brd_led_attr = 
+{{DATA_G_BRD_LED_ATTR}};

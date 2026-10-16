@@ -1,0 +1,3 @@
+#include "brd_inc_all.h"
+#include "brd_xcu_spi_cfg.c"
+#include "brd_xcu_spi_ac78428.c"

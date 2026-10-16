@@ -1,0 +1,40 @@
+/***** User includes begin *****/
+
+/***** User includes end *****/
+
+/// 外部引用对象
+extern TDrvIic g_drv_iic[];
+extern const TDrvIicCfg g_drv_iic_cfgs[];
+
+/// -------使用到的总线配置-------
+#define BRD_AXIS_BUS_PHY_IIC
+
+/// -------使用到的设备配置-------
+// #define BRD_AXIS_DEV_DA280B
+// #define BRD_AXIS_DEV_LSM6DSL
+// #define BRD_AXIS_DEV_MMA8452
+// #define BRD_AXIS_DEV_SC7122
+
+{{DEVICE_DEFINES}}
+
+/***** User defines begin *****/
+
+/***** User defines end *****/
+
+/// 锁对象
+static Brd_TMutex g_brd_axis_mutex_[{{COUNT}}];
+/// 事件对象
+static Brd_TEvent g_brd_axis_event_[{{COUNT}}];
+
+{{DEVICE_AND_BUS_OBJECTS}}
+
+{{ITEM_ARRAY}}
+Brd_TAxisAttr g_brd_axis_attr =
+{
+    .count = sizeof(g_brd_axis_items_) / sizeof(g_brd_axis_items_[0]),
+    .item = g_brd_axis_items_,
+};
+
+/***** User code begin *****/
+
+/***** User code end *****/

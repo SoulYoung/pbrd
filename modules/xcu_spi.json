@@ -1,0 +1,129 @@
+{
+  "format": "pbrd-module",
+  "schema_version": 1,
+  "id": "xcu_spi",
+  "implementations": [],
+  "sources": {},
+  "name": "XCU Boot SPI 接口",
+  "configuration_mode": "instances",
+  "configuration_status": "template-adapter",
+  "fields": [
+    {
+      "key": "instance",
+      "label": "SPI 硬件实例",
+      "type": "num",
+      "value": 1,
+      "opts": []
+    },
+    {
+      "key": "clk",
+      "label": "SCK",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "sout",
+      "label": "SOUT",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "sin",
+      "label": "SIN",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "cs",
+      "label": "CS",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "cs_index",
+      "label": "片选编号",
+      "type": "num",
+      "value": 3,
+      "opts": []
+    },
+    {
+      "key": "req",
+      "label": "REQ 请求引脚",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "req_level",
+      "label": "REQ 硬件反相",
+      "type": "bool",
+      "value": true,
+      "opts": []
+    },
+    {
+      "key": "req_reverse",
+      "label": "REQ 非请求电平",
+      "type": "bool",
+      "value": true,
+      "opts": []
+    },
+    {
+      "key": "cpol",
+      "label": "CPOL",
+      "type": "select",
+      "value": "1",
+      "opts": [
+        "0",
+        "1"
+      ]
+    },
+    {
+      "key": "cpha",
+      "label": "CPHA",
+      "type": "select",
+      "value": "0",
+      "opts": [
+        "0",
+        "1"
+      ]
+    },
+    {
+      "key": "frame_size",
+      "label": "帧位数",
+      "type": "num",
+      "value": 8,
+      "opts": []
+    },
+    {
+      "key": "dma_rx",
+      "label": "RX DMA 通道",
+      "type": "num",
+      "value": 0,
+      "opts": []
+    },
+    {
+      "key": "dma_tx",
+      "label": "TX DMA 通道",
+      "type": "num",
+      "value": 1,
+      "opts": []
+    },
+    {
+      "key": "timeout_ms",
+      "label": "超时 / ms",
+      "type": "num",
+      "value": 15000,
+      "opts": []
+    }
+  ],
+  "dependencies": [
+    "drv.xcu_spi",
+    "drv.gpio"
+  ],
+  "bus_kinds": [],
+  "notes": "依据 r04v01 的 Boot XCU SPI；不等同于依赖 HAL 的 App XCU。若原工程缺 cfg，导入会明确标注参考来源，必须核对项目引脚、模式和 REQ 极性。"
+}
