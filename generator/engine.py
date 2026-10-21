@@ -1,6 +1,6 @@
 """Single JSON → templates → project orchestration; no runtime baseline inheritance."""
 from pathlib import Path
-import copy,json,re,hashlib,difflib,datetime
+import copy,json,re,hashlib,difflib,datetime,os
 from generator.template import TOKEN,render_file
 from generator.c_format import initializer,identifier,scalar,macro
 from generator.c_parser import declarations
@@ -48,6 +48,8 @@ def bus_values(values,buses,platform,target):
 def lifecycle(source,effective):
     result=[]
     for line in source.splitlines():
+        # XCU SPI is managed by its caller, outside the common lifecycle.
+        if re.search(r"\bBrd_XcuSpi(?:Init|Done)\s*\(",line):continue
         call=re.search(r'\bBrd_([A-Z][a-z]+(?:[A-Z][a-z]+)*?)(Init|Done|Open|Close)',line)
         if call:
             module=re.sub(r'(?<=[a-z])(?=[A-Z])','_',call[1]).lower()
@@ -58,6 +60,7 @@ def lifecycle(source,effective):
 def generate_project(context,config,output=None):
     from module_library import load_modules
     config=copy.deepcopy(config);root=context['project_root'];tool=context['tool_root'];project=config['project']
+    project['author']=str(project.get('author') or '').strip() or '软件工程院'
     if config.get('format')!='pbrd-project' or config.get('schema_version')!=1:raise ValueError('Expected pbrd-project schema_version=1')
     if config['platform']['mcu']!='ac78428' or config['build']!={'adapter':'keil','version':'5.23'}:raise ValueError('Implemented project adapter: AC78428 / Keil 5.23')
     combined=re.fullmatch(r'(r\d+)(v\d+)',project.get('revision',''),re.I)
@@ -74,8 +77,6 @@ def generate_project(context,config,output=None):
     if settings.get('automatic') is False and not selected:raise ValueError('Output directory required')
     output=Path(selected) if selected else context['board_source_root']/version
     output=(output if output.is_absolute() else root/output).resolve()
-    if output.parent!=context['board_source_root'].resolve() or not re.fullmatch(r'r\d+v\d+|pbrd-verification-[\w-]+',output.name,re.I):raise ValueError('Output must be a board version directory directly under product/src/brd')
-    if output.name.lower()=='r01v01':raise ValueError('This implementation trial must not overwrite the original r01v01')
     specs={m['id']:m for m in load_modules(tool)};layout=json.loads(read(tool/'platforms/ac78428-generation.json'));platform=json.loads(read(tool/'platforms/ac78428.json'))
     if config.get('ui_schema_version',1)>=2 and not config.get('codegen'):
         defaults=json.loads(read(tool/'platforms/ac78428-defaults.json'));config['codegen']={'adapter':defaults['adapter'],'parameters':defaults['parameters']}
@@ -93,7 +94,7 @@ def generate_project(context,config,output=None):
         for id in modules:
             if id.startswith('brd.') and specs.get(id[4:],{}).get('configuration_status')=='reference-only':raise ValueError(id+': reference exists but configuration/project adapter is incomplete')
         if unsupported:raise ValueError(target+': no reviewed template/project adapter for '+', '.join(unsupported))
-        if any(id.startswith('hal.') for id in modules):raise ValueError(target+': HAL generation adapter not implemented')
+        if any(id.startswith('hal.') and not (id=='hal.xcu' and target=='app' and 'brd.xcu' in modules) for id in modules):raise ValueError(target+': HAL generation adapter not implemented')
         if not {'drv.common','drv.clock','drv.gpio','drv.irq','drv.port'}.issubset(modules):raise ValueError(target+': required foundational drivers disabled')
     if config.get('ui_schema_version',1)>=2:
         for target,enabled in effective.items():
@@ -162,6 +163,7 @@ def generate_project(context,config,output=None):
     for rel,description in layout['files'].items():
         owner='boot' if rel.startswith('ac78428_boot/') or rel.startswith('build/ac78428_boot/') else 'app' if rel.startswith('ac78428/') or rel.startswith('build/ac78428/') else None
         module=module_name(rel)
+        if Path(rel).name=='brd_canfd_def.h' and not any(i['params'].get('fd_enabled',bool(i['params'].get('fd_enum'))) for i in config['board']['modules'].get('can',[]) if owner in i.get('targets',list(targets))):continue
         if module in dynamic and ('/cfg/' in rel or '/def/' in rel):continue
         if module in builtins.SUPPORTED and config['board']['modules'].get(module) and ('/def/' in rel or module=='analog' and '/cfg/' in rel):continue
         if module in additional.SUPPORTED and (config['board']['modules'].get(module) or not description['declarations']) and ('/cfg/' in rel or '/def/' in rel):continue
@@ -180,13 +182,15 @@ def generate_project(context,config,output=None):
                 values.update(builtins.values(module,items,platform));counts.setdefault(owner,{})[module]=len(items)
             if module=='common':
                 values.update(bus_rows.get(owner,bus_rows[next(iter(targets))]))
-                if 'g_brd_version_' in values:values['g_brd_version_'].update(ver=['kBrd_VersionMajor','(UInt8)'+product,'kBrd_VersionBoot' if owner=='boot' else 'kBrd_VersionApp',minor],build_time=epoch)
+                target_minor=int(targets[owner].get('software_minor',minor))
+                if not 0<=target_minor<=255:raise ValueError(owner+': software minor must be 0..255')
+                if 'g_brd_version_' in values:values['g_brd_version_'].update(ver=['kBrd_VersionMajor','(UInt8)'+product,'kBrd_VersionBoot' if owner=='boot' else 'kBrd_VersionApp',target_minor],build_time=epoch)
             context_values={'DATA_'+d['name'].upper():compact.array(d['name'],values[d['name']]) for d in description['declarations']}
             for entry in description['counts']:
                 number=len(values['g_drv_'+('iic' if entry['name']=='g_drv_iic' else 'spi')+'_cfgs']) if entry['name'] in ['g_drv_iic','g_drv_spi'] else count(entry['name'],values,entry['original'])
                 context_values['COUNT_'+entry['name'].upper()]=number
             if module=='common':
-                for name,source in layout['lifecycle'][owner].items():context_values[name.upper()]=lifecycle(source,scope)
+                for name,source in layout['lifecycle'][owner].items():context_values[name.upper()]=lifecycle(codegen.get('lifecycle',{}).get(owner,{}).get(name,source),scope)
         else:context_values={}
         if description['definition']:
             family=description['definition']['family'];entries=parameters.get(rel,{}).get('definitions')
@@ -199,6 +203,8 @@ def generate_project(context,config,output=None):
             context_values['ENUM_CONTENT']='\n'.join('    '+r[0].ljust(width)+'= '+(r[1]+',').ljust(56)+'///< '+r[2] for r in rows)+'\n    '+description['definition']['max_name']+(' = '+description['definition']['max_expression'] if description['definition']['max_expression'] else '')+','
             context_values['DEFINE_CONTENT']='\n'.join('#define '+macro(module,item['enum'],family) for item in entries)
         if module=='can' and description['declarations']:
+            powers=[i for i in config['board']['modules'].get('pwr_ctrl',[]) if owner in i.get('targets',list(targets))]
+            context_values['CAN_POWER_SUPPLY']=builtins.can_power(items,powers)
             fd=values['g_brd_canfd_items_'];context_values['CANFD_BUFFER_DECLARATION']='static TCanfdData g_brd_canfd_data_['+str(len(items))+'];' if fd else ''
             context_values['CANFD_ITEM_DECLARATION']='static Brd_TCanItem g_brd_canfd_items_[] =\n'+initializer(fd)+';' if fd else ''
         source=read(tool/'templates'/description['template']);tokens=set(TOKEN.findall(source))
@@ -211,6 +217,11 @@ def generate_project(context,config,output=None):
         if 'AUTHOR' in tokens:context_values['AUTHOR']=project.get('author','')
         context_values={k:v for k,v in context_values.items() if k in tokens}
         generated[rel]=render_file(tool/'templates'/description['template'],context_values);provenance[rel]={'template':description['template'],'parameters':rel if rel in parameters else 'fixed platform implementation'}
+    for target in targets:
+        enabled_fd=any(i['params'].get('fd_enabled',bool(i['params'].get('fd_enum'))) for i in config['board']['modules'].get('can',[]) if target in i.get('targets',list(targets)))
+        if not enabled_fd:
+            for rel in [folders[target]+'/src/brd_can.c',folders[target]+'/src/brd_inc_all.h']:
+                if rel in generated:generated[rel]=re.sub(r'^\s*#include[^\n]*brd_canfd[^\n]*(?:\n|$)','',generated[rel],flags=re.M)
     # Reusable, reviewed high-level adapters replace generic data with authoritative instances.
     for target in targets:
         folder=folders[target]
@@ -249,19 +260,29 @@ def generate_project(context,config,output=None):
                     generated[entry]=generated[entry].replace(anchor,'#include <'+name+'>\n'+anchor,1)
             else:destination=folders['app']
             definitions=[i for i in items if module!='pwr_ctrl' or i['params'].get('power_kind')!='base']
-            if module!='bat_chg':generated[destination+'/def/brd_'+module+'_def.h']=header(module,definitions,project)
+            if module not in ['bat_chg','xcu','ext_rtc']:generated[destination+'/def/brd_'+module+'_def.h']=header(module,definitions,project)
             if module=='can':
                 fd=[{**i,'enum':i['params'].get('fd_enum') or i['enum'].replace('kBrd_CanId','kBrd_CanfdId'),'base_enum':i.get('base_enum','').replace('CanBase','CanfdBase')} for i in items if i['params'].get('fd_enabled',bool(i['params'].get('fd_enum')))]
-                generated[destination+'/def/brd_canfd_def.h']=header('canfd',fd,project)
+
+                if fd:generated[destination+'/def/brd_canfd_def.h']=header('canfd',fd,project)
             for rel in [destination+'/def/brd_'+module+'_def.h',destination+'/cfg/brd_'+module+'_cfg.c']:
                 if module in dynamic and '/cfg/' in rel:continue
-                if rel in generated:provenance[rel]={'adapter':('modules/devices.py' if module in dynamic else 'modules/builtins.py'),'source':'board.modules.'+module,'template': 'common/brd_def.h.template' if '/def/' in rel else 'ac78428/'+module+'.cfg.c.template' if module in ['axis','analog'] else layout['files'][rel]['template']}
+                if rel in generated:provenance[rel]={'adapter':('modules/devices.py' if module in dynamic else 'modules/builtins.py'),'source':'board.modules.'+module,'template': 'common/brd_def.h.template' if '/def/' in rel else 'ac78428/'+module+'.cfg.c.template' if module in ['axis','analog'] else 'ac78428/xcu.cfg.c.template' if module=='xcu' else layout['files'][rel]['template']}
+    for target in targets:
+        rel=folders[target]+'/src/brd_inc_all.h'
+        for module,implementation in layout.get('implementation_sources',{}).items():
+            if module in effective[target]:
+                for name in implementation['required_headers']:
+                    generated[rel]=generated[rel].replace('#include "brd_inc.h"','#include <'+name+'>\n#include "brd_inc.h"',1)
     # Remove unselected platform headers as well as exported interfaces: these
     # headers depend on the module types declared by brd_inc.h.
     for target in targets:
         rel=folders[target]+'/src/brd_inc_all.h'
         lines=[]
+        external_headers={'per_fram_at24_ex.h':'per.fram.at24','per_mmc_spi_sd_ex.h':'per.mmc.xtsdg01gws1g','per_hsm_ciu98b_ex.h':'per.hsm.ciu98b','per_rtc_bm8563_ex.h':'per.rtc.bm8563','per_can_trx_tja1445.h':'per.can_trx.tja1445','per_fee.h':'per.fee.fee'}
         for line in generated[rel].splitlines():
+            external=re.match(r'^\s*#include\s*[<"]([^">]+)[">]',line)
+            if external and external_headers.get(external[1]) and external_headers[external[1]] not in effective[target]:continue
             include=re.match(r'^\s*#include\s*[<"](brd_[^">]+)[">]',line)
             if include and ('_mcu' in include[1] or '_ac78428' in include[1]):
                 module=next((k for k in sorted(specs,key=len,reverse=True) if include[1].startswith('brd_'+k+'_')),None)
@@ -274,10 +295,10 @@ def generate_project(context,config,output=None):
         folder=folders[target];scope=effective[target]
         for rel in [r for r in generated if r.startswith(folder+'/') and Path(r).name in ['brd_def.h','brd_inc.h']]:
             is_def=Path(rel).name=='brd_def.h'
-            modules={id[4:] for id in scope if id.startswith('brd.')}|({'canfd'} if 'brd.can' in scope else set())
+            modules={id[4:] for id in scope if id.startswith('brd.')}|({'canfd'} if any(i['params'].get('fd_enabled',bool(i['params'].get('fd_enum'))) for i in config['board']['modules'].get('can',[]) if target in i.get('targets',list(targets))) else set())
             includes=['#include "brd_common_def.h"'] if is_def else ['#include "brd_def.h"']
             if is_def:
-                for module in sorted(modules):
+                for module in sorted(modules-{'ext_rtc'}):
                     name='brd_'+module+'_def.h'
                     if any(Path(r).name==name and '/def/' in r for r in generated):includes.append('#include "'+name+'"')
             else:
@@ -287,8 +308,15 @@ def generate_project(context,config,output=None):
             generated[rel]=text
     for target in targets:
         rel,content=assemble(context,layout,target,effective[target],generated,axis_sources.get(target,[]),output,version);generated[rel]=content;provenance[rel]={'adapter':'projects/keil.py','template':layout['projects'][target]}
-        script='build/'+folders[target]+'/after_build.bat';exports=sorted({id[4:] for id in effective[target] if id.startswith('brd.') and (root/'product/src/brd/base/inc'/('brd_'+id[4:]+'.h')).is_file()}|({'canfd'} if 'brd.can' in effective[target] else set()))
+        script='build/'+folders[target]+'/after_build.bat';exports=sorted({id[4:] for id in effective[target] if id.startswith('brd.') and (root/'product/src/brd/base/inc'/('brd_'+id[4:]+'.h')).is_file()}|({'canfd'} if any(i['params'].get('fd_enabled',bool(i['params'].get('fd_enum'))) for i in config['board']['modules'].get('can',[]) if target in i.get('targets',list(targets))) else set()))
         generated[script]=re.sub(r'^set BRD_INCS=.*$',lambda m:'set BRD_INCS='+','.join(exports),generated[script],count=1,flags=re.M);generated[script]=re.sub(r'^set BRD_INCS=%BRD_INCS%,.*(?:\r?\n)?','',generated[script],flags=re.M)
+    for target in targets:
+        rel='build/'+folders[target]+'/after_build.bat'
+        project_dir=output/'build'/folders[target]
+        try:board_path=os.path.relpath(context['board_source_root'],project_dir).replace('/',chr(92))
+        except ValueError:board_path=str(context['board_source_root']).replace('/',chr(92))
+        prefix=board_path if Path(board_path).is_absolute() else '%~dp0'+board_path
+        generated[rel]=generated[rel].replace('%~dp0'+chr(92).join(['..','..','..','%AFTER_BUILD_CHIP_NO_IAR%']),prefix+chr(92)+'%AFTER_BUILD_CHIP_NO_IAR%')
     for rel in list(generated):
         if '/cfg/' not in rel or not rel.endswith('.c'):continue
         module=module_name(rel);items=config['board']['modules'].get(module,[])
@@ -321,6 +349,7 @@ def generate_project(context,config,output=None):
     lines+=['','## 生成与维护边界','','- 高层实例生成覆盖 ADC、Axis、LED、CAN、EXT_INT、UART、MISC_CTRL、SWITCH、电源、充电、Flash、加密和 CAN 收发器。','- 器件及总线组合按已审核接口生成，未支持的组合明确报错；平台固定参数来自正式默认值文件。','- 构建脚本框架保留，仅更新 BRD_INCS；未移动或改名旧版本目录。','- 用户 includes/defines/code 区原样合并，生成区手改或删除带用户代码模块时停止更新。','- 当前工程适配为 AC78428 / Keil；IAR/CMake 尚待接入。','','逐行差异见 comparison.patch；模板和参数来源见 generation-report.json。编译结果见 compile-verification.json 与 build/*/verification-build.log，硬件运行未验证。','']
     diagnostics['COMPARISON.md']='\n'.join(lines)
 
-    state_dir=tool/'.reports/generation'/output.name
+    state_name=output.name if output.parent==context['board_source_root'].resolve() else output.name+'-'+hashlib.sha256(str(output).casefold().encode('utf-8')).hexdigest()[:12]
+    state_dir=tool/'.reports/generation'/state_name
     result=publish(output,generated,settings.get('mode','create'),state_dir,diagnostics);report.update(result)
     return report

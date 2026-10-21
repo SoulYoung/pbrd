@@ -47,6 +47,13 @@
       "type": "text",
       "value": "",
       "opts": []
+    },
+    {
+      "key": "enable_note",
+      "label": "使能硬件说明（选填）",
+      "type": "text",
+      "value": "",
+      "opts": []
     }
   ],
   "dependencies": [

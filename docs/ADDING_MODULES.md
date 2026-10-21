@@ -19,7 +19,7 @@
 - id：小写模块名，匹配 JSON 文件名。
 - name：中文说明。
 - configuration_mode：instances（项目实例）或 platform（平台默认，无需空实例）。
-- fields：key、label、type、value、opts。当前通用类型为 text、num、bool、select、gpio、adc、channel、signal、bus。
+- fields：key、label、type、value、opts。当前通用类型为 text、num、bool、select、gpio、adc、channel、signal、bus、power_ref。
 - dependencies：完整模块标识，如 drv.adc、brd.flash。
 - implementations：value（器件选择值）、module（如 per.rtc.bm8563，内部实现可为 null）、bus_kinds、dependencies、source_globs。
 - source_globs：项目相对路径，不能包含 .. 或指向项目外。用于判断实现存在，不执行源码。

@@ -1,14 +1,14 @@
 /// {{NAME}}
 {{TIMER}}
-static TPerRtc{{FAMILY}} g_brd_ext_rtc_{{INDEX}}_per;
-static {{DEVICE_TYPE}} g_brd_ext_rtc_{{INDEX}}_dev =
+static TPerRtc{{FAMILY}} g_brd_ext_rtc_{{CHIP}}_;
+static {{DEVICE_TYPE}} g_brd_ext_rtc_dev_{{CHIP}}_ =
 {{DEVICE_CONFIG}};
-static TDrvIicDev g_brd_ext_rtc_{{INDEX}}_iic;
-static Brd_TExtRtcBusPhyIic g_brd_ext_rtc_{{INDEX}}_bus =
+static TDrvIicDev g_brd_ext_rtc_phy_iic_{{CHIP}}_;
+static Brd_TExtRtcBusPhyIic g_brd_ext_rtc_bus_phy_iic_{{CHIP}}_ =
 {
     .base =
     {
-        .bus_drv = &g_brd_ext_rtc_{{INDEX}}_iic,
+        .bus_drv = &g_brd_ext_rtc_phy_iic_{{CHIP}}_,
         .bus_drv_parent = &g_drv_iic[{{PARENT}}],
         .bus_drv_parent_cfg = &g_drv_iic_cfgs[{{PARENT}}],
     },

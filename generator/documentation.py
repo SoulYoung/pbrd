@@ -1,7 +1,7 @@
 """Project-specific row comments and hardware checklists, derived from the input JSON."""
 import re
 from pathlib import Path
-from generator.c_parser import declarations,end_brace
+from generator.c_parser import declarations,end_brace,mask
 
 def pins_in(value):
     result=[]
@@ -22,17 +22,17 @@ def item_label(item):
 def annotate(text,labels):
     # Macro calls get a short trailing comment; full structs use the original
     # opening-brace comment style. Device/ID mapping arrays are left alone.
-    edits=[]
+    edits=[];clean=mask(text)
     for d in declarations(text):
         names=labels.get(d['name'])
         if not names or not isinstance(d['value'],list):continue
         start=d['start']+1;depth=0;row=0
         for index in range(start,d['end']-1):
-            char=text[index]
+            char=clean[index]
             if char in '({[':depth+=1
             elif char in ')}]':depth-=1
             elif char==',' and depth==0:
-                part=text[start:index];offset=len(part)-len(part.lstrip())
+                part=clean[start:index];offset=len(part)-len(part.lstrip())
                 if row<len(names) and names[row] and part.strip() and not part.lstrip().startswith('#'):
                     label=names[row].replace('\n',' ').replace('\r',' ').replace('\\','/').strip()
                     if part.lstrip().startswith('{'):edits.append((start+offset+1,'   ///< '+label))
@@ -42,6 +42,11 @@ def annotate(text,labels):
     return text
 
 def comments(module,items,values,definitions):
+    if module=='common':
+        result={}
+        for kind,name in [('IIC','g_drv_iic_cfgs'),('SPI','g_drv_spi_cfgs')]:
+            result[name]=[kind+str(row['index'])+', '+', '.join(pins_in(row)) for row in values.get(name,[])]
+        return result
     if module=='pwr_ctrl':
         def label(item):
             a=item['params'];detail=a.get('pin') if a.get('control_mode')=='gpio' else a.get('control_ref')
@@ -51,18 +56,23 @@ def comments(module,items,values,definitions):
         labels=[]
         for item in items:
             a=item['params']
-            labels += [item['name']+'使能, '+(a.get('control_ref') if a.get('enable_mode')=='power' else a.get('enable_pin') or '未使用'),'充电完成, '+(a.get('done_pin') or '未使用'),'充电状态, '+(a.get('charging_pin') or '未使用')]
+            labels.append(item['name']+'使能, '+(a.get('control_ref') if a.get('enable_mode')=='power' else a.get('enable_pin') or '未使用')+(', '+a['enable_note'] if a.get('enable_note') else ''))
+            if a.get('done_pin') or a.get('done_power_ref'):labels.append('充电完成, '+(a.get('done_pin') or a['done_power_ref']))
+            if a.get('charging_pin') or a.get('charging_power_ref'):labels.append('充电状态, '+(a.get('charging_pin') or a['charging_power_ref']))
         return {'g_brd_bat_chg_cfg_':labels}
-    physical={'analog':'g_drv_adc_ch_cfgs_','uart':'g_drv_uart_cfgs_','can':'g_drv_can_cfgs_','led':'g_brd_led_cfg_','misc_ctrl':'g_brd_misc_ctrl_cfgs_','switch':'g_brd_switch_cfgs_','meter':'g_drv_psmu_ch_cfg_'}
+    physical={'analog':'g_drv_adc_ch_cfgs_','uart':'g_drv_uart_cfgs_','can':'g_drv_can_cfgs_','led':'g_brd_led_cfg_','misc_ctrl':'g_brd_misc_ctrl_cfgs_','switch':'g_brd_switch_cfgs_','meter':'g_drv_psmu_ch_cfg_','ext_int':'g_brd_ext_int_cfgs'}
     if not items or module not in physical:return {}
     labels=[]
     for item in items:
         a=item['params']
         if module in ['can','uart']:
-            label=str(a['instance'])+', RXD '+a['rx']+', TXD '+a['tx']
+            label=item['enum']+' / '+item['name']+', '+str(a['instance'])+', RXD '+(a['rx'] or '未使用')+', TXD '+(a['tx'] or '未使用')
             if a.get('stb'):label+=', STB '+a['stb']
             if a.get('rts'):label+=', RTS '+a['rts']
-        else:label=item_label(item)
+        else:
+            label=item['enum']+' / '+item_label(item)+((', '+a['pin']) if a.get('pin') else '')
+            if module=='meter':label+=', PWM'+str(a['instance'])+'_CH'+str(a['channel'])
+            if module in ['led','misc_ctrl','switch']:label+=', '+('低' if a.get('reverse') else '高')+'电平有效'
         labels.append(label)
     return {physical[module]:labels}
 

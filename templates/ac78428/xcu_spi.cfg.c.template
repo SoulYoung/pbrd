@@ -6,13 +6,16 @@
 
 /***** User defines end *****/
 
-/// Boot XCU SPI：硬件配置、REQ 回调及板级对象分别映射。
+/// SPI 设备驱动
 static TDrvXcuSpi g_drv_xcu_spi_[{{COUNT}}];
+/// SPI 引脚、工作模式及 DMA 配置
 static const TDrvXcuSpiCfg g_drv_xcu_spi_cfgs_[] =
 {{CONFIGS}};
 {{CALLBACKS}}
+/// 片内 SPI 设备及打开后的 REQ 电平处理
 static Brd_TXcuSpiDevInChip g_brd_xcu_spi_dev_in_chip_[] =
 {{DEVICES}};
+/// 板级枚举与 SPI 设备映射
 static Brd_TXcuSpiItem g_brd_xcu_spi_items_[] __attribute__((section("CodeQuickAccess"))) =
 {{ITEMS}};
 Brd_TXcuSpiAttr g_brd_xcu_spi_attr __attribute__((section("CodeQuickAccess"))) =

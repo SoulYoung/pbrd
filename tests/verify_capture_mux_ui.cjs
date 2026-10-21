@@ -1,0 +1,21 @@
+/* Validate chip-derived capture choices and SPI mux hints using the actual platform data. */
+const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert'),tool=path.resolve(__dirname,'..');
+const source=fs.readFileSync(path.join(tool,'ui/app.js'),'utf8'),platform=JSON.parse(fs.readFileSync(path.join(tool,'platforms/ac78428.json'),'utf8'));
+const meter=JSON.parse(fs.readFileSync(path.join(tool,'modules/meter.json'),'utf8')),xcu=JSON.parse(fs.readFileSync(path.join(tool,'modules/xcu.json'),'utf8'));
+const pins=platform.pins.concat([{pin:'PF99',package_pin:'test',functions:[{signal:'PWM0_CH1',mux:'ALT2'},{signal:'PWM4_CH3',mux:'ALT5'},{signal:'GPIO',mux:'ALT1'}]}]);
+const context={E:x=>String(x??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'),pins:()=>pins,specs:{meter,xcu},M:{visible:()=>true},D:{},mux:(pin,signal)=>pins.find(p=>p.pin===pin)?.functions.find(f=>f.signal===signal)?.mux||'',pinopts:signal=>pins.filter(p=>p.functions.some(f=>f.signal===signal)).map(p=>p.pin)};
+vm.createContext(context);vm.runInContext(source.slice(source.indexOf('function hardware('),source.indexOf('function resources(')),context);vm.runInContext(source.slice(source.indexOf('function opts('),source.indexOf('const out='))+source.slice(source.indexOf('function fieldSignal('),source.indexOf('function overview(')),context);
+const defaults=spec=>Object.fromEntries(spec.fields.map(f=>[f.key,f.value]));
+let params={...defaults(meter),pin:'PE8'};context.syncCapture(params,'pin');assert.strictEqual(params.instance,0);assert.strictEqual(params.channel,6);
+params.pin='PE13';context.syncCapture(params,'pin');assert.strictEqual(params.instance,4);assert.strictEqual(params.channel,5);
+let html=context.fields('meter',{params}),block=(html,key)=>html.split('</label>').find(s=>s.includes('data-param="'+key+'"'));
+assert(block(html,'instance').includes('<select '));assert(block(html,'channel').includes('<select '));assert(block(html,'pin').includes('PWM4_CH5 · ALT2'));assert(block(html,'channel').includes('PWM4_CH5 · ALT2'));
+const incapable=pins.find(p=>!p.functions.some(f=>/^PWM\d+_CH\d+$/.test(f.signal)));assert(!block(html,'pin').includes('<option value="'+incapable.pin+'">'));
+params.pin='PF99';context.syncCapture(params,'pin');params.instance=0;context.syncCapture(params,'instance');assert.strictEqual(params.channel,1);params.instance=4;context.syncCapture(params,'instance');assert.strictEqual(params.channel,3);assert.equal(JSON.parse(JSON.stringify(params)).instance,4);
+params.pin='';context.syncCapture(params,'pin');assert.strictEqual(params.instance,'');assert.strictEqual(params.channel,'');
+params={...defaults(xcu),instance:1,clk:'PB14',sout:'PB16',sin:'PB15',cs:'PB17',cs_index:3,req:'PA17'};html=context.fields('xcu',{params});
+assert(block(html,'instance').includes('<select '));for(const n of context.hardware('spi'))assert(block(html,'instance').includes('>SPI'+n+'</option>'));
+for(const [key,signal] of [['clk','SPI1_SCK'],['sout','SPI1_SOUT'],['sin','SPI1_SIN'],['cs','SPI1_CS3']])assert(block(html,key).includes(signal+' · ALT3'));
+assert(!block(html,'req').includes('GPIO · ALT1')); assert(!block(html,'req').includes('field-help'));
+params.clk='PA17';html=context.fields('xcu',{params});assert(block(html,'clk').includes('复用不匹配'));assert(!block(html,'clk').includes('<option value="PA17">'));
+console.log('PASS real pin-derived instance/channel selects, multi-function linkage, clear/reset, numeric JSON and XCU SPI ALT hints without REQ hints');

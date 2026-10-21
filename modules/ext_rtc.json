@@ -32,6 +32,16 @@
       "opts": []
     },
     {
+      "key": "timer_custom",
+      "label": "自定义 RX8010SJ 定时器参数",
+      "type": "bool",
+      "value": false,
+      "opts": [],
+      "visible_when": {
+        "driver": "rx8010sj"
+      }
+    },
+    {
       "key": "timer_clock",
       "label": "RX8010SJ 定时器时钟源",
       "type": "select",
@@ -42,7 +52,11 @@
         "kRx8010sjClksrc1Hz",
         "kRx8010sjClksrcMin",
         "kRx8010sjClksrcHour"
-      ]
+      ],
+      "visible_when": {
+        "driver": "rx8010sj",
+        "timer_custom": true
+      }
     },
     {
       "key": "timer_output",
@@ -52,7 +66,11 @@
       "opts": [
         "kRx8010sjOutPinIrq1",
         "kRx8010sjOutPinIrq2"
-      ]
+      ],
+      "visible_when": {
+        "driver": "rx8010sj",
+        "timer_custom": true
+      }
     }
   ],
   "dependencies": [],

@@ -14,7 +14,7 @@ assert len(records(source,'g_brd_bat_chg_cfg_'))==6 and len(records(source,'g_br
 assert 'Brd_PwrCtrlSetBaseOn(kBrd_PwrCtrlBaseId3v3Per, enable)' in source
 print('PASS battery instance counts and status power dependency')
 items=copy.deepcopy(config['board']['modules']['pwr_ctrl']);items[-1]['params']['pin']='PE24';source=generate('pwr_ctrl',items);assert 'INIT_PWR_CTRL_CFG(NULL, E, 24' in source
-items.append(copy.deepcopy(items[-1]));items[-1].update(enum='kBrd_PwrCtrlIdExtra',base_enum='',uid='extra');source=generate('pwr_ctrl',items);assert records(source,'g_brd_pwr_ctrl_attr')['count']==9
+items.append(copy.deepcopy(items[-1]));items[-1].update(enum='kBrd_PwrCtrlIdExtra',base_enum='',uid='extra');source=generate('pwr_ctrl',items);assert records(source,'g_brd_pwr_ctrl_attr')['count']=='sizeof(g_brd_pwr_ctrl_items_) / sizeof(g_brd_pwr_ctrl_items_[0])' and len(records(source,'g_brd_pwr_ctrl_items_'))==9
 assert 'kBrd_PwrCtrlIdExtra' in header('pwr_ctrl',[i for i in items if i['params']['power_kind']=='output'],config['project'])
 items[0]['params']['upstream_ref']=items[0]['enum']
 try:generate('pwr_ctrl',items);raise AssertionError('power cycle accepted')
@@ -29,6 +29,6 @@ print('PASS flash selection, count and capacity change actual output')
 items=copy.deepcopy(config['board']['modules']['can']);items[0]['params']['fd_enabled']=False;values=builtins.values('can',items,platform);assert len(values['g_brd_canfd_items_'])==3 and values['g_brd_can_dev_in_chip_'][0]['fd_buf']=='NULL'
 print('PASS CAN FD switch controls generated data and attribute count')
 
-source=generate('flash',config['board']['modules']['flash']);a=records(source,'g_brd_flash_internal_dev')['base'];b=records(source,'g_brd_flash_fee_dev')['base'];assert a['mutex']==b['mutex'] and a['mutex_cnt']==b['mutex_cnt']
+source=generate('flash',config['board']['modules']['flash']);a=records(source,'g_brd_flash_chip_pflash_dev_')['base'];b=records(source,'g_brd_flash_chip_eep_dev_')['base'];assert a['mutex']==b['mutex'] and a['mutex_cnt']==b['mutex_cnt']
 source=generate('crypto',config['board']['modules']['crypto']);assert records(source,'g_brd_crypto_ciu98b_dev')['base']['dev_drv']=='&g_per_hsm_ciu98b'
 print('PASS shared internal Flash lock and CIU98B callback singleton preserved')

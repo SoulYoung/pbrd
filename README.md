@@ -53,4 +53,4 @@ v0.0.1 已联调 AC78428 + Keil 5.23 路径。此前示例 App/Boot 经本机 AR
 
 网页包 `board-config-preview.html`、`ui/platform-data.js` 在启动时生成，不提交 Git。`configs/` 是本机用户保存数据；`old/` 和 `maintenance/` 是本地历史参考，不参与运行，也不提交。`.reports/`、`output/`、Python 缓存和测试截图同样忽略。仓库不包含产品 SDK、编译器和 IDE，请搭配产品项目使用。
 
-进一步阅读：[设计思路](docs/ARCHITECTURE.md)、[生成与维护](docs/GENERATION.md)、[添加模块及平台](docs/ADDING_MODULES.md)、[测试说明](tests/README.md)、[版本记录](CHANGELOG.md)。
+进一步阅读：[技术框架详细说明](docs/ARCHITECTURE.md)、[仓库上传范围](docs/REPOSITORY.md)、[生成与维护](docs/GENERATION.md)、[添加模块及平台](docs/ADDING_MODULES.md)、[测试说明](tests/README.md)、[版本记录](CHANGELOG.md)。

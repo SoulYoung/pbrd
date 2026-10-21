@@ -17,14 +17,14 @@
       "key": "instance",
       "label": "PSMU / PWM 硬件实例",
       "type": "num",
-      "value": 0,
+      "value": "",
       "opts": []
     },
     {
       "key": "channel",
       "label": "捕获通道",
       "type": "num",
-      "value": 6,
+      "value": "",
       "opts": []
     },
     {
@@ -59,6 +59,6 @@
     "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_meter_cfg.c",
     "platform_header": "product/src/brd/{mcu}/brd_meter_{mcu}.h"
   },
-  "notes": "依据 r03v01/r04v01：使用 PSMU 输入捕获，不是普通 GPIO 中断或 timer_srv。引脚复用按 PWMn_CHm 检查。",
+  "notes": "使用 PSMU 输入捕获；引脚、硬件实例和捕获通道从芯片 PWMn_CHm 复用信息联动选择，显示对应 ALT。",
   "bus_kinds": []
 }

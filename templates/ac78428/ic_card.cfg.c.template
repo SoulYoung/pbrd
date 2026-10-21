@@ -6,7 +6,6 @@
 
 /***** User defines end *****/
 
-/// 同一卡槽支持多个卡型识别；每个卡槽拥有独立引脚和驱动对象。
 {{OBJECTS}}
 static Brd_TIcCardItem g_brd_ic_card_item_[] =
 {{ITEMS}};

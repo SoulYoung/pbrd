@@ -27,6 +27,7 @@ def cleanup(directory):
 
 def publish(output,files,mode,state_dir=None,state_files=None):
     output=Path(output).resolve();state_dir=Path(state_dir).resolve() if state_dir else output
+    output.parent.mkdir(parents=True,exist_ok=True)
     lock=output.parent/('.pbrd-generate-'+output.name+'.lock')
     try:descriptor=os.open(lock,os.O_CREAT|os.O_EXCL|os.O_WRONLY)
     except FileExistsError:raise ValueError('Generation already in progress (or recovery lock remains): '+str(output))

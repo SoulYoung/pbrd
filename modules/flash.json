@@ -82,6 +82,19 @@
       "type": "text",
       "value": "",
       "opts": []
+    },
+    {
+      "key": "section_write",
+      "label": "内部 Flash 使用 Section 写入模式",
+      "type": "bool",
+      "value": false,
+      "opts": [],
+      "visible_when": {
+        "driver": [
+          "internal",
+          "fee"
+        ]
+      }
     }
   ],
   "dependencies": [],

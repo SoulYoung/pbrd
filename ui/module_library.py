@@ -2,7 +2,7 @@
 from pathlib import Path
 import json,re
 
-FIELD_TYPES={'text','num','bool','select','gpio','adc','channel','signal','bus'}
+FIELD_TYPES={'text','num','bool','select','gpio','adc','channel','signal','bus','power_ref'}
 
 def load_modules(tool_root):
     result=[]

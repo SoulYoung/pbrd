@@ -3,7 +3,7 @@ from pathlib import Path
 import re,json,datetime,xml.etree.ElementTree as ET
 from catalog_sources import read_enums
 from module_library import load_modules
-from generator.c_parser import declarations
+from generator.c_parser import declarations,end_brace,mask
 from generator.documentation import source_comments
 from generator.modules.builtins import SUPPORTED
 
@@ -34,7 +34,7 @@ def project_preset(context,version='r01v01'):
     root=context['project_root'];tool=context['tool_root'];source=context['board_source_root']/version
     if not source.is_dir():raise ValueError('Reference BSP not found: '+str(source))
     specs=load_modules(tool);known={s['id'] for s in specs};catalog=read_enums(context['enum_header'])['enum_catalog'];by_enum={e['enum']:e for e in catalog}
-    p={'format':'pbrd-project','schema_version':1,'project':{'model':'HQT401_L30','revision':version.upper(),'hardware_revision':re.match(r'r\d+',version,re.I).group().upper(),'software_revision':re.search(r'v\d+',version,re.I).group().upper(),'author':'','date':datetime.date.today().isoformat()},'platform':{'mcu':'ac78428','package':'144LQFP'},'build':{'adapter':'keil','version':'5.23'},'targets':{},'board':{'modules':{s['id']:[] for s in specs},'buses':[]},'driver_settings':{},'baseline':{'source_version':version,'inherit_unmodified_modules':True,'generated_modules':['analog','axis'],'description':'Unmodified modules and build-script frameworks explicitly inherited from the current completed project.'}}
+    p={'format':'pbrd-project','schema_version':1,'project':{'model':'HQT401_L30','revision':version.upper(),'hardware_revision':re.match(r'r\d+',version,re.I).group().upper(),'software_revision':re.search(r'v\d+',version,re.I).group().upper(),'author':'软件工程院','date':datetime.date.today().isoformat()},'platform':{'mcu':'ac78428','package':'144LQFP'},'build':{'adapter':'keil','version':'5.23'},'targets':{},'board':{'modules':{s['id']:[] for s in specs},'buses':[]},'driver_settings':{},'baseline':{'source_version':version,'inherit_unmodified_modules':True,'generated_modules':['analog','axis'],'description':'Unmodified modules and build-script frameworks explicitly inherited from the current completed project.'}}
     for target,folder in [('app','ac78428'),('boot','ac78428_boot')]:
         project=source/'build'/folder/'brd.uvprojx'
         if not project.is_file():continue
@@ -151,4 +151,32 @@ def project_preset(context,version='r01v01'):
         reference='product/src/brd/r04v01/ac78428_boot/cfg/brd_xcu_spi_cfg_boot.c'
         p['board']['modules']['xcu_spi']=[{'uid':'xcu_spi_0','name':'XCU Boot SPI','enum':'kBrd_XcuSpiId0','base_enum':'','enum_override':False,'targets':['boot'],'params':defaults,'reference_source':reference}]
         p['metadata']={'import_warnings':['r01v01 Boot 工程引用 XCU SPI 但缺 cfg；XCU SPI 参数暂取 r04v01 参考，需核对项目引脚和极性。']}
+    can_source=source/'ac78428/cfg/brd_can_cfg.c'
+    if can_source.is_file():
+        native=can_source.read_text(encoding='utf-8-sig')
+        guard=re.search(r'if\s*\(\s*(kBrd_CanId\w+)\s*!=\s*Brd_CanBusNo\(handle\)\s*\)\s*\{([^}]+)\}',native)
+        if guard:
+            references=list(dict.fromkeys(re.findall(r'Brd_PwrCtrlSetBaseOn\(\s*(\w+),\s*True\s*\)',guard[2])))
+            if len(references)>2:raise ValueError('CAN source needs more than two public supplies; import adapter requires extension')
+            for item in p['board']['modules']['can']:
+                selected=references if item['enum']!=guard[1] else []
+                item['params'].update(power_ref=selected[0] if selected else '',power_ref_aux=selected[1] if len(selected)>1 else '')
+    callbacks={}
+    for cfg in source.rglob('*cfg*.c'):
+        text=cfg.read_text(encoding='utf-8-sig')
+        for name,enum in re.findall(r'(?:static\s+)?void\s+(\w+)\s*\(Bool\s+enable\)\s*\{\s*Brd_PwrCtrlSetBaseOn\((\w+),\s*enable\);\s*\}',text):
+            if name in callbacks and callbacks[name]!=enum:raise ValueError('Ambiguous power callback: '+name)
+            callbacks[name]=enum
+    p.setdefault('metadata',{})['import_callback_references']=callbacks
+    p['codegen']['lifecycle']={}
+    for target,folder in [('app','ac78428'),('boot','ac78428_boot')]:
+        common=source/folder/'cfg'/('brd_common_cfg.c' if target=='app' else 'brd_common_cfg_boot.c')
+        if target not in p['targets'] or not common.is_file():continue
+        text=common.read_text(encoding='utf-8-sig');clean=mask(text);functions={}
+        values={d['name']:d['value'] for d in declarations(text)}
+        if 'g_brd_version_' in values:p['targets'][target]['software_minor']=values['g_brd_version_']['ver'][3]
+        for name in ['Brd_DiffInit','Brd_DiffDone','Brd_DiffOpen','Brd_DiffClose']:
+            match=re.search(r'void\s+'+name+r'\s*\(void\)\s*\{',clean)
+            if match:functions[name]=text[match.end():end_brace(clean,match.end()-1)-1].strip('\n\r')
+        p['codegen']['lifecycle'][target]=functions
     return p

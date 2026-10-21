@@ -14,6 +14,8 @@ def initializer(value,indent=0):
     lines=['{'];pairs=value.items() if isinstance(value,dict) else [(None,v) for v in value]
     keys=[str(k) for k in value] if isinstance(value,dict) else [];width=max([len(k) for k in keys]+[0])+2
     for key,entry in pairs:
+        array=value.get('item' if key=='count' else 'base') if isinstance(value,dict) and key in ['count','base_count'] else None
+        if isinstance(array,str) and IDENTIFIER.fullmatch(array) and array!='NULL':entry='sizeof('+array+') / sizeof('+array+'[0])'
         if isinstance(entry,dict) and '$ifdef' in entry:
             lines+=['#ifdef '+identifier(entry['$ifdef']),' '*(indent+4)+initializer(entry['value'],indent+4)+',','#endif']
             continue
@@ -32,3 +34,12 @@ def macro(module,enum,family):
     prefix=next((p for p in ['kBrd_'+family+'Id','kBrd'+family+'Id'] if enum.startswith(p)),None)
     suffix=enum[len(prefix):] if prefix else enum
     return 'BRD_'+module.upper()+'_ID_'+re.sub(r'(?<=[a-z0-9])(?=[A-Z])','_',suffix).upper()
+
+
+def address_expression(value,default_macro,default,macro_name,bits=7):
+    if value in [None,'',default_macro]:return default_macro,''
+    text=re.sub(r'[uUlL]+$','',str(value));number=int(text,0)
+    if not 0<=number<(1<<bits):raise ValueError('Address out of range: '+str(value))
+    if number==default:return default_macro,''
+    name=identifier(macro_name)
+    return name,'#define '+name+' 0x'+format(number,'02X')+'U\n'

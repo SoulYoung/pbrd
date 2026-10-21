@@ -21,7 +21,7 @@ def resolve_modules(config,specs,target,additional=None):
                 for impl in matches:
                     if impl.get('module'):visit(impl['module'])
                     for dep in impl.get('dependencies',[]):visit(dep)
-                if any(a.get(key) for key in ['control_ref','upstream_ref','power_ref','done_power_ref','charging_power_ref']):visit('brd.pwr_ctrl')
+                if any(a.get(key) for key in ['control_ref','upstream_ref','power_ref','power_ref_aux','power_supply','done_power_ref','charging_power_ref']):visit('brd.pwr_ctrl')
                 if a.get('bus') and (not matches or any(x.get('bus_kinds') for x in matches)):
                     b=next((b for b in config['board']['buses'] if b['id']==a['bus']),None)
                     if b:

@@ -4,65 +4,138 @@
   "id": "xcu",
   "name": "XCU",
   "configuration_mode": "instances",
-  "configuration_status": "reference-only",
+  "configuration_status": "template-adapter",
   "fields": [
     {
-      "key": "role",
-      "label": "角色",
-      "type": "select",
-      "value": "master",
-      "opts": [
-        "master",
-        "slave"
-      ]
+      "key": "instance",
+      "label": "SPI 硬件实例",
+      "hardware_kind": "spi",
+      "type": "num",
+      "value": 1,
+      "opts": []
     },
     {
-      "key": "bus",
-      "label": "通信总线",
-      "type": "bus",
+      "key": "clk",
+      "label": "SCK",
+      "type": "gpio",
       "value": "",
-      "opts": []
+      "opts": [],
+      "pin_signal": "SPI{instance}_SCK"
+    },
+    {
+      "key": "sout",
+      "label": "SOUT",
+      "type": "gpio",
+      "value": "",
+      "opts": [],
+      "pin_signal": "SPI{instance}_SOUT"
+    },
+    {
+      "key": "sin",
+      "label": "SIN",
+      "type": "gpio",
+      "value": "",
+      "opts": [],
+      "pin_signal": "SPI{instance}_SIN"
     },
     {
       "key": "cs",
-      "label": "片选（选填）",
+      "label": "CS",
       "type": "gpio",
       "value": "",
-      "opts": []
+      "opts": [],
+      "pin_signal": "SPI{instance}_CS{cs_index}"
     },
     {
-      "key": "request_pin",
-      "label": "请求引脚（选填）",
-      "type": "gpio",
-      "value": "",
-      "opts": []
-    },
-    {
-      "key": "ready_pin",
-      "label": "就绪引脚（选填）",
-      "type": "gpio",
-      "value": "",
-      "opts": []
-    },
-    {
-      "key": "timeout_ms",
-      "label": "超时 / ms",
+      "key": "cs_index",
+      "label": "片选编号",
       "type": "num",
-      "value": 1000,
+      "value": 3,
+      "opts": []
+    },
+    {
+      "key": "req",
+      "label": "REQ 请求引脚",
+      "type": "gpio",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "req_level",
+      "label": "REQ 硬件反相",
+      "type": "bool",
+      "value": false,
+      "opts": [],
+      "help": "下升沿有效, False: 同相器, True: 反相器"
+    },
+    {
+      "key": "cpol",
+      "label": "CPOL",
+      "type": "select",
+      "value": "0",
+      "opts": [
+        "0",
+        "1"
+      ],
+      "help": "设置SPI的CPOL, TBOX和AIDVR均为0"
+    },
+    {
+      "key": "cpha",
+      "label": "CPHA",
+      "type": "select",
+      "value": "0",
+      "opts": [
+        "0",
+        "1"
+      ],
+      "help": "设置SPI的CPAH, TBOX为1,AIDVR为0"
+    },
+    {
+      "key": "frame_size",
+      "label": "帧位数",
+      "type": "num",
+      "value": 8,
+      "opts": [],
+      "help": "设置spi一帧的bit数; TBOX为32,AIDVR为8"
+    },
+    {
+      "key": "dma_rx",
+      "label": "RX DMA 通道",
+      "type": "num",
+      "value": 0,
+      "opts": []
+    },
+    {
+      "key": "dma_tx",
+      "label": "TX DMA 通道",
+      "type": "num",
+      "value": 1,
+      "opts": []
+    },
+    {
+      "key": "stack_size",
+      "label": "线程栈大小 / 字节",
+      "type": "num",
+      "value": 512,
       "opts": []
     }
   ],
   "dependencies": [
+    "drv.xcu_spi",
+    "drv.dma",
+    "drv.gpio",
+    "drv.port",
     "hal.xcu"
   ],
   "implementations": [],
   "sources": {
     "board_wrapper": "product/src/brd/{version}/{target}/src/brd_xcu.c",
     "board_configuration": "product/src/brd/{version}/{target}/cfg/brd_xcu_cfg.c",
-    "platform_header": "product/src/brd/{mcu}/brd_xcu_{mcu}.h"
+    "platform_header": "product/src/brd/mcu/brd_xcu_mcu.h"
   },
-  "notes": "参考 r02v01/r03v01/r04v01 的 XCU SPI、REQ、DMA 及线程栈配置；当前项目未发现 xcu.h / HAL 实现，缺少完整工程集成依据。",
-  "bus_kinds": [
-    "spi"
+  "notes": "App XCU 单实例专用 SPI 接口，使用 common HAL、两路线程栈及 MCU 适配；与独立 Boot XCU SPI 模块分别配置。",
+  "bus_kinds": [],
+  "targets": [
+    "app"
   ]
 }

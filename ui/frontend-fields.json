@@ -88,6 +88,13 @@
         "type": "power_ref",
         "value": "",
         "opts": []
+      },
+      {
+        "key": "enable_note",
+        "label": "使能硬件说明（选填）",
+        "type": "text",
+        "value": "",
+        "opts": []
       }
     ],
     "configuration_mode": "instances",
@@ -307,6 +314,20 @@
         "visible_when": {
           "fd_enabled": true
         }
+      },
+      {
+        "key": "power_ref",
+        "label": "公共电源（选填）",
+        "type": "power_ref",
+        "value": "",
+        "opts": []
+      },
+      {
+        "key": "power_ref_aux",
+        "label": "第二路公共电源（选填）",
+        "type": "power_ref",
+        "value": "",
+        "opts": []
       }
     ],
     "configuration_mode": "instances",
@@ -607,6 +628,19 @@
         "visible_when": {
           "driver": "mx25"
         }
+      },
+      {
+        "key": "section_write",
+        "label": "内部 Flash 使用 Section 写入模式",
+        "type": "bool",
+        "value": false,
+        "opts": [],
+        "visible_when": {
+          "driver": [
+            "internal",
+            "fee"
+          ]
+        }
       }
     ],
     "configuration_mode": "instances",
@@ -688,6 +722,16 @@
         "opts": []
       },
       {
+        "key": "timer_custom",
+        "label": "自定义 RX8010SJ 定时器参数",
+        "type": "bool",
+        "value": false,
+        "opts": [],
+        "visible_when": {
+          "driver": "rx8010sj"
+        }
+      },
+      {
         "key": "timer_clock",
         "label": "RX8010SJ 定时器时钟源",
         "type": "select",
@@ -700,7 +744,8 @@
           "kRx8010sjClksrcHour"
         ],
         "visible_when": {
-          "driver": "rx8010sj"
+          "driver": "rx8010sj",
+          "timer_custom": true
         }
       },
       {
@@ -713,7 +758,8 @@
           "kRx8010sjOutPinIrq2"
         ],
         "visible_when": {
-          "driver": "rx8010sj"
+          "driver": "rx8010sj",
+          "timer_custom": true
         }
       }
     ],
@@ -829,7 +875,7 @@
     "targets": [
       "boot"
     ],
-    "notes": "Boot 专用功能，使用平台实现；项目参数表单待单独审核。"
+    "notes": "Boot 专用 XCU SPI；按当前项目配置生成 SPI、DMA、REQ 和板级对象。"
   },
   "led": {
     "configuration_scope": "shared"

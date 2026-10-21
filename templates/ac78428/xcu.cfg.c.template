@@ -1,0 +1,32 @@
+const TDrvXcuSpiCfg g_drv_xcu_spi_cfg = {{SPI_CONFIG}};
+
+static void Brd_XcuDoInit(void)
+{
+
+}
+
+static void Brd_XcuDoClose(void)
+{
+    const TDrvXcuSpiCfg *cfg = &g_drv_xcu_spi_cfg;
+
+    TDrvPortSetMux(&g_drv_port, cfg->req_group, cfg->req_pin, kDrvPortMuxGpio);
+    TDrvPortSetOutputEnabled(&g_drv_port, cfg->req_group, cfg->req_pin, False);
+    TDrvPortSetInputEnabled(&g_drv_port, cfg->req_group, cfg->req_pin, False);
+
+    TDrvPortSetMux(&g_drv_port, cfg->sout_group, cfg->sout_pin, kDrvPortMuxGpio);
+    TDrvPortSetOutputEnabled(&g_drv_port, cfg->sout_group, cfg->sout_pin, False);
+    TDrvPortSetInputEnabled(&g_drv_port, cfg->sout_group, cfg->sout_pin, False);
+}
+
+/// XCU 通信线程与网络线程各使用一块栈；两块均按 8 字节对齐。
+__align(8) static char stack[2][{{STACK_SIZE}}];
+
+__attribute__((section("CodeQuickAccess"))) Brd_TXcuAttr g_brd_xcu_attr = {
+    .DoInit = Brd_XcuDoInit,
+    .DoClose = Brd_XcuDoClose,
+    .drv_cfg = &g_drv_xcu_spi_cfg,
+    .stack = stack[0],
+    .net_stack = stack[1],
+    .stack_size = sizeof(stack[0]),
+};
+

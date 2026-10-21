@@ -59,6 +59,20 @@
       "type": "text",
       "value": "",
       "opts": []
+    },
+    {
+      "key": "power_ref",
+      "label": "公共电源（选填）",
+      "type": "power_ref",
+      "value": "",
+      "opts": []
+    },
+    {
+      "key": "power_ref_aux",
+      "label": "第二路公共电源（选填）",
+      "type": "power_ref",
+      "value": "",
+      "opts": []
     }
   ],
   "dependencies": [

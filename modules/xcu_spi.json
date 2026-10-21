@@ -11,6 +11,7 @@
     {
       "key": "instance",
       "label": "SPI 硬件实例",
+      "hardware_kind": "spi",
       "type": "num",
       "value": 1,
       "opts": []
@@ -20,28 +21,32 @@
       "label": "SCK",
       "type": "gpio",
       "value": "",
-      "opts": []
+      "opts": [],
+      "pin_signal": "SPI{instance}_SCK"
     },
     {
       "key": "sout",
       "label": "SOUT",
       "type": "gpio",
       "value": "",
-      "opts": []
+      "opts": [],
+      "pin_signal": "SPI{instance}_SOUT"
     },
     {
       "key": "sin",
       "label": "SIN",
       "type": "gpio",
       "value": "",
-      "opts": []
+      "opts": [],
+      "pin_signal": "SPI{instance}_SIN"
     },
     {
       "key": "cs",
       "label": "CS",
       "type": "gpio",
       "value": "",
-      "opts": []
+      "opts": [],
+      "pin_signal": "SPI{instance}_CS{cs_index}"
     },
     {
       "key": "cs_index",
@@ -62,7 +67,8 @@
       "label": "REQ 硬件反相",
       "type": "bool",
       "value": true,
-      "opts": []
+      "opts": [],
+      "help": "下升沿有效, False: 同相器, True: 反相器"
     },
     {
       "key": "req_reverse",
@@ -79,7 +85,8 @@
       "opts": [
         "0",
         "1"
-      ]
+      ],
+      "help": "设置SPI的CPOL, TBOX和AIDVR均为0"
     },
     {
       "key": "cpha",
@@ -89,14 +96,16 @@
       "opts": [
         "0",
         "1"
-      ]
+      ],
+      "help": "设置SPI的CPAH, TBOX为1,AIDVR为0"
     },
     {
       "key": "frame_size",
       "label": "帧位数",
       "type": "num",
       "value": 8,
-      "opts": []
+      "opts": [],
+      "help": "设置spi一帧的bit数; TBOX为32,AIDVR为8"
     },
     {
       "key": "dma_rx",
@@ -122,8 +131,13 @@
   ],
   "dependencies": [
     "drv.xcu_spi",
-    "drv.gpio"
+    "drv.gpio",
+    "drv.dma",
+    "drv.port"
   ],
   "bus_kinds": [],
-  "notes": "依据 r04v01 的 Boot XCU SPI；不等同于依赖 HAL 的 App XCU。若原工程缺 cfg，导入会明确标注参考来源，必须核对项目引脚、模式和 REQ 极性。"
+  "notes": "依据 r04v01 的 Boot XCU SPI；不等同于依赖 HAL 的 App XCU。若原工程缺 cfg，导入会明确标注参考来源，必须核对项目引脚、模式和 REQ 极性。",
+  "targets": [
+    "boot"
+  ]
 }

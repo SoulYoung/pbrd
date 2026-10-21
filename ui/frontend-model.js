@@ -17,6 +17,7 @@ function migrate(input,specs,catalog){
  if(!isObject(x.project)||!isObject(x.platform)||!isObject(x.build)||!isObject(x.targets)||!isObject(x.board)||!isObject(x.board.modules)||!Array.isArray(x.board.buses))throw Error('项目 JSON 缺少必要结构');
  if(!x.project.revision)x.project.revision=(x.project.hardware_revision||'')+(x.project.software_revision||'');
  for(const key of ['model','revision','author','date'])if(typeof x.project[key]!=='string')throw Error('项目字段无效：'+key);
+ x.project.author=x.project.author.trim()||'软件工程院';
  const targets=Object.keys(x.targets);
  if(!targets.length||targets.some(t=>!['app','boot'].includes(t)))throw Error('目标只能是 App / Boot');
  for(const t of Object.values(x.targets))for(const key of ['requested','disabled','touched']){
@@ -42,6 +43,45 @@ function migrate(input,specs,catalog){
   }
  }
  if(legacy){
+  const supply=callback=>x.metadata?.import_callback_references?.[callback]||x.metadata?.power_callback_references?.[callback]||'';
+  if(!x.board.modules.ic_card?.length){
+   const v=values('ic_card');
+   (v.g_brd_ic_card_item_||[]).forEach((row,n)=>{
+    const raw=deref(v,row.pins),keys=['pwr','rst','chk','scl','sda'],pins=Array.isArray(raw)?Object.fromEntries(keys.map((k,n)=>[k,raw[n]])):raw;
+    const data={power_pin:gpio(pins.pwr),power_reverse:!!pins.pwr?.reverse,reset_pin:gpio(pins.rst),reset_reverse:!!pins.rst?.reverse,detect_pin:gpio(pins.chk),detect_reverse:!!pins.chk?.reverse,clock_pin:gpio(pins.scl),io_pin:gpio(pins.sda),power_supply:supply(row.DoEnable),support_at24:false,support_sle4428:false,support_sle4442:false,address:''};
+    let ref=row.dev_item;const seen=new Set();
+    while(ref&&ref!=='NULL'){
+     if(seen.has(ref))throw Error('IC 卡识别链循环：'+ref);seen.add(ref);
+     const dev=deref(v,ref),type=String(dev.dev||'').toLowerCase(),driver=['at24','sle4428','sle4442'].find(k=>type.endsWith(k));
+     if(!driver)throw Error('IC 卡导入遇到未知卡型：'+dev.dev);
+     data['support_'+driver]=true;
+     if(driver==='at24')data.address=dev.dev_addr==='kPerFramAt24DevAddr'?'0xA0':String(dev.dev_addr??'');
+     ref=dev.next;
+    }
+    add('ic_card',n,String(row.id),data,row.DoEnable&&row.DoEnable!=='NULL'&&!data.power_supply?'无法解析 IC 卡前置电源回调：'+row.DoEnable:'');
+    x.board.modules.ic_card[x.board.modules.ic_card.length-1].targets=targets.filter(t=>x.targets[t].requested.includes('brd.ic_card'));
+   });
+  }
+  if(!x.board.modules.meter?.length){
+   const v=values('meter');
+   (v.g_brd_meter_items_||[]).forEach((row,n)=>{
+    const dev=deref(v,row.dev_cfg),cfg=deref(v,dev.base?.dev_drv_cfg),parent=deref(v,dev.dev_drv_parent_cfg),power_supply=supply(dev.DoEnable);
+    add('meter',n,String(row.id),{pin:gpio(cfg),instance:Number(parent.index),channel:Number(cfg.index),wide:!!cfg.wide,power_supply},dev.DoEnable&&dev.DoEnable!=='NULL'&&!power_supply?'无法解析计量前置电源回调：'+dev.DoEnable:'');
+    x.board.modules.meter[x.board.modules.meter.length-1].targets=targets.filter(t=>x.targets[t].requested.includes('brd.meter'));
+   });
+  }
+  if(!x.board.modules.ext_rtc?.length){
+   const v=values('ext_rtc');
+   (v.g_brd_ext_rtc_item_||[]).forEach((row,n)=>{
+    const kind=String(row.dev||'').toLowerCase(),driver=kind.includes('rx8010sj')?'rx8010sj':kind.includes('bm8563')?'bm8563':'';
+    if(!driver)throw Error('外部 RTC 导入遇到未知器件：'+row.dev);
+    const dev=deref(v,row.dev_cfg),bus=deref(v,row.bus_cfg),timer=deref(v,dev.pin_cfg),raw=dev.base?.dev_addr;
+    const known={kRx8010sjChipAddr:'0x32',kBm8563ChipAddr:'0x51'},address=known[raw]??raw??'';
+    const enumeration=typeof row.id==='string'&&/^kBrd_/.test(row.id)?row.id:'kBrd_ExtRtcId'+(driver==='rx8010sj'?'Rx8010sj':'Bm8563')+(n?'_'+n:'');
+    add('ext_rtc',n,enumeration,{driver,bus:busId(bus),address:String(address),timer_clock:timer.clk_src||'kRx8010sjClksrc1Hz',timer_output:timer.irq_pin||'kRx8010sjOutPinIrq1',timer_custom:!!dev.pin_cfg&&dev.pin_cfg!=='NULL'});
+    const item=x.board.modules.ext_rtc[x.board.modules.ext_rtc.length-1];item.name=driver.toUpperCase()+' 外部 RTC';item.targets=targets.filter(t=>x.targets[t].requested.includes('brd.ext_rtc'));
+   });
+  }
   if(!x.board.modules.pwr_ctrl?.length){
    const v=values('pwr_ctrl');let n=0;
    for(const [array,kind] of [['g_brd_pwr_ctrl_base_','base'],['g_brd_pwr_ctrl_items_','output']])for(const row of v[array]||[]){
@@ -73,6 +113,16 @@ function migrate(input,specs,catalog){
    });
   }
  }
+ // App XCU is a singleton, not an enum-indexed device array.
+ if(!x.board.modules.xcu?.length&&x.targets.app?.requested.includes('brd.xcu')){
+  const cfg=values('xcu').g_drv_xcu_spi_cfg;
+  if(cfg){
+   const n=v=>Number(String(v).replace(/[uUlL]+$/,'')),pin=key=>gpio({group:cfg[key+'_group'],pin:cfg[key+'_pin']});
+   const data={instance:n(cfg.index),clk:pin('clk'),sout:pin('sout'),sin:pin('sin'),cs:pin('cs'),req:pin('req'),cs_index:n(cfg.cs_index),req_level:cfg.req_level,cpol:String(cfg.cpol),cpha:String(cfg.cpha),frame_size:n(cfg.frame_size),dma_rx:n(cfg.dma_ch_rx),dma_tx:n(cfg.dma_ch_tx),stack_size:512};
+   add('xcu',0,'kBrd_XcuId0',data,'请核对 XCU 线程栈大小；旧结构化参数未记录未初始化的栈数组大小。');
+   const item=x.board.modules.xcu[0];item.name='App XCU 通信';item.targets=['app'];
+  }
+ }
  for(const [k,spec] of Object.entries(specs)){
   const list=x.board.modules[k]??=[];
   for(const item of list){
@@ -82,6 +132,12 @@ function migrate(input,specs,catalog){
     for(const type of types)if(!(('support_'+type) in a))a['support_'+type]=explicit?false:!old||old==='auto'||old===type;
     if('driver' in a){a.legacy_driver??=a.driver;delete a.driver;}
    }
+   if(k==='flash'&&!('section_write' in a)){
+    const v=values('flash'),raw=(v.g_brd_flash_items_||[]).find(row=>(row.$ifdef?row.value:row).id===item.enum),row=raw?.$ifdef?raw.value:raw;
+    const source=row?deref(v,a.driver==='internal'?row.dev_cfg:row.bus_cfg):{};
+    a.section_write=['internal','fee'].includes(a.driver)&&!!(Number(String(source.flag||0).replace(/[uUlL]+$/,''))&1);
+   }
+   if(k==='ext_rtc'&&!('timer_custom' in a))a.timer_custom=a.driver==='rx8010sj'&&((a.timer_clock&&a.timer_clock!=='kRx8010sjClksrc1Hz')||(a.timer_output&&a.timer_output!=='kRx8010sjOutPinIrq1'));
    if(k==='can'&&!('fd_enabled' in a))a.fd_enabled=!!a.fd_enum;
    for(const field of spec.fields||[]){
     if(!(field.key in a))a[field.key]=copy(field.value);

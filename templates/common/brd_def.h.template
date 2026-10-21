@@ -5,7 +5,7 @@
  */
 /**
  * @file brd_{{MODULE}}_def.h
- * @brief 板级层{{DESCRIPTION}}定义 - {{PROJECT}} {{REVISION}}
+ * @brief 板级层{{DESCRIPTION}}定义
  * @par 修改日志
  * <table>
  * <tr><th>Date                 <th>Version         <th>Author          <th>Description

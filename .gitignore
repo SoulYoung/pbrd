@@ -17,3 +17,22 @@ generated/
 # Rebuilt automatically when the local service starts
 /board-config-preview.html
 /ui/platform-data.js
+
+# Local compiler outputs (source/templates stay tracked)
+*.o
+*.obj
+*.axf
+*.elf
+*.hex
+*.map
+*.crf
+*.d
+*.pdb
+# Local save/staging remnants; investigate stale files before deleting
+.pbrd-*.tmp
+.pbrd-generate-*.lock
+.pbrd-candidate-*/
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini

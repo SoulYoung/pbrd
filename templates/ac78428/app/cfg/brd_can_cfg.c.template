@@ -41,27 +41,4 @@ Brd_TCanAttr g_brd_can_attr =
 Brd_TCanfdAttr g_brd_canfd_attr = 
 {{DATA_G_BRD_CANFD_ATTR}};
 
-Int32 Brd_CanDoPowerSupply(Brd_THandle handle, Int32 power)
-{
-    Int32 result = kBrd_ErrorCodeNotSupportLine;
-
-    switch (power)
-    {
-    case kBrd_PowerSupplyOn:
-        {
-            result = kBrd_ErrorCodeSuccess;
-        }
-        break;
-
-    case kBrd_PowerSupplyOff:
-        {
-            result = kBrd_ErrorCodeSuccess;
-        }
-        break;
-
-    default:
-        break;
-    }
-
-    return result;
-}
+{{CAN_POWER_SUPPLY}}

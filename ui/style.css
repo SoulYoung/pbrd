@@ -14,3 +14,7 @@
 
 /* Module labels keep a fixed size; long names wrap instead of squeezing controls. */
 #pbrd-ui .module{font-size:14px}#pbrd-ui .module>input[type=checkbox]{flex:0 0 14px;width:14px;height:14px}#pbrd-ui .module>span{flex:1;min-width:0;font-size:14px;line-height:1.5;overflow-wrap:anywhere;white-space:normal}#pbrd-ui .module .description{font-size:12px}
+
+/* Field help stays below its control, including checkbox fields. */
+#pbrd-ui .field:has(input[type=checkbox]):has(.field-help){flex-wrap:wrap}
+#pbrd-ui .field-help{display:block;flex:0 0 100%;line-height:1.5}

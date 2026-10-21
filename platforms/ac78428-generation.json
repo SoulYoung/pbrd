@@ -1871,6 +1871,18 @@
       "declarations": [],
       "counts": [],
       "definition": null
+    },
+    "ac78428/cfg/brd_xcu_cfg.c": {
+      "template": "ac78428/xcu.cfg.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
+    },
+    "ac78428/src/brd_xcu.c": {
+      "template": "ac78428/app/src/brd_xcu.c.template",
+      "declarations": [],
+      "counts": [],
+      "definition": null
     }
   },
   "targets": {
@@ -2144,37 +2156,37 @@
         {
           "group": "per",
           "path": "product/src/per/fram/at24/per_fram_at24_ex.c",
-          "module": null,
+          "module": "per.fram.at24",
           "generated": false
         },
         {
           "group": "per",
           "path": "product/src/per/hsm/ciu98b/weichen/per_hsm_ciu98b_ex.c",
-          "module": null,
+          "module": "per.hsm.ciu98b",
           "generated": false
         },
         {
           "group": "per",
           "path": "product/src/per/rtc/bm8563/per_rtc_bm8563_ex.c",
-          "module": null,
+          "module": "per.rtc.bm8563",
           "generated": false
         },
         {
           "group": "per",
           "path": "product/src/per/mmc/xtsdg01gws1g/per_mmc_spi_sd_ex.c",
-          "module": null,
+          "module": "per.mmc.xtsdg01gws1g",
           "generated": false
         },
         {
           "group": "per",
           "path": "product/src/per/fee/per_fee.c",
-          "module": null,
+          "module": "per.fee.fee",
           "generated": false
         },
         {
           "group": "per",
           "path": "product/src/per/can_trx/tja1445/per_can_trx_tja1445.c",
-          "module": null,
+          "module": "per.can_trx.tja1445",
           "generated": false
         },
         {
@@ -2193,6 +2205,12 @@
           "group": "src",
           "path": "ac78428/src/brd_bat_chg_mgr.c",
           "module": "brd.bat_chg_mgr",
+          "generated": true
+        },
+        {
+          "group": "src",
+          "path": "ac78428/src/brd_xcu.c",
+          "module": "brd.xcu",
           "generated": true
         }
       ]
@@ -2473,25 +2491,25 @@
         {
           "group": "per",
           "path": "product/src/per/fram/at24/per_fram_at24_ex.c",
-          "module": null,
+          "module": "per.fram.at24",
           "generated": false
         },
         {
           "group": "per",
           "path": "product/src/per/mmc/xtsdg01gws1g/per_mmc_spi_sd_ex.c",
-          "module": null,
+          "module": "per.mmc.xtsdg01gws1g",
           "generated": false
         },
         {
           "group": "per",
           "path": "product/src/per/rtc/bm8563/per_rtc_bm8563_ex.c",
-          "module": null,
+          "module": "per.rtc.bm8563",
           "generated": false
         },
         {
           "group": "per",
           "path": "product/src/per/fee/per_fee.c",
-          "module": null,
+          "module": "per.fee.fee",
           "generated": false
         },
         {
@@ -2515,8 +2533,8 @@
       "Brd_DiffClose": "    Brd_PartitionClose();\n    Brd_TimerCloseServer();\n    Brd_AnalogClose();\n    Brd_DmaClose();"
     },
     "boot": {
-      "Brd_DiffInit": "    Brd_ClockInit();\n    TDrvIrqCreate(&g_drv_irq);      ///< 中断驱动创建\n    TDrvPortCreate(&g_drv_port);    ///< 端口驱动创建\n    TDrvGpioCreate(&g_drv_gpio);    ///< GPIO驱动创建\n\n    TDrvPortOpen(&g_drv_port);\n    TDrvGpioOpen(&g_drv_gpio);\n    TDrvIrqOpen(&g_drv_irq);\n\n    Brd_ResetInit();\n    Brd_DmaInit();\n    Brd_PmcInit();\n    Brd_PwrCtrlInit();\n    Brd_MiscCtrlInit();\n    Brd_BatChgInit();\n    Brd_SwitchInit();\n    Brd_WDogInit();\n    Brd_TimerInit();\n    Brd_FlashInit();\n    Brd_DelayInit();  ///< 必须放在定时器初始化之后\n    Brd_AnalogInit();\n    Brd_ExtRtcInit();\n    Brd_UartInit();\n    Brd_LedInit();\n    Brd_XcuSpiInit();\n\n    Brd_HandleMapInit();",
-      "Brd_DiffDone": "    Brd_HandleMapDone();\n\n    Brd_XcuSpiDone();\n    Brd_LedDone();\n    Brd_UartDone();\n    Brd_ExtRtcDone();\n    Brd_AnalogDone();\n    Brd_DelayDone();\n    Brd_FlashDone();\n    Brd_TimerDone();\n    Brd_SwitchDone();\n    Brd_MiscCtrlDone();\n    Brd_BatChgDone();\n    Brd_PwrCtrlDone();\n    Brd_WDogDone();\n    Brd_DmaDone();\n    Brd_ResetDone();\n    Brd_PmcDone();\n    Brd_ClockDone();\n    \n    TDrvGpioClose(&g_drv_gpio);\n    TDrvPortClose(&g_drv_port);\n    TDrvIrqClose(&g_drv_irq);\n    \n    TDrvGpioDestroy(&g_drv_gpio);    ///< GPIO驱动销毁\n    TDrvPortDestroy(&g_drv_port);    ///< 端口驱动销毁\n    TDrvIrqDestroy(&g_drv_irq);      ///< 中断驱动销毁",
+      "Brd_DiffInit": "    Brd_ClockInit();\n    TDrvIrqCreate(&g_drv_irq);      ///< 中断驱动创建\n    TDrvPortCreate(&g_drv_port);    ///< 端口驱动创建\n    TDrvGpioCreate(&g_drv_gpio);    ///< GPIO驱动创建\n\n    TDrvPortOpen(&g_drv_port);\n    TDrvGpioOpen(&g_drv_gpio);\n    TDrvIrqOpen(&g_drv_irq);\n\n    Brd_ResetInit();\n    Brd_DmaInit();\n    Brd_PmcInit();\n    Brd_PwrCtrlInit();\n    Brd_MiscCtrlInit();\n    Brd_BatChgInit();\n    Brd_SwitchInit();\n    Brd_WDogInit();\n    Brd_TimerInit();\n    Brd_FlashInit();\n    Brd_DelayInit();  ///< 必须放在定时器初始化之后\n    Brd_AnalogInit();\n    Brd_ExtRtcInit();\n    Brd_UartInit();\n    Brd_LedInit();\n\n    Brd_HandleMapInit();",
+      "Brd_DiffDone": "    Brd_HandleMapDone();\n\n    Brd_LedDone();\n    Brd_UartDone();\n    Brd_ExtRtcDone();\n    Brd_AnalogDone();\n    Brd_DelayDone();\n    Brd_FlashDone();\n    Brd_TimerDone();\n    Brd_SwitchDone();\n    Brd_MiscCtrlDone();\n    Brd_BatChgDone();\n    Brd_PwrCtrlDone();\n    Brd_WDogDone();\n    Brd_DmaDone();\n    Brd_ResetDone();\n    Brd_PmcDone();\n    Brd_ClockDone();\n    \n    TDrvGpioClose(&g_drv_gpio);\n    TDrvPortClose(&g_drv_port);\n    TDrvIrqClose(&g_drv_irq);\n    \n    TDrvGpioDestroy(&g_drv_gpio);    ///< GPIO驱动销毁\n    TDrvPortDestroy(&g_drv_port);    ///< 端口驱动销毁\n    TDrvIrqDestroy(&g_drv_irq);      ///< 中断驱动销毁",
       "Brd_DiffOpen": "    Brd_DmaOpen();\n    Brd_AnalogOpen();\n    Brd_TimerOpenServer();\n    Brd_PartitionOpen();",
       "Brd_DiffClose": "    Brd_PartitionClose();\n    Brd_TimerCloseServer();\n    Brd_AnalogClose();\n    Brd_DmaClose();"
     }
@@ -2623,6 +2641,21 @@
         "brd_xcu_spi_ac78428.h"
       ],
       "sources": []
+    },
+    "xcu": {
+      "targets": [
+        "app"
+      ],
+      "required_headers": [
+        "drv_xcu_spi.h",
+        "xcu.h",
+        "xcu_app_mcu.h",
+        "brd_xcu_mcu.h"
+      ],
+      "sources": [
+        "product/src/hal/xcu/common/xcu.c",
+        "product/src/hal/xcu/common/xcu_net.c"
+      ]
     }
   },
   "configuration_macros": {
@@ -2667,5 +2700,15 @@
     "security_boot": [
       "BRD_SECURITY_BOOT_DEV_CSEC"
     ]
+  },
+  "implementation_sources": {
+    "per.flash.mx25": {
+      "sources": [
+        "product/src/per/flash/mx25/per_flash_mx25_ex.c"
+      ],
+      "required_headers": [
+        "per_flash_mx25_ex.h"
+      ]
+    }
   }
 }
